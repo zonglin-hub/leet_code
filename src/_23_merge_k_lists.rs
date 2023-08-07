@@ -18,7 +18,7 @@ impl ListNode {
 
 impl PartialOrd for ListNode {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        other.val.partial_cmp(&self.val)
+        Some(self.cmp(other))
     }
 }
 
@@ -29,9 +29,6 @@ impl Ord for ListNode {
 }
 
 impl Solution {
-    /// https://leetcode.cn/problems/merge-k-sorted-lists/
-    ///
-    /// 合并 K 个升序链表
     pub fn merge_k_lists(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
         let mut min_heap = BinaryHeap::new();
         for i in lists {

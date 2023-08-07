@@ -34,6 +34,7 @@
 |   22   |   [括号生成](./src/_22_generate_parenthesis.rs)   |   `字符串` `动态规划` `回溯`   |
 |   23   |   [合并 K 个升序链表](./src/_23_merge_k_lists.rs)   |   `链表` `分治` `堆（优先队列）` `归并排序`   |
 |   24   |   [两两交换链表中的节点](./src/_24_swap_pairs.rs)   |   `递归` `链表`   |
+|   25   |   [K 个一组翻转链表](./src/_25_reverse_k_group.rs)   |   `递归` `链表`   |
 | 26 | [删除有序数组中的重复项](./src/_26_remove_duplicates.rs) |   `数组` `双指针`   |
 |   27   |   [移除元素](./src/_27_remove_element.rs)   |   `数组` `双指针`   |
 |   49   |   [字母异位词分组](./src/_49_group_anagrams.rs)   |   `数组` `哈希表` `字符串` `排序`   |

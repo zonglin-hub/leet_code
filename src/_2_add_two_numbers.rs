@@ -1,7 +1,3 @@
-#![allow(unused)]
-
-use std::ops::{Add, Div};
-
 pub struct Solution;
 
 #[derive(PartialEq, Eq, Clone, Debug)]
@@ -18,9 +14,6 @@ impl ListNode {
 }
 
 impl Solution {
-    /// https://leetcode.cn/problems/add-two-numbers/
-    ///
-    /// 两数相加
     pub fn add_two_numbers(
         l1: Option<Box<ListNode>>,
         l2: Option<Box<ListNode>>,
@@ -80,7 +73,6 @@ mod tests {
 
     /// 两个链表都为空
     #[test]
-    #[ignore = "reason"]
     fn test_empty() {
         let l1 = None;
         let l2 = None;
@@ -90,7 +82,6 @@ mod tests {
 
     /// 其中一个链表为空，另一个不为空
     #[test]
-    #[ignore = "reason"]
     fn test_one_empty() {
         let l1 = create_list(vec![2, 4, 3]);
         let l2 = None;
@@ -109,7 +100,6 @@ mod tests {
 
     /// 两个链表长度不相等
     #[test]
-    #[ignore = "reason"]
     fn test_different_length() {
         let l1 = create_list(vec![9, 9, 9, 9, 9]);
         let l2 = create_list(vec![1]);
@@ -119,7 +109,6 @@ mod tests {
 
     /// 两个链表相加进位
     #[test]
-    #[ignore = "reason"]
     fn test_carry() {
         let l1 = create_list(vec![9, 9, 9, 9, 9]);
         let l2 = create_list(vec![9, 9, 9, 9, 9]);

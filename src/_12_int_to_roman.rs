@@ -1,11 +1,9 @@
-#![allow(unused)]
-
-struct Solution;
+pub struct Solution;
 
 impl Solution {
     /// 整数转罗马数字
     pub fn int_to_roman(num: i32) -> String {
-        let values = vec![1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+        let values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
         let rn = vec![
             "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I",
         ];

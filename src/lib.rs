@@ -28,6 +28,7 @@ pub mod _234_is_palindrome;
 pub mod _23_merge_k_lists;
 pub mod _2472_max_palindromes;
 pub mod _24_swap_pairs;
+pub mod _25_reverse_k_group;
 pub mod _26_remove_duplicates;
 pub mod _27_remove_element;
 pub mod _2_add_two_numbers;
