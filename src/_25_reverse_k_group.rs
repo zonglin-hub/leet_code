@@ -16,7 +16,7 @@ pub struct Solution;
 impl Solution {
     pub fn reverse_k_group(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
         fn reverse(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-            let mut pre = None;
+            let mut pre: Option<Box<ListNode>> = None;
             let mut head = head;
             let mut next;
 
@@ -36,10 +36,9 @@ impl Solution {
 
         let mut dummy = Some(Box::new(ListNode::new(0)));
         dummy.as_mut().unwrap().next = head;
-        // let mut pre: *mut _ = &mut dummy;
         let mut pre = &mut dummy as *mut Option<Box<ListNode>>;
-        // let mut end: *mut _ = &mut dummy;
-        let mut end = &mut dummy as *mut Option<Box<ListNode>>;
+        let mut end = pre;
+        // let mut end = &mut dummy as *mut Option<Box<ListNode>>;
 
         unsafe {
             while end.as_ref().unwrap().as_ref().unwrap().next.is_some() {
@@ -47,8 +46,11 @@ impl Solution {
                     if end.as_ref().unwrap().is_none() {
                         break;
                     }
-                    end = &mut end.as_mut().unwrap().as_mut().unwrap().next;
+                    if !end.is_null() {
+                        end = &mut end.as_mut().unwrap().as_mut().unwrap().next;
+                    }
                 }
+
                 if end.as_ref().unwrap().is_none() {
                     break;
                 }
@@ -61,7 +63,7 @@ impl Solution {
                 }
 
                 let mut next = end.as_mut().unwrap().as_mut().unwrap().next.take();
-                let startp: *mut _ = &mut start;
+                let startp = &mut start as *mut Option<Box<ListNode>>;
                 end.as_mut().unwrap().as_mut().unwrap().next = None;
                 pre.as_mut().unwrap().as_mut().unwrap().next = reverse(start).take();
                 startp.as_mut().unwrap().as_mut().unwrap().next = next.take();
