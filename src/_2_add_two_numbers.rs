@@ -14,6 +14,15 @@ impl ListNode {
 }
 
 impl Solution {
+    /// 将两个链表l1和l2合并成一个链表，同时处理进位问题。
+    /// 
+    /// 首先，我们检查l1和l2是否都为None，并且carry是否为0。
+    /// 如果是，那么如果链表为空，返回None；
+    /// 否则，创建一个新的节点，其值为carry % 10，
+    /// 并将carry / 10赋值给next指针。
+    /// 
+    /// 
+    /// 
     pub fn add_two_numbers(
         l1: Option<Box<ListNode>>,
         l2: Option<Box<ListNode>>,
