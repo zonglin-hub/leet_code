@@ -31,6 +31,7 @@ pub mod _24_swap_pairs;
 pub mod _25_reverse_k_group;
 pub mod _26_remove_duplicates;
 pub mod _27_remove_element;
+pub mod _28_str_str;
 pub mod _2_add_two_numbers;
 pub mod _326_is_power_of_three;
 pub mod _338_count_bits;

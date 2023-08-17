@@ -7,6 +7,8 @@ fn main() {
 
     let mut a = 5;
     let mut b = 3;
-    a ^= b; b ^= a; a ^= b; // 交换两个值
+    a ^= b;
+    b ^= a;
+    a ^= b; // 交换两个值
     println!("{} {}", a, b);
 }

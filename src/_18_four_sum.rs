@@ -41,9 +41,9 @@ impl Solution {
                 if i > 0 && nums[i] == nums[i - 1] {
                     continue;
                 }
-                
+
                 let sub_results = Self::k_sum(k - 1, nums[i + 1..].to_vec(), target - nums[i]);
-                
+
                 for mut r in sub_results {
                     r.push(nums[i]);
                     results.push(r);
