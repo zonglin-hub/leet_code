@@ -55,3 +55,4 @@ pub mod offer_24_reverse_list;
 pub mod offer_25_merge_two_lists;
 pub mod offer_42_max_sub_array;
 pub mod _29_divide;
+pub mod _50_my_pow;
