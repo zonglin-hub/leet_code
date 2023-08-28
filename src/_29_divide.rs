@@ -28,7 +28,6 @@ impl Solution {
         } else {
             ans.min(i32::MAX as i64) as i32
         }
-
     }
 }
 

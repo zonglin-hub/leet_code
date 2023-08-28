@@ -6,3 +6,10 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+[workspace]
+members = [
+    "examples/algorithms", # 数据结构与算法
+    "examples/pbft",       # Practical Byzantine Fault Tolerance
+    "examples/pow",        # Proof of Work
+]

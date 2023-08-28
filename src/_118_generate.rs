@@ -11,10 +11,8 @@ impl Solution {
         for i in 0..num_rows as usize {
             res.push(vec![1; i + 1]);
             if i != 0 && i != 1 {
-
-                // 1..i 内循环次数 
+                // 1..i 内循环次数
                 for j in 1..i {
-
                     // 首尾都为一，
                     // 下一层 x 结果为上一层，相同索引的位置与前一位之和
                     // 杨辉三角
