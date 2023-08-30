@@ -118,10 +118,8 @@ impl<T> List<T> {
     }
 
     pub fn iter(&self) -> Iter<T> {
-        Iter(self.head.as_ref().map(|hand|hand.borrow()))
+        Iter(self.head.as_ref().map(|hand| hand.borrow()))
     }
-
-    
 }
 
 impl<T> Node<T> {
@@ -232,7 +230,9 @@ mod test {
         assert!(list.peek_front_mut().is_none());
         assert!(list.peek_back_mut().is_none());
 
-        list.push_front(1); list.push_front(2); list.push_front(3);
+        list.push_front(1);
+        list.push_front(2);
+        list.push_front(3);
 
         assert_eq!(&*list.peek_front().unwrap(), &3);
         assert_eq!(&mut *list.peek_front_mut().unwrap(), &mut 3);
@@ -243,7 +243,9 @@ mod test {
     #[test]
     fn into_iter() {
         let mut list = List::new();
-        list.push_front(1); list.push_front(2); list.push_front(3);
+        list.push_front(1);
+        list.push_front(2);
+        list.push_front(3);
 
         let mut iter = list.into_iters();
         assert_eq!(iter.next(), Some(3));
