@@ -36,6 +36,7 @@ pub mod _28_str_str;
 pub mod _29_divide;
 pub mod _2_add_two_numbers;
 pub mod _30_find_substring;
+pub mod _31_next_permutation;
 pub mod _326_is_power_of_three;
 pub mod _338_count_bits;
 pub mod _342_is_power_of_four;
