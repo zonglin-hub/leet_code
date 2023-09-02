@@ -6,7 +6,7 @@ impl Solution {
     /// 特殊情况： vec![3, 2, 1] 的下一个排列为 vec![1, 2, 3]
     /// 边缘情况： vec![1, 1, 5] 的下一个排列为 vec![1, 5, 1]
     /// 单元素情况： vec![1] 的下一个排列为 vec![1] （不存在下一个排列）
-    /// 
+    ///
     pub fn next_permutation(nums: &mut Vec<i32>) {
         // 寻找第一个比当前元素大的元素
         let mut n = nums.len() - 1;
