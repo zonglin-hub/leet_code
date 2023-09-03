@@ -39,6 +39,7 @@ pub mod _2_add_two_numbers;
 pub mod _30_find_substring;
 pub mod _31_next_permutation;
 pub mod _326_is_power_of_three;
+pub mod _32_longest_valid_parentheses;
 pub mod _338_count_bits;
 pub mod _342_is_power_of_four;
 pub mod _35_search_insert;
