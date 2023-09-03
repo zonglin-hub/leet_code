@@ -12,4 +12,5 @@ members = [
     "examples/pbft",       # Practical Byzantine Fault Tolerance
     "examples/pow",        # Proof of Work
     "examples/lists",      # 链表 https://github.com/rust-unofficial/too-many-lists
+    "data_struct",         # 数据结构   
 ]
