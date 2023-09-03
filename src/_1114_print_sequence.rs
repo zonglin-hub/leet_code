@@ -13,7 +13,6 @@ pub struct Foo {
     order: Arc<Mutex<i32>>,
 }
 
-
 impl FooTrait for Foo {
     // 第一个函数，用于模拟第一个线程
     fn first(&self) {
