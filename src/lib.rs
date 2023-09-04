@@ -12,6 +12,7 @@ pub mod _136_single_number;
 pub mod _13_roman_to_int;
 pub mod _1491_average;
 pub mod _14_longest_common_prefix;
+pub mod _1528_restore_string;
 pub mod _1545_find_kth_bit;
 pub mod _15_three_sum;
 pub mod _16_three_sum_closest;
