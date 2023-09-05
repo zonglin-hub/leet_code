@@ -11,3 +11,7 @@
 
 - [Rust GYM](https://rustgym.com/)
 - [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode.cn)
+
+## leetcode 题目命令
+
+_ leetcode题号 函数名
