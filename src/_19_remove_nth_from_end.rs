@@ -16,8 +16,6 @@ impl ListNode {
 pub struct Solution;
 
 impl Solution {
-    /// https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
-    ///
     /// 删除链表的倒数第 N 个结点
     pub fn remove_nth_from_end(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
         unsafe {

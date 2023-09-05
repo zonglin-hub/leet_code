@@ -4,8 +4,6 @@ use std::collections::HashMap;
 pub struct Solution;
 
 impl Solution {
-    /// https://leetcode.cn/problems/group-anagrams/
-    ///
     /// 字母异位词分组
     ///
     /// `group_anagrams()` 函数用于将一个字符串数组按照由相同字符组成的异位词分组，并返回一个二维字符串数组，其中每个子数组包含相同字符组成的异位词集合。

@@ -1,3 +1,5 @@
+//! 路径总和
+
 #![allow(unused)]
 pub struct Solution;
 
@@ -23,9 +25,6 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    /// https://leetcode.cn/problems/path-sum/
-    ///
-    /// 路径总和
     pub fn has_path_sum(root: Option<Rc<RefCell<TreeNode>>>, target_sum: i32) -> bool {
         match root {
             None => false,

@@ -14,8 +14,6 @@ impl ListNode {
     }
 }
 impl Solution {
-    /// https://leetcode.cn/problems/merge-two-sorted-lists/
-    ///
     /// 合并两个有序链表
     pub fn merge_two_lists(
         list1: Option<Box<ListNode>>,

@@ -2,8 +2,6 @@
 pub struct Solution;
 
 impl Solution {
-    /// https://leetcode.cn/problems/climbing-stairs/
-    ///
     /// 爬楼梯
     pub fn climb_stairs(n: i32) -> i32 {
         let (mut a, mut b) = (1, 1);

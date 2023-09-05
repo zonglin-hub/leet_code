@@ -2,8 +2,6 @@
 pub struct Solution;
 
 impl Solution {
-    /// https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
-    ///
     /// 删除有序数组中的重复项
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
         let mut i = 1;

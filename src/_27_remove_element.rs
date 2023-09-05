@@ -2,8 +2,6 @@
 pub struct Solution;
 
 impl Solution {
-    /// https://leetcode.cn/problems/remove-element/
-    ///
     /// 移除元素
     pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
         let mut ans = 0;

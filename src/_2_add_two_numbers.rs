@@ -1,3 +1,7 @@
+//! 两数相加
+//!
+//! 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+
 pub struct Solution;
 
 #[derive(PartialEq, Eq, Clone, Debug)]
@@ -7,6 +11,10 @@ pub struct ListNode {
 }
 
 impl ListNode {
+    // 用于标记一个函数或方法在内部实现时可以被优化掉，从而减少代码量。
+    // 当一个函数或方法被标记为#[inline]时，Rust编译器会在内部将其替换为等效的机器代码，从而减少调用这个函数的开销。
+    // 需要注意的是，#[inline]属性应该仅用于优化性能，而不是用于改变函数的行为或它的可见性。
+    // 在大多数情况下，Rust会自动内联函数调用，因此您不需要显式地使用#[inline]属性。
     #[inline]
     fn new(val: i32) -> Self {
         ListNode { next: None, val }
@@ -20,8 +28,6 @@ impl Solution {
     /// 如果是，那么如果链表为空，返回None；
     /// 否则，创建一个新的节点，其值为carry % 10，
     /// 并将carry / 10赋值给next指针。
-    ///
-    ///
     ///
     pub fn add_two_numbers(
         l1: Option<Box<ListNode>>,

@@ -1,4 +1,6 @@
 //! 两数之和
+//!
+//! 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
 
 #![allow(unused)]
 
@@ -59,6 +61,28 @@ impl Solution {
         // 如果没有找到，则返回空的数组
         vec![]
     }
+
+    /// 双指针
+    pub fn two_sum_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        // 如果数组长度为1，并且数组中的元素和目标值相等，则返回空的数组
+        if nums.len() == 1 && nums[0] == target {
+            return vec![0];
+        }
+
+        let len = nums.len();
+
+        for i in 0..len {
+            let mut left = i;
+            let mut right = len - 1;
+            while left < right {
+                if nums[left] + nums[right] == target {
+                    return vec![i as i32, right as i32];
+                }
+                right -= 1;
+            }
+        }
+        vec![]
+    }
 }
 
 #[cfg(test)]
@@ -81,5 +105,14 @@ mod tests {
         assert_eq!(Solution::two_sum_v2(vec![8], 9), vec![]);
         assert_eq!(Solution::two_sum_v2(vec![2, 7, 11, 15], 9), vec![0, 1]);
         assert_eq!(Solution::two_sum_v2(vec![3, 2, 4], 6), vec![1, 2]);
+    }
+
+    #[test]
+    fn test_two_sum_v3() {
+        assert_eq!(Solution::two_sum_v3(vec![], 9), vec![]);
+        assert_eq!(Solution::two_sum_v3(vec![9], 9), vec![0]);
+        assert_eq!(Solution::two_sum_v3(vec![8], 9), vec![]);
+        assert_eq!(Solution::two_sum_v3(vec![2, 7, 11, 15], 9), vec![0, 1]);
+        assert_eq!(Solution::two_sum_v3(vec![3, 2, 4], 6), vec![1, 2]);
     }
 }

@@ -1,8 +1,6 @@
 pub struct Solution;
 
 impl Solution {
-    /// https://leetcode.cn/problems/generate-parentheses/
-    ///
     /// 括号生成
     pub fn generate_parenthesis(n: i32) -> Vec<String> {
         let mut res = vec![];

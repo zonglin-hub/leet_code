@@ -2,8 +2,6 @@
 pub struct Solution;
 
 impl Solution {
-    /// https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/
-    ///
     /// 连续子数组的最大和
     pub fn max_sub_array(nums: Vec<i32>) -> i32 {
         let (mut sum, mut res) = (0, nums[0]);

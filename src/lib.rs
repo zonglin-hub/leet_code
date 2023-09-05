@@ -1,3 +1,22 @@
+//! 使用 Rust 解决 Leetcode 相关问题。先写测试模块，以测试驱动完成 Rust Code。
+//!
+//! # 模块命名规范示例
+//!
+//! _leetcode题号_函数名
+//!
+//! # 测试模块示例
+//!
+//! ```
+//! #[cfg(test)]
+//! mod tests {
+//!     use super::*;
+//!
+//!     #[test]
+//!     fn test_测试函数名() {}
+//! }
+//! ```
+//!
+
 pub mod _105_build_tree;
 pub mod _10_is_match;
 pub mod _1114_print_sequence;
