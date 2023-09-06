@@ -23,7 +23,7 @@ impl ListNode {
 
 impl Solution {
     /// 递归
-    pub fn add_two_numbers(
+    pub fn add_two_numbers_v1(
         l1: Option<Box<ListNode>>,
         l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
@@ -70,6 +70,37 @@ impl Solution {
             })),
         }
     }
+
+    /// 双指针
+    pub fn add_two_numbers_v2(
+        mut l1: Option<Box<ListNode>>,
+        mut l2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        // 创建一个新的链表
+        let mut new_list = None;
+        let mut p = &mut new_list;
+        // 用于表示双数 进位
+        let mut carry = 0;
+
+        // while l1!= None || l2!= None || t!= 0 {
+        while l1.is_some() || l2.is_some() || carry!= 0 {
+            // 如果l1不为空，则将l1的值加到carry上
+            if let Some(j1) = l1 {
+                carry += j1.val;
+                l1 = j1.next;
+            }
+            // 如果l2不为空，则将l2的值加到carry上
+            if let Some(j2) = l2 {
+                carry += j2.val;
+                l2 = j2.next;
+            }
+            // 将carry的值转换为十进制，并将其转换为十六进制，并将其加到p中
+            *p = Some(Box::new(ListNode::new(carry % 10)));
+            carry /= 10;
+            p = &mut p.as_mut().unwrap().next;
+        }
+        new_list
+    }
 }
 
 #[cfg(test)]
@@ -109,35 +140,86 @@ mod tests {
     }
 
     #[test]
-    fn test_add_two_numbers() {
+    fn test_add_two_numbers_v1() {
         // 两个链表都为空
         let l1 = None;
         let l2 = None;
         let expected = None;
-        assert_eq!(Solution::add_two_numbers(l1, l2), expected);
+        assert_eq!(Solution::add_two_numbers_v1(l1, l2), expected);
 
         // 其中一个链表为空，另一个不为空
         let l1 = create_list(vec![2, 4, 3]);
         let l2 = None;
         let expected = create_list(vec![2, 4, 3]);
-        assert_eq!(Solution::add_two_numbers(l1, l2), expected);
+        assert_eq!(Solution::add_two_numbers_v1(l1, l2), expected);
 
         // 两个链表长度相等
         let l1 = create_list(vec![2, 4, 3]);
         let l2 = create_list(vec![5, 6, 4]);
         let expected = create_list(vec![7, 0, 8]);
-        assert_eq!(to_vec(Solution::add_two_numbers(l1, l2)), to_vec(expected));
+        assert_eq!(
+            to_vec(Solution::add_two_numbers_v1(l1, l2)),
+            to_vec(expected)
+        );
 
         // 两个链表长度不相等
         let l1 = create_list(vec![9, 9, 9, 9, 9]);
         let l2 = create_list(vec![1]);
         let expected = create_list(vec![0, 0, 0, 0, 0, 1]);
-        assert_eq!(to_vec(Solution::add_two_numbers(l1, l2)), to_vec(expected));
+        assert_eq!(
+            to_vec(Solution::add_two_numbers_v1(l1, l2)),
+            to_vec(expected)
+        );
 
         // 两个链表相加进位
         let l1 = create_list(vec![9, 9, 9, 9, 9]);
         let l2 = create_list(vec![9, 9, 9, 9, 9]);
         let expected = create_list(vec![8, 9, 9, 9, 9, 1]);
-        assert_eq!(to_vec(Solution::add_two_numbers(l1, l2)), to_vec(expected));
+        assert_eq!(
+            to_vec(Solution::add_two_numbers_v1(l1, l2)),
+            to_vec(expected)
+        );
+    }
+
+    #[test]
+    fn test_add_two_numbers_v2() {
+        // 两个链表都为空
+        let l1 = None;
+        let l2 = None;
+        let expected = None;
+        assert_eq!(Solution::add_two_numbers_v2(l1, l2), expected);
+
+        // 其中一个链表为空，另一个不为空
+        let l1 = create_list(vec![2, 4, 3]);
+        let l2 = None;
+        let expected = create_list(vec![2, 4, 3]);
+        assert_eq!(Solution::add_two_numbers_v2(l1, l2), expected);
+
+        // 两个链表长度相等
+        let l1 = create_list(vec![2, 4, 3]);
+        let l2 = create_list(vec![5, 6, 4]);
+        let expected = create_list(vec![7, 0, 8]);
+        assert_eq!(
+            to_vec(Solution::add_two_numbers_v2(l1, l2)),
+            to_vec(expected)
+        );
+
+        // 两个链表长度不相等
+        let l1 = create_list(vec![9, 9, 9, 9, 9]);
+        let l2 = create_list(vec![1]);
+        let expected = create_list(vec![0, 0, 0, 0, 0, 1]);
+        assert_eq!(
+            to_vec(Solution::add_two_numbers_v2(l1, l2)),
+            to_vec(expected)
+        );
+
+        // 两个链表相加进位
+        let l1 = create_list(vec![9, 9, 9, 9, 9]);
+        let l2 = create_list(vec![9, 9, 9, 9, 9]);
+        let expected = create_list(vec![8, 9, 9, 9, 9, 1]);
+        assert_eq!(
+            to_vec(Solution::add_two_numbers_v2(l1, l2)),
+            to_vec(expected)
+        );
     }
 }
