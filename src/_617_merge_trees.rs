@@ -51,17 +51,19 @@ impl Solution {
     }
 }
 
-pub fn create_tree_node(
-    val: i32,
-    left: Option<Rc<RefCell<TreeNode>>>,
-    right: Option<Rc<RefCell<TreeNode>>>,
-) -> Option<Rc<RefCell<TreeNode>>> {
-    Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
-}
+
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    pub fn create_tree_node(
+        val: i32,
+        left: Option<Rc<RefCell<TreeNode>>>,
+        right: Option<Rc<RefCell<TreeNode>>>,
+    ) -> Option<Rc<RefCell<TreeNode>>> {
+        Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
+    }
 
     /// 输入：root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
     /// 输出：[3,4,5,5,4,null,7]
