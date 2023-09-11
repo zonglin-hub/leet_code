@@ -46,6 +46,7 @@ pub mod _2086_minimum_buckets;
 pub mod _20_is_valid;
 pub mod _21_merge_two_lists;
 pub mod _2224_convert_time;
+pub mod _2231_largest_integer;
 pub mod _22_generate_parenthesis;
 pub mod _231_is_power_of_two;
 pub mod _234_is_palindrome;

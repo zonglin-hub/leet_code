@@ -83,7 +83,7 @@ impl Solution {
         let mut carry = 0;
 
         // while l1!= None || l2!= None || t!= 0 {
-        while l1.is_some() || l2.is_some() || carry!= 0 {
+        while l1.is_some() || l2.is_some() || carry != 0 {
             // 如果l1不为空，则将l1的值加到carry上
             if let Some(j1) = l1 {
                 carry += j1.val;
