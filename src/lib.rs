@@ -56,6 +56,7 @@ pub mod _24_swap_pairs;
 pub mod _25_reverse_k_group;
 pub mod _26_remove_duplicates;
 pub mod _27_remove_element;
+pub mod _2831_longest_equal_subarray;
 pub mod _28_str_str;
 pub mod _29_divide;
 pub mod _2_add_two_numbers;
