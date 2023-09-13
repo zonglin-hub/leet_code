@@ -1,7 +1,9 @@
+//! 合并 K 个升序链表
+
 use std::cmp::Ordering;
 use std::collections::BinaryHeap;
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
@@ -29,7 +31,7 @@ impl Ord for ListNode {
 }
 
 impl Solution {
-    pub fn merge_k_lists(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
+    pub fn merge_k_lists_v1(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
         let mut min_heap = BinaryHeap::new();
         for i in lists {
             min_heap.push(i);
@@ -74,19 +76,39 @@ mod tests {
     }
 
     #[test]
-    fn test_merge_k_lists() {
+    fn test_merge_k_lists_v1() {
+        /*
+            输入：lists = [[1,4,5],[1,3,4],[2,6]]
+            输出：[1,1,2,3,4,4,5,6]
+            解释：链表数组如下：
+            [
+            1->4->5,
+            1->3->4,
+            2->6
+            ]
+            将它们合并到一个有序链表中得到。
+            1->1->2->3->4->4->5->6
+        */
         let expectation = vec![
             create_list(vec![1, 4, 5]),
             create_list(vec![1, 3, 4]),
             create_list(vec![2, 6]),
         ];
+        let expect = create_list(vec![1, 1, 2, 3, 4, 4, 5, 6]);
+        assert_eq!(Solution::merge_k_lists_v1(expectation), expect);
 
-        let expect: Option<Box<ListNode>> = create_list(vec![1, 1, 2, 3, 4, 4, 5, 6]);
+        // let expectation = None;
 
-        assert_eq!(Solution::merge_k_lists(expectation), expect);
+        /*
+            输入：lists = []
+            输出：[]
+        */
+        assert_eq!(Solution::merge_k_lists_v1(vec![]), None);
 
-        let expectation: Option<Box<ListNode>> = None;
-        assert_eq!(Solution::merge_k_lists(vec![]), expectation);
-        assert_eq!(Solution::merge_k_lists(vec![None]), expectation);
+        /*
+            输入：lists = [[]]
+            输出：[]
+        */
+        assert_eq!(Solution::merge_k_lists_v1(vec![None]), None);
     }
 }

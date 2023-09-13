@@ -1,14 +1,13 @@
-#![allow(unused)]
+//! N 字形变换
+//!
+//! 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
 
 use std::convert::TryInto;
 
-struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
-    /// https://leetcode.cn/problems/zigzag-conversion/
-    ///
-    /// N 字形变换
-    pub fn convert(s: String, num_rows: i32) -> String {
+    pub fn convert_v1(s: String, num_rows: i32) -> String {
         let mut rows = vec![String::new(); num_rows.try_into().unwrap()];
         let iter = (0..num_rows).chain((1..num_rows - 1).rev()).cycle();
         iter.zip(s.chars())
@@ -22,15 +21,37 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_convert() {
+    fn test_convert_v1() {
+        /*
+            输入：s = "PAYPALISHIRING", numRows = 3
+            输出："PAHNAPLSIIGYIR"
+        */
         assert_eq!(
-            Solution::convert(String::from("PAYPALISHIRING"), 3),
+            Solution::convert_v1(String::from("PAYPALISHIRING"), 3),
             String::from("PAHNAPLSIIGYIR")
         );
+
+        /*
+            输入：s = "PAYPALISHIRING", numRows = 4
+            输出："PINALSIGYAHRPI"
+            解释：
+            P     I    N
+            A   L S  I G
+            Y A   H R
+            P     I
+        */
         assert_eq!(
-            Solution::convert(String::from("PAYPALISHIRING"), 4),
+            Solution::convert_v1(String::from("PAYPALISHIRING"), 4),
             String::from("PINALSIGYAHRPI")
         );
-        assert_eq!(Solution::convert(String::from("A"), 1), String::from("A"));
+
+        /*
+            输入：s = "A", numRows = 1
+            输出："A"
+        */
+        assert_eq!(
+            Solution::convert_v1(String::from("A"), 1),
+            String::from("A")
+        );
     }
 }

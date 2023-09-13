@@ -1,7 +1,7 @@
 // https://leetcode.cn/problems/find-kth-bit-in-nth-binary-string/
 
 #![allow(unused)]
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     /// 找出第 N 个二进制字符串中的第 K 位

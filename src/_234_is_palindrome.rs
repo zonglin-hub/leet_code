@@ -1,6 +1,6 @@
-#![allow(unused)]
-struct Solution;
-// Definition for singly-linked list.
+use crate::types::base_type::Solution;
+
+
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,
@@ -9,13 +9,14 @@ pub struct ListNode {
 
 impl ListNode {
     #[inline]
+    #[allow(dead_code)]
     fn new(val: i32) -> Self {
         ListNode { next: None, val }
     }
 }
 impl Solution {
     /// 回文链表
-    pub fn is_palindrome(head: Option<Box<ListNode>>) -> bool {
+    pub fn is_palindrome_v1(head: Option<Box<ListNode>>) -> bool {
         let (mut val, mut node) = (vec![], &head);
         // loop {
         //     let node_box = match node {

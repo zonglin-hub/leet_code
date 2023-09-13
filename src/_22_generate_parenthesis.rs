@@ -1,8 +1,9 @@
-pub struct Solution;
+//! 括号生成
+
+use crate::types::base_type::Solution;
 
 impl Solution {
-    /// 括号生成
-    pub fn generate_parenthesis(n: i32) -> Vec<String> {
+    pub fn generate_parenthesis_v1(n: i32) -> Vec<String> {
         let mut res = vec![];
         let mut cur = Vec::new();
         Self::dfs(n, n, &mut cur, &mut res);
@@ -32,11 +33,20 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_generate_parenthesis() {
+    fn test_generate_parenthesis_v1() {
+        /*
+            输入：n = 3
+            输出：["((()))","(()())","(())()","()(())","()()()"]
+        */
         assert_eq!(
-            Solution::generate_parenthesis(3),
+            Solution::generate_parenthesis_v1(3),
             vec!["((()))", "(()())", "(())()", "()(())", "()()()"]
         );
-        assert_eq!(Solution::generate_parenthesis(1), vec!["()"])
+
+        /*
+            输入：n = 1
+            输出：["()"]
+        */
+        assert_eq!(Solution::generate_parenthesis_v1(1), vec!["()"])
     }
 }

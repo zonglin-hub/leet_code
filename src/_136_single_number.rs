@@ -1,6 +1,6 @@
 //! 只出现一次的数字
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     ///

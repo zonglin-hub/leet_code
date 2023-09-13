@@ -1,5 +1,5 @@
 #![allow(unused)]
-struct Solution;
+use crate::types::base_type::Solution;
 impl Solution {
     pub fn is_subsequence(s: String, t: String) -> bool {
         if s.is_empty() {

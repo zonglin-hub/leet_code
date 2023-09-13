@@ -2,11 +2,10 @@
 //!
 //! 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
 
-#![allow(unused)]
-
 use std::collections::HashMap;
 
-pub struct Solution;
+use crate::types::base_type::Solution;
+
 
 impl Solution {
     /// 哈希表
@@ -72,7 +71,7 @@ impl Solution {
         let len = nums.len();
 
         for i in 0..len {
-            let mut left = i;
+            let left = i;
             let mut right = len - 1;
             while left < right {
                 if nums[left] + nums[right] == target {
@@ -91,17 +90,23 @@ mod tests {
 
     #[test]
     fn test_two_sum_v1() {
-        // 输入：nums = [2,7,11,15], target = 9
-        // 输出：[0,1]
-        // 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1]
+        /*
+            输入：nums = [2,7,11,15], target = 9
+            输出：[0,1]
+            解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1]
+        */
         assert_eq!(Solution::two_sum_v1(vec![2, 7, 11, 15], 9), vec![0, 1]);
 
-        // 输入：nums = [3,2,4], target = 6
-        // 输出：[1,2]
+        /*
+            输入：nums = [3,2,4], target = 6
+            输出：[1,2]
+        */
         assert_eq!(Solution::two_sum_v1(vec![3, 2, 4], 6), vec![1, 2]);
 
-        // 输入：nums = [3,3], target = 6
-        // 输出：[0,1]
+        /*
+            输入：nums = [3,3], target = 6
+            输出：[0,1]
+        */
         assert_eq!(Solution::two_sum_v1(vec![3, 3], 6), vec![0, 1]);
     }
 

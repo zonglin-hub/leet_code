@@ -1,5 +1,5 @@
 #![allow(unused)]
-struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     // 2 的幂

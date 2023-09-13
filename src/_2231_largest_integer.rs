@@ -1,7 +1,7 @@
 //! 按奇偶性交换后的最大数字
 //!
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     pub fn largest_integer(num: i32) -> i32 {

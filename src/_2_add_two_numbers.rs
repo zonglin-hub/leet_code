@@ -2,7 +2,7 @@
 //!
 //! 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
@@ -141,19 +141,20 @@ mod tests {
 
     #[test]
     fn test_add_two_numbers_v1() {
-        // 两个链表都为空
+        /*
+            输入：l1 = [0], l2 = [0]
+            输出：[0]
+        */
         let l1 = None;
         let l2 = None;
         let expected = None;
         assert_eq!(Solution::add_two_numbers_v1(l1, l2), expected);
 
-        // 其中一个链表为空，另一个不为空
-        let l1 = create_list(vec![2, 4, 3]);
-        let l2 = None;
-        let expected = create_list(vec![2, 4, 3]);
-        assert_eq!(Solution::add_two_numbers_v1(l1, l2), expected);
-
-        // 两个链表长度相等
+        /*
+            输入：l1 = [2,4,3], l2 = [5,6,4]
+            输出：[7,0,8]
+            解释：342 + 465 = 807.
+        */
         let l1 = create_list(vec![2, 4, 3]);
         let l2 = create_list(vec![5, 6, 4]);
         let expected = create_list(vec![7, 0, 8]);
@@ -162,19 +163,13 @@ mod tests {
             to_vec(expected)
         );
 
-        // 两个链表长度不相等
-        let l1 = create_list(vec![9, 9, 9, 9, 9]);
-        let l2 = create_list(vec![1]);
-        let expected = create_list(vec![0, 0, 0, 0, 0, 1]);
-        assert_eq!(
-            to_vec(Solution::add_two_numbers_v1(l1, l2)),
-            to_vec(expected)
-        );
-
-        // 两个链表相加进位
-        let l1 = create_list(vec![9, 9, 9, 9, 9]);
-        let l2 = create_list(vec![9, 9, 9, 9, 9]);
-        let expected = create_list(vec![8, 9, 9, 9, 9, 1]);
+        /*
+            输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+            输出：[8,9,9,9,0,0,0,1]
+        */
+        let l1 = create_list(vec![9, 9, 9, 9, 9, 9, 9]);
+        let l2 = create_list(vec![9, 9, 9, 9]);
+        let expected = create_list(vec![8, 9, 9, 9, 0, 0, 0, 1]);
         assert_eq!(
             to_vec(Solution::add_two_numbers_v1(l1, l2)),
             to_vec(expected)
@@ -183,19 +178,11 @@ mod tests {
 
     #[test]
     fn test_add_two_numbers_v2() {
-        // 两个链表都为空
         let l1 = None;
         let l2 = None;
         let expected = None;
         assert_eq!(Solution::add_two_numbers_v2(l1, l2), expected);
 
-        // 其中一个链表为空，另一个不为空
-        let l1 = create_list(vec![2, 4, 3]);
-        let l2 = None;
-        let expected = create_list(vec![2, 4, 3]);
-        assert_eq!(Solution::add_two_numbers_v2(l1, l2), expected);
-
-        // 两个链表长度相等
         let l1 = create_list(vec![2, 4, 3]);
         let l2 = create_list(vec![5, 6, 4]);
         let expected = create_list(vec![7, 0, 8]);
@@ -204,19 +191,9 @@ mod tests {
             to_vec(expected)
         );
 
-        // 两个链表长度不相等
-        let l1 = create_list(vec![9, 9, 9, 9, 9]);
-        let l2 = create_list(vec![1]);
-        let expected = create_list(vec![0, 0, 0, 0, 0, 1]);
-        assert_eq!(
-            to_vec(Solution::add_two_numbers_v2(l1, l2)),
-            to_vec(expected)
-        );
-
-        // 两个链表相加进位
-        let l1 = create_list(vec![9, 9, 9, 9, 9]);
-        let l2 = create_list(vec![9, 9, 9, 9, 9]);
-        let expected = create_list(vec![8, 9, 9, 9, 9, 1]);
+        let l1 = create_list(vec![9, 9, 9, 9, 9, 9, 9]);
+        let l2 = create_list(vec![9, 9, 9, 9]);
+        let expected = create_list(vec![8, 9, 9, 9, 0, 0, 0, 1]);
         assert_eq!(
             to_vec(Solution::add_two_numbers_v2(l1, l2)),
             to_vec(expected)

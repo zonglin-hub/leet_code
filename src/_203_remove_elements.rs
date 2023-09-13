@@ -17,7 +17,7 @@ impl ListNode {
     }
 }
 
-struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     pub fn remove_elements(head: Option<Box<ListNode>>, val: i32) -> Option<Box<ListNode>> {

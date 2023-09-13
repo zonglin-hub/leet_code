@@ -1,4 +1,4 @@
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     pub fn restore_string(s: String, indices: Vec<i32>) -> String {

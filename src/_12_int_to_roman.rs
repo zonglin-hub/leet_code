@@ -1,8 +1,9 @@
-pub struct Solution;
+//! 整数转罗马数字
+//!
+use crate::types::base_type::Solution;
 
 impl Solution {
-    /// 整数转罗马数字
-    pub fn int_to_roman(num: i32) -> String {
+    pub fn int_to_roman_v1(num: i32) -> String {
         let values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
         let rn = vec![
             "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I",
@@ -26,11 +27,37 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_int_to_roman() {
-        assert_eq!(Solution::int_to_roman(3), "III");
-        assert_eq!(Solution::int_to_roman(4), "IV");
-        assert_eq!(Solution::int_to_roman(9), "IX");
-        assert_eq!(Solution::int_to_roman(58), "LVIII");
-        assert_eq!(Solution::int_to_roman(1994), "MCMXCIV");
+    fn test_int_to_roman_v1() {
+        /*
+            输入: num = 3
+            输出: "III"
+        */
+        assert_eq!(Solution::int_to_roman_v1(3), "III");
+
+        /*
+            输入: num = 4
+            输出: "IV"
+        */
+        assert_eq!(Solution::int_to_roman_v1(4), "IV");
+
+        /*
+            输入: num = 9
+            输出: "IX"
+        */
+        assert_eq!(Solution::int_to_roman_v1(9), "IX");
+
+        /*
+            输入: num = 58
+            输出: "LVIII"
+            解释: L = 50, V = 5, III = 3.
+        */
+        assert_eq!(Solution::int_to_roman_v1(58), "LVIII");
+
+        /*
+            输入: num = 1994
+            输出: "MCMXCIV"
+            解释: M = 1000, CM = 900, XC = 90, IV = 4.
+        */
+        assert_eq!(Solution::int_to_roman_v1(1994), "MCMXCIV");
     }
 }

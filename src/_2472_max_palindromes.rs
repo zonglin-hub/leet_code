@@ -1,4 +1,4 @@
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     /// 不重叠回文子字符串的最大数目

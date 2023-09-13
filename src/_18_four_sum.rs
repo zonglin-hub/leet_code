@@ -1,12 +1,15 @@
+//! 四数之和
+
 use std::cmp::Ordering;
-pub struct Solution;
+
+use crate::types::base_type::Solution;
 
 impl Solution {
-    pub fn four_sum(nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-        Self::k_sum(4, nums, target)
+    pub fn four_sum_v1(nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
+        Self::k_sum_v1(4, nums, target)
     }
 
-    pub fn k_sum(k: i32, nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
+    pub fn k_sum_v1(k: i32, nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
         if nums.len() < k as usize {
             return Vec::new();
         }
@@ -42,7 +45,7 @@ impl Solution {
                     continue;
                 }
 
-                let sub_results = Self::k_sum(k - 1, nums[i + 1..].to_vec(), target - nums[i]);
+                let sub_results = Self::k_sum_v1(k - 1, nums[i + 1..].to_vec(), target - nums[i]);
 
                 for mut r in sub_results {
                     r.push(nums[i]);
@@ -60,13 +63,22 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_four_sum() {
+    fn test_four_sum_v1() {
+        /*
+            输入：nums = [1,0,-1,0,-2,2], target = 0
+            输出：[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+        */
         assert_eq!(
-            Solution::four_sum(vec![1, 0, -1, 0, -2, 2], 0),
+            Solution::four_sum_v1(vec![1, 0, -1, 0, -2, 2], 0),
             vec![vec![1, 2, -1, -2], vec![0, 2, 0, -2], vec![0, 1, 0, -1]]
         );
+
+        /*
+            输入：nums = [2,2,2,2,2], target = 8
+            输出：[[2,2,2,2]]
+        */
         assert_eq!(
-            Solution::four_sum(vec![2, 2, 2, 2, 2], 8),
+            Solution::four_sum_v1(vec![2, 2, 2, 2, 2], 8),
             vec![vec![2, 2, 2, 2]]
         );
     }

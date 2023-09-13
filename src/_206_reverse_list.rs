@@ -12,7 +12,7 @@ impl ListNode {
         ListNode { next: None, val }
     }
 }
-struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     /// 反转链表

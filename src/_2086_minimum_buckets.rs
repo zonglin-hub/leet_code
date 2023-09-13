@@ -1,7 +1,7 @@
 //! 从房屋收集雨水需要的最少水桶数
 //!
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     pub fn minimum_buckets(hamsters: String) -> i32 {

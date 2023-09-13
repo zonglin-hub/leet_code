@@ -7,7 +7,7 @@
 
 use std::cmp;
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     pub fn longest_equal_subarray(nums: Vec<i32>, k: i32) -> i32 {
@@ -57,12 +57,12 @@ mod tests {
         );
 
         /*
-        输入：nums = [1,1,2,2,1,1], k = 2
-        输出：4
-        解释：最优的方案是删除下标 2 和下标 3 的元素。
-        删除后，nums 等于 [1, 1, 1, 1] 。
-        数组自身就是等值子数组，长度等于 4 。
-        可以证明无法创建更长的等值子数组。
+            输入：nums = [1,1,2,2,1,1], k = 2
+            输出：4
+            解释：最优的方案是删除下标 2 和下标 3 的元素。
+            删除后，nums 等于 [1, 1, 1, 1] 。
+            数组自身就是等值子数组，长度等于 4 。
+            可以证明无法创建更长的等值子数组。
         */
         assert_eq!(
             Solution::longest_equal_subarray(vec![1, 1, 2, 2, 1, 1], 2),

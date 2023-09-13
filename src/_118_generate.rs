@@ -1,5 +1,4 @@
-#![allow(unused)]
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     /// 杨辉三角

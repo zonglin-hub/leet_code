@@ -1,5 +1,5 @@
 #![allow(unused)]
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     /// 连续子数组的最大和

@@ -1,5 +1,5 @@
 #![allow(unused)]
-struct Solution;
+use crate::types::base_type::Solution;
 
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]

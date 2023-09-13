@@ -23,7 +23,7 @@ impl TreeNode {
     }
 }
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {

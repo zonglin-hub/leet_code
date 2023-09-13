@@ -1,3 +1,5 @@
+//! K 个一组翻转链表
+
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,
@@ -11,10 +13,10 @@ impl ListNode {
     }
 }
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
-    pub fn reverse_k_group(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
+    pub fn reverse_k_group_v1(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
         fn reverse(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
             let mut pre: Option<Box<ListNode>> = None;
             let mut head = head;
@@ -92,13 +94,22 @@ mod tests {
     }
 
     #[test]
-    fn test_reverse_k_group() {
+    fn test_reverse_k_group_v1() {
+        /*
+            输入：head = [1,2,3,4,5], k = 2
+            输出：[2,1,4,3,5]
+        */
         assert_eq!(
-            Solution::reverse_k_group(create_linked_list(&vec![1, 2, 3, 4, 5]), 2),
+            Solution::reverse_k_group_v1(create_linked_list(&vec![1, 2, 3, 4, 5]), 2),
             create_linked_list(&vec![2, 1, 4, 3, 5])
         );
+
+        /*
+            输入：head = [1,2,3,4,5], k = 3
+            输出：[3,2,1,4,5]
+        */
         assert_eq!(
-            Solution::reverse_k_group(create_linked_list(&vec![1, 2, 3, 4, 5]), 3),
+            Solution::reverse_k_group_v1(create_linked_list(&vec![1, 2, 3, 4, 5]), 3),
             create_linked_list(&vec![3, 2, 1, 4, 5])
         );
     }

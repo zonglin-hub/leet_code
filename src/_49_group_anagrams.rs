@@ -1,7 +1,7 @@
 #![allow(unused)]
 
 use std::collections::HashMap;
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     /// 字母异位词分组

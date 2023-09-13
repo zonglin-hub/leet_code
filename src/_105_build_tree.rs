@@ -19,7 +19,7 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {

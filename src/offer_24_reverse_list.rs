@@ -1,5 +1,5 @@
 #![allow(unused)]
-struct Solution;
+use crate::types::base_type::Solution;
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,
@@ -19,7 +19,7 @@ impl Solution {
     /// 接下来进入循环，使用 while let 语法判断 node 是否是 Some(mut x)，即判断原链表是否还有节点。如果有节点，则执行循环体内的代码块。
     /// 循环体内，首先获取 x 的下一个节点，即 node = x.next.take()，将 node 更新为原链表的下一个节点。接着将 x.next 设为反转后的链表 res，即 x.next = res.take()，这里的 take() 方法会将 res 中的值取出来，并将 res 置为 None，避免出现两个链表共享同一个节点的情况。最后将 x 设为反转后的链表 res，即 res = Some(x)，将反转后的链表头更新为当前节点。
     /// 循环结束后，返回 res，即反转后的链表头，完成单链表的反转。
-    pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn reverse_list_offer(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let (mut res, mut node) = (None, head);
         while let Some(mut x) = node {
             node = x.next.take();

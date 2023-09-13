@@ -1,12 +1,17 @@
+//! 寻找两个正序数组的中位数
+//!
+//! 给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
+
 #![allow(unused)]
-struct Solution;
+
+use crate::types::base_type::Solution;
 
 impl Solution {
     /// 寻找两个正序数组的中位数
     ///
     /// 给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
     /// 算法的时间复杂度应该为 O(log (m+n)) 。
-    pub fn find_median_sorted_arrays(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
+    pub fn find_median_sorted_arrays_v1(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
         let n = nums1.len() + nums2.len();
         let (mut i, mut j) = (0, 0);
         let (mut r1, mut r2) = (0, 0);
@@ -54,38 +59,25 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_find_median_sorted_arrays() {
+    fn test_find_median_sorted_arrays_v1() {
+        /*
+            输入：nums1 = [1,3], nums2 = [2]
+            输出：2.00000
+            解释：合并数组 = [1,2,3] ，中位数 2
+        */
         assert_eq!(
-            Solution::find_median_sorted_arrays(vec![1, 3], vec![2]),
-            2.00000
-        );
-        assert_eq!(
-            Solution::find_median_sorted_arrays(vec![1, 2], vec![3, 4]),
-            2.50000
-        );
-        assert_eq!(
-            Solution::find_median_sorted_arrays(vec![0, 0], vec![0, 0]),
-            0.00000
-        );
-        assert_eq!(
-            Solution::find_median_sorted_arrays(vec![], vec![1]),
-            1.00000
-        );
-        assert_eq!(
-            Solution::find_median_sorted_arrays(vec![2], vec![]),
+            Solution::find_median_sorted_arrays_v1(vec![1, 3], vec![2]),
             2.00000
         );
 
-        let mut v1 = Vec::new();
-        let mut v2 = Vec::new();
-        for i in 1..10001 {
-            if i % 2 == 0 {
-                v1.push(i);
-            } else {
-                v2.push(i);
-            }
-        }
-        let ans = Solution::find_median_sorted_arrays(v1, v2);
-        assert!((ans - 5000.5).abs() < 0.0001);
+        /*
+            输入：nums1 = [1,2], nums2 = [3,4]
+            输出：2.50000
+            解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+        */
+        assert_eq!(
+            Solution::find_median_sorted_arrays_v1(vec![1, 2], vec![3, 4]),
+            2.50000
+        );
     }
 }

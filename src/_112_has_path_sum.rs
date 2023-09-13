@@ -1,29 +1,14 @@
 //! 路径总和
-
-#![allow(unused)]
-pub struct Solution;
-
-// Definition for a binary tree node.
-#[derive(Debug, PartialEq, Eq)]
-pub struct TreeNode {
-    pub val: i32,
-    pub left: Option<Rc<RefCell<TreeNode>>>,
-    pub right: Option<Rc<RefCell<TreeNode>>>,
-}
-
-impl TreeNode {
-    #[inline]
-    pub fn new(val: i32) -> Self {
-        TreeNode {
-            val,
-            left: None,
-            right: None,
-        }
-    }
-}
+//!
+//! 给你二叉树的根节点 root 和一个表示目标和的整数 targetSum 。判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和 targetSum 。如果存在，返回 true ；否则，返回 false 。
+//!
+//! 叶子节点 是指没有子节点的节点。
 
 use std::cell::RefCell;
 use std::rc::Rc;
+
+use crate::types::base_type::{Solution, TreeNode};
+
 impl Solution {
     pub fn has_path_sum(root: Option<Rc<RefCell<TreeNode>>>, target_sum: i32) -> bool {
         match root {
@@ -41,16 +26,11 @@ impl Solution {
     }
 }
 
-pub fn create_tree_node(
-    val: i32,
-    left: Option<Rc<RefCell<TreeNode>>>,
-    right: Option<Rc<RefCell<TreeNode>>>,
-) -> Option<Rc<RefCell<TreeNode>>> {
-    Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
-}
-
 #[cfg(test)]
 mod tests {
+
+    use crate::utools::base_utool::create_tree_node;
+
     use super::*;
 
     #[test]

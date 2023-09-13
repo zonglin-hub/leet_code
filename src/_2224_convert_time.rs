@@ -1,7 +1,7 @@
 // https://leetcode.cn/problems/minimum-number-of-operations-to-convert-time
 
 #![allow(unused)]
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     /// 转化时间需要的最少操作数

@@ -1,6 +1,6 @@
 use std::cmp::Ordering;
 
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {

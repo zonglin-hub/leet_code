@@ -1,5 +1,5 @@
 #![allow(unused)]
-struct Solution;
+use crate::types::base_type::Solution;
 impl Solution {
     pub fn max_profit(prices: Vec<i32>) -> i32 {
         let (mut buy0, mut sell0) = (-prices[0], 0);

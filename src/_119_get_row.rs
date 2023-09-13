@@ -1,7 +1,7 @@
 //！ 杨辉三角 ||
 
 #![allow(unused)]
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     /// 定义一个长度为 rowIndex + 1 的一维数组 res

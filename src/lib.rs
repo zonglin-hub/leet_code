@@ -1,4 +1,6 @@
-//! 使用 Rust 解决 Leetcode 相关问题。先写测试模块，以测试驱动完成 Rust Code。
+//! 使用 Rust 解决 Leetcode 相关问题。
+//!
+//! 先写测试模块，以测试驱动完成 Rust Code。
 //!
 //! # 模块命名规范示例
 //!
@@ -87,3 +89,5 @@ pub mod offer_06_reverse_print;
 pub mod offer_24_reverse_list;
 pub mod offer_25_merge_two_lists;
 pub mod offer_42_max_sub_array;
+pub mod utools;
+pub mod types;

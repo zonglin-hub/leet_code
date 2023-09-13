@@ -1,4 +1,4 @@
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     pub fn divide(dividend: i32, divisor: i32) -> i32 {

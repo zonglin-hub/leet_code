@@ -1,5 +1,5 @@
 #![allow(unused)]
-pub struct Solution;
+use crate::types::base_type::Solution;
 
 impl Solution {
     // 字符串相加
