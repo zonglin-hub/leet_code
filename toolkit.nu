@@ -9,26 +9,26 @@
 # make sure all the tests pass.
 
 # check standard code formatting and apply the changes
-export def fmt [
-    --check: bool  # do not apply the format changes, only check the syntax
-    --verbose: bool # print extra information about the command's progress
-] {
-    if $verbose {
-        print $"running ('toolkit fmt' | pretty-print-command)"
-    }
+# export def fmt [
+#     --check: bool  # do not apply the format changes, only check the syntax
+#     --verbose: bool # print extra information about the command's progress
+# ] {
+#     if $verbose {
+#         print $"running ('toolkit fmt' | pretty-print-command)"
+#     }
 
-    if $check {
-        try {
-            cargo fmt --all -- --check
-        } catch {
-            error make --unspanned {
-                msg: $"\nplease run ('toolkit fmt' | pretty-print-command) to fix formatting!"
-            }
-        }
-    } else {
-        cargo fmt --all
-    }
-}
+#     if $check {
+#         try {
+#             cargo fmt --all -- --check
+#         } catch {
+#             error make --unspanned {
+#                 msg: $"\nplease run ('toolkit fmt' | pretty-print-command) to fix formatting!"
+#             }
+#         }
+#     } else {
+#         cargo fmt --all
+#     }
+# }
 
 # check that you're using the standard code style
 #
@@ -89,11 +89,11 @@ export def test [
 }
 
 # run the tests for the standard library
-export def "test stdlib" [
-    --extra-args: string = ''
-] {
-    cargo run -- -c $"use std testing; testing run-tests --path crates/nu-std ($extra_args)"
-}
+# export def "test stdlib" [
+#     --extra-args: string = ''
+# ] {
+#     cargo run -- -c $"use std testing; testing run-tests --path crates/nu-std ($extra_args)"
+# }
 
 # print the pipe input inside backticks, dimmed and italic, as a pretty command
 def pretty-print-command [] {
@@ -109,38 +109,38 @@ def pretty-print-command [] {
 # without any option, `report` will return an empty report.
 # otherwise, the truth values will be incremental, following
 # the order above.
-def report [
-    --fail-fmt: bool
-    --fail-clippy: bool
-    --fail-test: bool
-    --fail-test-stdlib: bool
-    --no-fail: bool
-] {
-    [fmt clippy test "test stdlib"]
-    | wrap stage
-    | merge (
-        if $no_fail               { [true     true     true     true] }
-        else if $fail_fmt         { [false    $nothing $nothing $nothing] }
-        else if $fail_clippy      { [true     false    $nothing $nothing] }
-        else if $fail_test        { [true     true     false    $nothing] }
-        else if $fail_test_stdlib { [true     true     true     false] }
-        else                      { [$nothing $nothing $nothing $nothing] }
-        | wrap success
-    )
-    | upsert emoji {|it|
-        if ($it.success == $nothing) {
-            ":black_circle:"
-        } else if $it.success {
-            ":green_circle:"
-        } else {
-            ":red_circle:"
-        }
-    }
-    | each {|it|
-        $"- ($it.emoji) `toolkit ($it.stage)`"
-    }
-    | to text
-}
+# def report [
+#     --fail-fmt: bool
+#     --fail-clippy: bool
+#     --fail-test: bool
+#     --fail-test-stdlib: bool
+#     --no-fail: bool
+# ] {
+#     [fmt clippy test "test stdlib"]
+#     | wrap stage
+#     | merge (
+#         if $no_fail               { [true     true     true     true] }
+#         else if $fail_fmt         { [false    $nothing $nothing $nothing] }
+#         else if $fail_clippy      { [true     false    $nothing $nothing] }
+#         else if $fail_test        { [true     true     false    $nothing] }
+#         else if $fail_test_stdlib { [true     true     true     false] }
+#         else                      { [$nothing $nothing $nothing $nothing] }
+#         | wrap success
+#     )
+#     | upsert emoji {|it|
+#         if ($it.success == $nothing) {
+#             ":black_circle:"
+#         } else if $it.success {
+#             ":green_circle:"
+#         } else {
+#             ":red_circle:"
+#         }
+#     }
+#     | each {|it|
+#         $"- ($it.emoji) `toolkit ($it.stage)`"
+#     }
+#     | to text
+# }
 
 # run all the necessary checks and tests to submit a perfect PR
 #
@@ -232,187 +232,187 @@ def report [
 # - finally let's fix the tests by removing the `x`, essentially removing the whole diff we applied at the top!
 #
 # now the whole `toolkit check pr` passes! :tada:
-export def "check pr" [
-    --fast: bool  # use the "nextext" `cargo` subcommand to speed up the tests (see [`cargo-nextest`](https://nexte.st/) and [`nextest-rs/nextest`](https://github.com/nextest-rs/nextest))
-    --features: list<string> # the list of features to check the current PR on
-] {
-    $env.NU_TEST_LOCALE_OVERRIDE = 'en_US.utf8';
-    try {
-        fmt --check --verbose
-    } catch {
-        return (report --fail-fmt)
-    }
+# export def "check pr" [
+#     --fast: bool  # use the "nextext" `cargo` subcommand to speed up the tests (see [`cargo-nextest`](https://nexte.st/) and [`nextest-rs/nextest`](https://github.com/nextest-rs/nextest))
+#     --features: list<string> # the list of features to check the current PR on
+# ] {
+#     $env.NU_TEST_LOCALE_OVERRIDE = 'en_US.utf8';
+#     try {
+#         fmt --check --verbose
+#     } catch {
+#         return (report --fail-fmt)
+#     }
 
-    try {
-        clippy --features $features --verbose
-    } catch {
-        return (report --fail-clippy)
-    }
+#     try {
+#         clippy --features $features --verbose
+#     } catch {
+#         return (report --fail-clippy)
+#     }
 
-    print $"running ('toolkit test' | pretty-print-command)"
-    try {
-        if $fast {
-            test --features $features --fast
-        } else {
-            test --features $features
-        }
-    } catch {
-        return (report --fail-test)
-    }
+#     print $"running ('toolkit test' | pretty-print-command)"
+#     try {
+#         if $fast {
+#             test --features $features --fast
+#         } else {
+#             test --features $features
+#         }
+#     } catch {
+#         return (report --fail-test)
+#     }
 
-    print $"running ('toolkit test stdlib' | pretty-print-command)"
-    try {
-        test stdlib
-    } catch {
-        return (report --fail-test-stdlib)
-    }
+#     print $"running ('toolkit test stdlib' | pretty-print-command)"
+#     try {
+#         test stdlib
+#     } catch {
+#         return (report --fail-test-stdlib)
+#     }
 
-    report --no-fail
-}
+#     report --no-fail
+# }
 
 # set up git hooks to run:
 # - `toolkit fmt --check --verbose` on `git commit`
 # - `toolkit fmt --check --verbose` and `toolkit clippy --verbose` on `git push`
-export def setup-git-hooks [] {
-    print "This command will change your local git configuration and hence modify your development workflow. Are you sure you want to continue? [y]"
-    if (input) == "y" {
-        print $"running ('toolkit setup-git-hooks' | pretty-print-command)"
-        git config --local core.hooksPath .githooks
-    } else {
-        print $"aborting ('toolkit setup-git-hooks' | pretty-print-command)"
-    }
-}
+# export def setup-git-hooks [] {
+#     print "This command will change your local git configuration and hence modify your development workflow. Are you sure you want to continue? [y]"
+#     if (input) == "y" {
+#         print $"running ('toolkit setup-git-hooks' | pretty-print-command)"
+#         git config --local core.hooksPath .githooks
+#     } else {
+#         print $"aborting ('toolkit setup-git-hooks' | pretty-print-command)"
+#     }
+# }
 
-def build-nushell [features: string] {
-    print $'(char nl)Building nushell'
-    print '----------------------------'
+# def build-nushell [features: string] {
+#     print $'(char nl)Building nushell'
+#     print '----------------------------'
 
-    cargo build --features $features
-}
+#     cargo build --features $features
+# }
 
-def build-plugin [] {
-    let plugin = $in
+# def build-plugin [] {
+#     let plugin = $in
 
-    print $'(char nl)Building ($plugin)'
-    print '----------------------------'
+#     print $'(char nl)Building ($plugin)'
+#     print '----------------------------'
 
-    cd $"crates/($plugin)"
-    cargo build
-}
+#     cd $"crates/($plugin)"
+#     cargo build
+# }
 
 # build Nushell and plugins with some features
-export def build [
-    ...features: string@"nu-complete list features"  # a space-separated list of feature to install with Nushell
-    --all: bool  # build all plugins with Nushell
-] {
-    build-nushell ($features | str join ",")
+# export def build [
+#     ...features: string@"nu-complete list features"  # a space-separated list of feature to install with Nushell
+#     --all: bool  # build all plugins with Nushell
+# ] {
+#     build-nushell ($features | str join ",")
 
-    if not $all {
-        return
-    }
+#     if not $all {
+#         return
+#     }
 
-    let plugins = [
-        nu_plugin_inc,
-        nu_plugin_gstat,
-        nu_plugin_query,
-        nu_plugin_example,
-        nu_plugin_custom_values,
-        nu_plugin_formats,
-    ]
+#     let plugins = [
+#         nu_plugin_inc,
+#         nu_plugin_gstat,
+#         nu_plugin_query,
+#         nu_plugin_example,
+#         nu_plugin_custom_values,
+#         nu_plugin_formats,
+#     ]
 
-    for plugin in $plugins {
-        $plugin | build-plugin
-    }
-}
+#     for plugin in $plugins {
+#         $plugin | build-plugin
+#     }
+# }
 
-def "nu-complete list features" [] {
-    open Cargo.toml | get features | transpose feature dependencies | get feature
-}
+# def "nu-complete list features" [] {
+#     open Cargo.toml | get features | transpose feature dependencies | get feature
+# }
 
-def install-plugin [] {
-    let plugin = $in
+# def install-plugin [] {
+#     let plugin = $in
 
-    print $'(char nl)Installing ($plugin)'
-    print '----------------------------'
+#     print $'(char nl)Installing ($plugin)'
+#     print '----------------------------'
 
-    cargo install --path $"crates/($plugin)"
-}
+#     cargo install --path $"crates/($plugin)"
+# }
 
 # install Nushell and features you want
-export def install [
-    ...features: string@"nu-complete list features"  # a space-separated list of feature to install with Nushell
-    --all: bool  # install all plugins with Nushell
-] {
-    cargo install --path . --features ($features | str join ",")
-    if not $all {
-        return
-    }
+# export def install [
+#     ...features: string@"nu-complete list features"  # a space-separated list of feature to install with Nushell
+#     --all: bool  # install all plugins with Nushell
+# ] {
+#     cargo install --path . --features ($features | str join ",")
+#     if not $all {
+#         return
+#     }
 
-    let plugins = [
-        nu_plugin_inc,
-        nu_plugin_gstat,
-        nu_plugin_query,
-        nu_plugin_example,
-        nu_plugin_custom_values,
-        nu_plugin_formats,
-    ]
-    for plugin in $plugins {
-        $plugin | install-plugin
-    }
-}
+#     let plugins = [
+#         nu_plugin_inc,
+#         nu_plugin_gstat,
+#         nu_plugin_query,
+#         nu_plugin_example,
+#         nu_plugin_custom_values,
+#         nu_plugin_formats,
+#     ]
+#     for plugin in $plugins {
+#         $plugin | install-plugin
+#     }
+# }
 
-def windows? [] {
-    $nu.os-info.name == windows
-}
+# def windows? [] {
+#     $nu.os-info.name == windows
+# }
 
 # filter out files that end in .d
-def keep-plugin-executables [] {
-    if (windows?) { where name ends-with '.exe' } else { where name !~ '\.d' }
-}
+# def keep-plugin-executables [] {
+#     if (windows?) { where name ends-with '.exe' } else { where name !~ '\.d' }
+# }
 
 # register all installed plugins
-export def "register plugins" [] {
-    let plugin_path = (which nu | get path.0 | path dirname)
-    let plugins = (ls $plugin_path | where name =~ nu_plugin | keep-plugin-executables)
+# export def "register plugins" [] {
+#     let plugin_path = (which nu | get path.0 | path dirname)
+#     let plugins = (ls $plugin_path | where name =~ nu_plugin | keep-plugin-executables)
 
-    if ($plugins | is-empty) {
-        print $"no plugins found in ($plugin_path)..."
-        return
-    }
+#     if ($plugins | is-empty) {
+#         print $"no plugins found in ($plugin_path)..."
+#         return
+#     }
 
-    for plugin in $plugins {
-        print -n $"registering ($plugin.name), "
-        nu -c $"register '($plugin.name)'"
-        print "success!"
-    }
+#     for plugin in $plugins {
+#         print -n $"registering ($plugin.name), "
+#         nu -c $"register '($plugin.name)'"
+#         print "success!"
+#     }
 
-    print "\nplugins registered, please restart nushell"
-}
+#     print "\nplugins registered, please restart nushell"
+# }
 
-def compute-coverage [] {
-    print "Setting up environment variables for coverage"
-    # Enable LLVM coverage tracking through environment variables
-    # show env outputs .ini/.toml style description of the variables
-    # In order to use from toml, we need to make sure our string literals are single quoted
-    # This is especially important when running on Windows since "C:\blah" is treated as an escape
-    cargo llvm-cov show-env | str replace (char dq) (char sq) -a | from toml | load-env
+# def compute-coveragecompute-coverage [] {
+#     print "Setting up environment variables for coverage"
+#     # Enable LLVM coverage tracking through environment variables
+#     # show env outputs .ini/.toml style description of the variables
+#     # In order to use from toml, we need to make sure our string literals are single quoted
+#     # This is especially important when running on Windows since "C:\blah" is treated as an escape
+#     cargo llvm-cov show-env | str replace (char dq) (char sq) -a | from toml | load-env
 
-    print "Cleaning up coverage data"
-    cargo llvm-cov clean --workspace
+#     print "Cleaning up coverage data"
+#     cargo llvm-cov clean --workspace
 
-    print "Building with workspace and profile=ci"
-    # Apparently we need to explicitly build the necessary parts
-    # using the `--profile=ci` is basically `debug` build with unnecessary symbols stripped
-    # leads to smaller binaries and potential savings when compiling and running
-    cargo build --workspace --profile=ci
+#     print "Building with workspace and profile=ci"
+#     # Apparently we need to explicitly build the necessary parts
+#     # using the `--profile=ci` is basically `debug` build with unnecessary symbols stripped
+#     # leads to smaller binaries and potential savings when compiling and running
+#     cargo build --workspace --profile=ci
 
-    print "Running tests with --workspace and profile=ci"
-    cargo test --workspace --profile=ci
+#     print "Running tests with --workspace and profile=ci"
+#     cargo test --workspace --profile=ci
 
-    # You need to provide the used profile to find the raw data
-    print "Generating coverage report as lcov.info"
-    cargo llvm-cov report --lcov --output-path lcov.info --profile=ci
-}
+#     # You need to provide the used profile to find the raw data
+#     print "Generating coverage report as lcov.info"
+#     cargo llvm-cov report --lcov --output-path lcov.info --profile=ci
+# }
 
 # Script to generate coverage locally
 #
@@ -438,14 +438,14 @@ def compute-coverage [] {
 # - https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters
 # - https://github.com/umaumax/vim-lcov
 # - https://github.com/andythigpen/nvim-coverage (probably needs some additional config)
-export def cov [] {
-    let start = (date now)
-    $env.NUSHELL_CARGO_TARGET = "ci"
+# export def cov [] {
+#     let start = (date now)
+#     $env.NUSHELL_CARGO_TARGET = "ci"
 
-    compute-coverage
+#     compute-coverage
 
-    let end = (date now)
-    print $"Coverage generation took ($end - $start)."
-}
+#     let end = (date now)
+#     print $"Coverage generation took ($end - $start)."
+# }
 
-export def main [] { help toolkit }
+# export def main [] { help toolkit }
