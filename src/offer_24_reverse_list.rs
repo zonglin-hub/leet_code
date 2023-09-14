@@ -1,17 +1,6 @@
 #![allow(unused)]
-use crate::types::base_type::Solution;
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
+use crate::types::base_type::{ListNode, Solution};
 
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
 impl Solution {
     /// 反转链表
     ///这段代码实现了单链表的反转。它的输入参数是一个 Option<Box<ListNode>> 类型的头结点，表示链表的头部。这里使用了 Option 类型和 Box 类型，是为了能够处理空指针的情况。

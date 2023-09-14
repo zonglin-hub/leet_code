@@ -1,19 +1,6 @@
 #![allow(unused)]
-use crate::types::base_type::Solution;
+use crate::types::base_type::{ListNode, Solution};
 
-// Definition for singly-linked list.
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
 impl Solution {
     /// 合并两个排序的链表
     pub fn merge_two_lists(

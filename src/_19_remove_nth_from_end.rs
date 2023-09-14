@@ -2,20 +2,7 @@
 //!
 //! 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
 
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
-
-use crate::types::base_type::Solution;
+use crate::types::base_type::{ListNode, Solution};
 
 impl Solution {
     pub fn remove_nth_from_end_v1(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {

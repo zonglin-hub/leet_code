@@ -1,18 +1,5 @@
-use crate::types::base_type::Solution;
+use crate::types::base_type::{ListNode, Solution};
 
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    #[allow(dead_code)]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
 impl Solution {
     /// 回文链表
     pub fn is_palindrome_v1(head: Option<Box<ListNode>>) -> bool {

@@ -2,22 +2,8 @@
 
 #![allow(unused)]
 
-use crate::types::base_type::Solution;
+use crate::types::base_type::{ListNode, Solution};
 
-// pub struct Solution;
-
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
 impl Solution {
     pub fn merge_two_lists_v1(
         list1: Option<Box<ListNode>>,

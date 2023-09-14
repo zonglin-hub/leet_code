@@ -1,19 +1,6 @@
 //! K 个一组翻转链表
 
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
-
-use crate::types::base_type::Solution;
+use crate::types::base_type::{ListNode, Solution};
 
 impl Solution {
     pub fn reverse_k_group_v1(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
