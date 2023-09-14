@@ -1,6 +1,5 @@
 use crate::types::base_type::Solution;
 
-
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,

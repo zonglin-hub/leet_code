@@ -27,6 +27,9 @@ impl Solution {
     }
 
     fn carried_v1(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        if l1.is_none() && l2.is_none() {
+            return None;
+        }
         match (l1, l2) {
             (None, None) => None,
             (None, r) => r,
@@ -50,6 +53,9 @@ mod tests {
     use super::*;
 
     fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
+        if nums.is_empty() {
+            return None;
+        }
         let mut head = Some(Box::new(ListNode::new(nums[0])));
         let mut p = head.as_mut();
         for num in nums.iter().skip(1) {
@@ -61,7 +67,6 @@ mod tests {
     }
 
     #[test]
-    #[ignore = "代码异常"]
     fn test_merge_two_lists_v1() {
         /*
             输入：l1 = [1,2,4], l2 = [1,3,4]
@@ -80,6 +85,10 @@ mod tests {
             Solution::merge_two_lists_v1(create_list(vec![]), create_list(vec![])),
             create_list(vec![])
         );
+        // assert_eq!(
+        //     Solution::merge_two_lists_v1(create_list(vec![]), create_list(vec![])),
+        //     create_list(vec![])
+        // );
 
         /*
             输入：l1 = [], l2 = [0]

@@ -1,7 +1,7 @@
 #![allow(unused)]
 
-use std::collections::HashMap;
 use crate::types::base_type::Solution;
+use std::collections::HashMap;
 
 impl Solution {
     /// 去掉最低工资和最高工资后的工资平均值

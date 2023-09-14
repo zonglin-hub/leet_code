@@ -6,7 +6,6 @@ use std::collections::HashMap;
 
 use crate::types::base_type::Solution;
 
-
 impl Solution {
     /// 哈希表
     pub fn two_sum_v1(nums: Vec<i32>, target: i32) -> Vec<i32> {
