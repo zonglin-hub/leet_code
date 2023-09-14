@@ -12,6 +12,7 @@ pub mod _118_generate;
 pub mod _119_get_row;
 pub mod _11_max_area;
 pub mod _121_max_profit;
+pub mod _1222_queens_attackthe_king;
 pub mod _123_max_profit;
 pub mod _12_int_to_roman;
 pub mod _136_single_number;
@@ -140,6 +141,31 @@ pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
     head
 }
 
+/// 用于 测试数组乱序情况
+///
+/// assertion failed: `(left == right)`
+///  left: `[[0, 1], [3, 3], [1, 0]]`,
+///  right: `[[0, 1], [1, 0], [3, 3]]`
+pub fn expected_sort(queens: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+    let mut expected = queens.iter().map(|e| e.to_vec()).collect::<Vec<Vec<i32>>>();
+    expected.sort();
+    expected
+}
+
+/// let m = vec![[0, 1], [1, 0], [3, 3]]
+///
+/// 生成算法函数把 m 转成  
+///
+/// vec![vec![0, 1], vec![1, 0], vec![3, 3]]
+///
+pub fn expected_sort_vec(queens: Vec<[i32; 2]>) -> Vec<Vec<i32>> {
+    // let m = vec![[0, 1], [1, 0], [3, 3]];
+    queens
+        .iter()
+        .map(|&x| x.to_vec())
+        .collect::<Vec<Vec<i32>>>()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -148,5 +174,21 @@ mod tests {
     fn test_create_tree_node() {
         let node = create_tree_node(1, None, None);
         assert_eq!(node.expect("").borrow().val, 1);
+    }
+
+    #[test]
+    fn test_expected_sort() {
+        assert_eq!(
+            expected_sort(vec![vec![0, 1], vec![3, 3], vec![1, 0]]),
+            vec![[0, 1], [1, 0], [3, 3]]
+        );
+    }
+
+    #[test]
+    fn test_expected_sort_vec() {
+        assert_eq!(
+            expected_sort_vec(vec![[0, 1], [1, 0], [3, 3]]),
+            vec![[0, 1], [1, 0], [3, 3]]
+        );
     }
 }
