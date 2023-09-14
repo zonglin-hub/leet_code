@@ -88,8 +88,8 @@ impl Solution {
             ans.push(path.clone());
             return;
         }
-        let cc = digits.chars().nth(idx).unwrap();
-        for c in map.get(&cc).unwrap().chars() {
+        let cc = digits.chars().nth(idx).expect("");
+        for c in map.get(&cc).expect("").chars() {
             path.push(c);
             Self::dfs_v2(idx + 1, digits, map, path, ans);
             path.pop();

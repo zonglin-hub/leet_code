@@ -34,7 +34,7 @@ fn create_linked_list(values: &Vec<i32>) -> Option<Box<ListNode>> {
 //         $(
 //             let node = ListNode {val: $val, next: None};
 //             *tail = Some(Box::new(node));
-//             tail = &mut tail.as_mut().unwrap().next;
+//             tail = &mut tail.as_mut().expect("").next;
 //         )*
 
 //         head.and_then(|mut node| {

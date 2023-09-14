@@ -125,7 +125,7 @@ impl Blockchain {
         let mut hasher = Sha256::new();
         loop {
             block.nonce += 1;
-            let block_bytes = bincode::serialize(&block).unwrap();
+            let block_bytes = bincode::serialize(&block).expect("");
             hasher.update(&block_bytes);
             let hash = hasher.finalize_reset();
             if hash.starts_with(&self.target_prefix) {
@@ -136,7 +136,7 @@ impl Blockchain {
 
     // 计算区块哈希值
     fn hash_block(&self, block: &Block) -> Vec<u8> {
-        let block_bytes = bincode::serialize(block).unwrap();
+        let block_bytes = bincode::serialize(block).expect("");
         let mut hasher = Sha256::new();
         hasher.update(&block_bytes);
         hasher.finalize().to_vec()

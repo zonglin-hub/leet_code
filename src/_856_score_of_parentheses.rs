@@ -15,9 +15,9 @@ impl Solution {
             if c == b'(' {
                 score.push(0);
             } else {
-                let last = score.pop().unwrap();
-                // 这是一个复合赋值语句，把 *score.last_mut().unwrap() 的值加上 if last == 0 { 1 } else { last << 1 } 的值，再赋回 *score.last_mut().unwrap()。
-                *score.last_mut().unwrap() += if last == 0 { 1 } else { last << 1 };
+                let last = score.pop().expect("");
+                // 这是一个复合赋值语句，把 *score.last_mut().expect("") 的值加上 if last == 0 { 1 } else { last << 1 } 的值，再赋回 *score.last_mut().expect("")。
+                *score.last_mut().expect("") += if last == 0 { 1 } else { last << 1 };
             }
         }
 

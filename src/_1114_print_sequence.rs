@@ -17,7 +17,7 @@ impl FooTrait for Foo {
     // 第一个函数，用于模拟第一个线程
     fn first(&self) {
         // 将order的值设置为1
-        let mut order = self.order.lock().unwrap();
+        let mut order = self.order.lock().expect("");
         assert_eq!(*order, 1);
         print!("first");
         *order = 2;
@@ -28,10 +28,10 @@ impl FooTrait for Foo {
     // 第二个函数，用于模拟第二个线程
     fn second(&self) {
         // 将order的值设置为2
-        let mut order = self.order.lock().unwrap();
+        let mut order = self.order.lock().expect("");
         while *order != 2 && *order != 3 {
             // 等待cv12的线程
-            order = self.cv12.wait(order).unwrap();
+            order = self.cv12.wait(order).expect("");
         }
         print!("second");
         *order = 3;
@@ -42,10 +42,10 @@ impl FooTrait for Foo {
     // 第三个函数，用于模拟第三个线程
     fn third(&self) {
         // 将order的值设置为3
-        let mut order = self.order.lock().unwrap();
+        let mut order = self.order.lock().expect("");
         while *order != 3 {
             // 等待cv23的线程
-            order = self.cv23.wait(order).unwrap();
+            order = self.cv23.wait(order).expect("");
         }
         print!("third");
     }
@@ -92,7 +92,7 @@ mod tests {
             }
         }
         for thread in threads {
-            thread.join().unwrap();
+            thread.join().expect("");
         }
     }
 
@@ -123,7 +123,7 @@ mod tests {
             }
         }
         for thread in threads {
-            thread.join().unwrap();
+            thread.join().expect("");
         }
     }
 }

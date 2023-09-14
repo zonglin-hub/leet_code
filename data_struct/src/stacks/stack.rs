@@ -73,13 +73,13 @@ mod tests {
         s.push(2);
         s.push(4);
 
-        // println!("top {:?}, size {}", s.peek().unwrap(), s.size());
-        // println!("pop {:?}, size {}", s.pop().unwrap(), s.size());
+        // println!("top {:?}, size {}", s.peek().expect(""), s.size());
+        // println!("pop {:?}, size {}", s.pop().expect(""), s.size());
         // println!("is_empty:{}, stack:{:?}", s.is_empty(), s);
 
-        assert_eq!(s.peek().unwrap(), &4);
+        assert_eq!(s.peek().expect(""), &4);
         assert_eq!(s.size(), 3);
-        assert_eq!(s.pop().unwrap(), 4);
+        assert_eq!(s.pop().expect(""), 4);
         assert!(!s.is_empty());
     }
 }

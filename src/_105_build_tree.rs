@@ -38,7 +38,10 @@ impl Solution {
             (None, preorder)
         } else {
             // 获取根节点的值
-            let root = preorder.next().unwrap().into();
+            let root = preorder
+                .next()
+                .expect("error: Node acquisition failed")
+                .into();
             // 初始化pos
             let mut pos = 0;
 

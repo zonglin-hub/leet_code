@@ -19,7 +19,7 @@ impl Solution {
         for (i, _) in nums.iter().enumerate().take(n) {
             let x = nums[i] as usize;
             let len = pos[x].len();
-            pos[x].push((i - len).try_into().unwrap());
+            pos[x].push((i - len).try_into().expect(""));
         }
 
         for ps in &pos {
@@ -33,7 +33,7 @@ impl Solution {
             }
         }
 
-        ans.try_into().unwrap()
+        ans.try_into().expect("")
     }
 }
 

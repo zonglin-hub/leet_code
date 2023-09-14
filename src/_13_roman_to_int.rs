@@ -18,10 +18,10 @@ impl Solution {
             ('M', 1000),
         ]);
         let chars: Vec<char> = s.chars().collect();
-        let mut ans = *dic.get(&chars[chars.len() - 1]).unwrap();
+        let mut ans = *dic.get(&chars[chars.len() - 1]).expect("");
         for c in 0..chars.len() - 1 {
-            let current_unit = dic.get(&chars[c]).unwrap();
-            let next_unit = dic.get(&chars[c + 1]).unwrap();
+            let current_unit = dic.get(&chars[c]).expect("");
+            let next_unit = dic.get(&chars[c + 1]).expect("");
             if current_unit >= next_unit {
                 ans += current_unit
             } else {

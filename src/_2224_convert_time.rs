@@ -9,9 +9,9 @@ impl Solution {
         let current: Vec<_> = current.split(':').collect();
         let correct: Vec<_> = correct.split(':').collect();
         let mut current =
-            current[0].parse::<i32>().unwrap() * 60 + current[1].parse::<i32>().unwrap();
+            current[0].parse::<i32>().expect("") * 60 + current[1].parse::<i32>().expect("");
         let mut correct =
-            correct[0].parse::<i32>().unwrap() * 60 + correct[1].parse::<i32>().unwrap();
+            correct[0].parse::<i32>().expect("") * 60 + correct[1].parse::<i32>().expect("");
 
         let mut res = 0;
         while correct != current {

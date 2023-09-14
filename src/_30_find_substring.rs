@@ -69,7 +69,7 @@ impl Solution {
                         if hi_value.1 > hi_value.0 {
                             loop {
                                 // 将lo加k，将lo_value.1减1
-                                let lo_value = map.get_mut(&s[lo..lo + k]).unwrap();
+                                let lo_value = map.get_mut(&s[lo..lo + k]).expect("");
                                 lo += k;
                                 lo_value.1 -= 1;
 
@@ -84,7 +84,7 @@ impl Solution {
 
                 if hi - lo == words.len() * k {
                     out.push(lo as i32);
-                    map.get_mut(&s[lo..lo + k]).unwrap().1 -= 1;
+                    map.get_mut(&s[lo..lo + k]).expect("").1 -= 1;
                     lo += k;
                 }
             }

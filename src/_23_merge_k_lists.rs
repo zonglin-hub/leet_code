@@ -41,11 +41,11 @@ impl Solution {
         let mut ptr = &mut dummy;
 
         while !min_heap.is_empty() {
-            let mut node = min_heap.pop().unwrap();
+            let mut node = min_heap.pop().expect("");
             if let Some(n) = node.as_mut() {
                 min_heap.push(n.next.take());
                 ptr.next = node;
-                ptr = ptr.next.as_mut().unwrap();
+                ptr = ptr.next.as_mut().expect("");
             }
         }
         dummy.next
@@ -69,8 +69,8 @@ mod tests {
         let mut p = head.as_mut();
         for i in nums.iter().skip(1) {
             let node = create_tree_node(*i);
-            p.as_mut().unwrap().next = node;
-            p = p.unwrap().next.as_mut();
+            p.as_mut().expect("").next = node;
+            p = p.expect("").next.as_mut();
         }
         head
     }

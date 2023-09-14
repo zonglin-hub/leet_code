@@ -32,12 +32,20 @@ impl Solution {
         //         Some(m)
         //     }
         // })
-        head.and_then(|mut n| match n.next {
-            None => Some(n), // 添加这一行以确保奇数长度的链表最后一个节点被正确返回
+        // head.and_then(|mut n| match n.next {
+        //     None => Some(n), // 添加这一行以确保奇数长度的链表最后一个节点被正确返回
+        //     Some(mut m) => {
+        //         n.next = Self::swap_pairs_v1(m.next);
+        //         m.next = Some(n);
+        //         Some(m)
+        //     }
+        // })
+        head.map(|mut n| match n.next {
+            None => n, // 添加这一行以确保奇数长度的链表最后一个节点被正确返回
             Some(mut m) => {
                 n.next = Self::swap_pairs_v1(m.next);
                 m.next = Some(n);
-                Some(m)
+                m
             }
         })
     }

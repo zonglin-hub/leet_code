@@ -71,7 +71,7 @@ impl Solution {
                     balance = false;
                 } else {
                     // 比 较 当 前 括 号 和 栈 顶 括 号 是 否 匹
-                    let top = stack.pop().unwrap();
+                    let top = stack.pop().expect("");
                     if !Self::par_match(top, c) {
                         balance = false;
                     }
@@ -105,7 +105,7 @@ impl Solution {
                 if stack.is_empty() {
                     balance = false;
                 } else {
-                    let top = stack.pop().unwrap();
+                    let top = stack.pop().expect("");
 
                     if !Self::par_match(top, c) {
                         balance = false;

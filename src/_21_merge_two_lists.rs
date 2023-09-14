@@ -60,8 +60,8 @@ mod tests {
         let mut p = head.as_mut();
         for num in nums.iter().skip(1) {
             let node = Some(Box::new(ListNode::new(*num)));
-            p.as_mut().unwrap().next = node;
-            p = p.unwrap().next.as_mut();
+            p.as_mut().expect("").next = node;
+            p = p.expect("").next.as_mut();
         }
         head
     }

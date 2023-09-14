@@ -24,13 +24,13 @@ impl Solution {
             let mut slow = dummy;
             let mut fast = dummy;
             for _ in 0..n {
-                fast = (*fast).next.as_mut().unwrap().as_mut();
+                fast = (*fast).next.as_mut().expect("").as_mut();
             }
             while (*fast).next.is_some() {
-                fast = (*fast).next.as_mut().unwrap().as_mut();
-                slow = (*slow).next.as_mut().unwrap().as_mut();
+                fast = (*fast).next.as_mut().expect("").as_mut();
+                slow = (*slow).next.as_mut().expect("").as_mut();
             }
-            (*slow).next = (*slow).next.take().unwrap().next;
+            (*slow).next = (*slow).next.take().expect("").next;
             (*dummy).next.to_owned()
         }
     }
@@ -42,21 +42,21 @@ impl Solution {
         let mut count = 0;
 
         while count < n {
-            fast = &fast.as_ref().unwrap().next;
+            fast = &fast.as_ref().expect("").next;
             count += 1;
         }
 
         while fast.is_some() {
-            fast = &fast.as_ref().unwrap().next;
+            fast = &fast.as_ref().expect("").next;
 
-            let val = slow.as_ref().unwrap().val;
-            slow = &slow.as_ref().unwrap().next;
+            let val = slow.as_ref().expect("").val;
+            slow = &slow.as_ref().expect("").next;
 
             curr.next = Some(Box::new(ListNode::new(val)));
-            curr = curr.next.as_mut().unwrap();
+            curr = curr.next.as_mut().expect("");
         }
 
-        curr.next = slow.as_ref().unwrap().next.clone();
+        curr.next = slow.as_ref().expect("").next.clone();
 
         root.next
     }
@@ -79,8 +79,8 @@ mod tests {
         let mut p = head.as_mut();
         for num in nums.iter().skip(1) {
             let node = create_tree_node(*num);
-            p.as_mut().unwrap().next = node;
-            p = p.unwrap().next.as_mut()
+            p.as_mut().expect("").next = node;
+            p = p.expect("").next.as_mut()
         }
         head
     }

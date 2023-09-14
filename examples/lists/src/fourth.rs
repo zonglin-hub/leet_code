@@ -55,7 +55,7 @@ impl<T> List<T> {
                     self.tail.take();
                 }
             }
-            Rc::try_unwrap(old_head).ok().unwrap().into_inner().elem
+            Rc::try_unwrap(old_head).ok().expect("").into_inner().elem
         })
     }
 
@@ -91,7 +91,7 @@ impl<T> List<T> {
                     self.head.take();
                 }
             }
-            Rc::try_unwrap(old_tail).ok().unwrap().into_inner().elem
+            Rc::try_unwrap(old_tail).ok().expect("").into_inner().elem
         })
     }
 
@@ -234,10 +234,10 @@ mod test {
         list.push_front(2);
         list.push_front(3);
 
-        assert_eq!(&*list.peek_front().unwrap(), &3);
-        assert_eq!(&mut *list.peek_front_mut().unwrap(), &mut 3);
-        assert_eq!(&*list.peek_back().unwrap(), &1);
-        assert_eq!(&mut *list.peek_back_mut().unwrap(), &mut 1);
+        assert_eq!(&*list.peek_front().expect(""), &3);
+        assert_eq!(&mut *list.peek_front_mut().expect(""), &mut 3);
+        assert_eq!(&*list.peek_back().expect(""), &1);
+        assert_eq!(&mut *list.peek_back_mut().expect(""), &mut 1);
     }
 
     #[test]

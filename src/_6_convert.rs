@@ -8,7 +8,7 @@ use crate::types::base_type::Solution;
 
 impl Solution {
     pub fn convert_v1(s: String, num_rows: i32) -> String {
-        let mut rows = vec![String::new(); num_rows.try_into().unwrap()];
+        let mut rows = vec![String::new(); num_rows.try_into().expect("")];
         let iter = (0..num_rows).chain((1..num_rows - 1).rev()).cycle();
         iter.zip(s.chars())
             .for_each(|(i, c)| rows[i as usize].push(c));

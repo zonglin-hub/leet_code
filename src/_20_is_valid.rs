@@ -44,8 +44,7 @@ impl Solution {
                 };
                 s
             })
-            .len()
-            == 0
+            .is_empty()
     }
 }
 

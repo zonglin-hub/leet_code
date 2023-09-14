@@ -97,7 +97,7 @@ impl Solution {
             // 将carry的值转换为十进制，并将其转换为十六进制，并将其加到p中
             *p = Some(Box::new(ListNode::new(carry % 10)));
             carry /= 10;
-            p = &mut p.as_mut().unwrap().next;
+            p = &mut p.as_mut().expect("").next;
         }
         new_list
     }
@@ -116,9 +116,9 @@ mod tests {
         for num in nums.iter().skip(1) {
             let node = Some(Box::new(ListNode::new(*num)));
             // 将ListNode赋值给p的下一个节点
-            p.as_mut().unwrap().next = node;
+            p.as_mut().expect("").next = node;
             // 将p的下一个节点赋值给p
-            p = p.unwrap().next.as_mut();
+            p = p.expect("").next.as_mut();
         }
         // 返回head
         head

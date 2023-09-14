@@ -19,6 +19,6 @@ mod tests {
     #[test]
     fn test_create_tree_node() {
         let node = create_tree_node(1, None, None);
-        assert_eq!(node.unwrap().borrow().val, 1);
+        assert_eq!(node.expect("").borrow().val, 1);
     }
 }

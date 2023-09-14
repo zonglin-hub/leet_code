@@ -19,7 +19,7 @@ impl Solution {
             }
         }
         // 将字符串转换为字符串，并转换为i32类型
-        s.into_iter().collect::<String>().parse::<i32>().unwrap()
+        s.into_iter().collect::<String>().parse::<i32>().expect("")
     }
 }
 

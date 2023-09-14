@@ -25,7 +25,7 @@ impl Solution {
                     carr.push(i as i32);
                 // 否则，获取Vec中最后一个元素的索引
                 } else {
-                    let carr = carr.last().unwrap();
+                    let carr = carr.last().expect("");
                     // 计算当前有效括号长度
                     ans = ans.max(i as i32 - carr);
                 }
