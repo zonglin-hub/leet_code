@@ -1,7 +1,7 @@
 //! 正则表达式匹配
 //!
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn is_match_v1(s: String, p: String) -> bool {

@@ -1,6 +1,6 @@
 //! 删除有序数组中的重复项
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn remove_duplicates_v1(nums: &mut Vec<i32>) -> i32 {

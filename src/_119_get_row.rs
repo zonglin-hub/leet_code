@@ -1,6 +1,6 @@
 //! 杨辉三角 ||
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     /// 定义一个长度为 rowIndex + 1 的一维数组 res

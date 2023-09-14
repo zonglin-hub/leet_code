@@ -4,7 +4,7 @@
 
 #![allow(unused)]
 
-use crate::types::base_type::{ListNode, Solution};
+use crate::{ListNode, Solution};
 
 impl Solution {
     pub fn remove_elements(head: Option<Box<ListNode>>, val: i32) -> Option<Box<ListNode>> {

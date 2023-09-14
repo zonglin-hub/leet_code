@@ -1,7 +1,7 @@
 //! 找出字符串中第一个匹配项的下标
-//! 
+//!
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn str_str(haystack: String, needle: String) -> i32 {

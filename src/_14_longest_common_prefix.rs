@@ -4,7 +4,7 @@
 //!
 //! 如果不存在公共前缀，返回空字符串 ""。
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn longest_common_prefix_v1(strs: Vec<String>) -> String {

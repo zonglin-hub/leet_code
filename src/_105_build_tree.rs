@@ -1,10 +1,10 @@
 //! 从前序与中序遍历序列构造二叉树
-//! 
+//!
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use crate::types::base_type::{Solution, TreeNode};
+use crate::{Solution, TreeNode};
 
 impl Solution {
     pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {

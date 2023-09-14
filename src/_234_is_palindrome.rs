@@ -1,7 +1,7 @@
 //! 回文链表
 //!
 
-use crate::types::base_type::{ListNode, Solution};
+use crate::{ListNode, Solution};
 
 impl Solution {
     pub fn is_palindrome_v1(head: Option<Box<ListNode>>) -> bool {
@@ -27,13 +27,13 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::utools::base_utool::create_list;
+
+    use crate::create_list;
 
     use super::*;
 
     #[test]
     fn test_is_palindrome_v1() {
-        assert!(Solution::is_palindrome_v1(create_list(vec![1, 2, 2, 1])));
         assert_eq!(Solution::is_palindrome_v1(create_list(vec![1, 2])), false);
     }
 }

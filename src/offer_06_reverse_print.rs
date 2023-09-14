@@ -2,7 +2,7 @@
 //!
 //! 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
 
-use crate::types::base_type::{ListNode, Solution};
+use crate::{ListNode, Solution};
 
 impl Solution {
     /// 从尾到头打印链表
@@ -19,7 +19,7 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::utools::base_utool::create_list;
+    use crate::create_list;
 
     use super::*;
 

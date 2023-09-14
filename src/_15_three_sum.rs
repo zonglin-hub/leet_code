@@ -2,7 +2,7 @@
 
 use std::cmp::Ordering;
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn three_sum_v1(mut nums: Vec<i32>) -> Vec<Vec<i32>> {

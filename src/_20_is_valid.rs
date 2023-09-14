@@ -1,6 +1,6 @@
 //! 有效的括号
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     /// 这是一道典型的栈的问题。

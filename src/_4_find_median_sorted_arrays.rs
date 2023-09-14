@@ -4,7 +4,7 @@
 
 #![allow(unused)]
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     /// 寻找两个正序数组的中位数

@@ -1,6 +1,6 @@
 //! 括号生成
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn generate_parenthesis_v1(n: i32) -> Vec<String> {

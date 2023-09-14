@@ -1,6 +1,6 @@
 //! 不重叠回文子字符串的最大数目
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     /// 将字符串转换为字节数组，记录字符串长度n。

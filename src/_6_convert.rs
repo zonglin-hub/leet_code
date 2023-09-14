@@ -4,7 +4,7 @@
 
 use std::convert::TryInto;
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn convert_v1(s: String, num_rows: i32) -> String {

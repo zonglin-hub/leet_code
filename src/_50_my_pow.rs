@@ -1,6 +1,6 @@
 //! Pow(x, n)
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn my_pow(x: f64, n: i32) -> f64 {

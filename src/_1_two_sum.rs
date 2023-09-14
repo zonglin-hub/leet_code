@@ -4,7 +4,7 @@
 
 use std::collections::HashMap;
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     /// 哈希表

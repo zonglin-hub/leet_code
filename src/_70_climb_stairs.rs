@@ -4,7 +4,7 @@
 //!
 //! 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     /// 该函数使用了 Fibonacci 数列的思想来计算爬楼梯的方案数。

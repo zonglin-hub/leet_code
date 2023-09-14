@@ -1,6 +1,6 @@
 //! 串联所有单词的子串
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {

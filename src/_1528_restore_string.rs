@@ -1,7 +1,7 @@
 //! 重新排列字符串
 //!
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn restore_string(s: String, indices: Vec<i32>) -> String {

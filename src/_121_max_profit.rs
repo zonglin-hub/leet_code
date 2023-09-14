@@ -1,6 +1,6 @@
 //! 买卖股票的最佳时机
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn max_profit_v1(prices: Vec<i32>) -> i32 {

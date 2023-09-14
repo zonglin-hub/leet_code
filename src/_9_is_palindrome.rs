@@ -1,6 +1,6 @@
 //! 回文数
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn is_palindrome_v2(x: i32) -> bool {

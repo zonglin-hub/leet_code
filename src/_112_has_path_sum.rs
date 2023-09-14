@@ -7,7 +7,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use crate::types::base_type::{Solution, TreeNode};
+use crate::{Solution, TreeNode};
 
 impl Solution {
     pub fn has_path_sum(root: Option<Rc<RefCell<TreeNode>>>, target_sum: i32) -> bool {
@@ -29,7 +29,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
 
-    use crate::utools::base_utool::create_tree_node;
+    use crate::create_tree_node;
 
     use super::*;
 

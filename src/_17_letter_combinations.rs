@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 /// error: associated `static` items are not allowed
 /// 错误是因为 static 变量声明必须在 impl 块之外，而你的代码将它放在了 impl Solution 块里。

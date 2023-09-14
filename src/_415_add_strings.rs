@@ -1,5 +1,5 @@
 //! 字符串相加
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn to_int_vec(s: &str) -> Vec<i32> {

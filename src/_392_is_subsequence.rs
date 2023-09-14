@@ -1,7 +1,7 @@
 //! 判断子序列
 //!
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     pub fn is_subsequence(s: String, t: String) -> bool {

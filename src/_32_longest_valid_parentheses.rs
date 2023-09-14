@@ -1,6 +1,6 @@
 //! 最长有效括号
 
-use crate::types::base_type::Solution;
+use crate::Solution;
 
 impl Solution {
     /// 计算给定字符串s中有效括号对的最大长度。
