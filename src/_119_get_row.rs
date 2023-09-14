@@ -1,6 +1,5 @@
-//！ 杨辉三角 ||
+//! 杨辉三角 ||
 
-#![allow(unused)]
 use crate::types::base_type::Solution;
 
 impl Solution {

@@ -1,3 +1,5 @@
+//! 串联所有单词的子串
+
 use crate::types::base_type::Solution;
 
 impl Solution {

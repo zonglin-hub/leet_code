@@ -1,7 +1,9 @@
+//! 回文链表
+//!
+
 use crate::types::base_type::{ListNode, Solution};
 
 impl Solution {
-    /// 回文链表
     pub fn is_palindrome_v1(head: Option<Box<ListNode>>) -> bool {
         let (mut val, mut node) = (vec![], &head);
         // loop {
@@ -20,5 +22,18 @@ impl Solution {
         let val_rev = val.clone();
         val.reverse();
         val == val_rev
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::utools::base_utool::create_list;
+
+    use super::*;
+
+    #[test]
+    fn test_is_palindrome_v1() {
+        assert!(Solution::is_palindrome_v1(create_list(vec![1, 2, 2, 1])));
+        assert_eq!(Solution::is_palindrome_v1(create_list(vec![1, 2])), false);
     }
 }

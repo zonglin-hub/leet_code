@@ -1,3 +1,5 @@
+//! 搜索插入位置
+
 use std::cmp::Ordering;
 
 use crate::types::base_type::Solution;

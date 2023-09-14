@@ -1,3 +1,5 @@
+//! 最长有效括号
+
 use crate::types::base_type::Solution;
 
 impl Solution {

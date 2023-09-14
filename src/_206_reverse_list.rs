@@ -1,9 +1,10 @@
-// Definition for singly-linked list.
+//! 反转链表
+//!
+//! 定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
 
 use crate::types::base_type::{ListNode, Solution};
 
 impl Solution {
-    /// 反转链表
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         Self::reverse(head, None)
     }
@@ -18,26 +19,34 @@ impl Solution {
     }
 }
 
+impl Solution {
+    ///这段代码实现了单链表的反转。
+    /// 它的输入参数是一个 `Option<Box<ListNode>>` 类型的头结点，表示链表的头部。
+    /// 这里使用了 Option 类型和 Box 类型，是为了能够处理空指针的情况。
+    /// 在函数中，定义了两个变量 res 和 node，用于存储反转后的链表和原链表。
+    /// 变量 res 初始值为 None，表示反转后的链表为空；变量 node 初始值为输入参数 head，表示原链表的头结点。
+    /// 接下来进入循环，使用 while let 语法判断 node 是否是 Some(mut x)，即判断原链表是否还有节点。
+    /// 如果有节点，则执行循环体内的代码块。
+    /// 循环体内，首先获取 x 的下一个节点，即 node = x.next.take()，将 node 更新为原链表的下一个节点。
+    /// 接着将 x.next 设为反转后的链表 res，即 x.next = res.take()，这里的 take() 方法会将 res 中的值取出来，并将 res 置为 None，避免出现两个链表共享同一个节点的情况。
+    /// 最后将 x 设为反转后的链表 res，即 res = Some(x)，将反转后的链表头更新为当前节点。
+    /// 循环结束后，返回 res，即反转后的链表头，完成单链表的反转。
+    pub fn reverse_list_offer_v1(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let (mut res, mut node) = (None, head);
+        while let Some(mut x) = node {
+            node = x.next.take();
+            x.next = res.take();
+            res = Some(x);
+        }
+        res
+    }
+}
+
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::utools::base_utool::create_list;
 
-    pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
-        // 创建一个头节点，并将其赋值给head
-        let mut head = Some(Box::new(ListNode::new(nums[0])));
-        // 将head赋值给p
-        let mut p = head.as_mut();
-        // 遍历nums数组，将每一个元素赋值给ListNode
-        for num in nums.iter().skip(1) {
-            let node = Some(Box::new(ListNode::new(*num)));
-            // 将ListNode赋值给p的下一个节点
-            p.as_mut().expect("").next = node;
-            // 将p的下一个节点赋值给p
-            p = p.expect("").next.as_mut();
-        }
-        // 返回head
-        head
-    }
+    use super::*;
 
     #[test]
     fn test_reverse_list() {
@@ -58,5 +67,31 @@ mod tests {
         // 输入：head = []
         // 输出：[]
         assert_eq!(Solution::reverse_list(None), None);
+
+        /*
+            输入: 1->2->3->4->5->NULL
+            输出: 5->4->3->2->1->NULL
+        */
+        assert_eq!(
+            Solution::reverse_list(create_list(vec![1, 2, 3, 4, 5])),
+            create_list(vec![5, 4, 3, 2, 1])
+        );
+    }
+
+    #[test]
+    fn test_reverse_list_offer_v1() {
+        assert_eq!(
+            Solution::reverse_list_offer_v1(create_list(vec![1, 2, 3, 4, 5])),
+            create_list(vec![5, 4, 3, 2, 1])
+        );
+        assert_eq!(
+            Solution::reverse_list_offer_v1(create_list(vec![1, 2])),
+            create_list(vec![2, 1])
+        );
+        assert_eq!(Solution::reverse_list_offer_v1(None), None);
+        assert_eq!(
+            Solution::reverse_list(create_list(vec![1, 2, 3, 4, 5])),
+            create_list(vec![5, 4, 3, 2, 1])
+        );
     }
 }

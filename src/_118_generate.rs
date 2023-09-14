@@ -1,7 +1,7 @@
+//! 杨辉三角
 use crate::types::base_type::Solution;
 
 impl Solution {
-    /// 杨辉三角
     /// f(i)(j) = f(i-1)(j-1) + f(i-1)(j)
     pub fn generate(num_rows: i32) -> Vec<Vec<i32>> {
         let mut res = Vec::with_capacity(num_rows as usize);

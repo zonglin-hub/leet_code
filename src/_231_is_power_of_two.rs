@@ -1,8 +1,7 @@
-#![allow(unused)]
+//! 2 的幂
 use crate::types::base_type::Solution;
 
 impl Solution {
-    // 2 的幂
     pub fn is_power_of_two(n: i32) -> bool {
         n > 0 && n & (n - 1) == 0
     }
@@ -23,7 +22,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_max_profit() {
+    fn test_is_power_of_two_v1() {
         // 输入：n = 1
         // 输出：true
         // 解释：20 = 1

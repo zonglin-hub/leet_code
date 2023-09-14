@@ -1,4 +1,5 @@
-#![allow(unused)]
+//! 3 的幂
+
 use crate::types::base_type::Solution;
 
 impl Solution {
@@ -7,5 +8,18 @@ impl Solution {
     /// 先判断 n 是否大于 0，然后判断 1162261467 是否能被 n 整除即可
     pub fn is_power_of_three(n: i32) -> bool {
         n > 0 && 1162261467 % n == 0
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_is_power_of_three() {
+        assert!(Solution::is_power_of_three(27));
+        assert_eq!(Solution::is_power_of_three(0), false);
+        assert!(Solution::is_power_of_three(9));
+        assert_eq!(Solution::is_power_of_three(45), false);
     }
 }

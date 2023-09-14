@@ -1,3 +1,5 @@
+//! Pow(x, n)
+
 use crate::types::base_type::Solution;
 
 impl Solution {

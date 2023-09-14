@@ -1,3 +1,5 @@
+//! 两数相除
+
 use crate::types::base_type::Solution;
 
 impl Solution {

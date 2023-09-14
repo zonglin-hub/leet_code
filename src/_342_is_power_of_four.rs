@@ -1,8 +1,8 @@
-#![allow(unused)]
+//! 4的幂
+
 use crate::types::base_type::Solution;
 
 impl Solution {
-    /// 4的幂
     /// 其中 0x2aaaaaaa 是二进制下 10101010101010101010101010101010
     /// 代码的实现相比于判断 3 的幂稍微复杂了一些，需要利用两个条件：
     /// n 是 2 的幂，即 n & (n - 1) == 0；

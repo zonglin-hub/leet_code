@@ -1,4 +1,7 @@
+//! 我的日程安排表 I
+
 #![allow(unused)]
+
 use std::collections::BTreeSet;
 
 struct MyCalendar {
@@ -25,19 +28,26 @@ impl MyCalendar {
 
 #[cfg(test)]
 mod tests {
+    use crate::_729_book::MyCalendar;
 
     #[test]
     fn test_book() {
-        use std::collections::BTreeSet;
-        use std::ops::Bound::Included;
+        /*
+            输入：
+            ["MyCalendar", "book", "book", "book"]
+            [[], [10, 20], [15, 25], [20, 30]]
+            输出：
+            [null, true, false, true]
 
-        let mut set = BTreeSet::new();
-        set.insert(3);
-        set.insert(5);
-        set.insert(8);
-        for &elem in set.range((Included(&4), Included(&8))) {
-            println!("{elem}");
-        }
-        assert_eq!(Some(&5), set.range(4..).next());
+            解释：
+            MyCalendar myCalendar = new MyCalendar();
+            myCalendar.book(10, 20); // return True
+            myCalendar.book(15, 25); // return False ，这个日程安排不能添加到日历中，因为时间 15 已经被另一个日程安排预订了。
+            myCalendar.book(20, 30); // return True ，这个日程安排可以添加到日历中，因为第一个日程安排预订的每个时间都小于 20 ，且不包含时间 20 。
+        */
+        let mut calendar = MyCalendar::new();
+        assert_eq!(calendar.book(10, 20), true);
+        assert_eq!(calendar.book(15, 25), false);
+        assert_eq!(calendar.book(20, 30), true);
     }
 }

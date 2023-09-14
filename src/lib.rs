@@ -2,22 +2,6 @@
 //!
 //! 先写测试模块，以测试驱动完成 Rust Code。
 //!
-//! # 模块命名规范示例
-//!
-//! _leetcode题号_函数名
-//!
-//! # 测试模块示例
-//!
-//! ```
-//! #[cfg(test)]
-//! mod tests {
-//!     use super::*;
-//!
-//!     #[test]
-//!     fn test_测试函数名() {}
-//! }
-//! ```
-//!
 
 pub mod _105_build_tree;
 pub mod _108_sorted_array_to_bst;
@@ -76,6 +60,7 @@ pub mod _49_group_anagrams;
 pub mod _4_find_median_sorted_arrays;
 pub mod _509_fib;
 pub mod _50_my_pow;
+pub mod _53_max_sub_array;
 pub mod _5_longest_palindrome;
 pub mod _617_merge_trees;
 pub mod _6_convert;
@@ -86,8 +71,5 @@ pub mod _856_score_of_parentheses;
 pub mod _8_my_atoi;
 pub mod _9_is_palindrome;
 pub mod offer_06_reverse_print;
-pub mod offer_24_reverse_list;
-pub mod offer_25_merge_two_lists;
-pub mod offer_42_max_sub_array;
 pub mod types;
 pub mod utools;

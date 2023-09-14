@@ -1,3 +1,5 @@
+//! 按序打印
+
 use std::sync::{Arc, Condvar, Mutex};
 
 pub trait FooTrait {
@@ -65,6 +67,12 @@ impl Foo {
 mod tests {
     use super::*;
 
+    /*
+        输入：nums = [1,2,3]
+        输出："firstsecondthird"
+        解释：
+        有三个线程会被异步启动。输入 [1,2,3] 表示线程 A 将会调用 first() 方法，线程 B 将会调用 second() 方法，线程 C 将会调用 third() 方法。正确的输出是 "firstsecondthird"。
+    */
     #[test]
     fn test_first_second_third() {
         let foo = Arc::new(Foo::new());
@@ -96,6 +104,12 @@ mod tests {
         }
     }
 
+    /*
+        输入：nums = [1,3,2]
+        输出："firstsecondthird"
+        解释：
+        输入 [1,3,2] 表示线程 A 将会调用 first() 方法，线程 B 将会调用 third() 方法，线程 C 将会调用 second() 方法。正确的输出是 "firstsecondthird"。
+    */
     #[test]
     fn test_first_third_second() {
         let foo = Arc::new(Foo::new());

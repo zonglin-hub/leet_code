@@ -1,7 +1,8 @@
+//! 下一个排列
+
 use crate::types::base_type::Solution;
 
 impl Solution {
-    ///
     /// 正常情况： vec![1, 2, 3] 的下一个排列为 vec![1, 3, 2]
     /// 特殊情况： vec![3, 2, 1] 的下一个排列为 vec![1, 2, 3]
     /// 边缘情况： vec![1, 1, 5] 的下一个排列为 vec![1, 5, 1]

@@ -1,6 +1,6 @@
 //! 合并两个有序链表
-
-#![allow(unused)]
+//!
+//! 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
 
 use crate::types::base_type::{ListNode, Solution};
 
@@ -34,23 +34,33 @@ impl Solution {
     }
 }
 
+impl Solution {
+    pub fn merge_two_lists(
+        l1: Option<Box<ListNode>>,
+        l2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        match (l1, l2) {
+            (Some(n), None) | (None, Some(n)) => Some(n),
+            (None, None) => None,
+            (Some(l1), Some(l2)) => match l1.val >= l2.val {
+                true => Some(Box::new(ListNode {
+                    val: l2.val,
+                    next: Self::merge_two_lists(Some(l1), l2.next),
+                })),
+                false => Some(Box::new(ListNode {
+                    val: l1.val,
+                    next: Self::merge_two_lists(l1.next, Some(l2)),
+                })),
+            },
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::utools::base_utool::create_list;
 
-    fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
-        if nums.is_empty() {
-            return None;
-        }
-        let mut head = Some(Box::new(ListNode::new(nums[0])));
-        let mut p = head.as_mut();
-        for num in nums.iter().skip(1) {
-            let node = Some(Box::new(ListNode::new(*num)));
-            p.as_mut().expect("").next = node;
-            p = p.expect("").next.as_mut();
-        }
-        head
-    }
+    use super::*;
 
     #[test]
     fn test_merge_two_lists_v1() {
@@ -71,10 +81,6 @@ mod tests {
             Solution::merge_two_lists_v1(create_list(vec![]), create_list(vec![])),
             create_list(vec![])
         );
-        // assert_eq!(
-        //     Solution::merge_two_lists_v1(create_list(vec![]), create_list(vec![])),
-        //     create_list(vec![])
-        // );
 
         /*
             输入：l1 = [], l2 = [0]
@@ -82,6 +88,22 @@ mod tests {
         */
         assert_eq!(
             Solution::merge_two_lists_v1(create_list(vec![]), create_list(vec![0])),
+            create_list(vec![0])
+        );
+    }
+
+    #[test]
+    fn test_merge_two_lists() {
+        assert_eq!(
+            Solution::merge_two_lists(create_list(vec![1, 2, 4]), create_list(vec![1, 3, 4])),
+            create_list(vec![1, 1, 2, 3, 4, 4])
+        );
+        assert_eq!(
+            Solution::merge_two_lists(create_list(vec![]), create_list(vec![])),
+            create_list(vec![])
+        );
+        assert_eq!(
+            Solution::merge_two_lists(create_list(vec![]), create_list(vec![0])),
             create_list(vec![0])
         );
     }
