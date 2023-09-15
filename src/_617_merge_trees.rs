@@ -33,15 +33,9 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::create_tree_node;
 
-    fn create_tree_node(
-        val: i32,
-        left: Option<Rc<RefCell<TreeNode>>>,
-        right: Option<Rc<RefCell<TreeNode>>>,
-    ) -> Option<Rc<RefCell<TreeNode>>> {
-        Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
-    }
+    use super::*;
 
     #[test]
     fn test_merge_trees_v1() {

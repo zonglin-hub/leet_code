@@ -88,39 +88,9 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
+    use crate::{create_list, to_vec};
+
     use super::*;
-
-    pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
-        // 创建一个头节点，并将其赋值给head
-        let mut head = Some(Box::new(ListNode::new(nums[0])));
-        // 将head赋值给p
-        let mut p = head.as_mut();
-        // 遍历nums数组，将每一个元素赋值给ListNode
-        for num in nums.iter().skip(1) {
-            let node = Some(Box::new(ListNode::new(*num)));
-            // 将ListNode赋值给p的下一个节点
-            p.as_mut().expect("").next = node;
-            // 将p的下一个节点赋值给p
-            p = p.expect("").next.as_mut();
-        }
-        // 返回head
-        head
-    }
-
-    pub fn to_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
-        // 创建一个空的数组，用于存放节点的值
-        let mut res = vec![];
-        // 将head赋值给p
-        let mut p = head;
-        // 当p存在时，将其值存入res数组
-        while let Some(node) = p {
-            res.push(node.val);
-            // 将p的下一个节点赋值给p
-            p = node.next;
-        }
-        // 返回res数组
-        res
-    }
 
     #[test]
     fn test_add_two_numbers_v1() {

@@ -42,33 +42,19 @@ impl Solution {
 #[cfg(test)]
 mod tests {
 
+    use crate::create_list;
+
     use super::*;
 
-    fn create_linked_list(values: &Vec<i32>) -> Option<Box<ListNode>> {
-        let mut head = None;
-
-        for &val in values.iter().rev() {
-            let node = ListNode {
-                val,
-                next: head.take(),
-            };
-
-            head = Some(Box::new(node));
-        }
-
-        head
-    }
-
     #[test]
-    // #[ignore = "代码异常"]
     fn test_swap_pairs_v1() {
         /*
             输入：head = [1,2,3,4]
             输出：[2,1,4,3]
         */
         assert_eq!(
-            Solution::swap_pairs_v1(create_linked_list(&vec![1, 2, 3, 4])),
-            create_linked_list(&vec![2, 1, 4, 3])
+            Solution::swap_pairs_v1(create_list(vec![1, 2, 3, 4])),
+            create_list(vec![2, 1, 4, 3])
         );
 
         /*
@@ -76,8 +62,8 @@ mod tests {
             输出：[]
         */
         assert_eq!(
-            Solution::swap_pairs_v1(create_linked_list(&vec![])),
-            create_linked_list(&vec![])
+            Solution::swap_pairs_v1(create_list(vec![])),
+            create_list(vec![])
         );
 
         /*
@@ -85,8 +71,8 @@ mod tests {
             输出：[1]
         */
         assert_eq!(
-            Solution::swap_pairs_v1(create_linked_list(&vec![1])),
-            create_linked_list(&vec![1])
+            Solution::swap_pairs_v1(create_list(vec![1])),
+            create_list(vec![1])
         );
     }
 }

@@ -52,25 +52,9 @@ impl Solution {
 #[cfg(test)]
 mod tests {
 
+    use crate::create_list;
+
     use super::*;
-
-    fn create_tree_node(nums: i32) -> Option<Box<ListNode>> {
-        Some(Box::new(ListNode {
-            val: nums,
-            next: None,
-        }))
-    }
-
-    fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
-        let mut head = create_tree_node(nums[0]);
-        let mut p = head.as_mut();
-        for num in nums.iter().skip(1) {
-            let node = create_tree_node(*num);
-            p.as_mut().expect("").next = node;
-            p = p.expect("").next.as_mut()
-        }
-        head
-    }
 
     #[test]
     fn test_remove_nth_from_end_v1() {

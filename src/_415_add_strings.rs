@@ -1,14 +1,10 @@
 //! 字符串相加
-use crate::Solution;
+use crate::{to_int_vec, Solution};
 
 impl Solution {
-    pub fn to_int_vec(s: &str) -> Vec<i32> {
-        s.bytes().map(|x| (x - b'0') as i32).rev().collect()
-    }
-
     pub fn add_strings(nums1: String, nums2: String) -> String {
-        let s1 = Self::to_int_vec(&nums1);
-        let s2 = Self::to_int_vec(&nums2);
+        let s1 = to_int_vec(&nums1);
+        let s2 = to_int_vec(&nums2);
         let mut carry = 0;
         let mut s3 = vec![];
         let n1 = s1.len();

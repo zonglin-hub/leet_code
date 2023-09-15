@@ -124,6 +124,13 @@ pub fn create_tree_node(
     Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
 }
 
+pub fn create_list_node(nums: i32) -> Option<Box<ListNode>> {
+    Some(Box::new(ListNode {
+        val: nums,
+        next: None,
+    }))
+}
+
 /// 创建链表
 pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
     if nums.is_empty() {
@@ -131,12 +138,12 @@ pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
     }
 
     // 创建一个头节点，并将其赋值给head
-    let mut head = Some(Box::new(ListNode::new(nums[0])));
+    let mut head = create_list_node(nums[0]);
     // 将head赋值给p
     let mut p = head.as_mut();
     // 遍历nums数组，将每一个元素赋值给ListNode
     for num in nums.iter().skip(1) {
-        let node = Some(Box::new(ListNode::new(*num)));
+        let node = create_list_node(*num);
         // 将ListNode赋值给p的下一个节点
         p.as_mut().expect("").next = node;
         // 将p的下一个节点赋值给p
@@ -145,6 +152,17 @@ pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
     // 返回head
     head
 }
+// fn create_linked_list(values: &Vec<i32>) -> Option<Box<ListNode>> {
+//     let mut head = None;
+//     for &val in values.iter().rev() {
+//         let node = ListNode {
+//             val,
+//             next: head.take(),
+//         };
+//         head = Some(Box::new(node));
+//     }
+//     head
+// }
 
 /// 用于测试数组乱序情况
 ///
@@ -158,7 +176,7 @@ pub fn expected_sort(queens: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
 }
 
 /// 类型转换
-/// 
+///
 /// let m = vec![[0, 1], [1, 0], [3, 3]]
 ///
 /// 生成算法函数把 m 转成  
@@ -171,4 +189,23 @@ pub fn expected_sort_vec(queens: Vec<[i32; 2]>) -> Vec<Vec<i32>> {
         .iter()
         .map(|&x| x.to_vec())
         .collect::<Vec<Vec<i32>>>()
+}
+
+pub fn to_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
+    // 创建一个空的数组，用于存放节点的值
+    let mut res = vec![];
+    // 将head赋值给p
+    let mut p = head;
+    // 当p存在时，将其值存入res数组
+    while let Some(node) = p {
+        res.push(node.val);
+        // 将p的下一个节点赋值给p
+        p = node.next;
+    }
+    // 返回res数组
+    res
+}
+
+pub fn to_int_vec(s: &str) -> Vec<i32> {
+    s.bytes().map(|x| (x - b'0') as i32).rev().collect()
 }

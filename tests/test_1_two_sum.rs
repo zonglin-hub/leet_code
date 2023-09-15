@@ -1,6 +1,5 @@
 use leet_code::Solution;
 
-
 #[test]
 fn test_two_sum_v1() {
     assert_eq!(Solution::two_sum_v1(vec![2, 7, 11, 15], 9), vec![0, 1]);
