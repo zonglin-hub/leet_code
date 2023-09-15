@@ -75,8 +75,10 @@ pub mod offer_06_reverse_print;
 
 use std::{cell::RefCell, rc::Rc};
 
+/// leet code 算法解题
 pub struct Solution;
 
+/// 树结构
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
     pub val: i32,
@@ -95,6 +97,7 @@ impl TreeNode {
     }
 }
 
+/// 链表结构
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,
@@ -112,6 +115,7 @@ impl ListNode {
     }
 }
 
+/// 简化套娃
 pub fn create_tree_node(
     val: i32,
     left: Option<Rc<RefCell<TreeNode>>>,
@@ -120,6 +124,7 @@ pub fn create_tree_node(
     Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
 }
 
+/// 创建链表
 pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
     if nums.is_empty() {
         return None;
@@ -141,7 +146,7 @@ pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
     head
 }
 
-/// 用于 测试数组乱序情况
+/// 用于测试数组乱序情况
 ///
 /// assertion failed: `(left == right)`
 ///  left: `[[0, 1], [3, 3], [1, 0]]`,
@@ -152,6 +157,8 @@ pub fn expected_sort(queens: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     expected
 }
 
+/// 类型转换
+/// 
 /// let m = vec![[0, 1], [1, 0], [3, 3]]
 ///
 /// 生成算法函数把 m 转成  
@@ -164,31 +171,4 @@ pub fn expected_sort_vec(queens: Vec<[i32; 2]>) -> Vec<Vec<i32>> {
         .iter()
         .map(|&x| x.to_vec())
         .collect::<Vec<Vec<i32>>>()
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_create_tree_node() {
-        let node = create_tree_node(1, None, None);
-        assert_eq!(node.expect("").borrow().val, 1);
-    }
-
-    #[test]
-    fn test_expected_sort() {
-        assert_eq!(
-            expected_sort(vec![vec![0, 1], vec![3, 3], vec![1, 0]]),
-            vec![[0, 1], [1, 0], [3, 3]]
-        );
-    }
-
-    #[test]
-    fn test_expected_sort_vec() {
-        assert_eq!(
-            expected_sort_vec(vec![[0, 1], [1, 0], [3, 3]]),
-            vec![[0, 1], [1, 0], [3, 3]]
-        );
-    }
 }

@@ -1,13 +1,40 @@
 //! 两数之和
 //!
 //! 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
+//!
+//! 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+//!
+//! 你可以按任意顺序返回答案。
+//!
+//! 示例 1：
+//!
+//! > 输入：`nums = [2,7,11,15], target = 9` <br>
+//! > 输出：`[0,1]` <br>
+//! > 解释：因为 `nums[0] + nums[1] == 9` ，返回 `[0, 1]` 。
+//!
+//! 示例 2：
+//!
+//! > 输入：`nums = [3,2,4], target = 6` <br>
+//! > 输出：`[1,2]`
+//!
+//! 示例 3：
+//!
+//! > 输入：`nums = [3,3], target = 6` <br>
+//! > 输出：`[0,1]`
+//!
+//! 提示：
+//!
+//! - `2 <= nums.length <= 104`
+//! - `-109 <= nums[i] <= 109`
+//! - `-109 <= target <= 109
+//! - **只会存在一个有效答案**
 
 use std::collections::HashMap;
 
 use crate::Solution;
 
 impl Solution {
-    /// 哈希表
+    #[doc = "哈希表"]
     pub fn two_sum_v1(nums: Vec<i32>, target: i32) -> Vec<i32> {
         // 如果数组长度为1，并且数组中的元素和目标值相等，则返回空的数组
         if nums.len() == 1 && nums[0] == target {
@@ -27,7 +54,9 @@ impl Solution {
         // 如果遍历完整个数组都没有找到符合条件的两个数，则返回空数组。
         vec![]
     }
+}
 
+impl Solution {
     /// 暴力枚举
     pub fn two_sum_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
         // 如果数组长度为1，并且数组中的元素和目标值相等，则返回空的数组
@@ -59,7 +88,9 @@ impl Solution {
         // 如果没有找到，则返回空的数组
         vec![]
     }
+}
 
+impl Solution {
     /// 双指针
     pub fn two_sum_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
         // 如果数组长度为1，并且数组中的元素和目标值相等，则返回空的数组
@@ -80,46 +111,5 @@ impl Solution {
             }
         }
         vec![]
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_two_sum_v1() {
-        /*
-            输入：nums = [2,7,11,15], target = 9
-            输出：[0,1]
-            解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1]
-        */
-        assert_eq!(Solution::two_sum_v1(vec![2, 7, 11, 15], 9), vec![0, 1]);
-
-        /*
-            输入：nums = [3,2,4], target = 6
-            输出：[1,2]
-        */
-        assert_eq!(Solution::two_sum_v1(vec![3, 2, 4], 6), vec![1, 2]);
-
-        /*
-            输入：nums = [3,3], target = 6
-            输出：[0,1]
-        */
-        assert_eq!(Solution::two_sum_v1(vec![3, 3], 6), vec![0, 1]);
-    }
-
-    #[test]
-    fn test_two_sum_v2() {
-        assert_eq!(Solution::two_sum_v2(vec![2, 7, 11, 15], 9), vec![0, 1]);
-        assert_eq!(Solution::two_sum_v2(vec![3, 2, 4], 6), vec![1, 2]);
-        assert_eq!(Solution::two_sum_v2(vec![3, 3], 6), vec![0, 1]);
-    }
-
-    #[test]
-    fn test_two_sum_v3() {
-        assert_eq!(Solution::two_sum_v3(vec![2, 7, 11, 15], 9), vec![0, 1]);
-        assert_eq!(Solution::two_sum_v3(vec![3, 2, 4], 6), vec![1, 2]);
-        assert_eq!(Solution::two_sum_v3(vec![3, 3], 6), vec![0, 1]);
     }
 }

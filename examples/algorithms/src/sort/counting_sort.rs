@@ -1,6 +1,5 @@
 #![allow(unused)]
 
-///
 /// 这是一个使用计数排序的实现。计数排序（Counting Sort）是一种简单的排序算法，它首先统计每个元素出现的次数，然后根据统计结果将元素放入新的数组中。
 pub fn counting_sort(arr: &mut [u32], maxval: usize) {
     let mut occurences: Vec<usize> = vec![0; maxval + 1];
