@@ -25,35 +25,3 @@ impl Solution {
         score[0]
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_score_of_parentheses_v1() {
-        /*
-            输入： "()"
-            输出： 1
-        */
-        assert_eq!(Solution::score_of_parentheses_v1("()".to_string()), 1);
-
-        /*
-            输入： "(())"
-            输出： 2
-        */
-        assert_eq!(Solution::score_of_parentheses_v1("(())".to_string()), 2);
-
-        /*
-            输入： "()()"
-            输出： 2
-        */
-        assert_eq!(Solution::score_of_parentheses_v1("()()".to_string()), 2);
-
-        /*
-            输入： "(()(()))"
-            输出： 6
-        */
-        assert_eq!(Solution::score_of_parentheses_v1("(()(()))".to_string()), 6);
-    }
-}

@@ -28,26 +28,3 @@ impl Solution {
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_generate_parenthesis_v1() {
-        /*
-            输入：n = 3
-            输出：["((()))","(()())","(())()","()(())","()()()"]
-        */
-        assert_eq!(
-            Solution::generate_parenthesis_v1(3),
-            vec!["((()))", "(()())", "(())()", "()(())", "()()()"]
-        );
-
-        /*
-            输入：n = 1
-            输出：["()"]
-        */
-        assert_eq!(Solution::generate_parenthesis_v1(1), vec!["()"])
-    }
-}

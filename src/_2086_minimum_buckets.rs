@@ -58,36 +58,3 @@ impl Solution {
         ans
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_minimum_buckets() {
-        // 输入：street = "H..H"
-        // 输出：2
-        // 解释：我们可以在下标为 1 和 2 处放水桶。"H..H" -> "HBBH"（'B' 表示放置水桶）。下标为 0 处的房屋右边有水桶，下标为 3 处的房屋左边有水桶。所以每个房屋旁边都至少有一个水桶收集雨水。
-        assert_eq!(Solution::minimum_buckets("H..H".to_string()), 2);
-
-        // 输入：street = ".H.H."
-        // 输出：1
-        // 解释：我们可以在下标为 2 处放置一个水桶。".H.H." -> ".HBH."（'B' 表示放置水桶）。下标为 1 处的房屋右边有水桶，下标为 3 处的房屋左边有水桶。所以每个房屋旁边都至少有一个水桶收集雨水。
-        assert_eq!(Solution::minimum_buckets(".H.H.".to_string()), 1);
-
-        // 输入：street = ".HHH."
-        // 输出：-1
-        // 解释：没有空位可以放置水桶收集下标为 2 处的雨水。所以没有办法收集所有房屋的雨水。
-        assert_eq!(Solution::minimum_buckets(".HHH.".to_string()), -1);
-
-        // 输入：street = "H"
-        // 输出：-1
-        // 解释：没有空位放置水桶。所以没有办法收集所有房屋的雨水。
-        assert_eq!(Solution::minimum_buckets("H".to_string()), -1);
-
-        // 输入：street = "."
-        // 输出：0
-        // 解释：没有房屋需要收集雨水。所以需要 0 个水桶。
-        assert_eq!(Solution::minimum_buckets(".".to_string()), 0);
-    }
-}

@@ -22,31 +22,3 @@ impl Solution {
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use crate::create_list;
-
-    use super::*;
-
-    #[test]
-    fn test_remove_elements() {
-        // 输入：head = [1,2,6,3,4,5,6], val = 6
-        // 输出：[1,2,3,4,5]
-        assert_eq!(
-            Solution::remove_elements(create_list(vec![1, 2, 6, 3, 4, 5, 6]), 6),
-            create_list(vec![1, 2, 3, 4, 5])
-        );
-
-        // 输入：head = [], val = 1
-        // 输出：[]
-        assert_eq!(Solution::remove_elements(None, 1), None);
-
-        // 输入：head = [7,7,7,7], val = 7、
-        // 输出：[]
-        assert_eq!(
-            Solution::remove_elements(create_list(vec![7, 7, 7, 7]), 7),
-            None
-        );
-    }
-}

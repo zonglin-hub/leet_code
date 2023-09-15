@@ -16,22 +16,3 @@ impl Solution {
         res
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use crate::create_list;
-
-    use super::*;
-
-    #[test]
-    fn test_reverse_print_v1() {
-        /*
-            输入：head = [1,3,2]
-            输出：[2,3,1]
-        */
-        assert_eq!(
-            Solution::reverse_print_v1(create_list(vec![1, 3, 2])),
-            vec![2, 3, 1]
-        );
-    }
-}

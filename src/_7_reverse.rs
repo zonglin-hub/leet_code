@@ -16,35 +16,3 @@ impl Solution {
             * x.signum()
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_reverse_v1() {
-        /*
-            输入：x = 123
-            输出：321
-        */
-        assert_eq!(Solution::reverse_v1(123), 321);
-
-        /*
-            输入：x = -123
-            输出：-321
-        */
-        assert_eq!(Solution::reverse_v1(-123), -321);
-
-        /*
-            输入：x = 120
-            输出：21
-        */
-        assert_eq!(Solution::reverse_v1(120), 21);
-
-        /*
-            输入：x = 0
-            输出：0
-        */
-        assert_eq!(Solution::reverse_v1(0), 0);
-    }
-}

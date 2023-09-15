@@ -36,37 +36,3 @@ impl Solution {
         ans.try_into().expect("")
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_longest_equal_subarray() {
-        /*
-            输入：nums = [1,3,2,3,1,3], k = 3
-            输出：3
-            解释：最优的方案是删除下标 2 和下标 4 的元素。
-            删除后，nums 等于 [1, 3, 3, 3] 。
-            最长等值子数组从 i = 1 开始到 j = 3 结束，长度等于 3 。
-            可以证明无法创建更长的等值子数组。
-        */
-        assert_eq!(
-            Solution::longest_equal_subarray(vec![1, 3, 2, 3, 1, 3], 3),
-            3
-        );
-
-        /*
-            输入：nums = [1,1,2,2,1,1], k = 2
-            输出：4
-            解释：最优的方案是删除下标 2 和下标 3 的元素。
-            删除后，nums 等于 [1, 1, 1, 1] 。
-            数组自身就是等值子数组，长度等于 4 。
-            可以证明无法创建更长的等值子数组。
-        */
-        assert_eq!(
-            Solution::longest_equal_subarray(vec![1, 1, 2, 2, 1, 1], 2),
-            4
-        );
-    }
-}

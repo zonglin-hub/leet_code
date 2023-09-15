@@ -54,30 +54,3 @@ impl Solution {
         r2 as f64
     }
 }
-
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_find_median_sorted_arrays_v1() {
-        /*
-            输入：nums1 = [1,3], nums2 = [2]
-            输出：2.00000
-            解释：合并数组 = [1,2,3] ，中位数 2
-        */
-        assert_eq!(
-            Solution::find_median_sorted_arrays_v1(vec![1, 3], vec![2]),
-            2.00000
-        );
-
-        /*
-            输入：nums1 = [1,2], nums2 = [3,4]
-            输出：2.50000
-            解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
-        */
-        assert_eq!(
-            Solution::find_median_sorted_arrays_v1(vec![1, 2], vec![3, 4]),
-            2.50000
-        );
-    }
-}

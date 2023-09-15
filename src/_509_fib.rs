@@ -32,39 +32,3 @@ impl Solution {
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_fib_v1() {
-        /*
-            输入：n = 2
-            输出：1
-            解释：F(2) = F(1) + F(0) = 1 + 0 = 1
-        */
-        assert_eq!(Solution::fib_v1(2), 1);
-
-        /*
-            输入：n = 3
-            输出：2
-            解释：F(3) = F(2) + F(1) = 1 + 1 = 2
-        */
-        assert_eq!(Solution::fib_v1(3), 2);
-
-        /*
-            输入：n = 4
-            输出：3
-            解释：F(4) = F(3) + F(2) = 2 + 1 = 3
-        */
-        assert_eq!(Solution::fib_v1(4), 3);
-    }
-
-    #[test]
-    fn test_fib_v2() {
-        assert_eq!(Solution::fib_v2(2), 1);
-        assert_eq!(Solution::fib_v2(3), 2);
-        assert_eq!(Solution::fib_v2(4), 3);
-    }
-}

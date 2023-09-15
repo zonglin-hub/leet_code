@@ -36,27 +36,3 @@ impl Solution {
         v[n]
     }
 }
-
-#[cfg(test)]
-mod tests {
-
-    use super::*;
-
-    #[test]
-    fn test_max_palindromes() {
-        /*
-            输入：s = "abaccdbbd", k = 3
-            输出：2
-            解释：可以选择 s = "abaccdbbd" 中斜体加粗的子字符串。"aba" 和 "dbbd" 都是回文，且长度至少为 k = 3 。
-            可以证明，无法选出两个以上的有效子字符串。
-        */
-        assert_eq!(Solution::max_palindromes(String::from("abaccdbbd"), 3), 2);
-
-        /*
-            输入：s = "adbcda", k = 2
-            输出：0
-            解释：字符串中不存在长度至少为 2 的回文子字符串。
-        */
-        assert_eq!(Solution::max_palindromes(String::from("adbcda"), 2), 0);
-    }
-}

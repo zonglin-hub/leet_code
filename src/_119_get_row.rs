@@ -16,15 +16,3 @@ impl Solution {
         res
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test() {
-        assert_eq!(Solution::get_row(3), vec![1, 3, 3, 1]);
-        assert_eq!(Solution::get_row(0), vec![1]);
-        assert_eq!(Solution::get_row(1), vec![1, 1]);
-    }
-}

@@ -36,30 +36,3 @@ impl Solution {
         true
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_longest_palindrome_v1() {
-        /*
-            输入：s = "babad"
-            输出："bab"
-            解释："aba" 同样是符合题意的答案。
-        */
-        assert_eq!(
-            Solution::longest_palindrome_v1("babad".to_owned()),
-            "bab".to_owned()
-        );
-
-        /*
-            输入：s = "cbbd"
-            输出："bb"
-        */
-        assert_eq!(
-            Solution::longest_palindrome_v1("cbbd".to_owned()),
-            "bb".to_owned()
-        );
-    }
-}

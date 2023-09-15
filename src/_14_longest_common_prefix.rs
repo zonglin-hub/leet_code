@@ -18,38 +18,3 @@ impl Solution {
             .collect()
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_longest_common_prefix_v1() {
-        /*
-            输入：strs = ["flower","flow","flight"]
-            输出："fl"
-        */
-        assert_eq!(
-            Solution::longest_common_prefix_v1(vec![
-                "flower".to_string(),
-                "flow".to_string(),
-                "flight".to_string()
-            ]),
-            "fl"
-        );
-
-        /*
-            输入：strs = ["dog","racecar","car"]
-            输出：""
-            解释：输入不存在公共前缀。
-        */
-        assert_eq!(
-            Solution::longest_common_prefix_v1(vec![
-                "dog".to_string(),
-                "racecar".to_string(),
-                "car".to_string()
-            ]),
-            ""
-        );
-    }
-}

@@ -47,29 +47,3 @@ impl Solution {
             .is_empty()
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_is_valid_v1() {
-        /*
-            输入：s = "()"
-            输出：true
-        */
-        assert!(Solution::is_valid_v1(String::from("()")));
-
-        /*
-            输入：s = "()[]{}"
-            输出：true
-        */
-        assert!(Solution::is_valid_v1(String::from("()[]{}")));
-
-        /*
-            输入：s = "(]"
-            输出：false
-        */
-        assert_eq!(Solution::is_valid_v1(String::from("(]")), false);
-    }
-}

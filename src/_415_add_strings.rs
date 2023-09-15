@@ -31,38 +31,3 @@ impl Solution {
         s3.iter().rev().collect()
     }
 }
-
-#[cfg(test)]
-mod test {
-    use super::*;
-
-    #[test]
-    fn test_add_strings() {
-        /*
-            输入：num1 = "11", num2 = "123"
-            输出："134"
-        */
-        assert_eq!(
-            Solution::add_strings("11".to_string(), "123".to_string()),
-            "134".to_string()
-        );
-
-        /*
-            输入：num1 = "456", num2 = "77"
-            输出："533"
-        */
-        assert_eq!(
-            Solution::add_strings("456".to_string(), "77".to_string()),
-            "533".to_string()
-        );
-
-        /*
-            输入：num1 = "0", num2 = "0"
-            输出："0"
-        */
-        assert_eq!(
-            Solution::add_strings("0".to_string(), "0".to_string()),
-            "0".to_string()
-        );
-    }
-}

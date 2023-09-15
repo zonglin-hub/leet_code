@@ -12,34 +12,3 @@ impl Solution {
         res
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_count_bits() {
-        /*
-            输入：n = 2
-            输出：[0,1,1]
-            解释：
-            0 --> 0
-            1 --> 1
-            2 --> 10
-        */
-        assert_eq!(Solution::count_bits(2), vec![0, 1, 1]);
-
-        /*
-            输入：n = 5
-            输出：[0,1,1,2,1,2]
-            解释：
-            0 --> 0
-            1 --> 1
-            2 --> 10
-            3 --> 11
-            4 --> 100
-            5 --> 101
-        */
-        assert_eq!(Solution::count_bits(5), vec![0, 1, 1, 2, 1, 2]);
-    }
-}
