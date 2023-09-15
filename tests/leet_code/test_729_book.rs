@@ -1,4 +1,5 @@
-use leet_code::_729_book::MyCalendar;
+use leet_code::leet_code::_729_book::MyCalendar;
+
 
 #[test]
 fn test_book() {
