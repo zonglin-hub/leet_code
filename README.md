@@ -6,7 +6,7 @@
 
 ### Setup
 
-Nushell requires a recent Rust toolchain and some dependencies; [refer to the Nu Book for up-to-date requirements](https://www.nushell.sh/book/installation.html#build-from-source). After installing dependencies, you should be able to clone+build Nu like any other Rust project:
+Nushell 需要最近的 Rust 工具链和一些依赖项； [有关最新要求，请参阅 Nu Book](https://www.nushell.sh/book/installation.html#build-from-source). 安装依赖项后，您应该能够像任何其他 Rust 项目一样 clone + build Nu：
 
 ```bash
 git clone https://github.com/nushell/nushell
@@ -16,18 +16,16 @@ cargo build
 
 ### Tests
 
-It is a good practice to cover your changes with a test. Also, try to think about corner cases and various ways how your changes could break. Cover those in the tests as well.
+用测试覆盖您的更改是一个很好的做法。此外，尝试考虑角落情况和各种方法如何破坏您的更改。也涵盖测试中的那些。
 
-Tests can be found in different places:
+测试可以在不同的地方找到：
 * `/tests`
-
-Most of the tests are built upon the `nu-test-support` crate. For testing specific features, such as running Nushell in a REPL mode, we have so called "testbins". For simple tests, you can find `run_test()` and `fail_test()` functions.
 
 
 ### Useful Commands
 
-As Nushell is build using a cargo workspace consisting of multiple crates keep in mind that you may need to pass additional flags compared to how you may be used to it from a single crate project.
-Read cargo's documentation for more details: https://doc.rust-lang.org/cargo/reference/workspaces.html
+由于 Nushell 是使用由多个板条箱组成的货物工作区构建的，请记住，与从单个板条箱项目中使用它的方式相比，您可能需要传递额外的标志。
+阅读 cargo 的文档档 了解 更多详情: https://doc.rust-lang.org/cargo/reference/workspaces.html
 
 - Build and run Nushell:
 

@@ -1,6 +1,5 @@
 use leet_code::leet_code::_729_book::MyCalendar;
 
-
 #[test]
 fn test_book() {
     let mut calendar = MyCalendar::new();

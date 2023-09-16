@@ -9,26 +9,26 @@
 # make sure all the tests pass.
 
 # check standard code formatting and apply the changes
-# export def fmt [
-#     --check: bool  # do not apply the format changes, only check the syntax
-#     --verbose: bool # print extra information about the command's progress
-# ] {
-#     if $verbose {
-#         print $"running ('toolkit fmt' | pretty-print-command)"
-#     }
+export def fmt [
+    --check: bool  # do not apply the format changes, only check the syntax
+    --verbose: bool # print extra information about the command's progress
+] {
+    if $verbose {
+        print $"running ('toolkit fmt' | pretty-print-command)"
+    }
 
-#     if $check {
-#         try {
-#             cargo fmt --all -- --check
-#         } catch {
-#             error make --unspanned {
-#                 msg: $"\nplease run ('toolkit fmt' | pretty-print-command) to fix formatting!"
-#             }
-#         }
-#     } else {
-#         cargo fmt --all
-#     }
-# }
+    if $check {
+        try {
+            cargo fmt --all -- --check
+        } catch {
+            error make --unspanned {
+                msg: $"\nplease run ('toolkit fmt' | pretty-print-command) to fix formatting!"
+            }
+        }
+    } else {
+        cargo fmt --all
+    }
+}
 
 # check that you're using the standard code style
 #

@@ -2,7 +2,6 @@ use std::sync::Arc;
 
 use leet_code::leet_code::_1114_print_sequence::{Foo, FooTrait};
 
-
 #[test]
 fn test_first_second_third() {
     let foo = Arc::new(Foo::new());
