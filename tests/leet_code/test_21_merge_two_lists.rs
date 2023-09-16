@@ -1,4 +1,4 @@
-use leet_code::{create_list, Solution};
+use leet_code::leet_code::{create_list, Solution};
 
 #[test]
 fn test_merge_two_lists_v1() {

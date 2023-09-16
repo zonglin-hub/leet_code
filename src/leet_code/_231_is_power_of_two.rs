@@ -1,5 +1,5 @@
 //! 2 的幂
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn is_power_of_two(n: i32) -> bool {

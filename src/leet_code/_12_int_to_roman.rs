@@ -1,6 +1,6 @@
 //! 整数转罗马数字
 //!
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn int_to_roman_v1(num: i32) -> String {

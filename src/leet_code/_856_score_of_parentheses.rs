@@ -1,6 +1,6 @@
 //! 括号的分数
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     // 栈

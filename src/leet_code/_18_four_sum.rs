@@ -2,7 +2,7 @@
 
 use std::cmp::Ordering;
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn four_sum_v1(nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {

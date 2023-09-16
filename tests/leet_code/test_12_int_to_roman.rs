@@ -1,4 +1,4 @@
-use leet_code::Solution;
+use leet_code::leet_code::Solution;
 
 #[test]
 fn test_int_to_roman_v1() {

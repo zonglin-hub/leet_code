@@ -1,4 +1,4 @@
-use leet_code::{create_tree_node, expected_sort, expected_sort_vec};
+use leet_code::leet_code::{create_tree_node, expected_sort, expected_sort_vec};
 
 #[test]
 fn test_create_tree_node() {

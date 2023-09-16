@@ -1,4 +1,4 @@
-use leet_code::Solution;
+use leet_code::leet_code::Solution;
 
 #[test]
 fn test_longest_common_prefix_v1() {

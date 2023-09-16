@@ -3,7 +3,7 @@
 use std::cmp::Ordering;
 use std::collections::BinaryHeap;
 
-use crate::{ListNode, Solution};
+use super::{Solution, ListNode};
 
 impl PartialOrd for ListNode {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {

@@ -1,6 +1,6 @@
 //! 最大子数组和
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn max_sub_array_v1(nums: Vec<i32>) -> i32 {

@@ -1,6 +1,6 @@
 //! 只出现一次的数字
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     ///

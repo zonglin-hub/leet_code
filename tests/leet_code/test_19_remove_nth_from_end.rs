@@ -1,4 +1,4 @@
-use leet_code::{create_list, Solution};
+use leet_code::leet_code::{create_list, Solution};
 
 #[test]
 fn test_remove_nth_from_end_v1() {

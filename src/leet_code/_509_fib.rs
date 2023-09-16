@@ -9,7 +9,7 @@
 //!
 //! 给定 n ，请计算 F(n) 。
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     /// 这是一个计算斐波那契数列的函数。输入参数n为需要计算的数列项数，返回值为第n项的值。

@@ -35,7 +35,7 @@
 //! - `operations[i].length == 2`
 //! - `0 <= operations[i][0], operations[i][1] < gem.length`
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn give_gem(gem: Vec<i32>, operations: Vec<Vec<i32>>) -> i32 {

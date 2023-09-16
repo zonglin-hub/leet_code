@@ -1,6 +1,6 @@
 use std::{cell::RefCell, rc::Rc};
 
-use leet_code::{create_tree_node, Solution, TreeNode};
+use leet_code::leet_code::{create_tree_node, Solution, TreeNode};
 
 #[test]
 fn test_merge_trees_v1() {

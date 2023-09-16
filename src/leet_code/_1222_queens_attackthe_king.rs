@@ -4,7 +4,7 @@
 //!
 //! 给定一个由整数坐标组成的数组 queens ，表示黑皇后的位置；以及一对坐标 king ，表示白国王的位置，返回所有可以攻击国王的皇后的坐标(任意顺序)。
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn queens_attackthe_king_v1(queens: Vec<Vec<i32>>, king: Vec<i32>) -> Vec<Vec<i32>> {

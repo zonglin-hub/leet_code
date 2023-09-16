@@ -1,4 +1,4 @@
-use leet_code::{expected_sort, expected_sort_vec, Solution};
+use leet_code::leet_code::{expected_sort, expected_sort_vec, Solution};
 
 #[test]
 fn test_queens_attackthe_king_v1() {

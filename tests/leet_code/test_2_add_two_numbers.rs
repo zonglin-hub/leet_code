@@ -1,4 +1,4 @@
-use leet_code::{create_list, to_vec, Solution};
+use leet_code::leet_code::{create_list, to_vec, Solution};
 
 #[test]
 fn test_add_two_numbers_v1() {

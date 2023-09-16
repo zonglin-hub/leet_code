@@ -31,7 +31,9 @@
 
 use std::collections::HashMap;
 
-use crate::Solution;
+use super::Solution;
+
+// use super::Solution;
 
 impl Solution {
     #[doc = "哈希表"]

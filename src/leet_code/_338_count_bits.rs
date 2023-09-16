@@ -1,6 +1,6 @@
 //! 比特位计数
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn count_bits(n: i32) -> Vec<i32> {

@@ -1,4 +1,4 @@
-use leet_code::{create_tree_node, Solution};
+use leet_code::leet_code::{create_tree_node, Solution};
 
 #[test]
 fn test_merge_trees() {

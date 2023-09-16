@@ -1,6 +1,6 @@
 use std::{cell::RefCell, rc::Rc};
 
-use leet_code::{Solution, TreeNode};
+use leet_code::leet_code::{Solution, TreeNode};
 
 #[test]
 fn test_sorted_array_to_bst() {

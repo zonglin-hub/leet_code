@@ -1,6 +1,6 @@
 //! 字符串转换整数 (atoi)
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn my_atoi_v1(s: String) -> i32 {

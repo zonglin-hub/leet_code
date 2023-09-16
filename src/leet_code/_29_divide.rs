@@ -1,6 +1,6 @@
 //! 两数相除
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn divide(dividend: i32, divisor: i32) -> i32 {

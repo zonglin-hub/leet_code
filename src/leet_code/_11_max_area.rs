@@ -1,5 +1,5 @@
 //! 盛最多水的容器
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn max_area_v1(height: Vec<i32>) -> i32 {

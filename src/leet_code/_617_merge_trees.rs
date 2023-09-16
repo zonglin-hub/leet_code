@@ -1,6 +1,6 @@
 //! 合并二叉树
 
-use crate::{Solution, TreeNode};
+use super::{Solution, TreeNode};
 
 use std::cell::RefCell;
 use std::rc::Rc;

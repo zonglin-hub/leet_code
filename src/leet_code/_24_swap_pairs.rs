@@ -2,7 +2,7 @@
 
 #![allow(unused)]
 
-use crate::{ListNode, Solution};
+use super::{Solution, ListNode};
 
 impl Solution {
     /// 这道题的解题思路是使用递归。

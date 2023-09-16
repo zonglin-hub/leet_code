@@ -2,7 +2,7 @@
 
 #![allow(unused)]
 
-use crate::Solution;
+use super::Solution;
 use std::collections::HashMap;
 
 impl Solution {

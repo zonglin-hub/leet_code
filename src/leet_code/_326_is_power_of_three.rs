@@ -1,6 +1,6 @@
 //! 3 的幂
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     /// 3 的幂

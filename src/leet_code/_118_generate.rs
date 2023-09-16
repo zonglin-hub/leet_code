@@ -1,5 +1,5 @@
 //! 杨辉三角
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     /// f(i)(j) = f(i-1)(j-1) + f(i-1)(j)

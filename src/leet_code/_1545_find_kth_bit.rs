@@ -1,6 +1,6 @@
 //! 找出第 N 个二进制字符串中的第 K 位
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     /// 给定整数 n 和 k，找出由 n 个字符组成的所有长度为 n 的二进制字符串中的第 k 位，并返回其对应的字符。

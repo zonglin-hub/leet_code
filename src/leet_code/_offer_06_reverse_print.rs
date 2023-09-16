@@ -10,7 +10,9 @@
 //! 限制：
 //! > `0 <= 链表长度 <= 10000`
 
-use crate::{ListNode, Solution};
+// use super::{Solution, ListNode};
+
+use super::{Solution, ListNode};
 
 impl Solution {
     /// 从尾到头打印链表

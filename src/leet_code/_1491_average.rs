@@ -1,6 +1,6 @@
 //! 去掉最低工资和最高工资后的工资平均值
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn average(salary: Vec<i32>) -> f64 {

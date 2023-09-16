@@ -1,4 +1,4 @@
-use leet_code::Solution;
+use leet_code::leet_code::Solution;
 
 #[test]
 fn test_length_of_longest_substring_v1() {

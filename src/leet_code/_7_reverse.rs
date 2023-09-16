@@ -2,7 +2,7 @@
 //!
 //! 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     pub fn reverse_v1(x: i32) -> i32 {

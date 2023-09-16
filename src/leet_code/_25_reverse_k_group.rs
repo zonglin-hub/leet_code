@@ -1,6 +1,6 @@
 //! K 个一组翻转链表
 
-use crate::{ListNode, Solution};
+use super::{Solution, ListNode};
 
 impl Solution {
     pub fn reverse_k_group_v1(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {

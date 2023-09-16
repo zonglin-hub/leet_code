@@ -1,6 +1,6 @@
 //! 转化时间需要的最少操作数
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     /// 转化时间需要的最少操作数

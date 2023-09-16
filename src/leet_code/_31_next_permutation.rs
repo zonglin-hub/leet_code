@@ -1,6 +1,6 @@
 //! 下一个排列
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     /// 正常情况： vec![1, 2, 3] 的下一个排列为 vec![1, 3, 2]

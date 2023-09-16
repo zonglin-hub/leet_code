@@ -1,6 +1,6 @@
 //! 4的幂
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     /// 其中 0x2aaaaaaa 是二进制下 10101010101010101010101010101010

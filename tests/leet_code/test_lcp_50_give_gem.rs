@@ -1,4 +1,4 @@
-use leet_code::{expected_sort_vec, Solution};
+use leet_code::leet_code::{expected_sort_vec, Solution};
 
 #[test]
 fn test_give_gem() {

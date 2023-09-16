@@ -1,6 +1,6 @@
 //! 括号生成
 
-use crate::Solution;
+use super::Solution;
 
 impl Solution {
     #[doc = include_str!("./_22_generate_parenthesis.md")]
