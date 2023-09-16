@@ -22,6 +22,7 @@ pub mod _15_three_sum;
 pub mod _16_three_sum_closest;
 pub mod _17_letter_combinations;
 pub mod _18_four_sum;
+pub mod _198_rob;
 pub mod _19_remove_nth_from_end;
 pub mod _1_two_sum;
 pub mod _203_remove_elements;

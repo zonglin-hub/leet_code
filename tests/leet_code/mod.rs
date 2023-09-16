@@ -20,6 +20,7 @@ mod test_15_three_sum;
 mod test_16_three_sum_closest;
 mod test_17_letter_combinations;
 mod test_18_four_sum;
+pub mod test_198_rob;
 mod test_19_remove_nth_from_end;
 mod test_1_two_sum;
 mod test_203_remove_elements;
