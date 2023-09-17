@@ -1,65 +1,28 @@
 //! K 个一组翻转链表
 
-use super::{Solution, ListNode};
+use super::{ListNode, Solution};
 
 impl Solution {
-    pub fn reverse_k_group_v1(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
-        fn reverse(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-            let mut pre: Option<Box<ListNode>> = None;
-            let mut head = head;
-            let mut next;
-
-            while head.is_some() {
-                next = head.as_mut().expect("").next.take();
-                head.as_mut().expect("").next = pre.take();
-                pre = head.take();
-                head = next.take()
-            }
-
-            pre
-        }
-
-        if k == 1 {
-            return head;
-        }
-
-        let mut dummy = Some(Box::new(ListNode::new(0)));
-        dummy.as_mut().expect("").next = head;
-        let mut pre = &mut dummy as *mut Option<Box<ListNode>>;
-        let mut end = pre;
-        // let mut end = &mut dummy as *mut Option<Box<ListNode>>;
-
-        unsafe {
-            while end.as_ref().expect("").as_ref().expect("").next.is_some() {
-                for _ in 0..k {
-                    if end.as_ref().expect("").is_none() {
-                        break;
-                    }
-                    if !end.is_null() {
-                        end = &mut end.as_mut().expect("").as_mut().expect("").next;
-                    }
-                }
-
-                if end.as_ref().expect("").is_none() {
-                    break;
-                }
-
-                let mut start = pre.as_mut().expect("").as_mut().expect("").next.take();
-                pre = &mut dummy;
-
-                while pre.as_ref().expect("").as_ref().expect("").next.is_some() {
-                    pre = &mut pre.as_mut().expect("").as_mut().expect("").next;
-                }
-
-                let mut next = end.as_mut().expect("").as_mut().expect("").next.take();
-                let startp = &mut start as *mut Option<Box<ListNode>>;
-                end.as_mut().expect("").as_mut().expect("").next = None;
-                pre.as_mut().expect("").as_mut().expect("").next = reverse(start).take();
-                startp.as_mut().expect("").as_mut().expect("").next = next.take();
-                pre = startp;
-                end = pre;
+    pub fn reverse_k_group_v1(mut head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
+        let mut next_head = &mut head;
+        // 获取下一轮头结点
+        for _ in 0..k {
+            if let Some(node) = next_head.as_mut() {
+                next_head = &mut node.next;
+            } else {
+                return head;
             }
         }
-        dummy.as_mut().expect("").next.take()
+        // 获取除本轮结果
+        let mut new_head = Self::reverse_k_group_v1(next_head.take(), k);
+        // 翻转本轮k个节点
+        for _ in 0..k {
+            if let Some(mut node) = head {
+                head = node.next.take();
+                node.next = new_head.take();
+                new_head = Some(node);
+            }
+        }
+        new_head
     }
 }

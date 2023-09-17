@@ -2,7 +2,7 @@
 
 #![allow(unused)]
 
-use super::{Solution, ListNode};
+use super::{ListNode, Solution};
 
 impl Solution {
     /// 这道题的解题思路是使用递归。

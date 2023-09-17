@@ -4,7 +4,7 @@
 
 #![allow(unused)]
 
-use super::{Solution, ListNode};
+use super::{ListNode, Solution};
 
 impl Solution {
     pub fn remove_elements(head: Option<Box<ListNode>>, val: i32) -> Option<Box<ListNode>> {

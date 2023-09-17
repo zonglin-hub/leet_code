@@ -29,6 +29,7 @@ pub mod _203_remove_elements;
 pub mod _206_reverse_list;
 pub mod _2086_minimum_buckets;
 pub mod _20_is_valid;
+pub mod _213_rob;
 pub mod _21_merge_two_lists;
 pub mod _2224_convert_time;
 pub mod _2231_largest_integer;

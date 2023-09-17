@@ -1,7 +1,7 @@
 //! 回文链表
 //!
 
-use super::{Solution, ListNode};
+use super::{ListNode, Solution};
 
 impl Solution {
     pub fn is_palindrome_v1(head: Option<Box<ListNode>>) -> bool {

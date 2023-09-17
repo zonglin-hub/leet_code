@@ -2,7 +2,7 @@
 //!
 //! 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
 
-use super::{Solution, ListNode};
+use super::{ListNode, Solution};
 
 impl Solution {
     pub fn merge_two_lists_v1(

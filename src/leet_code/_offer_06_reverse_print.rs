@@ -12,7 +12,7 @@
 
 // use super::{Solution, ListNode};
 
-use super::{Solution, ListNode};
+use super::{ListNode, Solution};
 
 impl Solution {
     /// 从尾到头打印链表
