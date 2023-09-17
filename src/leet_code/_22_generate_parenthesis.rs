@@ -3,7 +3,7 @@
 use super::Solution;
 
 impl Solution {
-    #[doc = include_str!("./_22_generate_parenthesis.md")]
+    #[doc = include_str!("../doc/leet_code/_22_generate_parenthesis.md")]
     pub fn generate_parenthesis_v1(n: i32) -> Vec<String> {
         let mut res = vec![];
         let mut cur = Vec::new();
