@@ -2,8 +2,7 @@ use leet_code::leet_code::{create_tree_node, expected_sort, expected_sort_vec};
 
 #[test]
 fn test_create_tree_node() {
-    let node = create_tree_node(1, None, None);
-    assert_eq!(node.expect("").borrow().val, 1);
+    assert_eq!(create_tree_node(1, None, None).expect("").borrow().val, 1);
 }
 
 #[test]

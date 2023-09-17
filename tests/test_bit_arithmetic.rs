@@ -55,12 +55,13 @@ fn test_operator() {
     x <<= 1; // x *= 2;
     x = (x << 1) + (x << 3); // x *= 10;
     x >>= 1; // x /= 2;
-    println!("{}", x);
+    assert_eq!(x, 10);
 
     let mut a = 5;
     let mut b = 3;
     a ^= b;
     b ^= a;
     a ^= b; // 交换两个值
-    println!("{} {}", a, b);
+    assert_eq!(a, 3);
+    assert_eq!(b, 5);
 }
