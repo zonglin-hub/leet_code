@@ -27,7 +27,6 @@ mod test_203_remove_elements;
 mod test_206_reverse_list;
 mod test_2086_minimum_buckets;
 mod test_20_is_valid;
-pub mod test_213_rob;
 mod test_21_merge_two_lists;
 mod test_2224_convert_time;
 mod test_2231_largest_integer;

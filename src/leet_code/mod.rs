@@ -29,7 +29,6 @@ pub mod _203_remove_elements;
 pub mod _206_reverse_list;
 pub mod _2086_minimum_buckets;
 pub mod _20_is_valid;
-pub mod _213_rob;
 pub mod _21_merge_two_lists;
 pub mod _2224_convert_time;
 pub mod _2231_largest_integer;
@@ -78,7 +77,7 @@ use std::{cell::RefCell, rc::Rc};
 /// leet code 算法解题
 pub struct Solution;
 
-/// 树结构
+/// 定义二叉树节点
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
     pub val: i32,
@@ -87,6 +86,7 @@ pub struct TreeNode {
 }
 
 impl TreeNode {
+    // 创建新节点
     #[inline]
     pub fn new(val: i32) -> Self {
         TreeNode {
@@ -95,6 +95,46 @@ impl TreeNode {
             right: None,
         }
     }
+}
+
+// 将数组转成二叉树
+pub fn array_to_tree(root: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
+    // 如果root为空，则返回None
+    if root.is_empty() {
+        return None;
+    }
+    // 创建一个Rc<RefCell<TreeNode>>对象，用于存放根节点
+    let root_node = Rc::new(RefCell::new(TreeNode::new(root[0].expect(""))));
+    // 创建一个队列，用于存放根节点
+    let mut queue = vec![Rc::clone(&root_node)];
+    // 初始化i为1
+    let mut i = 1;
+    // 当i小于root的长度时，循环
+    while i < root.len() {
+        // 取出队列中的第一个节点
+        let node = queue.remove(0);
+        // 如果root中的第i个元素存在，则将其赋值给node
+        if let Some(val) = root[i] {
+            let left = Rc::new(RefCell::new(TreeNode::new(val)));
+            node.borrow_mut().left = Some(Rc::clone(&left));
+            // 将left放入队列
+            queue.push(left);
+        }
+        // 同理，将i加1
+        i += 1;
+        // 如果i小于root的长度且root中的第i个元素存在，则将其赋值给val
+        if i < root.len() && root[i].is_some() {
+            let val = root[i].expect("");
+            let right = Rc::new(RefCell::new(TreeNode::new(val)));
+            node.borrow_mut().right = Some(Rc::clone(&right));
+            // 将right放入队列
+            queue.push(right);
+        }
+        // 同理，将i加1
+        i += 1;
+    }
+    // 返回根节点
+    Some(root_node)
 }
 
 /// 链表结构
