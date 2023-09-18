@@ -1,42 +1,10 @@
 //! 两数之和
-//!
-//! 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
-//!
-//! 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
-//!
-//! 你可以按任意顺序返回答案。
-//!
-//! 示例 1：
-//!
-//! > 输入：`nums = [2,7,11,15], target = 9` <br>
-//! > 输出：`[0,1]` <br>
-//! > 解释：因为 `nums[0] + nums[1] == 9` ，返回 `[0, 1]` 。
-//!
-//! 示例 2：
-//!
-//! > 输入：`nums = [3,2,4], target = 6` <br>
-//! > 输出：`[1,2]`
-//!
-//! 示例 3：
-//!
-//! > 输入：`nums = [3,3], target = 6` <br>
-//! > 输出：`[0,1]`
-//!
-//! 提示：
-//!
-//! - `2 <= nums.length <= 104`
-//! - `-109 <= nums[i] <= 109`
-//! - `-109 <= target <= 109
-//! - **只会存在一个有效答案**
-
-use std::collections::HashMap;
 
 use super::Solution;
-
-// use super::Solution;
+use std::collections::HashMap;
 
 impl Solution {
-    #[doc = "哈希表"]
+    /// 使用哈希表来查找两个数之和等于目标值的方法
     pub fn two_sum_v1(nums: Vec<i32>, target: i32) -> Vec<i32> {
         // 如果数组长度为1，并且数组中的元素和目标值相等，则返回空的数组
         if nums.len() == 1 && nums[0] == target {
@@ -65,7 +33,6 @@ impl Solution {
         if nums.len() == 1 && nums[0] == target {
             return vec![0];
         }
-
         /*
             [2, 7, 11, 15]
 
@@ -93,25 +60,31 @@ impl Solution {
 }
 
 impl Solution {
-    /// 双指针
+    /// 双指针 
     pub fn two_sum_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        // 如果数组长度为1，并且数组中的元素和目标值相等，则返回空的数组
+        // 如果数组长度为1，并且数组中的元素为目标值，则返回一个空的结果
         if nums.len() == 1 && nums[0] == target {
             return vec![0];
         }
-
+        // 获取数组长度
         let len = nums.len();
-
+        // 遍历数组
         for i in 0..len {
+            // 将当前元素的索引赋值给left
             let left = i;
+            // 将数组长度减1，赋值给right
             let mut right = len - 1;
+            // 当left小于right时，循环
             while left < right {
+                // 如果left和right之间的和与目标值相等，则返回索引和right的索引
                 if nums[left] + nums[right] == target {
                     return vec![i as i32, right as i32];
                 }
+                // 否则，right减1
                 right -= 1;
             }
         }
+        // 如果没有找到，则返回空的结果
         vec![]
     }
 }
