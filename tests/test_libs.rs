@@ -1,6 +1,4 @@
-use leet_code::leet_code::{
-    array_to_tree, create_tree_node, expected_sort, expected_sort_vec,
-};
+use leet_code::leet_code::{array_to_tree, create_tree_node, expected_sort, expected_sort_vec};
 
 #[test]
 fn test_create_tree_node() {

@@ -60,7 +60,7 @@ impl Solution {
 }
 
 impl Solution {
-    /// 双指针 
+    /// 双指针
     pub fn two_sum_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
         // 如果数组长度为1，并且数组中的元素为目标值，则返回一个空的结果
         if nums.len() == 1 && nums[0] == target {
