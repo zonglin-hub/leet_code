@@ -61,3 +61,4 @@ mod test_856_score_of_parentheses;
 mod test_8_my_atoi;
 mod test_lcp_50_give_gem;
 mod test_offer_06_reverse_print;
+mod test_lcp_06_min_count;

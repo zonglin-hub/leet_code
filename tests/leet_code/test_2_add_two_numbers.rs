@@ -37,3 +37,22 @@ fn test_add_two_numbers_v2() {
         to_vec(create_list(vec![8, 9, 9, 9, 0, 0, 0, 1]))
     );
 }
+
+#[test]
+fn test_and_then() {
+    fn sq_then_to_string(x: u32) -> Option<String> {
+        x.checked_mul(x).map(|sq| sq.to_string())
+    }
+
+    assert_eq!(Some(2).and_then(sq_then_to_string), Some(4.to_string()));
+    assert_eq!(Some(1_000_000).and_then(sq_then_to_string), None); // overflowed!
+    assert_eq!(None.and_then(sq_then_to_string), None);
+
+    let arr_2d = [["A0", "A1"], ["B0", "B1"]];
+
+    let item_0_1 = arr_2d.get(0).and_then(|row| row.get(1));
+    assert_eq!(item_0_1, Some(&"A1"));
+
+    let item_2_0 = arr_2d.get(2).and_then(|row| row.get(0));
+    assert_eq!(item_2_0, None);
+}
