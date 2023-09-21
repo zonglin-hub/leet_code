@@ -1,17 +1,15 @@
 #!/usr/bin/env nu
 
-# this module regroups a bunch of development tools to make the development
-# process easier for anyone.
+# 这是一个将许多开发工具组合成一个方便开发者的模块，以提高开发过程的效率。
 #
-# the main purpose of `toolkit` is to offer an easy to use interface for the
-# developer during a PR cycle, namely to (**1**) format the source base,
-# (**2**) catch classical flaws in the new changes with *clippy* and (**3**)
-# make sure all the tests pass.
+# `toolkit` 的主要目的是为开发人员提供一个易于使用的接口，以便在PR周期中轻松进行开发。
+# 
+# 主要目标有三个：1. 格式化源代码，2. 捕获常见缺陷，使用 `clippy`，3. 确保所有测试通过。
 
-# check standard code formatting and apply the changes
+# 检查标准代码格式并应用更改
 export def fmt [
-    --check: bool  # do not apply the format changes, only check the syntax
-    --verbose: bool # print extra information about the command's progress
+    --check: bool # 不应用格式更改，仅检查语法
+    --verbose: bool # 打印有关命令进度的高级信息
 ] {
     if $verbose {
         print $"running ('toolkit fmt' | pretty-print-command)"
@@ -30,13 +28,11 @@ export def fmt [
     }
 }
 
-# check that you're using the standard code style
-#
-# > it is important to make `clippy` happy :relieved:
+# 检查是否使用标准代码样式
 export def clippy [
-    --verbose: bool # print extra information about the command's progress
-    --features: list<string> # the list of features to run *Clippy* on
-    --workspace: bool # run the *Clippy* command on the whole workspace (overrides `--features`)
+    --verbose: bool # 打印有关命令进度的高级信息
+    --features: list<string> # `Clippy` 检查列表
+    --workspace: bool # 在整个工作区上运行 `Clippy` 命令（覆盖 `--features`）
 ] {
     if $verbose {
         print $"running ('toolkit clippy' | pretty-print-command)"
@@ -67,11 +63,11 @@ export def clippy [
     }
 }
 
-# check that all the tests pass
+# 检查所有测试是否通过
 export def test [
-    --fast: bool  # use the "nextext" `cargo` subcommand to speed up the tests (see [`cargo-nextest`](https://nexte.st/) and [`nextest-rs/nextest`](https://github.com/nextest-rs/nextest))
-    --features: list<string> # the list of features to run the tests on
-    --workspace: bool # run the *Clippy* command on the whole workspace (overrides `--features`)
+    --fast: bool  # 使用 "nextext" `cargo` 子命令来加速测试（请参阅 [`cargo-nextest`](https://nexte.st/) 和 [`nextest-rs/nextest`](https://github.com/nextest-rs/nextest)）
+    --features: list<string> # 用于运行测试的功能列表
+    --workspace: bool # 在整个工作区上运行 `Clippy` 命令（覆盖 `--features`）
 ] {
     if $fast {
         if $workspace {
@@ -95,7 +91,7 @@ export def test [
 #     cargo run -- -c $"use std testing; testing run-tests --path crates/nu-std ($extra_args)"
 # }
 
-# print the pipe input inside backticks, dimmed and italic, as a pretty command
+# 打印带有背景色的管道输入，变亮并斜体，以美观的命令
 def pretty-print-command [] {
     $"`(ansi default_dimmed)(ansi default_italic)($in)(ansi reset)`"
 }

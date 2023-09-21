@@ -61,9 +61,9 @@ pub mod _729_book;
 pub mod _7_reverse;
 pub mod _856_score_of_parentheses;
 pub mod _8_my_atoi;
+pub mod _lcp_06_min_count;
 pub mod _lcp_50_give_gem;
 pub mod _offer_06_reverse_print;
-pub mod _lcp_06_min_count;
 
 use std::{cell::RefCell, rc::Rc};
 
