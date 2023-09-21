@@ -32,6 +32,7 @@ mod test_231_is_power_of_two;
 mod test_23_merge_k_lists;
 mod test_24_swap_pairs;
 mod test_25_reverse_k_group;
+mod test_2603_collect_the_coins;
 mod test_26_remove_duplicates;
 mod test_27_remove_element;
 mod test_2831_longest_equal_subarray;

@@ -34,6 +34,7 @@ pub mod _231_is_power_of_two;
 pub mod _23_merge_k_lists;
 pub mod _24_swap_pairs;
 pub mod _25_reverse_k_group;
+pub mod _2603_collect_the_coins;
 pub mod _26_remove_duplicates;
 pub mod _27_remove_element;
 pub mod _2831_longest_equal_subarray;
