@@ -7,13 +7,8 @@
 
 ### Setup
 
-Nushell 需要最近的 Rust 工具链和一些依赖项； [有关最新要求，请参阅 Nu Book](https://www.nushell.sh/book/installation.html#build-from-source). 安装依赖项后，您应该能够像任何其他 Rust 项目一样 clone + build Nu：
+这里使用 `Nushell` 工具简化命令；[请参阅 Nu Book](https://www.nushell.sh/book/installation.html#build-from-source)。
 
-```bash
-git clone https://github.com/nushell/nushell
-cd nushell
-cargo build
-```
 
 ### Tests
 
@@ -25,65 +20,33 @@ cargo build
 
 ### Useful Commands
 
-由于 Nushell 是使用由多个板条箱组成的货物工作区构建的，请记住，与从单个板条箱项目中使用它的方式相比，您可能需要传递额外的标志。
-阅读 cargo 的文档档 了解 更多详情: https://doc.rust-lang.org/cargo/reference/workspaces.html
+由于 `Nushell` 是使用由多个板条箱组成的货物工作区构建的，请记住，与从单个板条箱项目中使用它的方式相比，您可能需要传递额外的标志。
 
-- Build and run Nushell:
+阅读 `cargo` 相关文档了解更多详情: https://doc.rust-lang.org/cargo/reference/workspaces.html
 
-  ```shell
-  cargo run
-  ```
+- 使用 `Nushell` 运行你的 `Rust` 项目:
 
-- Build and run with dataframe support.
-  ```shell
-  cargo run --features=dataframe
-  ```
-
-- Run Clippy on Nushell:
-
-  ```shell
-  cargo clippy --workspace -- -D warnings -D clippy::unwrap_used
-  ```
-  or via the `toolkit.nu` command:
   ```shell
   use toolkit.nu clippy
   clippy
   ```
 
-- Run all tests:
+- 运行所有测试
 
-  ```shell
-  cargo test --workspace
-  ```
-
-  along with dataframe tests
-
-  ```shell
-  cargo test --workspace --features=dataframe
-  ```
-  or via the `toolkit.nu` command:
   ```shell
   use toolkit.nu test
   test
   ```
 
-- Check to see if there are code formatting issues
+- 检查是否存在代码格式问题
 
-  ```shell
-  cargo fmt --all -- --check
-  ```
-  or via the `toolkit.nu` command:
   ```shell
   use toolkit.nu fmt
   fmt --check
   ```
 
-- Format the code in the project
+- 格式化项目中的代码
 
-  ```shell
-  cargo fmt --all
-  ```
-  or via the `toolkit.nu` command:
   ```shell
   use toolkit.nu fmt
   fmt
