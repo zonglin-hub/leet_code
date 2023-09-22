@@ -22,32 +22,30 @@ impl Solution {
 
         // 拓扑排序
         while let Some(x) = q.pop_front() {
-            let f = d[x].clone();
-
-            for y in f {
+            d[x].clone().into_iter().for_each(|y| {
                 d[y as usize].remove(&(x as i32));
+
                 if d[y as usize].len() == 1 && coins[y as usize] == 0 {
                     q.push_back(y as usize);
                 }
-            }
+            })
         }
 
         // 计算图的连通分量
         ((0..2)
             .fold(d, |mut acc, _| {
-                let q = acc
-                    .iter()
+                acc.iter()
                     .enumerate()
                     .filter(|(_, d)| d.len() == 1)
                     .map(|(i, _)| i)
-                    .collect::<VecDeque<_>>();
-
-                for x in q {
-                    for y in acc[x].clone() {
-                        acc[y as usize].remove(&(x as i32));
-                    }
-                    acc[x].clear();
-                }
+                    .collect::<VecDeque<_>>()
+                    .into_iter()
+                    .for_each(|x| {
+                        acc[x].clone().iter().for_each(|y| {
+                            acc[*y as usize].remove(&(x as i32));
+                        });
+                        acc[x].clear();
+                    });
 
                 acc
             })
