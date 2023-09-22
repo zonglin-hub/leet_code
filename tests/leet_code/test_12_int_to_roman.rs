@@ -1,7 +1,7 @@
 use leet_code::leet_code::Solution;
 
 #[test]
-fn test_int_to_roman_v1() {
+fn test_int_to_roman_12_v1() {
     assert_eq!(Solution::int_to_roman_12_v1(3), "III");
     assert_eq!(Solution::int_to_roman_12_v1(4), "IV");
     assert_eq!(Solution::int_to_roman_12_v1(9), "IX");
@@ -10,7 +10,7 @@ fn test_int_to_roman_v1() {
 }
 
 #[test]
-fn test_roman_to_int_v1() {
+fn test_roman_to_int_13_v1() {
     assert_eq!(Solution::roman_to_int_13_v1("III".to_string()), 3);
     assert_eq!(Solution::roman_to_int_13_v1("IV".to_string()), 4);
     assert_eq!(Solution::roman_to_int_13_v1("IX".to_string()), 9);

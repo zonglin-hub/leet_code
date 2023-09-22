@@ -36,7 +36,7 @@ impl Solution {
             ('D', 500),
             ('M', 1000),
         ]);
-        let chars: Vec<char> = s.chars().collect();
+        let chars = s.chars().collect::<Vec<char>>();
         let mut ans = *dic.get(&chars[chars.len() - 1]).expect("");
         for c in 0..chars.len() - 1 {
             let current_unit = dic.get(&chars[c]).expect("");
