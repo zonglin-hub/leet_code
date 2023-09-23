@@ -96,3 +96,31 @@ impl Solution {
         v[n]
     }
 }
+
+impl Solution {
+    fn valid(s: &[u8]) -> bool {
+        let n = s.len();
+        s.iter().rev().take(n).eq(s.iter().take(n))
+    }
+
+    pub fn valid_palindrome_680(s: String) -> bool {
+        let s = s.into_bytes();
+        let mut i = 0;
+        let mut j = s.len() - 1;
+
+        while i < j {
+            if s[i] != s[j] {
+                /*
+                    `i + 1..=j` 是一个 Rust 中的元组表示法，用来表示一个范围。在这个例子中，它表示从 `i + 1` 到 `j` 的所有整数，包括 `i + 1` 和 `j`。
+                    例如，如果 `i = 0` 且 `j = 5`，那么 `0 + 1..=5` 就表示了从 `1` 到 `5` 的所有整数，即 `1, 2, 3, 4, 5`。
+                */
+                return Self::valid(&s[i + 1..=j]) || Self::valid(&s[i..=j - 1]);
+            }
+
+            i += 1;
+            j -= 1;
+        }
+
+        true
+    }
+}

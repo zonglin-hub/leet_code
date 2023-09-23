@@ -35,3 +35,10 @@ fn test_max_palindromes() {
     );
     assert_eq!(Solution::max_palindromes_2472(String::from("adbcda"), 2), 0);
 }
+
+#[test]
+fn test_valid_palindrome_680() {
+    assert!(Solution::valid_palindrome_680(String::from("aba")));
+    assert!(Solution::valid_palindrome_680(String::from("abca")));
+    assert_eq!(Solution::valid_palindrome_680(String::from("abc")), false);
+}
