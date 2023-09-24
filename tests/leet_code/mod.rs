@@ -1,3 +1,4 @@
+mod test_1008_bst_from_preorder;
 mod test_105_build_tree;
 mod test_108_sorted_array_to_bst;
 mod test_10_is_match;
