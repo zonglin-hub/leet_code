@@ -2,28 +2,41 @@
 
 use super::Solution;
 use std::collections::HashMap;
+use std::ops::ControlFlow;
 
 impl Solution {
     /// 使用哈希表来查找两个数之和等于目标值的方法
     pub fn two_sum_v1(nums: Vec<i32>, target: i32) -> Vec<i32> {
-
         let mut map = HashMap::new();
-
-        // nums.iter().enumerate().for_each(|(i, k)| {
-        //     if let Some(&a) = map.get(&(target - k)) {
-        //         return vec![a, i.try_into().unwrap()];
-        //     }
-        //     map.insert(k, i);
-        // });
 
         for (i, k) in nums.iter().enumerate() {
             if let Some(&a) = map.get(&(target - k)) {
-                return vec![a, i.try_into().unwrap()];
+                return vec![a, i.try_into().expect("")];
             }
-            map.insert(k, i.try_into().unwrap());
+            map.insert(k, i.try_into().expect(""));
         }
 
         vec![]
+    }
+}
+
+impl Solution {
+    pub fn two_sum_v4(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let mut map = HashMap::new();
+
+        let r = nums.iter().enumerate().try_for_each(|(i, &k)| {
+            let i = i.try_into().expect("");
+            if let Some(&a) = map.get(&(target - k)) {
+                return ControlFlow::Break(vec![a, i]);
+            }
+            map.insert(k, i);
+            ControlFlow::Continue(())
+        });
+
+        match r {
+            ControlFlow::Break(v) => v,
+            ControlFlow::Continue(()) => vec![],
+        }
     }
 }
 
