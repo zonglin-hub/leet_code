@@ -48,6 +48,7 @@ pub mod _31_next_permutation;
 pub mod _32_longest_valid_parentheses;
 pub mod _338_count_bits;
 pub mod _35_search_insert;
+pub mod _383_can_construct;
 pub mod _392_is_subsequence;
 pub mod _3_length_of_longest_substring;
 pub mod _415_add_strings;
