@@ -6,22 +6,23 @@ use std::collections::HashMap;
 impl Solution {
     /// 使用哈希表来查找两个数之和等于目标值的方法
     pub fn two_sum_v1(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        // 如果数组长度为1，并且数组中的元素和目标值相等，则返回空的数组
-        if nums.len() == 1 && nums[0] == target {
-            return vec![0];
-        }
-        // 创建一个HashMap，用于存储数组中的元素和元素的索引
+
         let mut map = HashMap::new();
-        // 遍历数组，依次判断每个数和目标数的差是否已经存在于哈希表中，如果存在，则找到了符合条件的两个数，返回它们的下标即可。
-        for (k, v) in nums.into_iter().enumerate() {
-            // 如果map中存在target - v的值，则返回元素和索引
-            if let Some(&a) = map.get(&(target - v)) {
-                return vec![a, k as i32];
+
+        // nums.iter().enumerate().for_each(|(i, k)| {
+        //     if let Some(&a) = map.get(&(target - k)) {
+        //         return vec![a, i.try_into().unwrap()];
+        //     }
+        //     map.insert(k, i);
+        // });
+
+        for (i, k) in nums.iter().enumerate() {
+            if let Some(&a) = map.get(&(target - k)) {
+                return vec![a, i.try_into().unwrap()];
             }
-            // 如果差不存在于哈希表中，则将当前数及其下标插入哈希表中，等待后续的查找。
-            map.insert(v, k as i32);
+            map.insert(k, i.try_into().unwrap());
         }
-        // 如果遍历完整个数组都没有找到符合条件的两个数，则返回空数组。
+
         vec![]
     }
 }
