@@ -32,6 +32,7 @@ mod test_22_generate_parenthesis;
 mod test_231_is_power_of_two;
 mod test_23_merge_k_lists;
 mod test_24_swap_pairs;
+mod test_2582_pass_the_pillow;
 mod test_2591_dist_money;
 mod test_25_reverse_k_group;
 mod test_2603_collect_the_coins;

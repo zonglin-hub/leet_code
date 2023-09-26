@@ -34,6 +34,7 @@ pub mod _22_generate_parenthesis;
 pub mod _231_is_power_of_two;
 pub mod _23_merge_k_lists;
 pub mod _24_swap_pairs;
+pub mod _2582_pass_the_pillow;
 pub mod _2591_dist_money;
 pub mod _25_reverse_k_group;
 pub mod _2603_collect_the_coins;
