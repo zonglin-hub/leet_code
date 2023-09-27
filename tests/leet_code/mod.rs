@@ -9,6 +9,7 @@ mod test_11_max_area;
 mod test_121_max_profit;
 mod test_1222_queens_attackthe_king;
 mod test_12_int_to_roman;
+mod test_1333_filter_restaurants;
 mod test_136_single_number;
 mod test_1491_average;
 mod test_14_longest_common_prefix;

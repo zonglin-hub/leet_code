@@ -11,6 +11,7 @@ pub mod _11_max_area;
 pub mod _121_max_profit;
 pub mod _1222_queens_attackthe_king;
 pub mod _12_int_to_roman;
+pub mod _1333_filter_restaurants;
 pub mod _136_single_number;
 pub mod _1491_average;
 pub mod _14_longest_common_prefix;
