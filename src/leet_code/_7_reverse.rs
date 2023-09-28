@@ -1,11 +1,10 @@
-//! 整数反转
-//!
-//! 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
+//! 数据反转 7 | 206
 
-use super::Solution;
+use super::{ListNode, Solution};
 
 impl Solution {
-    pub fn reverse_v1(x: i32) -> i32 {
+    /// 整数反转
+    pub fn reverse(x: i32) -> i32 {
         x.abs()
             .to_string()
             .chars()
@@ -14,5 +13,36 @@ impl Solution {
             .parse::<i32>()
             .unwrap_or(0)
             * x.signum()
+    }
+}
+
+impl Solution {
+    /// 反转链表
+    pub fn reverse_list_206_v1(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        Self::reverse_list(head, None)
+    }
+
+    fn reverse_list(
+        head: Option<Box<ListNode>>,
+        prev: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        if let Some(mut node) = head {
+            let tail = node.next.take();
+            node.next = prev;
+            return Self::reverse_list(tail, Some(node));
+        }
+        prev
+    }
+}
+
+impl Solution {
+    pub fn reverse_list_206_v2(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let (mut res, mut node) = (None, head);
+        while let Some(mut x) = node {
+            node = x.next.take();
+            x.next = res.take();
+            res = Some(x);
+        }
+        res
     }
 }

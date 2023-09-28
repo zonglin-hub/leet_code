@@ -23,7 +23,6 @@ pub mod test_198_rob;
 mod test_19_remove_nth_from_end;
 mod test_1_two_sum;
 mod test_203_remove_elements;
-mod test_206_reverse_list;
 mod test_2086_minimum_buckets;
 mod test_20_is_valid;
 mod test_21_merge_two_lists;
