@@ -42,6 +42,7 @@ pub mod _2603_collect_the_coins;
 pub mod _26_remove_duplicates;
 pub mod _27_remove_element;
 pub mod _2831_longest_equal_subarray;
+pub mod _2840_check_strings;
 pub mod _28_str_str;
 pub mod _29_divide;
 pub mod _2_add_two_numbers;

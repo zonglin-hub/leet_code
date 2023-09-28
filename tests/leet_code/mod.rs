@@ -40,6 +40,7 @@ mod test_2603_collect_the_coins;
 mod test_26_remove_duplicates;
 mod test_27_remove_element;
 mod test_2831_longest_equal_subarray;
+mod test_2840_check_strings;
 mod test_28_str_str;
 mod test_29_divide;
 mod test_2_add_two_numbers;
