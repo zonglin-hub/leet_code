@@ -54,6 +54,7 @@ mod test_509_fib;
 mod test_50_my_pow;
 mod test_53_max_sub_array;
 mod test_5_longest_palindrome;
+mod test_605_can_place_flowers;
 mod test_617_merge_trees;
 mod test_6_convert;
 mod test_70_climb_stairs;

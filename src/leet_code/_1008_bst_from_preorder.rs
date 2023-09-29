@@ -1,8 +1,8 @@
 //! 前序遍历构造二叉搜索树
 
+use super::{Solution, TreeNode};
 use std::cell::RefCell;
 use std::rc::Rc;
-use super::{Solution, TreeNode};
 
 impl Solution {
     pub fn bst_from_preorder(preorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {

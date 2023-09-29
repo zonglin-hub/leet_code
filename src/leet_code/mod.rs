@@ -56,6 +56,7 @@ pub mod _509_fib;
 pub mod _50_my_pow;
 pub mod _53_max_sub_array;
 pub mod _5_longest_palindrome;
+pub mod _605_can_place_flowers;
 pub mod _617_merge_trees;
 pub mod _6_convert;
 pub mod _70_climb_stairs;

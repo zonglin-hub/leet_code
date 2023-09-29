@@ -1,14 +1,13 @@
 //! 合并二叉树
 
 use super::{Solution, TreeNode};
-
 use std::cell::RefCell;
 use std::rc::Rc;
+
+type R = Option<Rc<RefCell<TreeNode>>>;
+
 impl Solution {
-    pub fn merge_trees_v1(
-        root1: Option<Rc<RefCell<TreeNode>>>,
-        root2: Option<Rc<RefCell<TreeNode>>>,
-    ) -> Option<Rc<RefCell<TreeNode>>> {
+    pub fn merge_trees_v1(root1: R, root2: R) -> R {
         match (root1, root2) {
             (None, None) => None,
             (None, r) | (r, None) => r,
