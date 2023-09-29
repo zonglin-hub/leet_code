@@ -50,7 +50,6 @@ pub mod _35_search_insert;
 pub mod _383_can_construct;
 pub mod _392_is_subsequence;
 pub mod _3_length_of_longest_substring;
-pub mod _415_add_strings;
 pub mod _49_group_anagrams;
 pub mod _4_find_median_sorted_arrays;
 pub mod _509_fib;

@@ -48,7 +48,6 @@ mod test_35_search_insert;
 mod test_383_can_construct;
 mod test_392_is_subsequence;
 mod test_3_length_of_longest_substring;
-mod test_415_add_strings;
 mod test_49_group_anagrams;
 mod test_4_find_median_sorted_arrays;
 mod test_509_fib;
