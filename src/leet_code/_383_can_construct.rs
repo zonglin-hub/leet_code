@@ -1,3 +1,5 @@
+//! 赎金信
+
 use super::Solution;
 
 impl Solution {

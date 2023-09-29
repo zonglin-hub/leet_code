@@ -1,3 +1,5 @@
+//! 收集树中金币
+
 use std::collections::{HashSet, VecDeque};
 
 use super::Solution;

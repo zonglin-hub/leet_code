@@ -1,3 +1,5 @@
+//! 将钱分给最多的儿童
+
 use super::Solution;
 
 impl Solution {

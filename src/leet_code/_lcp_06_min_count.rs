@@ -1,3 +1,5 @@
+//! LCP 06. 拿硬币
+
 use super::Solution;
 
 impl Solution {

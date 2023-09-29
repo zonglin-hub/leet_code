@@ -1,3 +1,5 @@
+//! 餐厅过滤器
+
 use super::Solution;
 
 impl Solution {
