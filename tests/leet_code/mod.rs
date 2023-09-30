@@ -22,6 +22,7 @@ mod test_1_two_sum;
 mod test_203_remove_elements;
 mod test_2086_minimum_buckets;
 mod test_20_is_valid;
+mod test_2136_earliest_full_bloom;
 mod test_21_merge_two_lists;
 mod test_2224_convert_time;
 mod test_2231_largest_integer;
