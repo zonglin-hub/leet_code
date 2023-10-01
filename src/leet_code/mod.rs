@@ -18,6 +18,7 @@ pub mod _14_longest_common_prefix;
 pub mod _1528_restore_string;
 pub mod _1545_find_kth_bit;
 pub mod _17_letter_combinations;
+pub mod _1967_num_of_strings;
 pub mod _198_rob;
 pub mod _19_remove_nth_from_end;
 pub mod _1_two_sum;

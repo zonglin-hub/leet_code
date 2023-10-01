@@ -16,6 +16,7 @@ mod test_14_longest_common_prefix;
 mod test_1528_restore_string;
 mod test_1545_find_kth_bit;
 mod test_17_letter_combinations;
+mod test_1967_num_of_strings;
 pub mod test_198_rob;
 mod test_19_remove_nth_from_end;
 mod test_1_two_sum;
