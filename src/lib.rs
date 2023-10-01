@@ -1,6 +1,2 @@
-//! 使用 Rust 解决 Leetcode 相关问题。
-//!
-//! 先写测试模块，以测试驱动完成 Rust Code。
-//!
-
+#[doc = include_str!("../README.md")]
 pub mod leet_code;
