@@ -29,6 +29,7 @@ mod test_2224_convert_time;
 mod test_2231_largest_integer;
 mod test_22_generate_parenthesis;
 mod test_231_is_power_of_two;
+mod test_2395_find_subarrays;
 mod test_23_merge_k_lists;
 mod test_24_swap_pairs;
 mod test_2582_pass_the_pillow;
