@@ -59,6 +59,7 @@ pub mod _49_group_anagrams;
 pub mod _4_find_median_sorted_arrays;
 pub mod _509_fib;
 pub mod _50_my_pow;
+pub mod _526_count_arrangement;
 pub mod _53_max_sub_array;
 pub mod _5_longest_palindrome;
 pub mod _605_can_place_flowers;

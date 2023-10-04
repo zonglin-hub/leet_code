@@ -57,6 +57,7 @@ mod test_49_group_anagrams;
 mod test_4_find_median_sorted_arrays;
 mod test_509_fib;
 mod test_50_my_pow;
+mod test_526_count_arrangement;
 mod test_53_max_sub_array;
 mod test_5_longest_palindrome;
 mod test_605_can_place_flowers;
