@@ -14,7 +14,6 @@ impl Solution {
             if len == 0 {
                 (None, preorder)
             } else {
-                // 编译器无法推断出 root 的具体类型。这可能是因为 preorder.next() 返回的是一个泛型迭代器项，而 into() 方法需要具体的类型信息
                 let root = preorder.next();
                 let mut pos = 0;
 
