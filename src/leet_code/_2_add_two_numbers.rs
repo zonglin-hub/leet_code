@@ -1,22 +1,15 @@
 //! 两数相加 2 | 415
 
-use super::{to_int_vec, ListNode, Solution};
+use super::{to_int_vec, ListNode, ListNodePtr, Solution};
 
 /// 整数相加
 impl Solution {
     /// 递归
-    pub fn add_two_numbers_2_v1(
-        l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>,
-    ) -> Option<Box<ListNode>> {
+    pub fn add_two_numbers_2_v1(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
         Self::carried(l1, l2, 0)
     }
 
-    fn carried(
-        l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>,
-        mut carry: i32,
-    ) -> Option<Box<ListNode>> {
+    fn carried(l1: ListNodePtr, l2: ListNodePtr, mut carry: i32) -> ListNodePtr {
         // if l1.is_none() && l2.is_none() && carry == 0 {
         //     None
         // } else {
@@ -54,10 +47,7 @@ impl Solution {
     }
 
     /// 双指针
-    pub fn add_two_numbers_2_v2(
-        mut l1: Option<Box<ListNode>>,
-        mut l2: Option<Box<ListNode>>,
-    ) -> Option<Box<ListNode>> {
+    pub fn add_two_numbers_2_v2(mut l1: ListNodePtr, mut l2: ListNodePtr) -> ListNodePtr {
         // 创建一个新的链表
         let mut new_list = None;
         let mut p = &mut new_list;

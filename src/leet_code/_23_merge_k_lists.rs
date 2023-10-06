@@ -3,7 +3,7 @@
 use std::cmp::Ordering;
 use std::collections::BinaryHeap;
 
-use super::{ListNode, Solution};
+use super::{ListNode, ListNodePtr, Solution};
 
 impl PartialOrd for ListNode {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -18,7 +18,7 @@ impl Ord for ListNode {
 }
 
 impl Solution {
-    pub fn merge_k_lists_v1(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
+    pub fn merge_k_lists_v1(lists: Vec<ListNodePtr>) -> ListNodePtr {
         let mut min_heap = BinaryHeap::new();
         for i in lists {
             min_heap.push(i);

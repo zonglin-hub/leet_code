@@ -1,7 +1,7 @@
 //! 最长回文子串
 //! 相似题型：5 | 9 | 234 | 2472
 
-use super::{ListNode, Solution};
+use super::{ListNodePtr, Solution};
 
 impl Solution {
     /// 给你一个字符串 s，找到 s 中最长的回文子串。
@@ -41,7 +41,7 @@ impl Solution {
 }
 
 impl Solution {
-    pub fn is_palindrome_234_v1(head: Option<Box<ListNode>>) -> bool {
+    pub fn is_palindrome_234_v1(head: ListNodePtr) -> bool {
         let (mut val, mut node) = (vec![], &head);
         // loop {
         //     let node_box = match node {

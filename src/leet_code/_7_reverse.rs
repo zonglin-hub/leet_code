@@ -1,6 +1,6 @@
 //! 数据反转 7 | 206
 
-use super::{ListNode, Solution};
+use super::{ListNodePtr, Solution};
 
 impl Solution {
     /// 整数反转
@@ -18,14 +18,11 @@ impl Solution {
 
 impl Solution {
     /// 反转链表
-    pub fn reverse_list_206_v1(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn reverse_list_206_v1(head: ListNodePtr) -> ListNodePtr {
         Self::reverse_list(head, None)
     }
 
-    fn reverse_list(
-        head: Option<Box<ListNode>>,
-        prev: Option<Box<ListNode>>,
-    ) -> Option<Box<ListNode>> {
+    fn reverse_list(head: ListNodePtr, prev: ListNodePtr) -> ListNodePtr {
         if let Some(mut node) = head {
             let tail = node.next.take();
             node.next = prev;
@@ -36,7 +33,7 @@ impl Solution {
 }
 
 impl Solution {
-    pub fn reverse_list_206_v2(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn reverse_list_206_v2(head: ListNodePtr) -> ListNodePtr {
         let (mut res, mut node) = (None, head);
         while let Some(mut x) = node {
             node = x.next.take();

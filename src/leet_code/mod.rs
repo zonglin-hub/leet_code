@@ -80,12 +80,14 @@ use std::{cell::RefCell, rc::Rc};
 /// leet code 算法解题
 pub struct Solution;
 
+type TreeNodePtr = Option<Rc<RefCell<TreeNode>>>;
+type ListNodePtr = Option<Box<ListNode>>;
 /// 定义二叉树节点
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
     pub val: i32,
-    pub left: Option<Rc<RefCell<TreeNode>>>,
-    pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub left: TreeNodePtr,
+    pub right: TreeNodePtr,
 }
 
 impl TreeNode {
@@ -101,7 +103,7 @@ impl TreeNode {
 }
 
 // 将数组转成二叉树
-pub fn array_to_tree(root: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
+pub fn array_to_tree(root: Vec<Option<i32>>) -> TreeNodePtr {
     // 如果root为空，则返回None
     if root.is_empty() {
         return None;
@@ -144,7 +146,7 @@ pub fn array_to_tree(root: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,
-    pub next: Option<Box<ListNode>>,
+    pub next: ListNodePtr,
 }
 
 impl ListNode {
@@ -159,15 +161,11 @@ impl ListNode {
 }
 
 /// 简化套娃
-pub fn create_tree_node(
-    val: i32,
-    left: Option<Rc<RefCell<TreeNode>>>,
-    right: Option<Rc<RefCell<TreeNode>>>,
-) -> Option<Rc<RefCell<TreeNode>>> {
+pub fn create_tree_node(val: i32, left: TreeNodePtr, right: TreeNodePtr) -> TreeNodePtr {
     Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
 }
 
-pub fn create_list_node(nums: i32) -> Option<Box<ListNode>> {
+pub fn create_list_node(nums: i32) -> ListNodePtr {
     Some(Box::new(ListNode {
         val: nums,
         next: None,
@@ -175,7 +173,7 @@ pub fn create_list_node(nums: i32) -> Option<Box<ListNode>> {
 }
 
 /// 创建链表
-pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
+pub fn create_list(nums: Vec<i32>) -> ListNodePtr {
     if nums.is_empty() {
         return None;
     }
@@ -195,7 +193,7 @@ pub fn create_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
     // 返回head
     head
 }
-// fn create_linked_list(values: &Vec<i32>) -> Option<Box<ListNode>> {
+// fn create_linked_list(values: &Vec<i32>) -> ListNodePtr {
 //     let mut head = None;
 //     for &val in values.iter().rev() {
 //         let node = ListNode {
@@ -234,7 +232,7 @@ pub fn expected_sort_vec(queens: Vec<[i32; 2]>) -> Vec<Vec<i32>> {
         .collect::<Vec<Vec<i32>>>()
 }
 
-pub fn to_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
+pub fn to_vec(head: ListNodePtr) -> Vec<i32> {
     // 创建一个空的数组，用于存放节点的值
     let mut res = vec![];
     // 将head赋值给p

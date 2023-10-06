@@ -2,10 +2,10 @@
 //!
 //! 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
 
-use super::{ListNode, Solution};
+use super::{ListNode, ListNodePtr, Solution};
 
 impl Solution {
-    pub fn remove_nth_from_end_v1(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+    pub fn remove_nth_from_end_v1(head: ListNodePtr, n: i32) -> ListNodePtr {
         unsafe {
             let dummy = &mut ListNode { val: 0, next: head } as *mut ListNode;
             let mut slow = dummy;
@@ -22,7 +22,7 @@ impl Solution {
         }
     }
 
-    pub fn remove_nth_from_end_v2(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+    pub fn remove_nth_from_end_v2(head: ListNodePtr, n: i32) -> ListNodePtr {
         let (mut fast, mut slow) = (&head, &head);
         let mut root = ListNode::new(0);
         let mut curr = &mut root;

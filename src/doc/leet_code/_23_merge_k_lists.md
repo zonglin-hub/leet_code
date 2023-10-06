@@ -23,15 +23,15 @@
 ## 自定义链表
 
 
-`Option<Box<ListNode>>` 表示返回值可以是一个空指针，或者一个指向堆上 `ListNode` 对象的指针。使用 `Box` 是为了避免在函数返回后出现生命周期问题，直接将 `ListNode` 放在堆上管理。下面是一个简单的示例：
+`TreeNodePtr ` 表示返回值可以是一个空指针，或者一个指向堆上 `ListNode` 对象的指针。使用 `Box` 是为了避免在函数返回后出现生命周期问题，直接将 `ListNode` 放在堆上管理。下面是一个简单的示例：
 
 ```rust
 struct ListNode {
     val: i32,
-    next: Option<Box<ListNode>>,
+    next: TreeNodePtr ,
 }
 
-fn create_linked_list(values: &Vec<i32>) -> Option<Box<ListNode>> {
+fn create_linked_list(values: &Vec<i32>) -> TreeNodePtr  {
     let mut head = None;
 
     for &val in values.iter().rev() {
@@ -62,7 +62,7 @@ fn main() {
 
 Rust 中宏由两部分组成：模式和替换体。模式指定了宏匹配的语法结构，替换体则是匹配到宏之后要生成的代码。模式和替换体之间使用 => 符号分隔。
 
-现在我们要自定义一个宏，让它创建一个链表，最后以 `Option<Box<ListNode>>` 的形式返回链表头指针。
+现在我们要自定义一个宏，让它创建一个链表，最后以 `TreeNodePtr ` 的形式返回链表头指针。
 
 下面是一个简单的示例：
 

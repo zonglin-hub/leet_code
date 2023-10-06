@@ -1,9 +1,9 @@
 //! K 个一组翻转链表
 
-use super::{ListNode, Solution};
+use super::{ListNodePtr, Solution};
 
 impl Solution {
-    pub fn reverse_k_group_v1(mut head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
+    pub fn reverse_k_group_v1(mut head: ListNodePtr, k: i32) -> ListNodePtr {
         let mut next_head = &mut head;
         // 获取下一轮头结点
         for _ in 0..k {

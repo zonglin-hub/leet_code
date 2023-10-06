@@ -2,17 +2,14 @@
 //!
 //! 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
 
-use super::{ListNode, Solution};
+use super::{ListNode, ListNodePtr, Solution};
 
 impl Solution {
-    pub fn merge_two_lists_v1(
-        list1: Option<Box<ListNode>>,
-        list2: Option<Box<ListNode>>,
-    ) -> Option<Box<ListNode>> {
+    pub fn merge_two_lists_v1(list1: ListNodePtr, list2: ListNodePtr) -> ListNodePtr {
         Self::carried_v1(list1, list2)
     }
 
-    fn carried_v1(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    fn carried_v1(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
         if l1.is_none() && l2.is_none() {
             return None;
         }
@@ -35,10 +32,7 @@ impl Solution {
 }
 
 impl Solution {
-    pub fn merge_two_lists(
-        l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>,
-    ) -> Option<Box<ListNode>> {
+    pub fn merge_two_lists(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
         match (l1, l2) {
             (Some(n), None) | (None, Some(n)) => Some(n),
             (None, None) => None,

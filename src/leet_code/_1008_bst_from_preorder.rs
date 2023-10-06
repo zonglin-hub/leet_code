@@ -1,11 +1,11 @@
 //! 前序遍历构造二叉搜索树
 
-use super::{Solution, TreeNode};
+use super::{Solution, TreeNode, TreeNodePtr};
 use std::cell::RefCell;
 use std::rc::Rc;
 
 impl Solution {
-    pub fn bst_from_preorder(preorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+    pub fn bst_from_preorder(preorder: Vec<i32>) -> TreeNodePtr {
         if !preorder.is_empty() {
             let devide = preorder
                 .iter()

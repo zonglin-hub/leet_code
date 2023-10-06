@@ -1,9 +1,7 @@
 //! 打家劫舍。
 //! 相似题型：198 | 213 | 337 | 2560
 
-use std::{cell::RefCell, rc::Rc};
-
-use super::{Solution, TreeNode};
+use super::{Solution, TreeNodePtr};
 
 impl Solution {
     pub fn rob_198(nums: Vec<i32>) -> i32 {
@@ -69,12 +67,12 @@ impl Solution {
 }
 
 impl Solution {
-    pub fn rob_337(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    pub fn rob_337(root: TreeNodePtr) -> i32 {
         // 计算root节点的最大值
         Self::rob(&root)[1]
     }
 
-    pub fn rob(root: &Option<Rc<RefCell<TreeNode>>>) -> [i32; 2] {
+    pub fn rob(root: &TreeNodePtr) -> [i32; 2] {
         // 如果root节点存在，则计算root节点的左右子节点的最大值
         if let Some(n) = root {
             // 计算左子节点的最大值

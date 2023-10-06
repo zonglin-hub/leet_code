@@ -4,13 +4,10 @@
 //!
 //! 叶子节点 是指没有子节点的节点。
 
-use std::cell::RefCell;
-use std::rc::Rc;
-
-use super::{Solution, TreeNode};
+use super::{Solution, TreeNodePtr};
 
 impl Solution {
-    pub fn has_path_sum(root: Option<Rc<RefCell<TreeNode>>>, target_sum: i32) -> bool {
+    pub fn has_path_sum(root: TreeNodePtr, target_sum: i32) -> bool {
         match root {
             None => false,
             Some(node) => {
