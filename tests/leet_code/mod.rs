@@ -50,6 +50,7 @@ mod test_31_next_permutation;
 mod test_32_longest_valid_parentheses;
 mod test_338_count_bits;
 mod test_35_search_insert;
+mod test_36_is_valid_sudoku;
 mod test_383_can_construct;
 mod test_392_is_subsequence;
 mod test_3_length_of_longest_substring;
