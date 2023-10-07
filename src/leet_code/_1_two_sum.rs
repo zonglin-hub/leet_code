@@ -1,4 +1,4 @@
-//! 基数之和 1 | 15 | 16 | 18
+//! 两数之和
 
 use super::Solution;
 use std::collections::HashMap;

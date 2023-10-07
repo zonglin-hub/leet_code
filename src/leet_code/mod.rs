@@ -95,6 +95,7 @@ pub struct Solution;
 
 type TreeNodePtr = Option<Rc<RefCell<TreeNode>>>;
 type ListNodePtr = Option<Box<ListNode>>;
+
 /// 定义二叉树节点
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
@@ -115,43 +116,30 @@ impl TreeNode {
     }
 }
 
-// 将数组转成二叉树
+/// `vector` 转 `Option<Rc<RefCell<TreeNode>>>`
 pub fn array_to_tree(root: Vec<Option<i32>>) -> TreeNodePtr {
-    // 如果root为空，则返回None
     if root.is_empty() {
         return None;
     }
-    // 创建一个Rc<RefCell<TreeNode>>对象，用于存放根节点
     let root_node = Rc::new(RefCell::new(TreeNode::new(root[0].expect(""))));
-    // 创建一个队列，用于存放根节点
     let mut queue = vec![Rc::clone(&root_node)];
-    // 初始化i为1
     let mut i = 1;
-    // 当i小于root的长度时，循环
     while i < root.len() {
-        // 取出队列中的第一个节点
         let node = queue.remove(0);
-        // 如果root中的第i个元素存在，则将其赋值给node
         if let Some(val) = root[i] {
             let left = Rc::new(RefCell::new(TreeNode::new(val)));
             node.borrow_mut().left = Some(Rc::clone(&left));
-            // 将left放入队列
             queue.push(left);
         }
-        // 同理，将i加1
         i += 1;
-        // 如果i小于root的长度且root中的第i个元素存在，则将其赋值给val
         if i < root.len() && root[i].is_some() {
             let val = root[i].expect("");
             let right = Rc::new(RefCell::new(TreeNode::new(val)));
             node.borrow_mut().right = Some(Rc::clone(&right));
-            // 将right放入队列
             queue.push(right);
         }
-        // 同理，将i加1
         i += 1;
     }
-    // 返回根节点
     Some(root_node)
 }
 
@@ -173,11 +161,12 @@ impl ListNode {
     }
 }
 
-/// 简化套娃
+/// 简化 `tree` 套娃 -> `Option<Rc<RefCell<TreeNode>>>`
 pub fn create_tree_node(val: i32, left: TreeNodePtr, right: TreeNodePtr) -> TreeNodePtr {
     Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
 }
 
+/// 简化链表套娃 -> `Option<Box<ListNode>>`
 pub fn create_list_node(nums: i32) -> ListNodePtr {
     Some(Box::new(ListNode {
         val: nums,
@@ -185,38 +174,20 @@ pub fn create_list_node(nums: i32) -> ListNodePtr {
     }))
 }
 
-/// 创建链表
+/// `vector` 转 `Option<Box<ListNode>>`
 pub fn create_list(nums: Vec<i32>) -> ListNodePtr {
     if nums.is_empty() {
         return None;
     }
-
-    // 创建一个头节点，并将其赋值给head
     let mut head = create_list_node(nums[0]);
-    // 将head赋值给p
     let mut p = head.as_mut();
-    // 遍历nums数组，将每一个元素赋值给ListNode
     for num in nums.iter().skip(1) {
         let node = create_list_node(*num);
-        // 将ListNode赋值给p的下一个节点
         p.as_mut().expect("").next = node;
-        // 将p的下一个节点赋值给p
         p = p.expect("").next.as_mut();
     }
-    // 返回head
     head
 }
-// fn create_linked_list(values: &Vec<i32>) -> ListNodePtr {
-//     let mut head = None;
-//     for &val in values.iter().rev() {
-//         let node = ListNode {
-//             val,
-//             next: head.take(),
-//         };
-//         head = Some(Box::new(node));
-//     }
-//     head
-// }
 
 /// 用于测试数组乱序情况
 ///
@@ -229,37 +200,26 @@ pub fn expected_sort(queens: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     expected
 }
 
-/// 类型转换
-///
-/// let m = vec![[0, 1], [1, 0], [3, 3]]
-///
-/// 生成算法函数把 m 转成  
-///
-/// vec![vec![0, 1], vec![1, 0], vec![3, 3]]
-///
+/// `vec![[0, 1]]` 转 `vec![vec![0, 1]]`
 pub fn expected_sort_vec(queens: Vec<[i32; 2]>) -> Vec<Vec<i32>> {
-    // let m = vec![[0, 1], [1, 0], [3, 3]];
     queens
         .iter()
         .map(|&x| x.to_vec())
         .collect::<Vec<Vec<i32>>>()
 }
 
+/// `ListNode` 转 `vector`
 pub fn to_vec(head: ListNodePtr) -> Vec<i32> {
-    // 创建一个空的数组，用于存放节点的值
     let mut res = vec![];
-    // 将head赋值给p
     let mut p = head;
-    // 当p存在时，将其值存入res数组
     while let Some(node) = p {
         res.push(node.val);
-        // 将p的下一个节点赋值给p
         p = node.next;
     }
-    // 返回res数组
     res
 }
 
+/// `&str` 转 `vector`
 pub fn to_int_vec(s: &str) -> Vec<i32> {
     s.bytes().map(|x| (x - b'0') as i32).rev().collect()
 }
