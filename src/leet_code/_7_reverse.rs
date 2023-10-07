@@ -1,10 +1,9 @@
-//! 数据反转 7 | 206
+//! 整数反转
 
-use super::{ListNode, Solution};
+use super::Solution;
 
 impl Solution {
-    /// 整数反转
-    pub fn reverse(x: i32) -> i32 {
+    pub fn reverse_7_v1(x: i32) -> i32 {
         x.abs()
             .to_string()
             .chars()
@@ -13,36 +12,5 @@ impl Solution {
             .parse::<i32>()
             .unwrap_or(0)
             * x.signum()
-    }
-}
-
-impl Solution {
-    /// 反转链表
-    pub fn reverse_list_206_v1(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        Self::reverse_list(head, None)
-    }
-
-    fn reverse_list(
-        head: Option<Box<ListNode>>,
-        prev: Option<Box<ListNode>>,
-    ) -> Option<Box<ListNode>> {
-        if let Some(mut node) = head {
-            let tail = node.next.take();
-            node.next = prev;
-            return Self::reverse_list(tail, Some(node));
-        }
-        prev
-    }
-}
-
-impl Solution {
-    pub fn reverse_list_206_v2(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let (mut res, mut node) = (None, head);
-        while let Some(mut x) = node {
-            node = x.next.take();
-            x.next = res.take();
-            res = Some(x);
-        }
-        res
     }
 }

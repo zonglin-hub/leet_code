@@ -1,11 +1,9 @@
-//! 基数之和 1 | 15 | 16 | 18
+//! 两数之和
 
 use super::Solution;
-use std::cmp::Ordering;
 use std::collections::HashMap;
 use std::ops::ControlFlow;
 
-/// 两数之和
 impl Solution {
     /// 使用哈希表来查找两个数之和等于目标值的方法
     pub fn two_sum_1_v1(nums: Vec<i32>, target: i32) -> Vec<i32> {
@@ -96,145 +94,5 @@ impl Solution {
         }
         // 如果没有找到，则返回空的结果
         vec![]
-    }
-}
-
-/// 三数之和
-impl Solution {
-    pub fn three_sum_15_v1(mut nums: Vec<i32>) -> Vec<Vec<i32>> {
-        if nums.len() < 3 {
-            return vec![];
-        }
-        nums.sort();
-        let mut result = vec![];
-
-        for i in 0..nums.len() - 2 {
-            if i > 0 && nums[i] == nums[i - 1] {
-                continue;
-            }
-
-            let mut l = i + 1;
-            let mut r = nums.len() - 1;
-
-            while l < r {
-                match (nums[i] + nums[l] + nums[r]).cmp(&0) {
-                    Ordering::Less => l += 1,
-                    Ordering::Greater => r -= 1,
-                    Ordering::Equal => {
-                        result.push(vec![nums[i], nums[l], nums[r]]);
-
-                        l += 1;
-
-                        while l < r && nums[l] == nums[l - 1] {
-                            l += 1;
-                        }
-
-                        r -= 1;
-
-                        while l < r && nums[r] == nums[r + 1] {
-                            r -= 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        result
-    }
-}
-
-/// 最接近的三数之和
-impl Solution {
-    /// 给你一个长度为 n 的整数数组 nums 和 一个目标值 target。请你从 nums 中选出三个整数，使它们的和与 target 最接近。返回这三个数的和。
-    ///
-    /// # Approach
-    ///
-    /// - 以非降序对输入数组进行排序。
-    /// - 对于数组中的每个元素，执行两个指针搜索以找到总和最接近目标-当前元素的另外两个元素。
-    /// - 如果当前总和正好等于目标，立即返回。
-    ///
-    /// Time complexity: O(n^2)\
-    /// Space complexity: O(1)
-    ///
-    /// # 优化 替换 sort | sort_unstable
-    /// sort函数是稳定排序算法，它保证相等的元素之间的顺序不会改变。而sort_unstable函数则是非稳定排序算法，它不保证相等的元素之间的顺序不会改变。
-    /// 在这段代码中，我们并不关心相等元素之间的顺序，只关心排序后的元素是否满足我们的目标，排序的顺序不影响结果的正确性。
-    /// 在相同时间复杂度下，非稳定排序算法比稳定排序算法获得更好的性能，因此使用sort_unstable函数可以进一步提高代码的性能。
-    pub fn three_sum_closest_16_v1(mut nums: Vec<i32>, target: i32) -> i32 {
-        nums.sort_unstable();
-        let n = nums.len();
-        let (mut ans, mut diff) = (i32::MAX, i32::MAX);
-        for i in 0..n {
-            let (mut l, mut r) = (i + 1, n - 1);
-            while l < r {
-                let sum = nums[i] + nums[l] + nums[r];
-                let new_diff = (sum - target).abs();
-                if new_diff < diff {
-                    diff = new_diff;
-                    ans = sum;
-                }
-                match sum.cmp(&target) {
-                    Ordering::Less => l += 1,
-                    Ordering::Greater => r -= 1,
-                    Ordering::Equal => return sum,
-                }
-            }
-        }
-        ans
-    }
-}
-
-/// 四数之和
-impl Solution {
-    pub fn four_sum_18_v1(nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-        Self::k_sum_v1(4, nums, target)
-    }
-
-    pub fn k_sum_v1(k: i32, nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-        if nums.len() < k as usize {
-            return Vec::new();
-        }
-
-        let mut results = Vec::new();
-        let mut nums = nums;
-        nums.sort();
-
-        if k == 2 {
-            let mut left = 0;
-            let mut right = nums.len() - 1;
-
-            while left < right {
-                match (nums[left] + nums[right]).cmp(&target) {
-                    Ordering::Less => left += 1,
-                    Ordering::Greater => right -= 1,
-                    Ordering::Equal => {
-                        results.push(vec![nums[left], nums[right]]);
-                        left += 1;
-                        while left < right && nums[left] == nums[left - 1] {
-                            left += 1;
-                        }
-                    }
-                }
-            }
-        } else {
-            for i in 0..nums.len() - k as usize + 1 {
-                if nums[i] * k > target {
-                    break;
-                }
-
-                if i > 0 && nums[i] == nums[i - 1] {
-                    continue;
-                }
-
-                let sub_results = Self::k_sum_v1(k - 1, nums[i + 1..].to_vec(), target - nums[i]);
-
-                for mut r in sub_results {
-                    r.push(nums[i]);
-                    results.push(r);
-                }
-            }
-        }
-
-        results
     }
 }
