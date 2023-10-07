@@ -39,38 +39,6 @@ fn test_add_two_numbers_2_v2() {
 }
 
 #[test]
-fn test_add_strings_415_v1() {
-    assert_eq!(
-        Solution::add_strings_415_v1("11".to_string(), "123".to_string()),
-        "134".to_string()
-    );
-    assert_eq!(
-        Solution::add_strings_415_v1("456".to_string(), "77".to_string()),
-        "533".to_string()
-    );
-    assert_eq!(
-        Solution::add_strings_415_v1("0".to_string(), "0".to_string()),
-        "0".to_string()
-    );
-}
-
-#[test]
-fn test_add_strings() {
-    assert_eq!(
-        Solution::add_strings("11".to_string(), "123".to_string()),
-        "134".to_string()
-    );
-    assert_eq!(
-        Solution::add_strings("456".to_string(), "77".to_string()),
-        "533".to_string()
-    );
-    assert_eq!(
-        Solution::add_strings("0".to_string(), "0".to_string()),
-        "0".to_string()
-    );
-}
-
-#[test]
 fn test_and_then() {
     fn sq_then_to_string(x: u32) -> Option<String> {
         x.checked_mul(x).map(|sq| sq.to_string())
