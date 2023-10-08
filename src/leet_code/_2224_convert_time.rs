@@ -3,10 +3,9 @@
 use super::Solution;
 
 impl Solution {
-    /// 转化时间需要的最少操作数
     pub fn convert_time(current: String, correct: String) -> i32 {
-        let current: Vec<_> = current.split(':').collect();
-        let correct: Vec<_> = correct.split(':').collect();
+        let current = current.split(':').collect::<Vec<_>>();
+        let correct = correct.split(':').collect::<Vec<_>>();
         let mut current =
             current[0].parse::<i32>().expect("") * 60 + current[1].parse::<i32>().expect("");
         let correct =
