@@ -9,11 +9,12 @@ impl Solution {
         max_price: i32,
         max_distance: i32,
     ) -> Vec<i32> {
-        let res = restaurants
+        restaurants
             .iter()
             .filter(|r| r[2] >= vegan_friendly && r[3] <= max_price && r[4] <= max_distance)
-            .collect::<Vec<_>>();
-
-        res.iter().map(|r| r[0]).collect()
+            .collect::<Vec<_>>()
+            .iter()
+            .map(|r| r[0])
+            .collect()
     }
 }
