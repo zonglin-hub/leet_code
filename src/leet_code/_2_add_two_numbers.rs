@@ -2,7 +2,6 @@
 
 use super::{ListNode, ListNodePtr, Solution};
 
-/// 整数相加
 impl Solution {
     /// 递归
     pub fn add_two_numbers_2_v1(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
