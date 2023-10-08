@@ -5,7 +5,7 @@ use std::collections::HashMap;
 use std::ops::ControlFlow;
 
 impl Solution {
-    /// 使用哈希表来查找两个数之和等于目标值的方法
+    /// 哈希表for)
     pub fn two_sum_1_v1(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut map = HashMap::new();
 
@@ -19,6 +19,7 @@ impl Solution {
         vec![]
     }
 
+    /// 哈希表(for_each)
     pub fn two_sum_1_v4(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut map = HashMap::new();
 
@@ -37,9 +38,27 @@ impl Solution {
         }
     }
 
+    /// 哈希表(Iterator)
+    pub fn two_sum_1_v5(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        nums.iter()
+            .enumerate()
+            .try_fold(HashMap::new(), |mut map, (i, n)| {
+                map.get(&(target - n))
+                    // v 是 i 下方插入值为 i
+                    .and_then(|&v| match v {
+                        v if v != i => Err(vec![v as i32, i as i32]).into(),
+                        _ => Ok(()).into(),
+                    })
+                    .unwrap_or(Ok(()))?;
+                map.insert(n, i);
+                Ok(map)
+            })
+            .err()
+            .unwrap_or(vec![])
+    }
+
     /// 暴力枚举
     pub fn two_sum_1_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        // 如果数组长度为1，并且数组中的元素和目标值相等，则返回空的数组
         if nums.len() == 1 && nums[0] == target {
             return vec![0];
         }
@@ -55,44 +74,32 @@ impl Solution {
 
             11 + 15
         */
-        // 遍历数组，查找目标值target在数组中的位置
         for i in 0..nums.len() {
             for j in i + 1..nums.len() {
-                // 如果目标值target在数组中的位置与i和j相等，则返回结果
                 if target == nums[i] + nums[j] {
                     return vec![i as i32, j as i32];
                 }
             }
         }
-        // 如果没有找到，则返回空的数组
         vec![]
     }
 
     /// 双指针
     pub fn two_sum_1_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        // 如果数组长度为1，并且数组中的元素为目标值，则返回一个空的结果
         if nums.len() == 1 && nums[0] == target {
             return vec![0];
         }
-        // 获取数组长度
         let len = nums.len();
-        // 遍历数组
         for i in 0..len {
-            // 将当前元素的索引赋值给left
             let left = i;
-            // 将数组长度减1，赋值给right
             let mut right = len - 1;
-            // 当left小于right时，循环
             while left < right {
-                // 如果left和right之间的和与目标值相等，则返回索引和right的索引
                 if nums[left] + nums[right] == target {
                     return vec![i as i32, right as i32];
                 }
-                // 否则，right减1
                 right -= 1;
             }
         }
-        // 如果没有找到，则返回空的结果
         vec![]
     }
 }
