@@ -38,6 +38,7 @@ mod test_23_merge_k_lists;
 mod test_2472_max_palindromes;
 mod test_24_swap_pairs;
 mod test_2525_categorize_box;
+pub mod test_2578_split_num;
 mod test_2582_pass_the_pillow;
 mod test_2591_dist_money;
 mod test_25_reverse_k_group;

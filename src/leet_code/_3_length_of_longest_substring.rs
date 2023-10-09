@@ -1,7 +1,7 @@
 //! 无重复字符的最长子串
 
-use std::collections::HashMap;
 use super::Solution;
+use std::collections::HashMap;
 
 impl Solution {
     pub fn length_of_longest_substring_v1(s: String) -> i32 {

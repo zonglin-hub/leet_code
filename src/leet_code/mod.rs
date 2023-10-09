@@ -44,6 +44,7 @@ pub mod _23_merge_k_lists;
 pub mod _2472_max_palindromes;
 pub mod _24_swap_pairs;
 pub mod _2525_categorize_box;
+pub mod _2578_split_num;
 pub mod _2582_pass_the_pillow;
 pub mod _2591_dist_money;
 pub mod _25_reverse_k_group;
