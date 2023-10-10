@@ -45,6 +45,7 @@ mod test_25_reverse_k_group;
 mod test_2603_collect_the_coins;
 mod test_2672_color_the_array;
 mod test_26_remove_duplicates;
+mod test_2731_sum_distance;
 mod test_27_remove_element;
 mod test_2831_longest_equal_subarray;
 mod test_2840_check_strings;
