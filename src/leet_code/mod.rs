@@ -65,6 +65,7 @@ pub mod _326_is_power_of_three;
 pub mod _32_longest_valid_parentheses;
 pub mod _337_rob;
 pub mod _338_count_bits;
+pub mod _33_search;
 pub mod _342_is_power_of_four;
 pub mod _35_search_insert;
 pub mod _36_is_valid_sudoku;
