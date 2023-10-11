@@ -1,3 +1,5 @@
+//! 有相同颜色的相邻元素数目
+
 use super::Solution;
 
 impl Solution {

@@ -1,3 +1,5 @@
+//! 最小和分割
+
 use super::Solution;
 
 impl Solution {

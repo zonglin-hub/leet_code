@@ -1,3 +1,5 @@
+//! 全部开花的最早一天
+
 use super::Solution;
 
 impl Solution {

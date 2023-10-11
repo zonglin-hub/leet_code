@@ -1,3 +1,5 @@
+//! 有效的数独
+
 use super::Solution;
 
 impl Solution {
