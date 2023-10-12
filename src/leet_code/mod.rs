@@ -45,6 +45,7 @@ pub mod _2472_max_palindromes;
 pub mod _24_swap_pairs;
 pub mod _2525_categorize_box;
 pub mod _2560_min_capability;
+pub mod _2562_find_the_array_conc_val;
 pub mod _2578_split_num;
 pub mod _2582_pass_the_pillow;
 pub mod _2591_dist_money;

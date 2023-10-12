@@ -39,6 +39,7 @@ mod test_2472_max_palindromes;
 mod test_24_swap_pairs;
 mod test_2525_categorize_box;
 mod test_2560_min_capability;
+mod test_2562_find_the_array_conc_val;
 pub mod test_2578_split_num;
 mod test_2582_pass_the_pillow;
 mod test_2591_dist_money;
