@@ -3,46 +3,16 @@
 use super::Solution;
 
 impl Solution {
-    pub fn find_median_sorted_arrays_v1(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
-        let n = nums1.len() + nums2.len();
-        let (mut i, mut j) = (0, 0);
-        let (mut r1, mut r2) = (0, 0);
+    pub fn find_median_sorted_arrays_v2(mut nums1: Vec<i32>, mut nums2: Vec<i32>) -> f64 {
+        nums1.append(&mut nums2);
+        nums1.sort();
 
-        while (i + j) < (n / 2 + 1) {
-            let mid = match (nums1.get(i), nums2.get(j)) {
-                (Some(&x), Some(&y)) => {
-                    if x > y {
-                        j += 1;
-                        y
-                    } else {
-                        i += 1;
-                        x
-                    }
-                }
-
-                (Some(&x), None) => {
-                    i += 1;
-                    x
-                }
-
-                (None, Some(&y)) => {
-                    j += 1;
-                    y
-                }
-
-                (None, None) => {
-                    unreachable!()
-                }
-            };
-
-            r1 = r2;
-            r2 = mid;
+        let n = nums1.len();
+        match n & 1 != 0 {
+            // 奇数
+            true => nums1[n / 2] as f64,
+            // 偶数
+            false => (nums1[n / 2] + nums1[n / 2 - 1]) as f64 / 2.0,
         }
-
-        if n % 2 == 0 {
-            return (r1 as f64 + r2 as f64) / 2.0;
-        }
-
-        r2 as f64
     }
 }
