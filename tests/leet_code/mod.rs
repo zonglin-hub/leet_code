@@ -87,3 +87,4 @@ mod test_9_is_palindrome;
 mod test_lcp_06_min_count;
 mod test_lcp_50_give_gem;
 mod test_offer_06_reverse_print;
+mod test_34_search_range;
