@@ -68,8 +68,10 @@ pub mod _337_rob;
 pub mod _338_count_bits;
 pub mod _33_search;
 pub mod _342_is_power_of_four;
+pub mod _34_search_range;
 pub mod _35_search_insert;
 pub mod _36_is_valid_sudoku;
+pub mod _37_solve_sudoku;
 pub mod _383_can_construct;
 pub mod _392_is_subsequence;
 pub mod _3_length_of_longest_substring;
@@ -93,7 +95,6 @@ pub mod _9_is_palindrome;
 pub mod _lcp_06_min_count;
 pub mod _lcp_50_give_gem;
 pub mod _offer_06_reverse_print;
-pub mod _34_search_range;
 
 use std::{cell::RefCell, rc::Rc};
 
@@ -209,10 +210,11 @@ pub fn expected_sort(queens: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
 
 /// `vec![[0, 1]]` 转 `vec![vec![0, 1]]`
 pub fn expected_sort_vec(queens: Vec<[i32; 2]>) -> Vec<Vec<i32>> {
-    queens
-        .iter()
-        .map(|&x| x.to_vec())
-        .collect::<Vec<Vec<i32>>>()
+    queens.iter().map(|&x| x.to_vec()).collect()
+}
+
+pub fn expected_sort_vec_char(queens: Vec<[char; 9]>) -> Vec<Vec<char>> {
+    queens.iter().map(|x| x.to_vec()).collect()
 }
 
 /// `ListNode` 转 `vector`
