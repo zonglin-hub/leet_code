@@ -96,6 +96,7 @@ pub mod _lcp_06_min_count;
 pub mod _lcp_50_give_gem;
 pub mod _offer_06_reverse_print;
 pub mod _38_count_and_say;
+pub mod _39_combination_sum;
 
 use std::{cell::RefCell, rc::Rc};
 
