@@ -92,3 +92,4 @@ mod test_offer_06_reverse_print;
 mod test_38_count_and_say;
 mod test_39_combination_sum;
 mod test_40_combination_sum2;
+mod test_41_first_missing_positive;
