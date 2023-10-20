@@ -99,6 +99,7 @@ pub mod _38_count_and_say;
 pub mod _39_combination_sum;
 pub mod _40_combination_sum2;
 pub mod _41_first_missing_positive;
+pub mod _42_trap;
 
 use std::{cell::RefCell, rc::Rc};
 
