@@ -73,9 +73,15 @@ pub mod _35_search_insert;
 pub mod _36_is_valid_sudoku;
 pub mod _37_solve_sudoku;
 pub mod _383_can_construct;
+pub mod _38_count_and_say;
 pub mod _392_is_subsequence;
+pub mod _39_combination_sum;
 pub mod _3_length_of_longest_substring;
+pub mod _40_combination_sum2;
 pub mod _415_add_strings;
+pub mod _41_first_missing_positive;
+pub mod _42_trap;
+pub mod _43_multiply;
 pub mod _49_group_anagrams;
 pub mod _4_find_median_sorted_arrays;
 pub mod _509_fib;
@@ -95,11 +101,6 @@ pub mod _9_is_palindrome;
 pub mod _lcp_06_min_count;
 pub mod _lcp_50_give_gem;
 pub mod _offer_06_reverse_print;
-pub mod _38_count_and_say;
-pub mod _39_combination_sum;
-pub mod _40_combination_sum2;
-pub mod _41_first_missing_positive;
-pub mod _42_trap;
 
 use std::{cell::RefCell, rc::Rc};
 
