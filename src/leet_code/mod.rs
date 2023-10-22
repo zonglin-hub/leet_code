@@ -82,6 +82,7 @@ pub mod _415_add_strings;
 pub mod _41_first_missing_positive;
 pub mod _42_trap;
 pub mod _43_multiply;
+pub mod _44_is_match;
 pub mod _49_group_anagrams;
 pub mod _4_find_median_sorted_arrays;
 pub mod _509_fib;
