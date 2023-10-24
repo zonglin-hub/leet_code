@@ -21,7 +21,9 @@ impl Solution {
             (*dummy).next.to_owned()
         }
     }
+}
 
+impl Solution {
     pub fn remove_nth_from_end_v2(head: ListNodePtr, n: i32) -> ListNodePtr {
         let (mut fast, mut slow) = (&head, &head);
         let mut root = ListNode::new(0);

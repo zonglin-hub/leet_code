@@ -18,7 +18,9 @@ impl Solution {
 
         vec![]
     }
+}
 
+impl Solution {
     /// 哈希表(for_each)
     pub fn two_sum_1_v4(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut map = HashMap::new();
@@ -37,7 +39,9 @@ impl Solution {
             ControlFlow::Continue(()) => vec![],
         }
     }
+}
 
+impl Solution {
     /// 哈希表(Iterator)
     pub fn two_sum_1_v5(nums: Vec<i32>, target: i32) -> Vec<i32> {
         nums.iter()
@@ -56,7 +60,9 @@ impl Solution {
             .err()
             .unwrap_or(vec![])
     }
+}
 
+impl Solution {
     /// 暴力枚举
     pub fn two_sum_1_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
         if nums.len() == 1 && nums[0] == target {
@@ -83,7 +89,9 @@ impl Solution {
         }
         vec![]
     }
+}
 
+impl Solution {
     /// 双指针
     pub fn two_sum_1_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
         if nums.len() == 1 && nums[0] == target {

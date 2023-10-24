@@ -23,11 +23,30 @@ impl Solution {
     /// 将 String::new() 改为 String::with_capacity(digits.len())，避免在递归调用时频繁分配内存。
     /// 在 dfs 函数中将 digits 参数改为 &str 类型，避免产生不必要的 String 对象。
     pub fn letter_combinations_v1(digits: String) -> Vec<String> {
+        fn dfs(idx: usize, digits: &str, path: &mut String, ans: &mut Vec<String>) {
+            if digits.len() == idx {
+                ans.push(path.clone());
+                return;
+            }
+            if let Some(c) = digits.chars().nth(idx) {
+                for &ch in MAP
+                    .iter()
+                    .find(|&&(d, _)| d == c.to_string().as_str())
+                    .map(|&(_, cs)| cs)
+                    .unwrap_or(&[])
+                {
+                    path.push(ch);
+                    dfs(idx + 1, digits, path, ans);
+                    path.pop();
+                }
+            }
+        }
+
         let mut ans = Vec::new();
         if digits.is_empty() {
             return ans;
         }
-        Self::dfs_v1(
+        dfs(
             0,
             &digits,
             &mut String::with_capacity(digits.len()),
@@ -35,29 +54,29 @@ impl Solution {
         );
         ans
     }
-
-    fn dfs_v1(idx: usize, digits: &str, path: &mut String, ans: &mut Vec<String>) {
-        if digits.len() == idx {
-            ans.push(path.clone());
-            return;
-        }
-        if let Some(c) = digits.chars().nth(idx) {
-            for &ch in MAP
-                .iter()
-                .find(|&&(d, _)| d == c.to_string().as_str())
-                .map(|&(_, cs)| cs)
-                .unwrap_or(&[])
-            {
-                path.push(ch);
-                Self::dfs_v1(idx + 1, digits, path, ans);
-                path.pop();
-            }
-        }
-    }
 }
 
 impl Solution {
     pub fn letter_combinations_v2(digits: String) -> Vec<String> {
+        fn dfs(
+            idx: usize,
+            digits: &String,
+            map: &HashMap<char, String>,
+            path: &mut String,
+            ans: &mut Vec<String>,
+        ) {
+            if digits.len() == idx {
+                ans.push(path.clone());
+                return;
+            }
+            let cc = digits.chars().nth(idx).expect("");
+            for c in map.get(&cc).expect("").chars() {
+                path.push(c);
+                dfs(idx + 1, digits, map, path, ans);
+                path.pop();
+            }
+        }
+
         let map = std::collections::HashMap::from([
             ('2', "abc".to_string()),
             ('3', "def".to_string()),
@@ -73,26 +92,7 @@ impl Solution {
         if digits.is_empty() {
             return ans;
         }
-        Self::dfs_v2(0, &digits, &map, &mut String::new(), &mut ans);
+        dfs(0, &digits, &map, &mut String::new(), &mut ans);
         ans
-    }
-
-    fn dfs_v2(
-        idx: usize,
-        digits: &String,
-        map: &HashMap<char, String>,
-        path: &mut String,
-        ans: &mut Vec<String>,
-    ) {
-        if digits.len() == idx {
-            ans.push(path.clone());
-            return;
-        }
-        let cc = digits.chars().nth(idx).expect("");
-        for c in map.get(&cc).expect("").chars() {
-            path.push(c);
-            Self::dfs_v2(idx + 1, digits, map, path, ans);
-            path.pop();
-        }
     }
 }

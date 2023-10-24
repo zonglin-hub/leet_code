@@ -11,10 +11,3 @@ fn test_longest_palindrome_5_v1() {
         "bb".to_owned()
     );
 }
-
-#[test]
-fn test_valid_palindrome_680() {
-    assert!(Solution::valid_palindrome_680(String::from("aba")));
-    assert!(Solution::valid_palindrome_680(String::from("abca")));
-    assert_eq!(Solution::valid_palindrome_680(String::from("abc")), false);
-}

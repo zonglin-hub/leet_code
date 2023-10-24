@@ -27,7 +27,9 @@ impl Solution {
 
         carried(l1, l2, 0)
     }
+}
 
+impl Solution {
     /// 双指针
     pub fn add_two_numbers_2_v2(mut l1: ListNodePtr, mut l2: ListNodePtr) -> ListNodePtr {
         let mut new_list = None;

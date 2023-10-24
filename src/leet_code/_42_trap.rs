@@ -17,7 +17,7 @@ impl Solution {
 }
 
 impl Solution {
-    pub fn trap_(height: Vec<i32>) -> i32 {
+    pub fn _trap(height: Vec<i32>) -> i32 {
         let five_fives = height.iter().scan(0, |state, x| {
             // state: 0 x: 2
             // state: 2 x: 0

@@ -6,28 +6,27 @@ use super::{ListNode, ListNodePtr, Solution};
 
 impl Solution {
     pub fn merge_two_lists_v1(list1: ListNodePtr, list2: ListNodePtr) -> ListNodePtr {
-        Self::carried_v1(list1, list2)
-    }
-
-    fn carried_v1(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
-        if l1.is_none() && l2.is_none() {
-            return None;
+        fn carried(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
+            if l1.is_none() && l2.is_none() {
+                return None;
+            }
+            match (l1, l2) {
+                (None, None) => None,
+                (None, r) => r,
+                (l, None) => l,
+                (Some(mut l), Some(mut r)) => match l.val <= r.val {
+                    true => {
+                        l.next = carried(l.next, Some(r));
+                        Some(l)
+                    }
+                    false => {
+                        r.next = carried(Some(l), r.next);
+                        Some(r)
+                    }
+                },
+            }
         }
-        match (l1, l2) {
-            (None, None) => None,
-            (None, r) => r,
-            (l, None) => l,
-            (Some(mut l), Some(mut r)) => match l.val <= r.val {
-                true => {
-                    l.next = Self::carried_v1(l.next, Some(r));
-                    Some(l)
-                }
-                false => {
-                    r.next = Self::carried_v1(Some(l), r.next);
-                    Some(r)
-                }
-            },
-        }
+        carried(list1, list2)
     }
 }
 

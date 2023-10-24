@@ -56,8 +56,6 @@ impl Solution {
             .count()
             .max(1)
             .saturating_sub(1)
-            * 2)
-        .try_into()
-        .expect("Panics: 类型转换")
+            * 2) as i32
     }
 }
