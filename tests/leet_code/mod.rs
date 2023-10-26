@@ -90,6 +90,7 @@ mod test_526_count_arrangement;
 mod test_52_total_n_queens;
 mod test_53_max_sub_array;
 mod test_54_spiral_order;
+mod test_55_can_jump;
 mod test_5_longest_palindrome;
 mod test_605_can_place_flowers;
 mod test_617_merge_trees;
