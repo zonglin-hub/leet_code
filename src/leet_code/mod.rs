@@ -98,6 +98,7 @@ pub mod _53_max_sub_array;
 pub mod _54_spiral_order;
 pub mod _55_can_jump;
 pub mod _56_merge;
+pub mod _57_insert;
 pub mod _5_longest_palindrome;
 pub mod _605_can_place_flowers;
 pub mod _617_merge_trees;
