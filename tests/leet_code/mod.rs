@@ -93,6 +93,7 @@ mod test_54_spiral_order;
 mod test_55_can_jump;
 mod test_56_merge;
 mod test_57_insert;
+mod test_58_length_of_last_word;
 mod test_5_longest_palindrome;
 mod test_605_can_place_flowers;
 mod test_617_merge_trees;
