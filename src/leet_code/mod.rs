@@ -106,6 +106,7 @@ pub mod _5_longest_palindrome;
 pub mod _605_can_place_flowers;
 pub mod _60_get_permutation;
 pub mod _617_merge_trees;
+pub mod _61_rotate_right;
 pub mod _680_valid_palindrome;
 pub mod _6_convert;
 pub mod _70_climb_stairs;

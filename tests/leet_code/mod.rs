@@ -104,6 +104,7 @@ mod test_5_longest_palindrome;
 mod test_605_can_place_flowers;
 mod test_60_get_permutation;
 mod test_617_merge_trees;
+mod test_61_rotate_right;
 mod test_680_valid_palindrome;
 mod test_6_convert;
 mod test_70_climb_stairs;
