@@ -112,6 +112,7 @@ pub mod _63_unique_paths_with_obstacles;
 pub mod _64_min_path_sum;
 pub mod _65_is_number;
 pub mod _66_plus_one;
+pub mod _67_add_binary;
 pub mod _680_valid_palindrome;
 pub mod _6_convert;
 pub mod _70_climb_stairs;
