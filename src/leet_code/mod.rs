@@ -114,8 +114,11 @@ pub mod _65_is_number;
 pub mod _66_plus_one;
 pub mod _67_add_binary;
 pub mod _680_valid_palindrome;
+pub mod _68_full_justify;
+pub mod _69_my_sqrt;
 pub mod _6_convert;
 pub mod _70_climb_stairs;
+pub mod _71_simplify_path;
 pub mod _729_book;
 pub mod _7_reverse;
 pub mod _856_score_of_parentheses;
@@ -125,9 +128,6 @@ pub mod _9_is_palindrome;
 pub mod _lcp_06_min_count;
 pub mod _lcp_50_give_gem;
 pub mod _offer_06_reverse_print;
-pub mod _68_full_justify;
-pub mod _69_my_sqrt;
-pub mod _71_simplify_path;
 
 use std::{cell::RefCell, rc::Rc};
 
