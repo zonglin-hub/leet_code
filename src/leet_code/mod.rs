@@ -127,6 +127,7 @@ pub mod _lcp_50_give_gem;
 pub mod _offer_06_reverse_print;
 pub mod _68_full_justify;
 pub mod _69_my_sqrt;
+pub mod _71_simplify_path;
 
 use std::{cell::RefCell, rc::Rc};
 
