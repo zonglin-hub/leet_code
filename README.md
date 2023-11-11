@@ -10,7 +10,13 @@
 
 * `/tests`
 
-## 参考
+## 资源
 
-- [Rust GYM](https://rustgym.com/)
-- [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode.cn)
+- [Rust GYM]
+- [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台]
+- [Hello 算法]
+
+
+[Hello 算法]: https://www.hello-algo.com/
+[力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台]: https://leetcode.cn
+[Rust GYM]: https://rustgym.com/
