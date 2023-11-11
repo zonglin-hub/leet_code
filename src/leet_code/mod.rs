@@ -120,6 +120,7 @@ pub mod _6_convert;
 pub mod _70_climb_stairs;
 pub mod _71_simplify_path;
 pub mod _729_book;
+pub mod _72_min_distance;
 pub mod _7_reverse;
 pub mod _856_score_of_parentheses;
 pub mod _8_my_atoi;
