@@ -123,6 +123,8 @@ pub mod _729_book;
 pub mod _72_min_distance;
 pub mod _73_set_zeroes;
 pub mod _74_search_matrix;
+pub mod _75_sort_colors;
+pub mod _76_min_window;
 pub mod _7_reverse;
 pub mod _856_score_of_parentheses;
 pub mod _8_my_atoi;
@@ -131,7 +133,6 @@ pub mod _9_is_palindrome;
 pub mod _lcp_06_min_count;
 pub mod _lcp_50_give_gem;
 pub mod _offer_06_reverse_print;
-pub mod _75_sort_colors;
 
 use std::{cell::RefCell, rc::Rc};
 
