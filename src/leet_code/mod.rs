@@ -136,6 +136,7 @@ pub mod _offer_06_reverse_print;
 pub mod _77_combine;
 pub mod _78_subsets;
 pub mod _79_exist;
+pub mod _80_remove_duplicates;
 
 use std::{cell::RefCell, rc::Rc};
 
