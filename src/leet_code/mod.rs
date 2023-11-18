@@ -125,7 +125,12 @@ pub mod _73_set_zeroes;
 pub mod _74_search_matrix;
 pub mod _75_sort_colors;
 pub mod _76_min_window;
+pub mod _77_combine;
+pub mod _78_subsets;
+pub mod _79_exist;
 pub mod _7_reverse;
+pub mod _80_remove_duplicates;
+pub mod _81_search;
 pub mod _856_score_of_parentheses;
 pub mod _8_my_atoi;
 pub mod _990_equations_possible;
@@ -133,10 +138,6 @@ pub mod _9_is_palindrome;
 pub mod _lcp_06_min_count;
 pub mod _lcp_50_give_gem;
 pub mod _offer_06_reverse_print;
-pub mod _77_combine;
-pub mod _78_subsets;
-pub mod _79_exist;
-pub mod _80_remove_duplicates;
 
 use std::{cell::RefCell, rc::Rc};
 

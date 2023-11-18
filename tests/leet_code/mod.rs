@@ -65,7 +65,6 @@ mod test_326_is_power_of_three;
 mod test_32_longest_valid_parentheses;
 mod test_337_rob;
 mod test_338_count_bits;
-mod test_33_search;
 mod test_342_is_power_of_four;
 mod test_34_search_range;
 mod test_35_search_insert;
