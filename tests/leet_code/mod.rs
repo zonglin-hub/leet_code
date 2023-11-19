@@ -106,7 +106,6 @@ mod test_617_merge_trees;
 mod test_61_rotate_right;
 mod test_680_valid_palindrome;
 mod test_6_convert;
-mod test_70_climb_stairs;
 mod test_729_book;
 mod test_7_reverse;
 mod test_856_score_of_parentheses;

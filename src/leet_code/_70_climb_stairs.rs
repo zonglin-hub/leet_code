@@ -22,7 +22,7 @@ impl Solution {
     /// 这个数列的前几项是：1，1，2，3，5，8，13……以此类推。
     /// Fibonacci 数列中的每一项都可以通过前两项相加得到，因此这个数列被广泛应用于数学、计算机科学、物理学、生物学等领域。
     /// 在计算爬楼梯的方案数时，我们使用 Fibonacci 数列的性质来简化计算。
-    pub fn climb_stairs_v1(n: i32) -> i32 {
+    pub fn climb_stairs(n: i32) -> i32 {
         // 初始化a和b
         let (mut a, mut b) = (1, 1);
         // 循环n次，每次取a和b的和
@@ -86,5 +86,16 @@ impl Solution {
 
         // 返回dp数组的第n个元素
         dp[n as usize]
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_climb_stairs() {
+        assert_eq!(Solution::climb_stairs(2), 2);
+        assert_eq!(Solution::climb_stairs(3), 3);
     }
 }

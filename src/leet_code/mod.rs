@@ -131,6 +131,8 @@ pub mod _79_exist;
 pub mod _7_reverse;
 pub mod _80_remove_duplicates;
 pub mod _81_search;
+pub mod _82_delete_duplicates;
+pub mod _83_delete_duplicates;
 pub mod _856_score_of_parentheses;
 pub mod _8_my_atoi;
 pub mod _990_equations_possible;
