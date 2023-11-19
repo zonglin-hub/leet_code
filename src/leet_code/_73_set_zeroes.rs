@@ -1,7 +1,8 @@
 use super::Solution;
 
 impl Solution {
-    /// matrix[i][j]
+    /// ```text
+    /// matrix[i][j];
     ///
     /// [[1,1,1],[1,0,1],[1,1,1]]
     /// j 0 1 2   0 1 2   0 1 2
@@ -12,8 +13,7 @@ impl Solution {
     /// 1  1  1
     /// 1  0  1
     /// 1  1  1
-    ///
-    ///
+    /// ```
     #[allow(clippy::needless_range_loop)]
     pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
         let m = matrix.len();
