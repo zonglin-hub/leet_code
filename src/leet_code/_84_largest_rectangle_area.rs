@@ -18,6 +18,7 @@ impl Solution {
     /// 9. 最后，函数返回变量 `maxs` 的值，即最大矩形的面积。
     ///
     /// 该函数使用了双重循环来遍历所有可能的矩形，并找到其中的最大面积。时间复杂度为 O(n^2)，其中 n 是输入数组的长度。这种实现方式相对简单直观，但对于大规模的输入可能不够高效。可以进一步优化算法以降低时间复杂度。
+    #[allow(clippy::needless_range_loop)]
     pub fn largest_rectangle_area(heights: Vec<i32>) -> i32 {
         let len = heights.len();
         let mut maxs = 0;
