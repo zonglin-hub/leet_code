@@ -137,6 +137,7 @@ pub mod _84_largest_rectangle_area;
 pub mod _856_score_of_parentheses;
 pub mod _85_maximal_rectangle;
 pub mod _86_partition;
+pub mod _87_is_scramble;
 pub mod _8_my_atoi;
 pub mod _990_equations_possible;
 pub mod _9_is_palindrome;
