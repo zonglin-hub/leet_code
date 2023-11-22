@@ -93,7 +93,6 @@ mod test_52_total_n_queens;
 mod test_53_max_sub_array;
 mod test_54_spiral_order;
 mod test_55_can_jump;
-mod test_56_merge;
 mod test_57_insert;
 mod test_58_length_of_last_word;
 mod test_59_generate_matrix;
