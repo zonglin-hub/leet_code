@@ -46,12 +46,13 @@ mod tests {
     fn test_set_zeroes() {
         let mut matrix = vec![vec![1, 1, 1], vec![1, 0, 1], vec![1, 1, 1]];
         Solution::set_zeroes(&mut matrix);
-        let out = vec![vec![1, 0, 1], vec![0, 0, 0], vec![1, 0, 1]];
-        assert_eq!(matrix, out);
+        assert_eq!(matrix, vec![vec![1, 0, 1], vec![0, 0, 0], vec![1, 0, 1]]);
 
         let mut matrix = vec![vec![0, 1, 2, 0], vec![3, 4, 5, 2], vec![1, 3, 1, 5]];
         Solution::set_zeroes(&mut matrix);
-        let out = vec![vec![0, 0, 0, 0], vec![0, 4, 5, 0], vec![0, 3, 1, 0]];
-        assert_eq!(matrix, out);
+        assert_eq!(
+            matrix,
+            vec![vec![0, 0, 0, 0], vec![0, 4, 5, 0], vec![0, 3, 1, 0]]
+        );
     }
 }

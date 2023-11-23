@@ -52,23 +52,20 @@ mod tests {
 
     #[test]
     fn test_min_window() {
-        let s = "ADOBECODEBANC".to_string();
-        let t = "ABC".to_string();
-        let expected = Solution::min_window(s, t);
-        let out = "BANC".to_string();
-        assert_eq!(expected, out);
+        assert_eq!(
+            Solution::min_window("ADOBECODEBANC".to_string(), "ABC".to_string()),
+            "BANC".to_string()
+        );
 
-        let s = "a".to_string();
-        let t = "a".to_string();
-        let expected = Solution::min_window(s, t);
-        let out = "a".to_string();
-        assert_eq!(expected, out);
+        assert_eq!(
+            Solution::min_window("a".to_string(), "a".to_string()),
+            "a".to_string()
+        );
 
-        let s = "a".to_string();
-        let t = "aa".to_string();
-        let expected = Solution::min_window(s, t);
-        let out = "".to_string();
-        assert_eq!(expected, out);
+        assert_eq!(
+            Solution::min_window("a".to_string(), "aa".to_string()),
+            "".to_string()
+        );
     }
 
     #[test]
