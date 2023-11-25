@@ -143,6 +143,7 @@ pub mod _89_gray_code;
 pub mod _8_my_atoi;
 pub mod _90_subsets_with_dup;
 pub mod _91_num_decodings;
+pub mod _92_reverse_between;
 pub mod _990_equations_possible;
 pub mod _9_is_palindrome;
 pub mod _lcp_06_min_count;
