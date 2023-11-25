@@ -26,12 +26,12 @@ mod tests {
         );
 
         assert_eq!(Solution::simplify_path("/../".to_string()), "/".to_string());
-        
+
         assert_eq!(
             Solution::simplify_path("/home//foo/".to_string()),
             "/home/foo".to_string()
         );
-        
+
         assert_eq!(
             Solution::simplify_path("/a/./b/../../c/".to_string()),
             "/c".to_string()
