@@ -1,10 +1,10 @@
 //! 回文链表
 //!
 
-use super::{ListNode, Solution};
+use super::{ListNodePtr, Solution};
 
 impl Solution {
-    pub fn is_palindrome_v1(head: Option<Box<ListNode>>) -> bool {
+    pub fn is_palindrome_v1(head: ListNodePtr) -> bool {
         let (mut val, mut node) = (vec![], &head);
         // loop {
         //     let node_box = match node {

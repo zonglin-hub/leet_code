@@ -1,13 +1,13 @@
 //! 反转链表
 
-use super::{ListNode, Solution};
+use super::{ListNodePtr, Solution};
 
 impl Solution {
-    pub fn reverse_list_206_v1(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn reverse_list_206_v1(head: ListNodePtr) -> ListNodePtr {
         Self::reverse(head, None)
     }
 
-    fn reverse(head: Option<Box<ListNode>>, prev: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    fn reverse(head: ListNodePtr, prev: ListNodePtr) -> ListNodePtr {
         if let Some(mut node) = head {
             let tail = node.next.take();
             node.next = prev;
@@ -20,7 +20,7 @@ impl Solution {
 impl Solution {
     /// 这个函数实现了单链表的反转。
     ///
-    /// 它的输入参数是一个 `Option<Box<ListNode>>` 类型的头结点，表示链表的头部。
+    /// 它的输入参数是一个 `ListNodePtr` 类型的头结点，表示链表的头部。
     /// 这里使用了 Option 类型和 Box 类型，是为了能够处理空指针的情况。
     /// 在函数中，定义了两个变量 res 和 node，用于存储反转后的链表和原链表。
     /// 变量 res 初始值为 None，表示反转后的链表为空；变量 node 初始值为输入参数 head，表示原链表的头结点。
@@ -30,7 +30,7 @@ impl Solution {
     /// 接着将 x.next 设为反转后的链表 res，即 x.next = res.take()，这里的 take() 方法会将 res 中的值取出来，并将 res 置为 None，避免出现两个链表共享同一个节点的情况。
     /// 最后将 x 设为反转后的链表 res，即 res = Some(x)，将反转后的链表头更新为当前节点。
     /// 循环结束后，返回 res，即反转后的链表头，完成单链表的反转。
-    pub fn reverse_list_offer_v1(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn reverse_list_offer_v1(head: ListNodePtr) -> ListNodePtr {
         let (mut res, mut node) = (None, head);
         while let Some(mut x) = node {
             node = x.next.take();

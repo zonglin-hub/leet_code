@@ -178,7 +178,7 @@ impl TreeNode {
     }
 }
 
-/// `vector` 转 `Option<Rc<RefCell<TreeNode>>>`
+/// `vector` 转 `TreeNodePtr`
 pub fn array_to_tree(root: Vec<Option<i32>>) -> TreeNodePtr {
     if root.is_empty() {
         return None;
@@ -223,12 +223,12 @@ impl ListNode {
     }
 }
 
-/// 简化 `tree` 套娃 -> `Option<Rc<RefCell<TreeNode>>>`
+/// 简化 `tree` 套娃 -> `TreeNodePtr`
 pub fn create_tree_node(val: i32, left: TreeNodePtr, right: TreeNodePtr) -> TreeNodePtr {
     Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
 }
 
-/// 简化链表套娃 -> `Option<Box<ListNode>>`
+/// 简化链表套娃 -> `ListNodePtr`
 pub fn create_list_node(nums: i32) -> ListNodePtr {
     Some(Box::new(ListNode {
         val: nums,
@@ -236,7 +236,7 @@ pub fn create_list_node(nums: i32) -> ListNodePtr {
     }))
 }
 
-/// `vector` 转 `Option<Box<ListNode>>`
+/// `vector` 转 `ListNodePtr`
 pub fn create_list(nums: Vec<i32>) -> ListNodePtr {
     if nums.is_empty() {
         return None;
