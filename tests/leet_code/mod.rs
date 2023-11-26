@@ -56,7 +56,6 @@ mod test_2831_longest_equal_subarray;
 mod test_2840_check_strings;
 mod test_28_str_str;
 mod test_29_divide;
-mod test_2_add_two_numbers;
 mod test_30_find_substring;
 mod test_31_next_permutation;
 mod test_326_is_power_of_three;
