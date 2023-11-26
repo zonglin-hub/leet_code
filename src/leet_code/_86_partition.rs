@@ -13,10 +13,7 @@ impl Solution {
     ///
     /// 这样，函数就完成了链表的分区操作。小于 `x` 的节点都出现在了大于等于 `x` 的节点之前，且节点的相对顺序没有改变。
     pub fn partition(mut head: ListNodePtr, x: i32) -> ListNodePtr {
-        let (mut dh1, mut dh2) = (
-            Box::new(ListNode { val: 0, next: None }),
-            Box::new(ListNode { val: 0, next: None }),
-        );
+        let (mut dh1, mut dh2) = (Box::new(ListNode::new(0)), Box::new(ListNode::new(0)));
         let (mut dh1_mut, mut dh2_mut) = (dh1.as_mut(), dh2.as_mut());
 
         while let Some(mut node) = head {

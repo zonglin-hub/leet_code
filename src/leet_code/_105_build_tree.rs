@@ -27,28 +27,27 @@ impl Solution {
             IT: Iterator<Item = &'a i32>,
         {
             let len = inorder.len();
-            if len == 0 {
-                (None, preorder)
-            } else {
-                let root = preorder.next();
-                let mut pos = 0;
-
-                while pos < inorder.len() && inorder[pos] != *root.expect("") {
-                    pos += 1;
-                }
-
-                let (left, preorder) = build(&inorder[0..pos], preorder);
-                let (right, preorder) = build(&inorder[pos + 1..len], preorder);
-
-                (
-                    Some(Rc::new(RefCell::new(TreeNode {
-                        val: *root.expect(""),
-                        left,
-                        right,
-                    }))),
-                    preorder,
-                )
+            if inorder.is_empty() {
+                return (None, preorder);
             }
+
+            let root = preorder.next();
+            let mut pos = 0;
+            while pos < len && inorder[pos] != *root.unwrap() {
+                pos += 1;
+            }
+
+            let (left, preorder) = build(&inorder[0..pos], preorder);
+            let (right, preorder) = build(&inorder[pos + 1..len], preorder);
+
+            (
+                Some(Rc::new(RefCell::new(TreeNode {
+                    val: *root.unwrap(),
+                    left,
+                    right,
+                }))),
+                preorder,
+            )
         }
 
         build(&inorder, preorder.iter()).0

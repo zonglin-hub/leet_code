@@ -3,6 +3,7 @@
 pub mod _1008_bst_from_preorder;
 pub mod _105_build_tree;
 pub mod _108_sorted_array_to_bst;
+pub mod _109_sorted_list_to_bst;
 pub mod _10_is_match;
 pub mod _1114_print_sequence;
 pub mod _112_has_path_sum;

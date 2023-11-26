@@ -33,52 +33,37 @@ impl Solution {
     }
 
     pub fn _full_justify(words: Vec<String>, max_width: i32) -> Vec<String> {
-        // 用于存储最终结果的向量
         let mut ret = Vec::new();
-        // 临时存储当前行单词的向量
         let mut tmp = Vec::new();
-        // 记录当前行字符的总数
         let mut sum = 0;
 
-        // 遍历单词列表
         for w in words.iter() {
-            // 当前单词的长度
             let w_len = w.len() as i32;
-            // 当前行已存储的单词数量
             let tmp_len = tmp.len();
 
-            // 判断添加当前单词后是否超宽
             if sum + w_len + tmp_len as i32 <= max_width {
                 sum += w_len;
                 tmp.push(w.clone());
-            } else {
-                // 处理超宽行的情况
-                if tmp_len > 1 {
-                    // 计算需要添加的空格数量
-                    let r = (max_width - sum) as usize % (tmp_len - 1);
-                    let d = (max_width - sum) as usize / (tmp_len - 1);
-                    // 将部分空格添加到单词之间
-                    tmp.iter_mut().take(r).for_each(|t| t.push(' '));
-                    // 格式化当前行并添加到最终结果中
-                    ret.push(tmp.join(format!("{:<1$}", ' ', d).as_str()));
-                } else {
-                    // 格式化只有一个单词的行并添加到最终结果中
-                    ret.push(format!("{:<1$}", tmp[0], max_width as usize));
-                }
-
-                // 重置当前行的状态，准备处理下一行
-                sum = w_len;
-                tmp.clear();
-                tmp.push(w.clone());
             }
+
+            if tmp_len > 1 {
+                let r = (max_width - sum) as usize % (tmp_len - 1);
+                let d = (max_width - sum) as usize / (tmp_len - 1);
+                tmp.iter_mut().take(r).for_each(|t| t.push(' '));
+                ret.push(tmp.join(format!("{:<1$}", ' ', d).as_str()));
+            } else {
+                ret.push(format!("{:<1$}", tmp[0], max_width as usize));
+            }
+
+            sum = w_len;
+            tmp.clear();
+            tmp.push(w.clone());
         }
 
-        // 处理最后一行（如果有未处理的单词）
         if !tmp.is_empty() {
             ret.push(format!("{:<1$}", tmp.join(" "), max_width as usize));
         }
 
-        // 返回最终结果
         ret
     }
 }
