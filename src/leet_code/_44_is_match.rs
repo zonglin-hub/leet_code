@@ -13,6 +13,7 @@ impl Solution {
                 dp[0][pi] = dp[0][pi - 1]
             }
         }
+
         for si in 1..=slen {
             for pi in 1..=plen {
                 match p[pi - 1] {
@@ -29,5 +30,20 @@ impl Solution {
             }
         }
         dp[slen][plen]
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_is_match() {
+        assert_eq!(Solution::is_match("aa".to_string(), "a".to_string()), false);
+        assert_eq!(Solution::is_match("aa".to_string(), "*".to_string()), true);
+        assert_eq!(
+            Solution::is_match("cb".to_string(), "?a".to_string()),
+            false
+        );
     }
 }

@@ -8,6 +8,7 @@ impl Solution {
         let rn = vec![
             "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I",
         ];
+
         let mut ans = Vec::new();
         let mut i = 0;
         let mut num = num;
@@ -18,6 +19,21 @@ impl Solution {
             }
             i += 1;
         }
+
         ans.into_iter().collect()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_int_to_roman_12_v1() {
+        assert_eq!(Solution::int_to_roman_12_v1(3), "III");
+        assert_eq!(Solution::int_to_roman_12_v1(4), "IV");
+        assert_eq!(Solution::int_to_roman_12_v1(9), "IX");
+        assert_eq!(Solution::int_to_roman_12_v1(58), "LVIII");
+        assert_eq!(Solution::int_to_roman_12_v1(1994), "MCMXCIV");
     }
 }

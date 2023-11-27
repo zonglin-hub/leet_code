@@ -19,14 +19,24 @@ impl Solution {
                 carr.pop();
                 if carr.is_empty() {
                     carr.push(i as i32);
-                // 否则，获取Vec中最后一个元素的索引
                 } else {
                     let carr = carr.last().expect("");
-                    // 计算当前有效括号长度
                     ans = ans.max(i as i32 - carr);
                 }
             }
         }
         ans
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_longest_valid_parentheses() {
+        assert_eq!(Solution::longest_valid_parentheses("(()".to_string()), 2);
+        assert_eq!(Solution::longest_valid_parentheses(")()())".to_string()), 4);
+        assert_eq!(Solution::longest_valid_parentheses("".to_string()), 0);
     }
 }

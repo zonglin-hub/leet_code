@@ -38,26 +38,25 @@ impl Solution {
     }
 }
 
-impl Solution {
-    pub fn max_profit_122(prices: Vec<i32>) -> i32 {
-        prices
-            .windows(2)
-            .map(|x| x[1] - x[0])
-            .filter(|&x| x > 0)
-            .sum()
-    }
-}
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
 
-impl Solution {
-    pub fn max_profit_123(prices: Vec<i32>) -> i32 {
-        let (mut buy0, mut sell0) = (-prices[0], 0);
-        let (mut buy1, mut sell1) = (-prices[0], 0);
-        prices.iter().skip(1).for_each(|&v| {
-            buy0 = buy0.max(-v);
-            sell0 = sell0.max(v + buy0);
-            buy1 = buy1.max(sell0 - v);
-            sell1 = sell1.max(v + buy1);
-        });
-        sell1
+    #[test]
+    fn test_max_profit_121_v1() {
+        assert_eq!(Solution::max_profit_121_v1(vec![7, 1, 5, 3, 6, 4]), 5);
+        assert_eq!(Solution::max_profit_121_v1(vec![7, 6, 4, 3, 1]), 0);
+    }
+
+    #[test]
+    fn test_max_profit_121_v2() {
+        assert_eq!(Solution::max_profit_121_v2(vec![7, 1, 5, 3, 6, 4]), 5);
+        assert_eq!(Solution::max_profit_121_v2(vec![7, 6, 4, 3, 1]), 0);
+    }
+
+    #[test]
+    fn test_max_profit_121_v3() {
+        assert_eq!(Solution::max_profit_121_v3(vec![7, 1, 5, 3, 6, 4]), 5);
+        assert_eq!(Solution::max_profit_121_v3(vec![7, 6, 4, 3, 1]), 0);
     }
 }

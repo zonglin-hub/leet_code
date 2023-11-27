@@ -1,4 +1,5 @@
 //! 盛最多水的容器
+
 use super::Solution;
 
 impl Solution {
@@ -13,5 +14,16 @@ impl Solution {
             }
         }
         ans
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::Solution;
+
+    #[test]
+    fn test_max_area_v1() {
+        assert_eq!(Solution::max_area_v1(vec![1, 8, 6, 2, 5, 4, 8, 3, 7]), 49);
+        assert_eq!(Solution::max_area_v1(vec![1, 1]), 1);
     }
 }

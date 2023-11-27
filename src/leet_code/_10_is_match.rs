@@ -25,20 +25,27 @@ impl Solution {
                 }
             })
         });
-
-        // (0..=s_n).cartesian_product(1..=p_n).for_each(|(i, j)| {
-        // // itertools::Itertools::cartesian_product(0..=s_n, 1..=p_n).for_each(|(i, j)| {
-        //     dp[i][j] = if p[j - 1] == '*' {
-        //         match_c(i, j - 1) && dp[i - 1][j] || dp[i][j - 2]
-        //     } else {
-        //         match_c(i, j) && dp[i - 1][j - 1]
-        //     }
-        //     dp[i][j] = match p[j - 1] {
-        //         '*' => match_c(i, j - 1) && dp[i - 1][j] || dp[i][j - 2],
-        //         _ => match_c(i, j) && dp[i - 1][j - 1],
-        //     }
-        // });
-
         dp[s_n][p_n]
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_is_match_v1() {
+        assert_eq!(
+            Solution::is_match_v1("aa".to_string(), "a".to_string()),
+            false
+        );
+        assert_eq!(
+            Solution::is_match_v1("aa".to_string(), "a*".to_string()),
+            true
+        );
+        assert_eq!(
+            Solution::is_match_v1("ab".to_string(), ".*".to_string()),
+            true
+        );
     }
 }

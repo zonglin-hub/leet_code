@@ -29,7 +29,6 @@ impl Solution {
 
         let mut new_head = ptr.as_mut().unwrap().next.take();
         if k == 1 {
-            // 避免最后一个节点被take后，tail指针失效的问题
             new_head.as_mut().unwrap().next = head;
         } else {
             unsafe {
@@ -38,5 +37,23 @@ impl Solution {
         }
 
         new_head
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::{create_list, Solution};
+
+    #[test]
+    fn test_rotate_right() {
+        assert_eq!(
+            Solution::rotate_right(create_list(vec![1, 2, 3, 4, 5]), 3),
+            create_list(vec![3, 4, 5, 1, 2])
+        );
+
+        assert_eq!(
+            Solution::rotate_right(create_list(vec![0, 1, 2]), 4),
+            create_list(vec![2, 0, 1])
+        );
     }
 }

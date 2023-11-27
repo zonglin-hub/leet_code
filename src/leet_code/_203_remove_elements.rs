@@ -6,10 +6,8 @@ use super::{ListNodePtr, Solution};
 
 impl Solution {
     pub fn remove_elements(head: ListNodePtr, val: i32) -> ListNodePtr {
-        // 判断head是否为None，如果为None，则返回None
         match head {
             None => None,
-            // 如果head不为None，则判断head的值是否等于val，如果等于，则调用remove_elements函数，并将结果返回
             Some(mut node) => match node.val == val {
                 true => Self::remove_elements(node.next, val),
                 false => {
@@ -18,5 +16,23 @@ impl Solution {
                 }
             },
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::{create_list, Solution};
+
+    #[test]
+    fn test_remove_elements() {
+        assert_eq!(
+            Solution::remove_elements(create_list(vec![1, 2, 6, 3, 4, 5, 6]), 6),
+            create_list(vec![1, 2, 3, 4, 5])
+        );
+        assert_eq!(Solution::remove_elements(None, 1), None);
+        assert_eq!(
+            Solution::remove_elements(create_list(vec![7, 7, 7, 7]), 7),
+            None
+        );
     }
 }

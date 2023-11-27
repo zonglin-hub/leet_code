@@ -68,7 +68,7 @@ impl State {
         // match self {
         //     State::Integer | State::Dot | State::Decimal | State::EInteger => true,
         //     _ => false,
-        // }
+        // } 等同
         matches!(
             self,
             State::Integer | State::Dot | State::Decimal | State::EInteger

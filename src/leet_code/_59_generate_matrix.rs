@@ -21,3 +21,18 @@ impl Solution {
         ans
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_generate_matrix() {
+        assert_eq!(
+            Solution::generate_matrix(3),
+            vec![vec![1, 2, 3], vec![8, 9, 4], vec![7, 6, 5]]
+        );
+
+        assert_eq!(Solution::generate_matrix(1), vec![vec![1]]);
+    }
+}

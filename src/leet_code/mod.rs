@@ -13,6 +13,7 @@ pub mod _119_get_row;
 pub mod _11_max_area;
 pub mod _121_max_profit;
 pub mod _1222_queens_attackthe_king;
+pub mod _122_max_profit;
 pub mod _123_max_profit;
 pub mod _12_int_to_roman;
 pub mod _1333_filter_restaurants;

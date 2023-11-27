@@ -36,3 +36,17 @@ impl Solution {
         p1 as i32
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_remove_duplicates_v1() {
+        assert_eq!(Solution::remove_duplicates_v1(&mut vec![1, 1, 2]), 2);
+        assert_eq!(
+            Solution::remove_duplicates_v1(&mut vec![0, 0, 1, 1, 1, 2, 2, 3, 3, 4]),
+            5
+        );
+    }
+}

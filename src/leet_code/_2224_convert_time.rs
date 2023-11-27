@@ -10,7 +10,6 @@ impl Solution {
             current[0].parse::<i32>().expect("") * 60 + current[1].parse::<i32>().expect("");
         let correct =
             correct[0].parse::<i32>().expect("") * 60 + correct[1].parse::<i32>().expect("");
-
         let mut res = 0;
         while correct != current {
             for i in &[60, 15, 5, 1] {
@@ -22,5 +21,22 @@ impl Solution {
             }
         }
         res
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_convert_time() {
+        assert_eq!(
+            Solution::convert_time("02:30".to_string(), "04:35".to_string()),
+            3
+        );
+        assert_eq!(
+            Solution::convert_time("11:00".to_string(), "11:01".to_string()),
+            1
+        );
     }
 }

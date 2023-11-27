@@ -26,7 +26,6 @@ impl Solution {
     }
 
     pub fn is_subsequence_1(s: String, t: String) -> bool {
-        // 双指针法
         let (mut i, mut j) = (0, 0);
         let s_bytes = s.as_bytes();
         let t_bytes = t.as_bytes();
@@ -37,5 +36,26 @@ impl Solution {
             j += 1;
         }
         i == s.len()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_max_profit() {
+        assert_eq!(
+            Solution::is_subsequence("abc".to_string(), "ahbgdc".to_string()),
+            true
+        );
+        assert_eq!(
+            Solution::is_subsequence("axc".to_string(), "ahbgdc".to_string()),
+            false
+        );
+        assert_eq!(
+            Solution::is_subsequence("acb".to_string(), "ahbgdc".to_string()),
+            false
+        );
     }
 }

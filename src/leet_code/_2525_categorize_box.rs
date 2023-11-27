@@ -39,11 +39,37 @@ impl Solution {
             (true, "Neither"),
         ]
         .iter()
-        // 查找第一个满足条件的元素
         .find(|&(cond, _)| *cond)
-        // 获取该元素的结果，并将其转换为字符串类型
         .map(|&(_, res)| res.to_string())
-        // 如果找不到满足条件的元素，就返回一个默认的字符串结果。
         .unwrap_or_else(|| "Neither".to_string())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_categorize_box() {
+        assert_eq!(
+            Solution::categorize_box(1000, 35, 700, 300),
+            "Heavy".to_string()
+        );
+        assert_eq!(
+            Solution::categorize_box(200, 50, 800, 50),
+            "Neither".to_string()
+        );
+    }
+
+    #[test]
+    fn test_categorize_box_() {
+        assert_eq!(
+            Solution::categorize_box_(1000, 35, 700, 300),
+            "Heavy".to_string()
+        );
+        assert_eq!(
+            Solution::categorize_box_(200, 50, 800, 50),
+            "Neither".to_string()
+        );
     }
 }

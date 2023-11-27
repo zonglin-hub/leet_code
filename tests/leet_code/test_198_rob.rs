@@ -1,7 +1,0 @@
-use leet_code::leet_code::Solution;
-
-#[test]
-fn test_rob_198() {
-    assert_eq!(Solution::rob_198(vec![1, 2, 3, 1]), 4);
-    assert_eq!(Solution::rob_198(vec![2, 7, 9, 3, 1]), 12);
-}

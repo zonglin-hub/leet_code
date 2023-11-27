@@ -20,3 +20,15 @@ fn find(chars: &mut [char], k: i32) {
     chars.swap(0, idx as usize);
     find(&mut chars[1..], k - idx * X[n - 1]);
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_get_permutation() {
+        assert_eq!(Solution::get_permutation(3, 3), "213");
+        assert_eq!(Solution::get_permutation(4, 9), "2314");
+        assert_eq!(Solution::get_permutation(3, 1), "123");
+    }
+}

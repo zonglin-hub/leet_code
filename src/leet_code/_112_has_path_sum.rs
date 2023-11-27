@@ -12,13 +12,42 @@ impl Solution {
             None => false,
             Some(node) => {
                 let node = node.borrow_mut();
-                // if node.left.is_none() && node.right.is_none() {
-                //     return target_sum == node.val;
-                // }
                 node.left.is_none() && node.right.is_none() && target_sum == node.val
                     || Self::has_path_sum(node.left.clone(), target_sum - node.val)
                     || Self::has_path_sum(node.right.clone(), target_sum - node.val)
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::{create_tree_node, Solution};
+
+    #[test]
+    fn test_merge_trees() {
+        assert_eq!(
+            Solution::has_path_sum(
+                create_tree_node(
+                    5,
+                    create_tree_node(
+                        4,
+                        create_tree_node(
+                            11,
+                            create_tree_node(7, None, None),
+                            create_tree_node(2, None, None),
+                        ),
+                        None,
+                    ),
+                    create_tree_node(
+                        8,
+                        create_tree_node(13, None, None),
+                        create_tree_node(4, None, create_tree_node(1, None, None)),
+                    ),
+                ),
+                22,
+            ),
+            true
+        );
     }
 }

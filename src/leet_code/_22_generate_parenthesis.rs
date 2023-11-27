@@ -14,6 +14,7 @@ impl Solution {
                     dfs(l - 1, r, cur, res);
                     cur.pop();
                 }
+
                 if r > l {
                     cur.push(')');
                     dfs(l, r - 1, cur, res);
@@ -26,5 +27,19 @@ impl Solution {
         let mut cur = Vec::new();
         dfs(n, n, &mut cur, &mut res);
         res
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_generate_parenthesis_v1() {
+        assert_eq!(
+            Solution::generate_parenthesis_v1(3),
+            vec!["((()))", "(()())", "(())()", "()(())", "()()()"]
+        );
+        assert_eq!(Solution::generate_parenthesis_v1(1), vec!["()"])
     }
 }

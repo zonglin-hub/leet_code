@@ -4,34 +4,23 @@ use super::Solution;
 
 impl Solution {
     pub fn queens_attackthe_king_v1(queens: Vec<Vec<i32>>, king: Vec<i32>) -> Vec<Vec<i32>> {
-        // 创建一个8*8的二维数组，用于存放棋盘
         let mut board = vec![vec![0; 8]; 8];
-        // 遍历棋盘中的每一个棋子
         for queen in queens {
-            // 将棋子放置在棋盘中的位置上
             board[queen[0] as usize][queen[1] as usize] = 1;
         }
 
-        // 创建一个空的结果数组
         let mut result = vec![];
-        // 定义横向和纵向的偏移量
         let dx = [-1, -1, 0, 1, 1, 1, 0, -1];
         let dy = [0, 1, 1, 1, 0, -1, -1, -1];
-        // 遍历棋盘中的每一个位置
         for i in 0..8 {
-            // 定义棋盘的当前位置
             let mut x = king[0];
             let mut y = king[1];
-            // 循环遍历棋盘中的每一个位置
             loop {
-                // 将棋盘的当前位置放置在棋盘中的位置上
                 x += dx[i];
                 y += dy[i];
-                // 如果当前位置超出范围，则跳出循环
                 if x < 0 || y < 0 || x >= 8 || y >= 8 {
                     break;
                 }
-                // 如果当前位置已经被占用，则跳出循环
                 if board[x as usize][y as usize] == 1 {
                     result.push(vec![x, y]);
                     break;
@@ -39,5 +28,78 @@ impl Solution {
             }
         }
         result
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::{expected_sort, expected_sort_vec, Solution};
+
+    #[test]
+    fn test_queens_attackthe_king_v1() {
+        assert_eq!(
+            expected_sort(Solution::queens_attackthe_king_v1(
+                expected_sort_vec(vec![[0, 1], [1, 0], [4, 0], [0, 4], [3, 3], [2, 4]]),
+                vec![0, 0],
+            )),
+            expected_sort(expected_sort_vec(vec![[0, 1], [1, 0], [3, 3]]))
+        );
+        assert_eq!(
+            expected_sort(Solution::queens_attackthe_king_v1(
+                expected_sort_vec(vec![[0, 0], [1, 1], [2, 2], [3, 4], [3, 5], [4, 4], [4, 5]],),
+                vec![3, 3],
+            )),
+            expected_sort(expected_sort_vec(vec![[2, 2], [3, 4], [4, 4]]))
+        );
+        assert_eq!(
+            expected_sort(Solution::queens_attackthe_king_v1(
+                expected_sort_vec(vec![
+                    [5, 6],
+                    [7, 7],
+                    [2, 1],
+                    [0, 7],
+                    [1, 6],
+                    [5, 1],
+                    [3, 7],
+                    [0, 3],
+                    [4, 0],
+                    [1, 2],
+                    [6, 3],
+                    [5, 0],
+                    [0, 4],
+                    [2, 2],
+                    [1, 1],
+                    [6, 4],
+                    [5, 4],
+                    [0, 0],
+                    [2, 6],
+                    [4, 5],
+                    [5, 2],
+                    [1, 4],
+                    [7, 5],
+                    [2, 3],
+                    [0, 5],
+                    [4, 2],
+                    [1, 0],
+                    [2, 7],
+                    [0, 1],
+                    [4, 6],
+                    [6, 1],
+                    [0, 6],
+                    [4, 3],
+                    [1, 7]
+                ],),
+                vec![3, 4],
+            )),
+            expected_sort(expected_sort_vec(vec![
+                [2, 3],
+                [1, 4],
+                [1, 6],
+                [3, 7],
+                [4, 3],
+                [5, 4],
+                [4, 5]
+            ]))
+        );
     }
 }

@@ -15,7 +15,6 @@ impl Solution {
         let mut ans = 0;
         let mut pos = vec![Vec::<i32>::new(); n + 1];
 
-        // for i in 0..n {
         for (i, _) in nums.iter().enumerate().take(n) {
             let x = nums[i] as usize;
             let len = pos[x].len();
@@ -34,5 +33,22 @@ impl Solution {
         }
 
         ans.try_into().expect("")
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_longest_equal_subarray() {
+        assert_eq!(
+            Solution::longest_equal_subarray(vec![1, 3, 2, 3, 1, 3], 3),
+            3
+        );
+        assert_eq!(
+            Solution::longest_equal_subarray(vec![1, 1, 2, 2, 1, 1], 2),
+            4
+        );
     }
 }

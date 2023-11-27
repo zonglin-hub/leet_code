@@ -6,16 +6,12 @@ impl Solution {
     pub fn _unique_paths_with_obstacles(obstacle_grid: Vec<Vec<i32>>) -> i32 {
         let m = obstacle_grid.len();
         let n = obstacle_grid[0].len();
-        // 构建一个 n * m 的矩阵
         let mut cache = vec![vec![0; n]; m];
 
         for i in 0..m {
             for j in 0..n {
-                // 如果这一点有障碍物，则路径数为 0
                 if obstacle_grid[i][j] == 1 {
                     cache[i][j] = 0;
-
-                // 如果是初始值，则路径数为 1
                 } else if i == 0 && j == 0 {
                     cache[i][j] = 1;
                 } else if i == 0 {
