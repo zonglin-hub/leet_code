@@ -1,11 +1,19 @@
 //! 字符串相加
 
-use super::{to_int_vec, Solution};
+use super::Solution;
 
 impl Solution {
     pub fn add_strings_415_v1(nums1: String, nums2: String) -> String {
-        let s1 = to_int_vec(&nums1);
-        let s2 = to_int_vec(&nums2);
+        let s1 = &nums1
+            .bytes()
+            .map(|x| (x - b'0') as i32)
+            .rev()
+            .collect::<Vec<i32>>();
+        let s2 = &nums2
+            .bytes()
+            .map(|x| (x - b'0') as i32)
+            .rev()
+            .collect::<Vec<i32>>();
         let mut carry = 0;
         let mut s3 = vec![];
         let n1 = s1.len();

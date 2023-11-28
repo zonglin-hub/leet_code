@@ -159,7 +159,7 @@ use std::{cell::RefCell, rc::Rc};
 pub struct Solution;
 
 type TreeNodePtr = Option<Rc<RefCell<TreeNode>>>;
-type ListNodePtr = Option<Box<ListNode>>;
+pub type ListNodePtr = Option<Box<ListNode>>;
 
 /// 定义二叉树节点
 #[derive(Debug, PartialEq, Eq)]
@@ -181,33 +181,6 @@ impl TreeNode {
     }
 }
 
-/// `vector` 转 `TreeNodePtr`
-pub fn array_to_tree(root: Vec<Option<i32>>) -> TreeNodePtr {
-    if root.is_empty() {
-        return None;
-    }
-    let root_node = Rc::new(RefCell::new(TreeNode::new(root[0].expect(""))));
-    let mut queue = vec![Rc::clone(&root_node)];
-    let mut i = 1;
-    while i < root.len() {
-        let node = queue.remove(0);
-        if let Some(val) = root[i] {
-            let left = Rc::new(RefCell::new(TreeNode::new(val)));
-            node.borrow_mut().left = Some(Rc::clone(&left));
-            queue.push(left);
-        }
-        i += 1;
-        if i < root.len() && root[i].is_some() {
-            let val = root[i].expect("");
-            let right = Rc::new(RefCell::new(TreeNode::new(val)));
-            node.borrow_mut().right = Some(Rc::clone(&right));
-            queue.push(right);
-        }
-        i += 1;
-    }
-    Some(root_node)
-}
-
 /// 链表结构
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
@@ -226,52 +199,14 @@ impl ListNode {
     }
 }
 
-/// 简化 `tree` 套娃 -> `TreeNodePtr`
-pub fn create_tree_node(val: i32, left: TreeNodePtr, right: TreeNodePtr) -> TreeNodePtr {
-    Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
-}
-
 /// 简化链表套娃 -> `ListNodePtr`
-pub fn create_list_node(nums: i32) -> ListNodePtr {
-    Some(Box::new(ListNode {
-        val: nums,
-        next: None,
-    }))
+pub fn to_node(val: i32, next: ListNodePtr) -> ListNodePtr {
+    Some(Box::new(ListNode { val, next }))
 }
 
-/// `vector` 转 `ListNodePtr`
-pub fn create_list(nums: Vec<i32>) -> ListNodePtr {
-    if nums.is_empty() {
-        return None;
-    }
-    let mut head = create_list_node(nums[0]);
-    let mut p = head.as_mut();
-    for num in nums.iter().skip(1) {
-        let node = create_list_node(*num);
-        p.as_mut().expect("").next = node;
-        p = p.expect("").next.as_mut();
-    }
-    head
-}
-
-/// 用于测试数组乱序情况
-///
-/// assertion failed: `(left == right)`
-///  left: `[[0, 1], [3, 3], [1, 0]]`,
-///  right: `[[0, 1], [1, 0], [3, 3]]`
-pub fn expected_sort(queens: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-    let mut expected = queens.iter().map(|e| e.to_vec()).collect::<Vec<Vec<i32>>>();
-    expected.sort();
-    expected
-}
-
-/// `vec![[0, 1]]` 转 `vec![vec![0, 1]]`
-pub fn expected_sort_vec(queens: Vec<[i32; 2]>) -> Vec<Vec<i32>> {
-    queens.iter().map(|&x| x.to_vec()).collect()
-}
-
-pub fn expected_sort_vec_char(queens: Vec<[char; 9]>) -> Vec<Vec<char>> {
-    queens.iter().map(|x| x.to_vec()).collect()
+/// 简化 `tree` 套娃 -> `TreeNodePtr`
+pub fn to_tree(val: i32, left: TreeNodePtr, right: TreeNodePtr) -> TreeNodePtr {
+    Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
 }
 
 /// `ListNode` 转 `vector`
@@ -285,7 +220,38 @@ pub fn to_vec(head: ListNodePtr) -> Vec<i32> {
     res
 }
 
-/// `&str` 转 `vector`
-pub fn to_int_vec(s: &str) -> Vec<i32> {
-    s.bytes().map(|x| (x - b'0') as i32).rev().collect()
+#[macro_export]
+macro_rules! list {
+    () => {
+        None
+    };
+    ($e:expr) => {
+        ListNode::link($e, None)
+    };
+    ($e:expr, $($tail:tt)*) => {
+        ListNode::link($e, list!($($tail)*))
+    };
+}
+
+pub trait ListMaker {
+    fn link(val: i32, next: ListNodePtr) -> ListNodePtr {
+        Some(Box::new(ListNode { val, next }))
+    }
+}
+
+impl ListMaker for ListNode {}
+
+/// `vector` 转 `ListNodePtr`
+pub fn create_list(nums: Vec<i32>) -> ListNodePtr {
+    if nums.is_empty() {
+        return None;
+    }
+    let mut head = to_node(nums[0], None);
+    let mut p = head.as_mut();
+    for num in nums.iter().skip(1) {
+        let node = to_node(*num, None);
+        p.as_mut().expect("").next = node;
+        p = p.expect("").next.as_mut();
+    }
+    head
 }

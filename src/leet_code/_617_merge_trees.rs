@@ -43,34 +43,10 @@ impl Solution {
 mod tests {
     use std::{cell::RefCell, rc::Rc};
 
-    use crate::leet_code::{create_tree_node, Solution, TreeNode};
+    use crate::leet_code::{Solution, TreeNode};
 
     #[test]
     fn test_merge_trees() {
-        assert_eq!(
-            Solution::merge_trees(
-                create_tree_node(
-                    1,
-                    create_tree_node(3, create_tree_node(5, None, None), None),
-                    create_tree_node(2, None, None),
-                ),
-                create_tree_node(
-                    2,
-                    create_tree_node(1, None, create_tree_node(4, None, None)),
-                    create_tree_node(3, None, create_tree_node(7, None, None)),
-                )
-            ),
-            create_tree_node(
-                3,
-                create_tree_node(
-                    4,
-                    create_tree_node(5, None, None),
-                    create_tree_node(4, None, None),
-                ),
-                create_tree_node(5, None, create_tree_node(7, None, None)),
-            )
-        );
-
         assert_eq!(
             Solution::merge_trees(
                 Some(Rc::new(RefCell::new(TreeNode {

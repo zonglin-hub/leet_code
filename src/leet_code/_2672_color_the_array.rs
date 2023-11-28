@@ -45,21 +45,17 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{expected_sort_vec, Solution};
+    use crate::leet_code::Solution;
 
     #[test]
     fn test_color_the_array() {
+        assert_eq!(Solution::color_the_array(1, vec![vec![0, 100000]]), vec![0]);
         assert_eq!(
             Solution::color_the_array(
                 4,
-                expected_sort_vec(vec![[0, 2], [1, 2], [3, 1], [1, 1], [2, 1]])
+                vec![vec![0, 2], vec![1, 2], vec![3, 1], vec![1, 1], vec![2, 1]]
             ),
             vec![0, 1, 1, 0, 2]
-        );
-
-        assert_eq!(
-            Solution::color_the_array(1, expected_sort_vec(vec![[0, 100000]])),
-            vec![0]
         );
     }
 }

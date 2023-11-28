@@ -63,42 +63,21 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, to_vec, ListNode, Solution};
+    use crate::leet_code::ListMaker;
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::list;
 
     #[test]
     fn test_add_two_numbers() {
         assert_eq!(Solution::add_two_numbers(None, None), None);
         assert_eq!(
-            Solution::add_two_numbers(
-                Some(Box::new(ListNode {
-                    val: 2,
-                    next: Some(Box::new(ListNode {
-                        val: 4,
-                        next: Some(Box::new(ListNode { val: 3, next: None }))
-                    }))
-                })),
-                Some(Box::new(ListNode {
-                    val: 5,
-                    next: Some(Box::new(ListNode {
-                        val: 6,
-                        next: Some(Box::new(ListNode { val: 4, next: None }))
-                    }))
-                }))
-            ),
-            Some(Box::new(ListNode {
-                val: 7,
-                next: Some(Box::new(ListNode {
-                    val: 0,
-                    next: Some(Box::new(ListNode { val: 8, next: None }))
-                }))
-            }))
+            Solution::add_two_numbers(list!(2, 4, 3), list!(5, 6, 4)),
+            list!(7, 0, 8)
         );
         assert_eq!(
-            to_vec(Solution::add_two_numbers(
-                create_list(vec![9, 9, 9, 9, 9, 9, 9]),
-                create_list(vec![9, 9, 9, 9])
-            )),
-            to_vec(create_list(vec![8, 9, 9, 9, 0, 0, 0, 1]))
+            Solution::add_two_numbers(list!(9, 9, 9, 9, 9, 9, 9), list!(9, 9, 9, 9)),
+            list!(8, 9, 9, 9, 0, 0, 0, 1)
         );
     }
 }

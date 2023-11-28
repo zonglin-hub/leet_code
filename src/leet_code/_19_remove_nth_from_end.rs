@@ -66,18 +66,18 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::ListMaker;
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::list;
 
     #[test]
     fn test_remove_nth_from_end() {
+        assert_eq!(Solution::remove_nth_from_end(list!(1), 1), None);
+        assert_eq!(Solution::remove_nth_from_end(list!(1, 2), 1), list!(1));
         assert_eq!(
-            Solution::remove_nth_from_end(create_list(vec![1, 2, 3, 4, 5]), 2),
-            create_list(vec![1, 2, 3, 5])
-        );
-        assert_eq!(Solution::remove_nth_from_end(create_list(vec![1]), 1), None);
-        assert_eq!(
-            Solution::remove_nth_from_end(create_list(vec![1, 2]), 1),
-            create_list(vec![1])
+            Solution::remove_nth_from_end(list!(1, 2, 3, 4, 5), 2),
+            list!(1, 2, 3, 5)
         );
     }
 }

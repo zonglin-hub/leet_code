@@ -47,64 +47,22 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, ListNode, Solution};
+    use crate::leet_code::ListMaker;
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::list;
 
     #[test]
     fn test_merge_k_lists() {
         assert_eq!(Solution::merge_k_lists(vec![]), None);
         assert_eq!(Solution::merge_k_lists(vec![None]), None);
         assert_eq!(
-            Solution::merge_k_lists(vec![
-                create_list(vec![1, 4, 5, 8]),
-                create_list(vec![1, 2, 3, 3, 4]),
-                create_list(vec![2, 6]),
-            ]),
-            create_list(vec![1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 8])
+            Solution::merge_k_lists(vec![list!(1, 4, 5, 8), list!(1, 2, 3, 3, 4), list!(2, 6),]),
+            list!(1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 8)
         );
-
         assert_eq!(
-            Solution::merge_k_lists(vec![
-                Some(Box::new(ListNode {
-                    val: 1,
-                    next: Some(Box::new(ListNode {
-                        val: 4,
-                        next: Some(Box::new(ListNode { val: 5, next: None }))
-                    }))
-                })),
-                Some(Box::new(ListNode {
-                    val: 1,
-                    next: Some(Box::new(ListNode {
-                        val: 3,
-                        next: Some(Box::new(ListNode { val: 4, next: None }))
-                    }))
-                })),
-                Some(Box::new(ListNode {
-                    val: 2,
-                    next: Some(Box::new(ListNode { val: 6, next: None }))
-                })),
-            ]),
-            Some(Box::new(ListNode {
-                val: 1,
-                next: Some(Box::new(ListNode {
-                    val: 1,
-                    next: Some(Box::new(ListNode {
-                        val: 2,
-                        next: Some(Box::new(ListNode {
-                            val: 3,
-                            next: Some(Box::new(ListNode {
-                                val: 4,
-                                next: Some(Box::new(ListNode {
-                                    val: 4,
-                                    next: Some(Box::new(ListNode {
-                                        val: 5,
-                                        next: Some(Box::new(ListNode { val: 6, next: None }))
-                                    }))
-                                }))
-                            }))
-                        }))
-                    }))
-                }))
-            }))
+            Solution::merge_k_lists(vec![list!(1, 4, 5), list!(1, 3, 4), list!(2, 6)]),
+            list!(1, 1, 2, 3, 4, 4, 5, 6)
         );
     }
 }

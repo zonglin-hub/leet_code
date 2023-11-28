@@ -62,21 +62,29 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{expected_sort_vec, Solution};
+    use crate::leet_code::Solution;
 
     #[test]
     fn test_collect_the_coins() {
         assert_eq!(
             Solution::collect_the_coins(
                 vec![1, 0, 0, 0, 0, 1],
-                expected_sort_vec(vec![[0, 1], [1, 2], [2, 3], [3, 4], [4, 5]])
+                vec![vec![0, 1], vec![1, 2], vec![2, 3], vec![3, 4], vec![4, 5]]
             ),
             2
         );
         assert_eq!(
             Solution::collect_the_coins(
                 vec![0, 0, 0, 1, 1, 0, 0, 1],
-                expected_sort_vec(vec![[0, 1], [0, 2], [1, 3], [1, 4], [2, 5], [5, 6], [5, 7]])
+                vec![
+                    vec![0, 1],
+                    vec![0, 2],
+                    vec![1, 3],
+                    vec![1, 4],
+                    vec![2, 5],
+                    vec![5, 6],
+                    vec![5, 7]
+                ]
             ),
             2
         );

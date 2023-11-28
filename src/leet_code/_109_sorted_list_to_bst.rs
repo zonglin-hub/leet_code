@@ -51,12 +51,25 @@ impl Solution {
 mod tests {
     use std::{cell::RefCell, rc::Rc};
 
-    use crate::leet_code::{create_list, Solution, TreeNode};
+    use crate::leet_code::{ListNode, Solution, TreeNode};
 
     #[test]
     fn test_sorted_list_to_bst() {
+        assert_eq!(Solution::sorted_list_to_bst(None), None);
         assert_eq!(
-            Solution::sorted_list_to_bst(create_list(vec![-10, -3, 0, 5, 9])),
+            Solution::sorted_list_to_bst(Some(Box::new(ListNode {
+                val: -10,
+                next: Some(Box::new(ListNode {
+                    val: -3,
+                    next: Some(Box::new(ListNode {
+                        val: 0,
+                        next: Some(Box::new(ListNode {
+                            val: 5,
+                            next: Some(Box::new(ListNode { val: 9, next: None }))
+                        }))
+                    }))
+                }))
+            }))),
             Some(Rc::new(RefCell::new(TreeNode {
                 val: 0,
                 left: Some(Rc::new(RefCell::new(TreeNode {
@@ -79,7 +92,5 @@ mod tests {
                 })))
             })))
         );
-
-        assert_eq!(Solution::sorted_list_to_bst(None), None);
     }
 }

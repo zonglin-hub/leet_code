@@ -32,20 +32,34 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{array_to_tree, Solution};
+    use std::{cell::RefCell, rc::Rc};
+
+    use crate::leet_code::{Solution, TreeNode};
 
     #[test]
     fn test_rob_337() {
         assert_eq!(
-            Solution::rob_337(array_to_tree(vec![
-                Some(3),
-                Some(2),
-                Some(3),
-                None,
-                Some(3),
-                None,
-                Some(1)
-            ])),
+            Solution::rob_337(Some(Rc::new(RefCell::new(TreeNode {
+                val: 3,
+                left: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 2,
+                    left: None,
+                    right: Some(Rc::new(RefCell::new(TreeNode {
+                        val: 3,
+                        left: None,
+                        right: None
+                    })))
+                }))),
+                right: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 3,
+                    left: None,
+                    right: Some(Rc::new(RefCell::new(TreeNode {
+                        val: 1,
+                        left: None,
+                        right: None
+                    })))
+                })))
+            })))),
             7
         );
     }
