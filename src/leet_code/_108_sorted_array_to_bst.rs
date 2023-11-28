@@ -26,11 +26,13 @@ impl Solution {
             if nums.is_empty() {
                 return None;
             }
+            
             let mid = nums.len() / 2;
-            let mut node = TreeNode::new(nums[mid]);
-            node.left = sorted_array_to_bst_helper(nums[0..mid].to_vec());
-            node.right = sorted_array_to_bst_helper(nums[mid + 1..].to_vec());
-            Some(Rc::new(RefCell::new(node)))
+            Some(Rc::new(RefCell::new(TreeNode {
+                val: nums[mid],
+                left: sorted_array_to_bst_helper(nums[mid + 1..].to_vec()),
+                right: sorted_array_to_bst_helper(nums[mid + 1..].to_vec()),
+            })))
         }
         sorted_array_to_bst_helper(nums)
     }
