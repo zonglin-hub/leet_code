@@ -7,9 +7,8 @@ impl Solution {
         let current = current.split(':').collect::<Vec<_>>();
         let correct = correct.split(':').collect::<Vec<_>>();
         let mut current =
-            current[0].parse::<i32>().expect("") * 60 + current[1].parse::<i32>().expect("");
-        let correct =
-            correct[0].parse::<i32>().expect("") * 60 + correct[1].parse::<i32>().expect("");
+            current[0].parse::<i32>().unwrap() * 60 + current[1].parse::<i32>().unwrap();
+        let correct = correct[0].parse::<i32>().unwrap() * 60 + correct[1].parse::<i32>().unwrap();
         let mut res = 0;
         while correct != current {
             for i in &[60, 15, 5, 1] {

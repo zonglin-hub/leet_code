@@ -14,6 +14,7 @@ impl Solution {
             }
             true
         }
+
         let sv = s.chars().collect::<Vec<char>>();
         let mut windows = s.len();
         let mut head = 0;
@@ -23,11 +24,14 @@ impl Solution {
                 head = 0;
                 continue;
             }
+
             if is_palindrome(&sv[head..head + windows]) {
                 return sv[head..head + windows].iter().collect::<String>();
             }
+
             head += 1
         }
+
         "".to_string()
     }
 }
@@ -42,6 +46,7 @@ mod tests {
             Solution::longest_palindrome_5_v1("babad".to_owned()),
             "bab".to_owned()
         );
+
         assert_eq!(
             Solution::longest_palindrome_5_v1("cbbd".to_owned()),
             "bb".to_owned()

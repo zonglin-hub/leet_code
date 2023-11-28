@@ -3,7 +3,7 @@
 use super::Solution;
 
 impl Solution {
-    pub fn remove_duplicates_v1(nums: &mut Vec<i32>) -> i32 {
+    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
         let mut i = 1;
         for j in 1..nums.len() {
             if nums[j] != nums[j - 1] {
@@ -42,10 +42,10 @@ mod tests {
     use crate::leet_code::Solution;
 
     #[test]
-    fn test_remove_duplicates_v1() {
-        assert_eq!(Solution::remove_duplicates_v1(&mut vec![1, 1, 2]), 2);
+    fn test_remove_duplicates() {
+        assert_eq!(Solution::remove_duplicates(&mut vec![1, 1, 2]), 2);
         assert_eq!(
-            Solution::remove_duplicates_v1(&mut vec![0, 0, 1, 1, 1, 2, 2, 3, 3, 4]),
+            Solution::remove_duplicates(&mut vec![0, 0, 1, 1, 1, 2, 2, 3, 3, 4]),
             5
         );
     }

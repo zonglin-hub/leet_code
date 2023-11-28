@@ -4,7 +4,7 @@ use super::Solution;
 use std::collections::HashMap;
 
 impl Solution {
-    pub fn length_of_longest_substring_v1(s: String) -> i32 {
+    pub fn length_of_longest_substring(s: String) -> i32 {
         let (mut ans, mut cnt) = (0, 0);
         let mut map = HashMap::new();
         let s = s.chars().collect::<Vec<_>>();
@@ -35,17 +35,19 @@ mod tests {
     use crate::leet_code::Solution;
 
     #[test]
-    fn test_length_of_longest_substring_v1() {
+    fn test_length_of_longest_substring() {
         assert_eq!(
-            Solution::length_of_longest_substring_v1("abcabcbb".to_string()),
+            Solution::length_of_longest_substring("abcabcbb".to_string()),
             3
         );
+
         assert_eq!(
-            Solution::length_of_longest_substring_v1("bbbbb".to_string()),
+            Solution::length_of_longest_substring("bbbbb".to_string()),
             1
         );
+
         assert_eq!(
-            Solution::length_of_longest_substring_v1("pwwkew".to_string()),
+            Solution::length_of_longest_substring("pwwkew".to_string()),
             3
         );
     }

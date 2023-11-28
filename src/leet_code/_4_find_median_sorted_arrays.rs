@@ -3,7 +3,7 @@
 use super::Solution;
 
 impl Solution {
-    pub fn find_median_sorted_arrays_v2(mut nums1: Vec<i32>, mut nums2: Vec<i32>) -> f64 {
+    pub fn find_median_sorted_arrays(mut nums1: Vec<i32>, mut nums2: Vec<i32>) -> f64 {
         nums1.append(&mut nums2);
         nums1.sort();
 
@@ -22,13 +22,14 @@ mod tests {
     use crate::leet_code::Solution;
 
     #[test]
-    fn test_find_median_sorted_arrays_v2() {
+    fn test_find_median_sorted_arrays() {
         assert_eq!(
-            Solution::find_median_sorted_arrays_v2(vec![1, 3], vec![2]),
+            Solution::find_median_sorted_arrays(vec![1, 3], vec![2]),
             2.00000
         );
+
         assert_eq!(
-            Solution::find_median_sorted_arrays_v2(vec![1, 2], vec![3, 4]),
+            Solution::find_median_sorted_arrays(vec![1, 2], vec![3, 4]),
             2.50000
         );
     }

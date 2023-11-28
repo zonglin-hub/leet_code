@@ -18,42 +18,93 @@ impl Ord for ListNode {
 }
 
 impl Solution {
-    pub fn merge_k_lists_v1(lists: Vec<ListNodePtr>) -> ListNodePtr {
-        let mut min_heap = BinaryHeap::new();
-        for i in lists {
-            min_heap.push(i);
+    /// 这个函数的实现思路是使用优先队列（`BinaryHeap`）来合并多个有序链表。
+    ///
+    /// 首先，将所有链表的头节点放入优先队列中。然后，从优先队列中取出最小的节点，并将其连接到合并后的链表的头部。
+    /// 接着，将取出的节点的下一个节点放入优先队列中，重复这个过程，直到优先队列为空。最后，返回合并后的链表的头节点。
+    ///
+    /// 在这个实现中，我们使用了`Ord`和`PartialOrd`特性来实现链表节点的比较。由于链表节点的值是整数，我们可以直接使用整数的比较运算符来进行比较。
+    pub fn merge_k_lists(lists: Vec<ListNodePtr>) -> ListNodePtr {
+        let mut priority_queue = BinaryHeap::new();
+        for head_node in lists {
+            priority_queue.push(head_node);
         }
 
-        let mut dummy = ListNode::new(-1);
-        let mut ptr = &mut dummy;
+        let mut merged_list = ListNode::new(-1);
+        let mut ptr = &mut merged_list;
 
-        while !min_heap.is_empty() {
-            let mut node = min_heap.pop().expect("");
-            if let Some(n) = node.as_mut() {
-                min_heap.push(n.next.take());
-                ptr.next = node;
-                ptr = ptr.next.as_mut().expect("");
+        while !priority_queue.is_empty() {
+            let mut min_node = priority_queue.pop().unwrap();
+            if let Some(node) = min_node.as_mut() {
+                priority_queue.push(node.next.take());
+                ptr.next = min_node;
+                ptr = ptr.next.as_mut().unwrap();
             }
         }
-        dummy.next
+        merged_list.next
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::{create_list, ListNode, Solution};
 
     #[test]
-    fn test_merge_k_lists_v1() {
+    fn test_merge_k_lists() {
+        assert_eq!(Solution::merge_k_lists(vec![]), None);
+        assert_eq!(Solution::merge_k_lists(vec![None]), None);
         assert_eq!(
-            Solution::merge_k_lists_v1(vec![
-                create_list(vec![1, 4, 5]),
-                create_list(vec![1, 3, 4]),
+            Solution::merge_k_lists(vec![
+                create_list(vec![1, 4, 5, 8]),
+                create_list(vec![1, 2, 3, 3, 4]),
                 create_list(vec![2, 6]),
             ]),
-            create_list(vec![1, 1, 2, 3, 4, 4, 5, 6])
+            create_list(vec![1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 8])
         );
-        assert_eq!(Solution::merge_k_lists_v1(vec![]), None);
-        assert_eq!(Solution::merge_k_lists_v1(vec![None]), None);
+
+        assert_eq!(
+            Solution::merge_k_lists(vec![
+                Some(Box::new(ListNode {
+                    val: 1,
+                    next: Some(Box::new(ListNode {
+                        val: 4,
+                        next: Some(Box::new(ListNode { val: 5, next: None }))
+                    }))
+                })),
+                Some(Box::new(ListNode {
+                    val: 1,
+                    next: Some(Box::new(ListNode {
+                        val: 3,
+                        next: Some(Box::new(ListNode { val: 4, next: None }))
+                    }))
+                })),
+                Some(Box::new(ListNode {
+                    val: 2,
+                    next: Some(Box::new(ListNode { val: 6, next: None }))
+                })),
+            ]),
+            Some(Box::new(ListNode {
+                val: 1,
+                next: Some(Box::new(ListNode {
+                    val: 1,
+                    next: Some(Box::new(ListNode {
+                        val: 2,
+                        next: Some(Box::new(ListNode {
+                            val: 3,
+                            next: Some(Box::new(ListNode {
+                                val: 4,
+                                next: Some(Box::new(ListNode {
+                                    val: 4,
+                                    next: Some(Box::new(ListNode {
+                                        val: 5,
+                                        next: Some(Box::new(ListNode { val: 6, next: None }))
+                                    }))
+                                }))
+                            }))
+                        }))
+                    }))
+                }))
+            }))
+        );
     }
 }

@@ -5,21 +5,29 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 impl Solution {
+    /// 这个函数实现了从给定的前序遍历序列中构建二叉搜索树的功能。它接受一个包含整数的向量作为输入，并返回一个二叉树的根节点指针。
+    ///
+    /// 在函数内部，它首先检查输入向量是否为空。
+    /// 如果为空，那么它返回空指针。否则，它找到前序遍历序列中的第一个大于根节点值的位置。
+    /// 如果找不到这样的位置，那么它将整个序列作为左子树。否则，它将前序遍历序列的前一部分作为左子树，后一部分作为右子树。
+    /// 然后，它使用递归调用`bst_from_preorder`函数来构建左子树和右子树，并将它们作为根节点的左子节点和右子节点。最后，它将构建好的根节点存储在`Rc`中，并返回根节点的指针。
+    ///
+    /// 通过这种方式，函数就实现了从给定的前序遍历序列中构建二叉搜索树的功能。
     pub fn bst_from_preorder(preorder: Vec<i32>) -> TreeNodePtr {
-        if !preorder.is_empty() {
-            let devide = preorder
-                .iter()
-                .position(|&val| val > preorder[0])
-                .unwrap_or(preorder.len());
-
-            Some(Rc::new(RefCell::new(TreeNode {
-                val: preorder[0],
-                left: Solution::bst_from_preorder(preorder[1..devide].to_vec()),
-                right: Solution::bst_from_preorder(preorder[devide..].to_vec()),
-            })))
-        } else {
-            None
+        if preorder.is_empty() {
+            return None;
         }
+
+        let devide = preorder
+            .iter()
+            .position(|&val| val > preorder[0])
+            .unwrap_or(preorder.len());
+
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: preorder[0],
+            left: Solution::bst_from_preorder(preorder[1..devide].to_vec()),
+            right: Solution::bst_from_preorder(preorder[devide..].to_vec()),
+        })))
     }
 }
 

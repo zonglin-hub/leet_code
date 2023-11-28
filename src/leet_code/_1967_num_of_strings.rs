@@ -9,7 +9,7 @@ impl Solution {
             .filter(|s| word.contains(s))
             .count()
             .try_into()
-            .expect("")
+            .unwrap()
     }
 
     pub fn num_of_strings_v1(patterns: Vec<String>, word: String) -> i32 {

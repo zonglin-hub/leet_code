@@ -10,7 +10,7 @@ impl Solution {
             gem[op[0] as usize] -= num;
             gem[op[1] as usize] += num;
         }
-        *gem.iter().max().expect("") - *gem.iter().min().expect("")
+        *gem.iter().max().unwrap() - *gem.iter().min().unwrap()
     }
 }
 

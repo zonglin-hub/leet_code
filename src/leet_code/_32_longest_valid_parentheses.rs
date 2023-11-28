@@ -20,7 +20,7 @@ impl Solution {
                 if carr.is_empty() {
                     carr.push(i as i32);
                 } else {
-                    let carr = carr.last().expect("");
+                    let carr = carr.last().unwrap();
                     ans = ans.max(i as i32 - carr);
                 }
             }

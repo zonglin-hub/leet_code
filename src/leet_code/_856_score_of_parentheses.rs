@@ -10,8 +10,8 @@ impl Solution {
             if c == b'(' {
                 score.push(0);
             } else {
-                let last = score.pop().expect("");
-                *score.last_mut().expect("") += if last == 0 { 1 } else { last << 1 };
+                let last = score.pop().unwrap();
+                *score.last_mut().unwrap() += if last == 0 { 1 } else { last << 1 };
             }
         }
 

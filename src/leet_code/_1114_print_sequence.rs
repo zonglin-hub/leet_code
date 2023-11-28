@@ -17,7 +17,7 @@ pub struct Foo {
 
 impl FooTrait for Foo {
     fn first(&self) {
-        let mut order = self.order.lock().expect("");
+        let mut order = self.order.lock().unwrap();
         assert_eq!(*order, 1);
         print!("first");
         *order = 2;
@@ -25,9 +25,9 @@ impl FooTrait for Foo {
     }
 
     fn second(&self) {
-        let mut order = self.order.lock().expect("");
+        let mut order = self.order.lock().unwrap();
         while *order != 2 && *order != 3 {
-            order = self.cv12.wait(order).expect("");
+            order = self.cv12.wait(order).unwrap();
         }
         print!("second");
         *order = 3;
@@ -35,9 +35,9 @@ impl FooTrait for Foo {
     }
 
     fn third(&self) {
-        let mut order = self.order.lock().expect("");
+        let mut order = self.order.lock().unwrap();
         while *order != 3 {
-            order = self.cv23.wait(order).expect("");
+            order = self.cv23.wait(order).unwrap();
         }
         print!("third");
     }
@@ -86,7 +86,7 @@ mod tests {
             }
         }
         for thread in threads {
-            thread.join().expect("");
+            thread.join().unwrap();
         }
     }
 
@@ -117,7 +117,7 @@ mod tests {
             }
         }
         for thread in threads {
-            thread.join().expect("");
+            thread.join().unwrap();
         }
     }
 }

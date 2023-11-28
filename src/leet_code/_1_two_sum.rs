@@ -20,21 +20,19 @@ impl Solution {
     /// 5. 如果遍历完整个数组都没有找到满足条件的两个数，那么返回一个空向量。
     ///
     /// 这种解法的时间复杂度为 O(n)，其中 n 是输入数组的长度，因为我们只遍历了一次数组。空间复杂度也是 O(n)，因为在最坏的情况下，我们可能需要存储数组中的每个元素到哈希表中。
-    pub fn two_sum_1_v1(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut map = HashMap::new();
 
         for (i, k) in nums.iter().enumerate() {
             if let Some(&a) = map.get(&(target - k)) {
-                return vec![a, i.try_into().expect("")];
+                return vec![a, i.try_into().unwrap()];
             }
-            map.insert(k, i.try_into().expect(""));
+            map.insert(k, i.try_into().unwrap());
         }
 
         vec![]
     }
-}
 
-impl Solution {
     /// 这段代码是一个使用迭代器和控制流来解决两数之和问题的函数。函数接受一个整数向量 `nums` 和一个目标值 `target`，返回一个包含两个整数的向量，表示满足两数之和等于目标值的两个整数的索引。
     ///
     /// 首先，函数使用 `HashMap` 来存储每个整数及其索引。然后，函数使用 `try_for_each` 方法遍历整数向量 `nums`，并对每个整数 `k` 执行以下操作：
@@ -48,7 +46,7 @@ impl Solution {
         let mut map = HashMap::new();
 
         let r = nums.iter().enumerate().try_for_each(|(i, &k)| {
-            let i = i.try_into().expect("");
+            let i = i.try_into().unwrap();
             if let Some(&a) = map.get(&(target - k)) {
                 return ControlFlow::Break(vec![a, i]);
             }
@@ -61,10 +59,7 @@ impl Solution {
             ControlFlow::Continue(()) => vec![],
         }
     }
-}
 
-impl Solution {
-    /// 哈希表(Iterator)
     pub fn two_sum_1_v5(nums: Vec<i32>, target: i32) -> Vec<i32> {
         nums.iter()
             .enumerate()
@@ -81,26 +76,12 @@ impl Solution {
             .err()
             .unwrap_or(vec![])
     }
-}
 
-impl Solution {
-    /// 暴力枚举
     pub fn two_sum_1_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
         if nums.len() == 1 && nums[0] == target {
             return vec![0];
         }
-        /*
-            [2, 7, 11, 15]
 
-            2 + 7
-            2 + 11
-            2 + 15
-
-            7 + 11
-            7 + 15
-
-            11 + 15
-        */
         for i in 0..nums.len() {
             for j in i + 1..nums.len() {
                 if target == nums[i] + nums[j] {
@@ -110,10 +91,7 @@ impl Solution {
         }
         vec![]
     }
-}
 
-impl Solution {
-    /// 双指针
     pub fn two_sum_1_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
         if nums.len() == 1 && nums[0] == target {
             return vec![0];
@@ -138,37 +116,9 @@ mod tests {
     use crate::leet_code::Solution;
 
     #[test]
-    fn test_two_sum_1_v1() {
-        assert_eq!(Solution::two_sum_1_v1(vec![2, 7, 11, 15], 9), vec![0, 1]);
-        assert_eq!(Solution::two_sum_1_v1(vec![3, 2, 4], 6), vec![1, 2]);
-        assert_eq!(Solution::two_sum_1_v1(vec![3, 3], 6), vec![0, 1]);
-    }
-
-    #[test]
-    fn test_two_sum_1_v2() {
-        assert_eq!(Solution::two_sum_1_v2(vec![2, 7, 11, 15], 9), vec![0, 1]);
-        assert_eq!(Solution::two_sum_1_v2(vec![3, 2, 4], 6), vec![1, 2]);
-        assert_eq!(Solution::two_sum_1_v2(vec![3, 3], 6), vec![0, 1]);
-    }
-
-    #[test]
-    fn test_two_sum_1_v3() {
-        assert_eq!(Solution::two_sum_1_v3(vec![2, 7, 11, 15], 9), vec![0, 1]);
-        assert_eq!(Solution::two_sum_1_v3(vec![3, 2, 4], 6), vec![1, 2]);
-        assert_eq!(Solution::two_sum_1_v3(vec![3, 3], 6), vec![0, 1]);
-    }
-
-    #[test]
-    fn test_two_sum_1_v4() {
-        assert_eq!(Solution::two_sum_1_v4(vec![2, 7, 11, 15], 9), vec![0, 1]);
-        assert_eq!(Solution::two_sum_1_v4(vec![3, 2, 4], 6), vec![1, 2]);
-        assert_eq!(Solution::two_sum_1_v4(vec![3, 3], 6), vec![0, 1]);
-    }
-
-    #[test]
-    fn test_two_sum_1_v5() {
-        assert_eq!(Solution::two_sum_1_v5(vec![2, 7, 11, 15], 9), vec![0, 1]);
-        assert_eq!(Solution::two_sum_1_v5(vec![3, 2, 4], 6), vec![1, 2]);
-        assert_eq!(Solution::two_sum_1_v5(vec![3, 3], 6), vec![0, 1]);
+    fn test_two_sum() {
+        assert_eq!(Solution::two_sum(vec![2, 7, 11, 15], 9), vec![0, 1]);
+        assert_eq!(Solution::two_sum(vec![3, 2, 4], 6), vec![1, 2]);
+        assert_eq!(Solution::two_sum(vec![3, 3], 6), vec![0, 1]);
     }
 }

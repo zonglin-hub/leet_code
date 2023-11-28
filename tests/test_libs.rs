@@ -2,7 +2,7 @@ use leet_code::leet_code::{array_to_tree, create_tree_node, expected_sort, expec
 
 #[test]
 fn test_create_tree_node() {
-    assert_eq!(create_tree_node(1, None, None).expect("").borrow().val, 1);
+    assert_eq!(create_tree_node(1, None, None).unwrap().borrow().val, 1);
 }
 
 #[test]

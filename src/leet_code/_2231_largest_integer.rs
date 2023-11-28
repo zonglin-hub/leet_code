@@ -14,7 +14,7 @@ impl Solution {
                 }
             }
         }
-        s.into_iter().collect::<String>().parse::<i32>().expect("")
+        s.into_iter().collect::<String>().parse::<i32>().unwrap()
     }
 }
 

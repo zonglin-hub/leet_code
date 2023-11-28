@@ -69,8 +69,8 @@ impl Solution {
                 ans.push(path.clone());
                 return;
             }
-            let cc = digits.chars().nth(idx).expect("");
-            for c in map.get(&cc).expect("").chars() {
+            let cc = digits.chars().nth(idx).unwrap();
+            for c in map.get(&cc).unwrap().chars() {
                 path.push(c);
                 dfs(idx + 1, digits, map, path, ans);
                 path.pop();

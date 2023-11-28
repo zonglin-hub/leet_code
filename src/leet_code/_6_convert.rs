@@ -3,7 +3,7 @@
 use super::Solution;
 
 impl Solution {
-    pub fn convert_v1(s: String, num_rows: i32) -> String {
+    pub fn convert(s: String, num_rows: i32) -> String {
         (0..num_rows)
             .chain((1..num_rows - 1).rev())
             .cycle()
@@ -25,18 +25,16 @@ mod tests {
     use crate::leet_code::Solution;
 
     #[test]
-    fn test_convert_v1() {
+    fn test_convert() {
+        assert_eq!(Solution::convert(String::from("A"), 1), String::from("A"));
         assert_eq!(
-            Solution::convert_v1(String::from("PAYPALISHIRING"), 3),
+            Solution::convert(String::from("PAYPALISHIRING"), 3),
             String::from("PAHNAPLSIIGYIR")
         );
+
         assert_eq!(
-            Solution::convert_v1(String::from("PAYPALISHIRING"), 4),
+            Solution::convert(String::from("PAYPALISHIRING"), 4),
             String::from("PINALSIGYAHRPI")
-        );
-        assert_eq!(
-            Solution::convert_v1(String::from("A"), 1),
-            String::from("A")
         );
     }
 }

@@ -12,12 +12,9 @@ impl Solution {
             }
             prev
         }
-
         reverse(head, None)
     }
-}
 
-impl Solution {
     /// 这个函数实现了单链表的反转。
     ///
     /// 它的输入参数是一个 `ListNodePtr` 类型的头结点，表示链表的头部。
@@ -30,7 +27,7 @@ impl Solution {
     /// 接着将 x.next 设为反转后的链表 res，即 x.next = res.take()，这里的 take() 方法会将 res 中的值取出来，并将 res 置为 None，避免出现两个链表共享同一个节点的情况。
     /// 最后将 x 设为反转后的链表 res，即 res = Some(x)，将反转后的链表头更新为当前节点。
     /// 循环结束后，返回 res，即反转后的链表头，完成单链表的反转。
-    pub fn reverse_list_offer_v1(head: ListNodePtr) -> ListNodePtr {
+    pub fn reverse_list_offer(head: ListNodePtr) -> ListNodePtr {
         let (mut res, mut node) = (None, head);
         while let Some(mut x) = node {
             node = x.next.take();
@@ -58,6 +55,23 @@ mod tests {
         assert_eq!(Solution::reverse_list_206_v1(None), None);
         assert_eq!(
             Solution::reverse_list_206_v1(create_list(vec![1, 2, 3, 4, 5])),
+            create_list(vec![5, 4, 3, 2, 1])
+        );
+    }
+
+    #[test]
+    fn test_reverse_list_offer() {
+        assert_eq!(
+            Solution::reverse_list_offer(create_list(vec![1, 2, 3, 4, 5])),
+            create_list(vec![5, 4, 3, 2, 1])
+        );
+        assert_eq!(
+            Solution::reverse_list_offer(create_list(vec![1, 2])),
+            create_list(vec![2, 1])
+        );
+        assert_eq!(Solution::reverse_list_offer(None), None);
+        assert_eq!(
+            Solution::reverse_list_offer(create_list(vec![1, 2, 3, 4, 5])),
             create_list(vec![5, 4, 3, 2, 1])
         );
     }

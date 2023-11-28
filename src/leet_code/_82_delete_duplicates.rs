@@ -42,14 +42,14 @@ mod tests {
 
     #[test]
     fn test_delete_duplicates_82() {
-        let head = create_list(vec![1, 2, 3, 3, 4, 4, 5]);
-        let input = Solution::delete_duplicates_82(head);
-        let out = create_list(vec![1, 2, 5]);
-        assert_eq!(input, out);
+        assert_eq!(
+            Solution::delete_duplicates_82(create_list(vec![1, 2, 3, 3, 4, 4, 5])),
+            create_list(vec![1, 2, 5])
+        );
 
-        let head = create_list(vec![1, 1, 1, 2, 3]);
-        let input = Solution::delete_duplicates_82(head);
-        let out = create_list(vec![2, 3]);
-        assert_eq!(input, out);
+        assert_eq!(
+            Solution::delete_duplicates_82(create_list(vec![1, 1, 1, 2, 3])),
+            create_list(vec![2, 3])
+        );
     }
 }

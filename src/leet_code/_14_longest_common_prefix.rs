@@ -10,9 +10,9 @@ impl Solution {
     pub fn longest_common_prefix_v1(strs: Vec<String>) -> String {
         strs.iter()
             .max()
-            .expect("")
+            .unwrap()
             .chars()
-            .zip(strs.iter().min().expect("").chars())
+            .zip(strs.iter().min().unwrap().chars())
             .take_while(|x| x.0 == x.1)
             .map(|x| x.0)
             .collect()
