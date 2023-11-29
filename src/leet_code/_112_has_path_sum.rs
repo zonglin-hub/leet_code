@@ -32,16 +32,24 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::tree;
+    use crate::leet_code::linked_tree;
     use crate::leet_code::Solution;
 
     #[test]
     fn test_has_path_sum() {
         assert!(Solution::has_path_sum(
-            tree(
+            linked_tree(
                 5,
-                tree(4, tree(11, tree(7, None, None), tree(2, None, None)), None),
-                tree(8, tree(13, None, None), tree(4, None, tree(1, None, None)))
+                linked_tree(
+                    4,
+                    linked_tree(11, linked_tree(7, None, None), linked_tree(2, None, None)),
+                    None
+                ),
+                linked_tree(
+                    8,
+                    linked_tree(13, None, None),
+                    linked_tree(4, None, linked_tree(1, None, None))
+                )
             ),
             22,
         ));

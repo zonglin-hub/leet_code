@@ -33,22 +33,22 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::tree;
+    use crate::leet_code::linked_tree;
     use crate::leet_code::Solution;
 
     #[test]
     fn test_bst_from_preorder() {
         assert_eq!(
             Solution::bst_from_preorder(vec![8, 5, 1, 7, 10, 12]),
-            tree(
+            linked_tree(
                 8,
-                tree(5, tree(1, None, None), tree(7, None, None)),
-                tree(10, None, tree(12, None, None))
+                linked_tree(5, linked_tree(1, None, None), linked_tree(7, None, None)),
+                linked_tree(10, None, linked_tree(12, None, None))
             )
         );
         assert_eq!(
             Solution::bst_from_preorder(vec![1, 3]),
-            tree(1, None, tree(3, None, None))
+            linked_tree(1, None, linked_tree(3, None, None))
         );
     }
 }

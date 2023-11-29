@@ -57,30 +57,30 @@ impl Solution {
 #[cfg(test)]
 mod tests {
 
-    use crate::leet_code::tree;
+    use crate::leet_code::linked_tree;
     use crate::leet_code::Solution;
 
     #[test]
     fn test_build_tree() {
         assert_eq!(
             Solution::build_tree(vec![3, 9, 20, 15, 7], vec![9, 3, 15, 20, 7]),
-            tree(
+            linked_tree(
                 3,
-                tree(9, None, None),
-                tree(20, tree(15, None, None), tree(7, None, None))
+                linked_tree(9, None, None),
+                linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
             )
         );
         assert_eq!(
             Solution::build_tree(vec![3, 9, 20, 15, 7], vec![9, 3, 15, 20, 7]),
-            tree(
+            linked_tree(
                 3,
-                tree(9, None, None),
-                tree(20, tree(15, None, None), tree(7, None, None))
+                linked_tree(9, None, None),
+                linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
             )
         );
         assert_eq!(
             Solution::build_tree(vec![-1], vec![-1]),
-            tree(-1, None, None)
+            linked_tree(-1, None, None)
         );
     }
 }

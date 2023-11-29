@@ -49,7 +49,7 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::tree;
+    use crate::leet_code::linked_tree;
     use crate::leet_code::ListNode;
     use crate::leet_code::Solution;
     use crate::linked_list;
@@ -59,10 +59,10 @@ mod tests {
         assert_eq!(Solution::sorted_list_to_bst(None), None);
         assert_eq!(
             Solution::sorted_list_to_bst(linked_list!(-10, -3, 0, 5, 9)),
-            tree(
+            linked_tree(
                 0,
-                tree(-3, tree(-10, None, None), None),
-                tree(9, tree(5, None, None), None)
+                linked_tree(-3, linked_tree(-10, None, None), None),
+                linked_tree(9, linked_tree(5, None, None), None)
             )
         );
     }

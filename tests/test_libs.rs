@@ -1,7 +1,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use leet_code::leet_code::tree;
+use leet_code::leet_code::linked_tree;
 use leet_code::leet_code::ListNode;
 use leet_code::leet_code::TreeNode;
 use leet_code::linked_list;
@@ -29,7 +29,7 @@ fn test_() {
 #[test]
 fn test_1() {
     assert_eq!(
-        tree(1, None, tree(3, None, None)),
+        linked_tree(1, None, linked_tree(3, None, None)),
         Some(Rc::new(RefCell::new(TreeNode {
             val: 1,
             left: None,

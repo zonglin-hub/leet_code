@@ -41,30 +41,37 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::tree;
+    use crate::leet_code::linked_tree;
     use crate::leet_code::Solution;
 
     #[test]
     fn test_merge_trees() {
         assert_eq!(
             Solution::merge_trees(
-                tree(1, tree(3, tree(5, None, None), None), tree(2, None, None)),
-                tree(
+                linked_tree(
+                    1,
+                    linked_tree(3, linked_tree(5, None, None), None),
+                    linked_tree(2, None, None)
+                ),
+                linked_tree(
                     2,
-                    tree(1, None, tree(4, None, None)),
-                    tree(3, None, tree(7, None, None))
+                    linked_tree(1, None, linked_tree(4, None, None)),
+                    linked_tree(3, None, linked_tree(7, None, None))
                 )
             ),
-            tree(
+            linked_tree(
                 3,
-                tree(4, tree(5, None, None), tree(4, None, None)),
-                tree(5, None, tree(7, None, None))
+                linked_tree(4, linked_tree(5, None, None), linked_tree(4, None, None)),
+                linked_tree(5, None, linked_tree(7, None, None))
             )
         );
 
         assert_eq!(
-            Solution::merge_trees(tree(1, None, None), tree(1, None, tree(2, None, None))),
-            tree(2, None, tree(2, None, None))
+            Solution::merge_trees(
+                linked_tree(1, None, None),
+                linked_tree(1, None, linked_tree(2, None, None))
+            ),
+            linked_tree(2, None, linked_tree(2, None, None))
         );
     }
 }

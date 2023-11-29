@@ -39,25 +39,29 @@ impl Solution {
 #[cfg(test)]
 mod tests {
 
-    use crate::leet_code::tree;
+    use crate::leet_code::linked_tree;
     use crate::leet_code::Solution;
     #[test]
     fn test_flatten() {
-        let mut root = tree(
+        let mut root = linked_tree(
             1,
-            tree(2, tree(3, None, None), tree(4, None, None)),
-            tree(5, None, tree(6, None, None)),
+            linked_tree(2, linked_tree(3, None, None), linked_tree(4, None, None)),
+            linked_tree(5, None, linked_tree(6, None, None)),
         );
         Solution::flatten(&mut root);
         assert_eq!(
             root,
-            tree(
+            linked_tree(
                 1,
                 None,
-                tree(
+                linked_tree(
                     2,
                     None,
-                    tree(3, None, tree(4, None, tree(5, None, tree(6, None, None))))
+                    linked_tree(
+                        3,
+                        None,
+                        linked_tree(4, None, linked_tree(5, None, linked_tree(6, None, None)))
+                    )
                 )
             )
         );
@@ -66,8 +70,8 @@ mod tests {
         Solution::flatten(&mut root);
         assert_eq!(root, None);
 
-        let mut root = tree(0, None, None);
+        let mut root = linked_tree(0, None, None);
         Solution::flatten(&mut root);
-        assert_eq!(root, tree(0, None, None));
+        assert_eq!(root, linked_tree(0, None, None));
     }
 }

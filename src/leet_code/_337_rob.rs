@@ -32,16 +32,16 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::tree;
+    use crate::leet_code::linked_tree;
     use crate::leet_code::Solution;
 
     #[test]
     fn test_rob_337() {
         assert_eq!(
-            Solution::rob_337(tree(
+            Solution::rob_337(linked_tree(
                 3,
-                tree(2, None, tree(3, None, None)),
-                tree(3, None, tree(1, None, None))
+                linked_tree(2, None, linked_tree(3, None, None)),
+                linked_tree(3, None, linked_tree(1, None, None))
             )),
             7
         );
