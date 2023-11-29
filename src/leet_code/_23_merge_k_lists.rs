@@ -47,22 +47,29 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::ListMaker;
     use crate::leet_code::ListNode;
     use crate::leet_code::Solution;
-    use crate::list;
+    use crate::linked_list;
 
     #[test]
     fn test_merge_k_lists() {
         assert_eq!(Solution::merge_k_lists(vec![]), None);
         assert_eq!(Solution::merge_k_lists(vec![None]), None);
         assert_eq!(
-            Solution::merge_k_lists(vec![list!(1, 4, 5, 8), list!(1, 2, 3, 3, 4), list!(2, 6),]),
-            list!(1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 8)
+            Solution::merge_k_lists(vec![
+                linked_list!(1, 4, 5, 8),
+                linked_list!(1, 2, 3, 3, 4),
+                linked_list!(2, 6),
+            ]),
+            linked_list!(1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 8)
         );
         assert_eq!(
-            Solution::merge_k_lists(vec![list!(1, 4, 5), list!(1, 3, 4), list!(2, 6)]),
-            list!(1, 1, 2, 3, 4, 4, 5, 6)
+            Solution::merge_k_lists(vec![
+                linked_list!(1, 4, 5),
+                linked_list!(1, 3, 4),
+                linked_list!(2, 6)
+            ]),
+            linked_list!(1, 1, 2, 3, 4, 4, 5, 6)
         );
     }
 }

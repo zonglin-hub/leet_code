@@ -38,85 +38,36 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use std::{cell::RefCell, rc::Rc};
 
-    use crate::leet_code::{Solution, TreeNode};
-
+    use crate::leet_code::tree;
+    use crate::leet_code::Solution;
     #[test]
     fn test_flatten() {
-        let mut root = Some(Rc::new(RefCell::new(TreeNode {
-            val: 1,
-            left: Some(Rc::new(RefCell::new(TreeNode {
-                val: 2,
-                left: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 3,
-                    left: None,
-                    right: None,
-                }))),
-                right: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 4,
-                    left: None,
-                    right: None,
-                }))),
-            }))),
-            right: Some(Rc::new(RefCell::new(TreeNode {
-                val: 5,
-                left: None,
-                right: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 6,
-                    left: None,
-                    right: None,
-                }))),
-            }))),
-        })));
-
+        let mut root = tree(
+            1,
+            tree(2, tree(3, None, None), tree(4, None, None)),
+            tree(5, None, tree(6, None, None)),
+        );
         Solution::flatten(&mut root);
         assert_eq!(
             root,
-            Some(Rc::new(RefCell::new(TreeNode {
-                val: 1,
-                left: None,
-                right: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 2,
-                    left: None,
-                    right: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 3,
-                        left: None,
-                        right: Some(Rc::new(RefCell::new(TreeNode {
-                            val: 4,
-                            left: None,
-                            right: Some(Rc::new(RefCell::new(TreeNode {
-                                val: 5,
-                                left: None,
-                                right: Some(Rc::new(RefCell::new(TreeNode {
-                                    val: 6,
-                                    left: None,
-                                    right: None,
-                                }))),
-                            }))),
-                        }))),
-                    }))),
-                }))),
-            })))
+            tree(
+                1,
+                None,
+                tree(
+                    2,
+                    None,
+                    tree(3, None, tree(4, None, tree(5, None, tree(6, None, None))))
+                )
+            )
         );
 
         let mut root = None;
         Solution::flatten(&mut root);
         assert_eq!(root, None);
 
-        let mut root = Some(Rc::new(RefCell::new(TreeNode {
-            val: 0,
-            left: None,
-            right: None,
-        })));
+        let mut root = tree(0, None, None);
         Solution::flatten(&mut root);
-        assert_eq!(
-            root,
-            Some(Rc::new(RefCell::new(TreeNode {
-                val: 0,
-                left: None,
-                right: None
-            })))
-        );
+        assert_eq!(root, tree(0, None, None));
     }
 }

@@ -24,12 +24,14 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::linked_list;
 
     #[test]
     fn test_reverse_print() {
         assert_eq!(
-            Solution::reverse_print(create_list(vec![1, 3, 2])),
+            Solution::reverse_print(linked_list!(1, 3, 2)),
             vec![2, 3, 1]
         );
     }

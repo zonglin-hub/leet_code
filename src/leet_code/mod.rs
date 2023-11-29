@@ -155,11 +155,11 @@ pub mod _offer_06_reverse_print;
 
 use std::{cell::RefCell, rc::Rc};
 
-/// leet code 算法解题
+/// leet code 算法题解
 pub struct Solution;
 
 type TreeNodePtr = Option<Rc<RefCell<TreeNode>>>;
-pub type ListNodePtr = Option<Box<ListNode>>;
+type ListNodePtr = Option<Box<ListNode>>;
 
 /// 定义二叉树节点
 #[derive(Debug, PartialEq, Eq)]
@@ -189,69 +189,35 @@ pub struct ListNode {
 }
 
 impl ListNode {
-    // 用于标记一个函数或方法在内部实现时可以被优化掉，从而减少代码量。
-    // 当一个函数或方法被标记为#[inline]时，Rust编译器会在内部将其替换为等效的机器代码，从而减少调用这个函数的开销。
-    // 需要注意的是，#[inline]属性应该仅用于优化性能，而不是用于改变函数的行为或它的可见性。
-    // 在大多数情况下，Rust会自动内联函数调用，因此您不需要显式地使用#[inline]属性。
+    /// 用于标记一个函数或方法在内部实现时可以被优化掉，从而减少代码量。
+    /// 当一个函数或方法被标记为#[inline]时，Rust编译器会在内部将其替换为等效的机器代码，从而减少调用这个函数的开销。
+    /// 需要注意的是，#[inline]属性应该仅用于优化性能，而不是用于改变函数的行为或它的可见性。
+    /// 在大多数情况下，Rust会自动内联函数调用，因此您不需要显式地使用#[inline]属性。
     #[inline]
     pub fn new(val: i32) -> Self {
         ListNode { next: None, val }
     }
-}
 
-/// 简化链表套娃 -> `ListNodePtr`
-pub fn to_node(val: i32, next: ListNodePtr) -> ListNodePtr {
-    Some(Box::new(ListNode { val, next }))
-}
-
-/// 简化 `tree` 套娃 -> `TreeNodePtr`
-pub fn to_tree(val: i32, left: TreeNodePtr, right: TreeNodePtr) -> TreeNodePtr {
-    Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
-}
-
-/// `ListNode` 转 `vector`
-pub fn to_vec(head: ListNodePtr) -> Vec<i32> {
-    let mut res = vec![];
-    let mut p = head;
-    while let Some(node) = p {
-        res.push(node.val);
-        p = node.next;
-    }
-    res
-}
-
-#[macro_export]
-macro_rules! list {
-    () => {
-        None
-    };
-    ($e:expr) => {
-        ListNode::link($e, None)
-    };
-    ($e:expr, $($tail:tt)*) => {
-        ListNode::link($e, list!($($tail)*))
-    };
-}
-
-pub trait ListMaker {
-    fn link(val: i32, next: ListNodePtr) -> ListNodePtr {
+    /// 简化 `ListNodePtr`
+    #[inline]
+    pub fn simplify(val: i32, next: ListNodePtr) -> ListNodePtr {
         Some(Box::new(ListNode { val, next }))
     }
 }
 
-impl ListMaker for ListNode {}
+#[macro_export]
+macro_rules! linked_list {
+    () => {
+        None
+    };
+    ($e:expr) => {
+        ListNode::simplify($e, None)
+    };
+    ($e:expr, $($tail:tt)*) => {
+        ListNode::simplify($e, linked_list!($($tail)*))
+    };
+}
 
-/// `vector` 转 `ListNodePtr`
-pub fn create_list(nums: Vec<i32>) -> ListNodePtr {
-    if nums.is_empty() {
-        return None;
-    }
-    let mut head = to_node(nums[0], None);
-    let mut p = head.as_mut();
-    for num in nums.iter().skip(1) {
-        let node = to_node(*num, None);
-        p.as_mut().expect("").next = node;
-        p = p.expect("").next.as_mut();
-    }
-    head
+pub fn tree(val: i32, left: TreeNodePtr, right: TreeNodePtr) -> TreeNodePtr {
+    Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
 }

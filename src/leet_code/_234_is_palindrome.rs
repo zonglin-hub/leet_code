@@ -27,10 +27,12 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::linked_list;
 
     #[test]
     fn test_is_palindrome() {
-        assert_eq!(Solution::is_palindrome(create_list(vec![1, 2])), false);
+        assert_eq!(Solution::is_palindrome(linked_list!(1, 2)), false);
     }
 }

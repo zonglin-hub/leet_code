@@ -63,21 +63,20 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::ListMaker;
     use crate::leet_code::ListNode;
     use crate::leet_code::Solution;
-    use crate::list;
+    use crate::linked_list;
 
     #[test]
     fn test_add_two_numbers() {
         assert_eq!(Solution::add_two_numbers(None, None), None);
         assert_eq!(
-            Solution::add_two_numbers(list!(2, 4, 3), list!(5, 6, 4)),
-            list!(7, 0, 8)
+            Solution::add_two_numbers(linked_list!(2, 4, 3), linked_list!(5, 6, 4)),
+            linked_list!(7, 0, 8)
         );
         assert_eq!(
-            Solution::add_two_numbers(list!(9, 9, 9, 9, 9, 9, 9), list!(9, 9, 9, 9)),
-            list!(8, 9, 9, 9, 0, 0, 0, 1)
+            Solution::add_two_numbers(linked_list!(9, 9, 9, 9, 9, 9, 9), linked_list!(9, 9, 9, 9)),
+            linked_list!(8, 9, 9, 9, 0, 0, 0, 1)
         );
     }
 }

@@ -37,18 +37,19 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::linked_list;
 
     #[test]
     fn test_delete_duplicates() {
         assert_eq!(
-            Solution::delete_duplicates_83(create_list(vec![1, 1, 2])),
-            create_list(vec![1, 2])
+            Solution::delete_duplicates_83(linked_list!(1, 1, 2)),
+            linked_list!(1, 2)
         );
-
         assert_eq!(
-            Solution::delete_duplicates_83(create_list(vec![1, 1, 2, 3, 3])),
-            create_list(vec![1, 2, 3])
+            Solution::delete_duplicates_83(linked_list!(1, 1, 2, 3, 3)),
+            linked_list!(1, 2, 3)
         );
     }
 }

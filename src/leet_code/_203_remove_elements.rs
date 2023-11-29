@@ -30,18 +30,17 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::linked_list;
 
     #[test]
     fn test_remove_elements() {
-        assert_eq!(
-            Solution::remove_elements(create_list(vec![1, 2, 6, 3, 4, 5, 6]), 6),
-            create_list(vec![1, 2, 3, 4, 5])
-        );
         assert_eq!(Solution::remove_elements(None, 1), None);
+        assert_eq!(Solution::remove_elements(linked_list!(7, 7, 7, 7), 7), None);
         assert_eq!(
-            Solution::remove_elements(create_list(vec![7, 7, 7, 7]), 7),
-            None
+            Solution::remove_elements(linked_list!(1, 2, 6, 3, 4, 5, 6), 6),
+            linked_list!(1, 2, 3, 4, 5)
         );
     }
 }

@@ -35,18 +35,19 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::linked_list;
 
     #[test]
     fn test_partition() {
         assert_eq!(
-            Solution::partition(create_list(vec![1, 4, 3, 2, 5, 2]), 3),
-            create_list(vec![1, 2, 2, 4, 3, 5])
+            Solution::partition(linked_list!(1, 4, 3, 2, 5, 2), 3),
+            linked_list!(1, 2, 2, 4, 3, 5)
         );
-
         assert_eq!(
-            Solution::partition(create_list(vec![2, 1]), 2),
-            create_list(vec![1, 2])
+            Solution::partition(linked_list!(2, 1), 2),
+            linked_list!(1, 2)
         );
     }
 }

@@ -32,50 +32,17 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use std::{cell::RefCell, rc::Rc};
-
-    use crate::leet_code::{Solution, TreeNode};
+    use crate::leet_code::tree;
+    use crate::leet_code::Solution;
 
     #[test]
     fn test_has_path_sum() {
         assert!(Solution::has_path_sum(
-            Some(Rc::new(RefCell::new(TreeNode {
-                val: 5,
-                left: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 4,
-                    left: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 11,
-                        left: Some(Rc::new(RefCell::new(TreeNode {
-                            val: 7,
-                            left: None,
-                            right: None
-                        }))),
-                        right: Some(Rc::new(RefCell::new(TreeNode {
-                            val: 2,
-                            left: None,
-                            right: None
-                        })))
-                    }))),
-                    right: None
-                }))),
-                right: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 8,
-                    left: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 13,
-                        left: None,
-                        right: None
-                    }))),
-                    right: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 4,
-                        left: None,
-                        right: Some(Rc::new(RefCell::new(TreeNode {
-                            val: 1,
-                            left: None,
-                            right: None
-                        })))
-                    })))
-                })))
-            }))),
+            tree(
+                5,
+                tree(4, tree(11, tree(7, None, None), tree(2, None, None)), None),
+                tree(8, tree(13, None, None), tree(4, None, tree(1, None, None)))
+            ),
             22,
         ));
     }

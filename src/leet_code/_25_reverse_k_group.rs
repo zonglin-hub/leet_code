@@ -37,17 +37,19 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::linked_list;
 
     #[test]
     fn test_reverse_k_group() {
         assert_eq!(
-            Solution::reverse_k_group(create_list(vec![1, 2, 3, 4, 5]), 2),
-            create_list(vec![2, 1, 4, 3, 5])
+            Solution::reverse_k_group(linked_list!(1, 2, 3, 4, 5), 2),
+            linked_list!(2, 1, 4, 3, 5)
         );
         assert_eq!(
-            Solution::reverse_k_group(create_list(vec![1, 2, 3, 4, 5]), 3),
-            create_list(vec![3, 2, 1, 4, 5])
+            Solution::reverse_k_group(linked_list!(1, 2, 3, 4, 5), 3),
+            linked_list!(3, 2, 1, 4, 5)
         );
     }
 }

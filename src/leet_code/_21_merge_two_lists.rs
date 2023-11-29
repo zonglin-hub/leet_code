@@ -78,22 +78,20 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::linked_list;
 
     #[test]
     fn test_merge_two_lists() {
-        assert_eq!(
-            Solution::merge_two_lists(create_list(vec![1, 2, 4]), create_list(vec![1, 3, 4])),
-            create_list(vec![1, 1, 2, 3, 4, 4])
-        );
-        assert_eq!(
-            Solution::merge_two_lists(create_list(vec![]), create_list(vec![])),
-            create_list(vec![])
-        );
         assert_eq!(Solution::merge_two_lists(None, None), None);
         assert_eq!(
-            Solution::merge_two_lists(create_list(vec![]), create_list(vec![0])),
-            create_list(vec![0])
+            Solution::merge_two_lists(linked_list!(1, 2, 4), linked_list!(1, 3, 4)),
+            linked_list!(1, 1, 2, 3, 4, 4)
+        );
+        assert_eq!(
+            Solution::merge_two_lists(None, linked_list!(0)),
+            linked_list!(0)
         );
     }
 }

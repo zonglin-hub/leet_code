@@ -66,18 +66,20 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::ListMaker;
     use crate::leet_code::ListNode;
     use crate::leet_code::Solution;
-    use crate::list;
+    use crate::linked_list;
 
     #[test]
     fn test_remove_nth_from_end() {
-        assert_eq!(Solution::remove_nth_from_end(list!(1), 1), None);
-        assert_eq!(Solution::remove_nth_from_end(list!(1, 2), 1), list!(1));
+        assert_eq!(Solution::remove_nth_from_end(linked_list!(1), 1), None);
         assert_eq!(
-            Solution::remove_nth_from_end(list!(1, 2, 3, 4, 5), 2),
-            list!(1, 2, 3, 5)
+            Solution::remove_nth_from_end(linked_list!(1, 2), 1),
+            linked_list!(1)
+        );
+        assert_eq!(
+            Solution::remove_nth_from_end(linked_list!(1, 2, 3, 4, 5), 2),
+            linked_list!(1, 2, 3, 5)
         );
     }
 }

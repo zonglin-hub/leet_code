@@ -3,7 +3,7 @@
 use super::{ListNodePtr, Solution};
 
 impl Solution {
-    pub fn reverse_list_206_v1(head: ListNodePtr) -> ListNodePtr {
+    pub fn reverse_list(head: ListNodePtr) -> ListNodePtr {
         fn reverse(head: ListNodePtr, prev: ListNodePtr) -> ListNodePtr {
             if let Some(mut node) = head {
                 let tail = node.next.take();
@@ -40,39 +40,20 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{create_list, Solution};
+    use crate::leet_code::ListNode;
+    use crate::leet_code::Solution;
+    use crate::linked_list;
 
     #[test]
-    fn test_reverse_list_206_v1() {
+    fn test_reverse_list() {
+        assert_eq!(Solution::reverse_list(None), None);
         assert_eq!(
-            Solution::reverse_list_206_v1(create_list(vec![1, 2, 3, 4, 5])),
-            create_list(vec![5, 4, 3, 2, 1])
+            Solution::reverse_list(linked_list!(1, 2)),
+            linked_list!(2, 1)
         );
         assert_eq!(
-            Solution::reverse_list_206_v1(create_list(vec![1, 2])),
-            create_list(vec![2, 1])
-        );
-        assert_eq!(Solution::reverse_list_206_v1(None), None);
-        assert_eq!(
-            Solution::reverse_list_206_v1(create_list(vec![1, 2, 3, 4, 5])),
-            create_list(vec![5, 4, 3, 2, 1])
-        );
-    }
-
-    #[test]
-    fn test_reverse_list_offer() {
-        assert_eq!(
-            Solution::reverse_list_offer(create_list(vec![1, 2, 3, 4, 5])),
-            create_list(vec![5, 4, 3, 2, 1])
-        );
-        assert_eq!(
-            Solution::reverse_list_offer(create_list(vec![1, 2])),
-            create_list(vec![2, 1])
-        );
-        assert_eq!(Solution::reverse_list_offer(None), None);
-        assert_eq!(
-            Solution::reverse_list_offer(create_list(vec![1, 2, 3, 4, 5])),
-            create_list(vec![5, 4, 3, 2, 1])
+            Solution::reverse_list(linked_list!(1, 2, 3, 4, 5)),
+            linked_list!(5, 4, 3, 2, 1)
         );
     }
 }

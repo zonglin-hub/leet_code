@@ -32,34 +32,17 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use std::{cell::RefCell, rc::Rc};
-
-    use crate::leet_code::{Solution, TreeNode};
+    use crate::leet_code::tree;
+    use crate::leet_code::Solution;
 
     #[test]
     fn test_rob_337() {
         assert_eq!(
-            Solution::rob_337(Some(Rc::new(RefCell::new(TreeNode {
-                val: 3,
-                left: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 2,
-                    left: None,
-                    right: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 3,
-                        left: None,
-                        right: None
-                    })))
-                }))),
-                right: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 3,
-                    left: None,
-                    right: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 1,
-                        left: None,
-                        right: None
-                    })))
-                })))
-            })))),
+            Solution::rob_337(tree(
+                3,
+                tree(2, None, tree(3, None, None)),
+                tree(3, None, tree(1, None, None))
+            )),
             7
         );
     }

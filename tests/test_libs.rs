@@ -1,12 +1,43 @@
-use leet_code::leet_code::to_node;
-use leet_code::leet_code::ListMaker;
+use std::cell::RefCell;
+use std::rc::Rc;
+
+use leet_code::leet_code::tree;
 use leet_code::leet_code::ListNode;
-use leet_code::list;
+use leet_code::leet_code::TreeNode;
+use leet_code::linked_list;
 
 #[test]
 fn test_() {
     assert_eq!(
-        list!(1, 2, 3, 4, 5),
-        to_node(1, to_node(2, to_node(3, to_node(4, to_node(5, None)))))
+        linked_list!(1, 2, 3, 4, 5),
+        Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode {
+                    val: 3,
+                    next: Some(Box::new(ListNode {
+                        val: 4,
+                        next: Some(Box::new(ListNode { val: 5, next: None }))
+                    }))
+                }))
+            }))
+        }))
+    )
+}
+
+#[test]
+fn test_1() {
+    assert_eq!(
+        tree(1, None, tree(3, None, None)),
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: 1,
+            left: None,
+            right: Some(Rc::new(RefCell::new(TreeNode {
+                val: 3,
+                left: None,
+                right: None
+            })))
+        })))
     )
 }
