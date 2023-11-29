@@ -8,18 +8,6 @@ impl Solution {
             let mut ans = Vec::new();
             for i in pos..nums.len() {
                 let cur = nums[i];
-
-                // if cur > tar {
-                //     continue;
-                // } else if cur == tar {
-                //     ans.push(vec![cur]);
-                // } else {
-                //     for mut v in recursion(nums, tar - cur, i) {
-                //         v.push(cur);
-                //         ans.push(v);
-                //     }
-                // }
-                // 等同
                 match cur.cmp(&tar) {
                     Ordering::Greater => continue,
                     Ordering::Equal => ans.push(vec![cur]),
@@ -33,7 +21,6 @@ impl Solution {
             }
             ans
         }
-
         recursion(&candidates, target, 0)
     }
 }
@@ -52,9 +39,9 @@ mod tests {
             Solution::combination_sum(vec![2, 3, 5], 8),
             vec![vec![2, 2, 2, 2], vec![3, 3, 2], vec![5, 3]]
         );
-        // assert_eq!(
-        //     Solution::combination_sum(vec![2], 1),
-        //     vec![Vec::<i32>::new()]
-        // );
+        assert_eq!(
+            Solution::combination_sum(vec![2], 1),
+            Vec::<Vec<i32>>::new()
+        );
     }
 }

@@ -6,9 +6,8 @@ impl Solution {
             if res[i] != 9 {
                 res[i] += 1;
                 return res;
-            } else {
-                res[i] = 0;
             }
+            res[i] = 0;
         }
         // digits 中所有的元素均为 9
         res.insert(0, 1);

@@ -69,6 +69,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "insignificant"]
     fn test_entry() {
         use std::collections::HashMap;
 
@@ -88,6 +89,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "insignificant"]
     fn test_or_insert() {
         use std::collections::HashMap;
 

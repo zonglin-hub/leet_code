@@ -42,6 +42,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "insignificant"]
     fn test_windows() {
         let slice = ['r', 'u', 's', 't'];
         let mut iter = slice.windows(2);
@@ -52,6 +53,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "insignificant"]
     fn test_map() {
         let a = [1, 2, 3];
         let mut iter = a.iter().map(|x| 2 * x);

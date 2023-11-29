@@ -2,7 +2,6 @@ use super::Solution;
 
 impl Solution {
     pub fn add_binary(a: String, b: String) -> String {
-        println!("{}", i128::from_str_radix(&a, 2).unwrap());
         format!(
             "{:b}",
             (i128::from_str_radix(&a, 2).unwrap() + i128::from_str_radix(&b, 2).unwrap())
@@ -28,6 +27,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "insignificant"]
     fn test_() {
         let b = "10"; // 二进制
         let a = i128::from_str_radix(&b, 2).unwrap();

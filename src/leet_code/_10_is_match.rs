@@ -15,16 +15,19 @@ impl Solution {
         let mut dp = vec![vec![false; p_n + 1]; s_n + 1];
         dp[0][0] = true;
 
-        // 双层 for 循环
-        (0..=s.len()).for_each(|i| {
-            (1..=p.len()).for_each(|j| {
-                dp[i][j] = if p[j - 1] == '*' {
-                    match_c(i, j - 1) && dp[i - 1][j] || dp[i][j - 2]
-                } else {
-                    match_c(i, j) && dp[i - 1][j - 1]
+        for i in 0..=s.len() {
+            for j in 1..=p.len() {
+                // dp[i][j] = if p[j - 1] == '*' {
+                //     match_c(i, j - 1) && dp[i - 1][j] || dp[i][j - 2]
+                // } else {
+                //     match_c(i, j) && dp[i - 1][j - 1]
+                // } 等同
+                dp[i][j] = match p[j - 1] {
+                    '*' => match_c(i, j - 1) && dp[i - 1][j] || dp[i][j - 2],
+                    _ => match_c(i, j) && dp[i - 1][j - 1],
                 }
-            })
-        });
+            }
+        }
 
         dp[s_n][p_n]
     }

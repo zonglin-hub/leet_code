@@ -31,41 +31,6 @@ impl Solution {
         }
         ret
     }
-
-    pub fn _full_justify(words: Vec<String>, max_width: i32) -> Vec<String> {
-        let mut ret = Vec::new();
-        let mut tmp = Vec::new();
-        let mut sum = 0;
-
-        for w in words.iter() {
-            let w_len = w.len() as i32;
-            let tmp_len = tmp.len();
-
-            if sum + w_len + tmp_len as i32 <= max_width {
-                sum += w_len;
-                tmp.push(w.clone());
-            }
-
-            if tmp_len > 1 {
-                let r = (max_width - sum) as usize % (tmp_len - 1);
-                let d = (max_width - sum) as usize / (tmp_len - 1);
-                tmp.iter_mut().take(r).for_each(|t| t.push(' '));
-                ret.push(tmp.join(format!("{:<1$}", ' ', d).as_str()));
-            } else {
-                ret.push(format!("{:<1$}", tmp[0], max_width as usize));
-            }
-
-            sum = w_len;
-            tmp.clear();
-            tmp.push(w.clone());
-        }
-
-        if !tmp.is_empty() {
-            ret.push(format!("{:<1$}", tmp.join(" "), max_width as usize));
-        }
-
-        ret
-    }
 }
 
 #[cfg(test)]
