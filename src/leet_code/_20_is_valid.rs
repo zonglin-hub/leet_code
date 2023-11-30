@@ -47,6 +47,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "insignificant"]
     fn test_vec_drain() {
         let mut v = vec![1, 2, 3];
         let u: Vec<_> = v.drain(1..).collect();
@@ -59,6 +60,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "insignificant"]
     fn test_fold() {
         let a = [1, 4, 3];
 

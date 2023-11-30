@@ -5,7 +5,8 @@ use super::{ListNode, ListNodePtr, Solution};
 impl Solution {
     /// 用于将两个链表的元素相加并返回结果。
     /// 其中，`carried`函数用于处理进位，并返回结果。在` carried `函数中，我们使用` match `语句检查是否存在进位。
-    /// 如果没有进位，我们返回` None `表示没有结果；否则，我们创建一个新的链表节点，并将进位加到当前节点的值上。
+    /// 如果没有进位，我们返回` None `表示没有结果；
+    /// 否则，我们创建一个新的链表节点，并将进位加到当前节点的值上。
     /// 然后，我们递归地调用` carried `函数，处理下一个节点，并将进位除以 10 作为下一次递归的进位。
     /// 最后，我们将所有的节点连接起来，返回结果。
     pub fn add_two_numbers(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
@@ -22,8 +23,10 @@ impl Solution {
                             carry += x.val;
                             x.next
                         }),
+                        // 09 -> 0; 18 -> 1
                         carry / 10,
                     ),
+                    // 09 -> 9; 18 -> 8
                     val: carry % 10,
                 })),
             }
