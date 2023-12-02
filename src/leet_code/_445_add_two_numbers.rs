@@ -1,40 +1,14 @@
-use crate::leet_code::ListNode;
+//! 两数相加 II
 
-use super::{ListNodePtr, Solution};
+use super::ListNodePtr;
+use super::Solution;
 
 impl Solution {
     pub fn add_two_numbers_445(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
-        fn carried(l1: ListNodePtr, l2: ListNodePtr, mut carry: i32) -> ListNodePtr {
-            match l1.is_none() && l2.is_none() && carry == 0 {
-                true => None,
-                false => Some(Box::new(ListNode {
-                    next: carried(
-                        l1.and_then(|x| {
-                            carry += x.val;
-                            x.next
-                        }),
-                        l2.and_then(|x| {
-                            carry += x.val;
-                            x.next
-                        }),
-                        carry / 10,
-                    ),
-                    val: carry % 10,
-                })),
-            }
-        }
-
-        fn reverse_list(mut head: ListNodePtr) -> ListNodePtr {
-            let mut ptr = None;
-            while let Some(mut node) = head {
-                head = node.next.take();
-                node.next = ptr;
-                ptr = Some(node);
-            }
-            ptr
-        }
-
-        reverse_list(carried(reverse_list(l1), reverse_list(l2), 0))
+        Solution::reverse_list(Solution::add_two_numbers(
+            Solution::reverse_list(l1),
+            Solution::reverse_list(l2),
+        ))
     }
 }
 

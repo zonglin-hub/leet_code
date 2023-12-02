@@ -27,14 +27,14 @@ impl Solution {
     /// 接着将 x.next 设为反转后的链表 res，即 x.next = res.take()，这里的 take() 方法会将 res 中的值取出来，并将 res 置为 None，避免出现两个链表共享同一个节点的情况。
     /// 最后将 x 设为反转后的链表 res，即 res = Some(x)，将反转后的链表头更新为当前节点。
     /// 循环结束后，返回 res，即反转后的链表头，完成单链表的反转。
-    pub fn reverse_list_offer(head: ListNodePtr) -> ListNodePtr {
-        let (mut res, mut node) = (None, head);
-        while let Some(mut x) = node {
-            node = x.next.take();
-            x.next = res.take();
-            res = Some(x);
+    pub fn reverse_list_v1(mut head: ListNodePtr) -> ListNodePtr {
+        let mut ptr = None;
+        while let Some(mut node) = head {
+            head = node.next;
+            node.next = ptr;
+            ptr = Some(node);
         }
-        res
+        ptr
     }
 }
 
@@ -53,6 +53,19 @@ mod tests {
         );
         assert_eq!(
             Solution::reverse_list(linked_list!(1, 2, 3, 4, 5)),
+            linked_list!(5, 4, 3, 2, 1)
+        );
+    }
+
+    #[test]
+    fn test_reverse_list_v1() {
+        assert_eq!(Solution::reverse_list_v1(None), None);
+        assert_eq!(
+            Solution::reverse_list_v1(linked_list!(1, 2)),
+            linked_list!(2, 1)
+        );
+        assert_eq!(
+            Solution::reverse_list_v1(linked_list!(1, 2, 3, 4, 5)),
             linked_list!(5, 4, 3, 2, 1)
         );
     }
