@@ -27,7 +27,7 @@ impl MyCalendar {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::_729_book::MyCalendar;
+    use super::MyCalendar;
 
     #[test]
     fn test_book() {

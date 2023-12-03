@@ -55,9 +55,9 @@ impl Foo {
 
 #[cfg(test)]
 mod tests {
+    use super::Foo;
+    use super::FooTrait;
     use std::sync::Arc;
-
-    use crate::leet_code::_1114_print_sequence::{Foo, FooTrait};
 
     #[test]
     fn test_first_second_third() {
