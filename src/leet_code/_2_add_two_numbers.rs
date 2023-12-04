@@ -58,7 +58,7 @@ impl Solution {
 
             *p = Some(Box::new(ListNode::new(carry % 10)));
             carry /= 10;
-            p = &mut p.as_mut().unwrap().next;
+            p = &mut p.as_mut()?.next;
         }
         new_list
     }

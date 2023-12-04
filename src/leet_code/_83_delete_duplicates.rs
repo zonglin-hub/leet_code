@@ -19,7 +19,7 @@ impl Solution {
             return head;
         }
 
-        let mut node = head.as_mut().unwrap();
+        let mut node = head.as_mut()?;
         let mut duplicate = node.val;
 
         while let Some(x) = node.next.take() {
@@ -28,7 +28,7 @@ impl Solution {
             } else {
                 duplicate = x.val;
                 node.next = Some(x);
-                node = node.next.as_mut().unwrap();
+                node = node.next.as_mut()?;
             }
         }
         head

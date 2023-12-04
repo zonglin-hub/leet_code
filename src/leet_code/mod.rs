@@ -93,6 +93,7 @@ pub mod _43_multiply;
 pub mod _445_add_two_numbers;
 pub mod _44_is_match;
 pub mod _45_jump;
+pub mod _460_lfu_cache;
 pub mod _46_permute;
 pub mod _47_permute_unique;
 pub mod _48_rotate;

@@ -9,16 +9,6 @@ impl Solution {
 
         let b = mass >= 100;
 
-        // [
-        //     (a && b, "Both"),
-        //     (a, "Bulky"),
-        //     (b, "Heavy"),
-        //     (true, "Neither"),
-        // ]
-        // .iter()
-        // .find(|&(cond, _)| *cond)
-        // .map(|&(_, res)| res.to_string())
-        // .unwrap_or_else(|| "Neither".to_string()) 等同
         if a && b {
             return "Both".to_string();
         }

@@ -5,8 +5,8 @@ impl Solution {
     pub fn _search_bst(root: TreeNodePtr, val: i32) -> TreeNodePtr {
         match root.is_some() {
             true => {
-                let v = root.as_ref().unwrap().borrow().val;
-                let mut tree = root.as_ref().unwrap().borrow_mut();
+                let v = root.as_ref()?.borrow().val;
+                let mut tree = root.as_ref()?.borrow_mut();
                 match v.cmp(&val) {
                     Ordering::Less => Self::search_bst(tree.right.take(), val),
                     Ordering::Greater => Self::search_bst(tree.left.take(), val),
@@ -21,14 +21,6 @@ impl Solution {
         let mut cur = root;
         while let Some(node) = cur {
             let x = node.borrow().val;
-            // if val == x {
-            //     return Some(node.clone());
-            // }
-            // cur = if val < x {
-            //     node.borrow_mut().left.take()
-            // } else {
-            //     node.borrow_mut().right.take()
-            // }; 等同
             match x {
                 x if val < x => cur = node.borrow_mut().left.take(),
                 x if val > x => cur = node.borrow_mut().right.take(),

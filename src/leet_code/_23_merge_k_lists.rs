@@ -34,11 +34,11 @@ impl Solution {
         let mut ptr = &mut merged_list;
 
         while !priority_queue.is_empty() {
-            let mut min_node = priority_queue.pop().unwrap();
+            let mut min_node = priority_queue.pop()?;
             if let Some(node) = min_node.as_mut() {
                 priority_queue.push(node.next.take());
                 ptr.next = min_node;
-                ptr = ptr.next.as_mut().unwrap();
+                ptr = ptr.next.as_mut()?;
             }
         }
         merged_list.next

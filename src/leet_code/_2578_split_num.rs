@@ -42,7 +42,6 @@ impl Solution {
 
         let num = nums.iter().fold((0, 0), |(mut a, b), ipt| {
             a = a * 10 + ipt;
-            // (a, b) 不可交互值
             (b, a)
         });
         num.0 + num.1

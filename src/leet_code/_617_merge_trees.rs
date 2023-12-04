@@ -18,14 +18,6 @@ impl Solution {
         match (root1, root2) {
             (None, None) => None,
             (None, r) | (r, None) => r,
-            // (Some(r1), Some(r2)) => {
-            //     let mut r1 = r1.borrow_mut();
-            //     let mut r2 = r2.borrow_mut();
-            //     let mut new_val = TreeNode::new(r1.val + r2.val);
-            //     new_val.left = Self::merge_trees(r1.left.take(), r2.left.take());
-            //     new_val.right = Self::merge_trees(r1.right.take(), r2.right.take());
-            //     Some(Rc::new(RefCell::new(new_val)))
-            // } 等同
             (Some(r1), Some(r2)) => {
                 let mut r1 = r1.borrow_mut();
                 let mut r2 = r2.borrow_mut();

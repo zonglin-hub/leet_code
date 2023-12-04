@@ -21,10 +21,10 @@ impl Solution {
             head = node.next.take();
             if node.val < x {
                 dh1_mut.next = Some(node);
-                dh1_mut = dh1_mut.next.as_mut().unwrap();
+                dh1_mut = dh1_mut.next.as_mut()?;
             } else {
                 dh2_mut.next = Some(node);
-                dh2_mut = dh2_mut.next.as_mut().unwrap();
+                dh2_mut = dh2_mut.next.as_mut()?;
             }
         }
 

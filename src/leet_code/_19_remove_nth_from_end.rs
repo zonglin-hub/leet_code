@@ -18,15 +18,14 @@ impl Solution {
             let mut slow = dummy;
             let mut fast = dummy;
             for _ in 0..n {
-                fast = (*fast).next.as_mut().unwrap().as_mut();
+                fast = (*fast).next.as_mut()?.as_mut();
             }
 
             while (*fast).next.is_some() {
-                fast = (*fast).next.as_mut().unwrap().as_mut();
-                slow = (*slow).next.as_mut().unwrap().as_mut();
+                fast = (*fast).next.as_mut()?.as_mut();
+                slow = (*slow).next.as_mut()?.as_mut();
             }
-
-            (*slow).next = (*slow).next.take().unwrap().next;
+            (*slow).next = (*slow).next.take()?.next;
             (*dummy).next.to_owned()
         }
     }
@@ -47,19 +46,19 @@ impl Solution {
 
         let mut count = 0;
         while count < n {
-            fast = &fast.as_ref().unwrap().next;
+            fast = &fast.as_ref()?.next;
             count += 1;
         }
 
         while fast.is_some() {
-            fast = &fast.as_ref().unwrap().next;
-            let val = slow.as_ref().unwrap().val;
-            slow = &slow.as_ref().unwrap().next;
+            fast = &fast.as_ref()?.next;
+            let val = slow.as_ref()?.val;
+            slow = &slow.as_ref()?.next;
             curr.next = Some(Box::new(ListNode::new(val)));
-            curr = curr.next.as_mut().unwrap();
+            curr = curr.next.as_mut()?;
         }
 
-        curr.next = slow.as_ref().unwrap().next.clone();
+        curr.next = slow.as_ref()?.next.clone();
         root.next
     }
 

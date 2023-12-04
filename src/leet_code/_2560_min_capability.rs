@@ -4,8 +4,8 @@ use super::Solution;
 
 impl Solution {
     pub fn min_capability_2560(nums: Vec<i32>, k: i32) -> i32 {
-        let mut max_num = *nums.iter().max().expect("存在最大值");
-        let mut min_num = *nums.iter().min().expect("存在最小值");
+        let mut max_num = *nums.iter().max().unwrap();
+        let mut min_num = *nums.iter().min().unwrap();
         while min_num <= max_num {
             let middle = (min_num + max_num) / 2;
             let mut count = 0;

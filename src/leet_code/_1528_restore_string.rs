@@ -13,25 +13,8 @@ impl Solution {
         let mut s = s.clone();
 
         unsafe {
-            // 将res 和s 的 指针 指向同一个 内存区域
-            let r = res.as_mut_vec();
-            let sd = s.as_mut_vec();
-
-            // 遍历 indices，将s 中的字符 替换 到res中
-            for idx in 0..indices.len() {
-                // vec![4, 5, 6, 7, 0, 2, 1, 3]
-                let indx = indices[idx] as usize;
-
-                // c o d e l e e t
-                // res[4] = sd[0] = c
-                // sd 索引 0 指向字节 c（原始指针s）再把 c 赋值给 res[4] 的值
-                //（这个前提s, indices 为一一对应的）
-                // 4 5 6 7 0 2 1 3
-                // c o d e l e e t
-                // l e e t c o d e
-                // 0 1 2 3 4 5 6 7
-                // 所以这个等式才成立
-                r[indx] = sd[idx];
+            for (idx, _) in indices.iter().enumerate() {
+                res.as_mut_vec()[indices[idx] as usize] = s.as_mut_vec()[idx];
             }
         }
 

@@ -25,7 +25,7 @@ impl Solution {
         let mut tail = ptr;
         let mut len = 0;
         unsafe {
-            while let Some(t) = ptr.as_mut().unwrap() {
+            while let Some(t) = ptr.as_mut()? {
                 len += 1;
                 tail = ptr;
                 ptr = &mut t.next;
@@ -39,15 +39,15 @@ impl Solution {
 
         let mut ptr = &mut head;
         for _ in 1..len - k {
-            ptr = &mut ptr.as_mut().unwrap().next;
+            ptr = &mut ptr.as_mut()?.next;
         }
 
-        let mut new_head = ptr.as_mut().unwrap().next.take();
+        let mut new_head = ptr.as_mut()?.next.take();
         if k == 1 {
-            new_head.as_mut().unwrap().next = head;
+            new_head.as_mut()?.next = head;
         } else {
             unsafe {
-                (*tail).as_mut().unwrap().next = head;
+                (*tail).as_mut()?.next = head;
             }
         }
 

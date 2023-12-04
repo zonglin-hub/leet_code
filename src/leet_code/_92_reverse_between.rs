@@ -26,24 +26,24 @@ impl Solution {
 
         let mut pre = &mut dummy_node;
         for _ in 0..left - 1 {
-            pre = &mut pre.as_mut().unwrap().next;
+            pre = &mut pre.as_mut()?.next;
         }
 
-        let mut cur = pre.as_mut().unwrap().next.take();
+        let mut cur = pre.as_mut()?.next.take();
         let mut next;
 
         for _ in 0..(right - left) {
-            next = cur.as_mut().unwrap().next.take();
-            cur.as_mut().unwrap().next = next.as_mut().unwrap().next.take();
-            next.as_mut().unwrap().next = pre.as_mut().unwrap().next.take();
-            pre.as_mut().unwrap().next = next.take();
+            next = cur.as_mut()?.next.take();
+            cur.as_mut()?.next = next.as_mut()?.next.take();
+            next.as_mut()?.next = pre.as_mut()?.next.take();
+            pre.as_mut()?.next = next.take();
         }
 
-        while pre.as_mut().unwrap().next.is_some() {
-            pre = &mut pre.as_mut().unwrap().next;
+        while pre.as_mut()?.next.is_some() {
+            pre = &mut pre.as_mut()?.next;
         }
-        pre.as_mut().unwrap().next = cur.take();
-        dummy_node.unwrap().next
+        pre.as_mut()?.next = cur.take();
+        dummy_node?.next
     }
 }
 

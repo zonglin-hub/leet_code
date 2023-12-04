@@ -10,7 +10,7 @@ impl Solution {
                 if n.val >= node.val {
                     break;
                 }
-                ptr = ptr.next.as_mut().unwrap();
+                ptr = ptr.next.as_mut()?;
             }
             node.next = ptr.next.take();
             ptr.next = Some(node);

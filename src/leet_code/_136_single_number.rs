@@ -20,12 +20,7 @@ impl Solution {
     /// 函数中使用了按位异或（XOR）操作符 ^ 对累加器和当前元素进行异或运算，并将结果作为下一次迭代的累加器值传入。
     /// 最终，函数返回的是累加器的值，即只出现一次的数字。
     pub fn single_number(nums: Vec<i32>) -> i32 {
-        nums.iter().fold(0, |acc, x| {
-            // println!("acc: {:?}", acc);
-            // println!("x: {:?}", x);
-            // println!("acc ^ x: {:?}", acc ^ x);
-            acc ^ x
-        })
+        nums.iter().fold(0, |acc, x| acc ^ x)
     }
 }
 

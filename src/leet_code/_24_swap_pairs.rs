@@ -8,22 +8,6 @@ impl Solution {
     /// 我们对剩余部分进行递归调用，然后将头节点与逆转的子链表合并。
     /// 最后返回合并后的链表。在合并时，我们需要将原来的头节点连接到已经反转的子链表的尾部。
     pub fn swap_pairs(head: ListNodePtr) -> ListNodePtr {
-        // head.and_then(|mut n| match n.next {
-        //     None => None,
-        //     Some(mut m) => {
-        //         n.next = Self::swap_pairs_v1(m.next);
-        //         m.next = Some(n);
-        //         Some(m)
-        //     }
-        // })
-        // head.and_then(|mut n| match n.next {
-        //     None => Some(n), // 添加这一行以确保奇数长度的链表最后一个节点被正确返回
-        //     Some(mut m) => {
-        //         n.next = Self::swap_pairs_v1(m.next);
-        //         m.next = Some(n);
-        //         Some(m)
-        //     }
-        // }) 等同
         head.map(|mut n| match n.next {
             None => n, // 添加这一行以确保奇数长度的链表最后一个节点被正确返回
             Some(mut m) => {

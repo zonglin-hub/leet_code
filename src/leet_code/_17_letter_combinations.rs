@@ -66,33 +66,38 @@ impl Solution {
             ans: &mut Vec<String>,
         ) {
             if digits.len() == idx {
-                ans.push(path.clone());
-                return;
+                return ans.push(path.clone());
             }
-            let cc = digits.chars().nth(idx).unwrap();
-            for c in map.get(&cc).unwrap().chars() {
+
+            for c in map.get(&digits.chars().nth(idx).unwrap()).unwrap().chars() {
                 path.push(c);
                 dfs(idx + 1, digits, map, path, ans);
                 path.pop();
             }
         }
 
-        let map = std::collections::HashMap::from([
-            ('2', "abc".to_string()),
-            ('3', "def".to_string()),
-            ('4', "ghi".to_string()),
-            ('5', "jkl".to_string()),
-            ('6', "mno".to_string()),
-            ('7', "pqrs".to_string()),
-            ('8', "tuv".to_string()),
-            ('9', "wxyz".to_string()),
-        ]);
-
         let mut ans = Vec::new();
         if digits.is_empty() {
             return ans;
         }
-        dfs(0, &digits, &map, &mut String::new(), &mut ans);
+
+        dfs(
+            0,
+            &digits,
+            &HashMap::from([
+                ('2', "abc".to_string()),
+                ('3', "def".to_string()),
+                ('4', "ghi".to_string()),
+                ('5', "jkl".to_string()),
+                ('6', "mno".to_string()),
+                ('7', "pqrs".to_string()),
+                ('8', "tuv".to_string()),
+                ('9', "wxyz".to_string()),
+            ]),
+            &mut String::new(),
+            &mut ans,
+        );
+
         ans
     }
 }

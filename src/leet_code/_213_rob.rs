@@ -33,11 +33,9 @@ impl Solution {
             }
             curr_max
         }
-
-        let max1 = rob_range(&nums[0..(nums.len() - 1)]);
-        let max2 = rob_range(&nums[1..nums.len()]);
-        let max3 = nums[0];
-        max1.max(max2).max(max3)
+        rob_range(&nums[0..(nums.len() - 1)])
+            .max(rob_range(&nums[1..nums.len()]))
+            .max(nums[0])
     }
 }
 

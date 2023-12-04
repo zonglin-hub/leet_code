@@ -25,16 +25,6 @@ impl Solution {
             match (l1, l2) {
                 (None, None) => None,
                 (Some(n), None) | (None, Some(n)) => Some(n),
-                // (Some(mut l), Some(mut r)) => match l.val <= r.val {
-                //     true => {
-                //         l.next = carried(l.next, Some(r));
-                //         Some(l)
-                //     }
-                //     false => {
-                //         r.next = carried(Some(l), r.next);
-                //         Some(r)
-                //     }
-                // }, // 等同
                 (Some(l1), Some(l2)) => match l1.val >= l2.val {
                     true => Some(Box::new(ListNode {
                         val: l2.val,
