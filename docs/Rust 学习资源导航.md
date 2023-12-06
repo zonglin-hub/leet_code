@@ -1,22 +1,28 @@
 # 🦀 Rust 学习资源导航
 
-Rust 资源导航，附加一些语法 `Dome`
-- [Rust 编程语言官网](https://www.rust-lang.org/zh-CN/)
-    - [Github - Rust 源码](https://github.com/rust-lang/rust)
-- [Rust 官方文档中文教程](https://rustwiki.org/)
-- Rust 库
+- Rust | Home
+    - [Rust 程序设计语言](https://www.rust-lang.org/zh-CN/)
+        - [Github - rust](https://github.com/rust-lang/rust)
+- Rust libs
     - [crates.io: Rust Package Registry](https://crates.io)
     - [Lib.rs — home for Rust crates // Lib.rs](https://lib.rs/)
 - Rust 社区
-    - [Rust 语言中文社区](https://rustcc.cn/)
-    - [Rust Language Cheat Sheet](https://cheats.rs/)
-    - [Rust 技术论坛 | Rust 语言技术论坛 - 优质的 Rust 开发者学习社区](https://learnku.com/rust)
-    - [Rust：资料搜集](https://www.yuque.com/zhoujiping/programming/rust-materials)
-- Rust 程序设计语言
+    - [The Rust Programming Language Forum](https://users.rust-lang.org/)
+    - [Rust Internals](https://internals.rust-lang.org)
+    - [Recent conversations - rust-lang - Zulip](https://rust-lang.zulipchat.com)
+
+- [Rust：资料搜集](https://www.yuque.com/zhoujiping/programming/rust-materials)
+- [Rust Language Cheat Sheet](https://cheats.rs/)
+    - Rust 语言备忘单
+- [Rust 官方文档中文教程](https://rustwiki.org/)
+- [tauri](https://tauri.app/zh-cn/)
+- [The Rust Performance Book](https://nnethercote.github.io/perf-book/title-page.html)
+- [Rust Compiler Development Guide](https://rustc-dev-guide.rust-lang.org/)
+- [Standard library developers Guide](https://std-dev-guide.rust-lang.org/)
+- [The bindgen User Guide](https://rust-lang.github.io/rust-bindgen/)
+- [The Rust Programming Language](https://doc.rust-lang.org/book/)
     - [Rust 程序设计语言 中文版](https://rustwiki.org/zh-CN/book/)
     - [Rust 程序设计语言 简体中文版](https://kaisery.github.io/trpl-zh-cn/)
-    - [Rust 程序设计语言 简体中文版](https://rust.bootcss.com/)
-    - [The Rust Programming Language](https://doc.rust-lang.org/book/)
 - Rust中生命周期的探索
     - [Github - lifetimekata](https://github.com/tfpk/lifetimekata)
         - [LifetimeKata](https://tfpk.github.io/lifetimekata/)
@@ -35,46 +41,40 @@ Rust 资源导航，附加一些语法 `Dome`
     - [通过例子学 Rust 中文版](https://rustwiki.org/zh-CN/rust-by-example/)
     - [Rust by Example](https://doc.rust-lang.org/stable/rust-by-example/)
     - [Rust by Example](https://doc.rust-lang.org/rust-by-example/index.html)
-- Rust 参考手册
+- [The Rust Reference](https://doc.rust-lang.org/reference/index.html)
     - [Rust 参考手册 中文版](https://rustwiki.org/zh-CN/reference/)
-    - [The Rust Reference](https://doc.rust-lang.org/reference/index.html)
 - Rust 标准库
     - [Rust 标准库 中文版](https://rustwiki.org/zh-CN/std/)
     - [The Rust Standard Library](https://doc.rust-lang.org/std/index.html)
 - Rust Cookbook
     - [Rust Cookbook 中文版](https://rustwiki.org/zh-CN/rust-cookbook/)
     - [Rust Cookbook](https://rustwiki.org/en/rust-cookbook/)
-- Cargo 手册
+- [The Cargo Book](https://doc.rust-lang.org/cargo/index.html)
     - [Cargo 手册 中文版](https://rustwiki.org/zh-CN/cargo/)
-    - [The Cargo Book](https://doc.rust-lang.org/cargo/index.html)
     - [Cargo 教程](https://learnku.com/docs/cargo-book/2018)
     - Cargo 工具
         - [Clippy Lints](https://rust-lang.github.io/rust-clippy/master/index.html)
-- Rust宏小册
+- [The Little Book of Rust Macros](https://veykril.github.io/tlborm/)
     - [Rust宏小册 中文版](https://www.bookstack.cn/read/DaseinPhaos-tlborm-chinese/README.md)
-    - [Rust 宏小册](https://zjp-cn.github.io/tlborm/)
-    - [The Little Book of Rust Macros](https://veykril.github.io/tlborm/)
+    - [The Little Book of Rust Macros （Rust 宏小册）](https://zjp-cn.github.io/tlborm/)
 - Rust 版本指南
     - [Rust 版本指南 中文版](https://rustwiki.org/zh-CN/edition-guide/)
     - [The Rust Edition Guide](https://doc.rust-lang.org/edition-guide/index.html)
 - rustdoc 手册
     - [rustdoc 手册 中文版](https://rustwiki.org/zh-CN/rustdoc/)
     - [The rustdoc book](https://doc.rust-lang.org/rustdoc/index.html)
-- 通过链表学 Rust
-    - [Learn Rust With Entirely Too Many Linked Lists](https://rust-unofficial.github.io/too-many-lists/)
-- rustc 手册
+- [Learn Rust With Entirely Too Many Linked Lists](https://rust-unofficial.github.io/too-many-lists/)
+    - 通过链表学 Rust 中文版
+- [The rustc book](https://doc.rust-lang.org/rustc/index.html)
     - [rustc 手册 中文版](https://rustwiki.org/zh-CN/rustc/)
-    - [The rustc book](https://doc.rust-lang.org/rustc/index.html)
     - [rustc 手册](https://learnku.com/docs/rustc-book/2020)
 - Rust 编译错误索引
     - [Rust 编译错误索引 中文版](https://learnku.com/docs/rust-rcei-2020/introduction/10466)
     - [Rust error codes index](https://doc.rust-lang.org/error_codes/error-index.html)
-- Rust API 编写指南
+- [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/)
     - [Rust API 编写指南 中文版](https://rust-chinese-translation.github.io/api-guidelines/)
-    - [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/about.html)
-- Rust 中的命令行应用
+- [Command Line Applications in Rust](https://rust-cli.github.io/book/index.html)
     - [Rust 中的命令行应用 中文版](https://suibianxiedianer.github.io/rust-cli-book-zh_CN/README_zh.html)
-    - [Command Line Applications in Rust](https://rust-cli.github.io/book/index.html)
 - Rust 和 WebAssembly
     - [Rust 和 WebAssembly 中文版](https://rustwasm.wasmdev.cn/docs/book/)
     - [Rust 🦀 and WebAssembly 🕸](https://rustwasm.github.io/docs/book/) 
@@ -83,32 +83,26 @@ Rust 资源导航，附加一些语法 `Dome`
     - [嵌入式 Rust 之书 中文版](https://stevenbai.top/rustbook/book/)
     - [The Embedded Rust Book](https://doc.rust-lang.org/stable/embedded-book/) 
         - 参考 [嵌入式设备](https://www.rust-lang.org/zh-CN/what/embedded)
-- Rust 秘典（死灵书）
+- [The Rustonomicon](https://doc.rust-lang.org/nomicon/)
     - [Rust 秘典 中文版](https://nomicon.purewhite.io/)
-    - [The Rustonomicon](https://doc.rust-lang.org/nomicon/index.html)
-- The Rust Unstable Book
-    - [The Rust Unstable Book](https://doc.rust-lang.org/nightly/unstable-book/index.html)
-- Rust 异步编程
+- [The Rust Unstable Book](https://doc.rust-lang.org/nightly/unstable-book/)
+- [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/)
     - [Rust 中的异步编程 中文版](https://huangjj27.github.io/async-book/index.html)
-    - [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/)
     - [Rust 异步编程](https://learnku.com/docs/async-book/2018)
     - [Rust async 编程](https://www.cnblogs.com/QiaoPengjun/p/17434443.html)
     - 并发框架
-        - tokio
+        - [tokio](https://tokio.rs/)
         - async-std
         - smol
         - rayon
-- Rust Forge
-    - [Rust Forge](https://forge.rust-lang.org/index.html)
-- The rustup book
-    - [The rustup book](https://rust-lang.github.io/rustup/index.html)
-- Shipyard.rs: the Book - Private Cargo Registry Service
-    - [Shipyard.rs: the Book - Private Cargo Registry Service](https://docs.shipyard.rs/intro/summary.html)
+- [Unsafe Code Guidelines Reference](https://rust-lang.github.io/unsafe-code-guidelines/)
+- [Rust Forge](https://forge.rust-lang.org/index.html)
+- [The rustup book](https://rust-lang.github.io/rustup/)
+- [Shipyard.rs: the Book - Private Cargo Registry Service](https://docs.shipyard.rs/intro/summary.html)
 - Rust语言圣经(Rust Course)
     - [Rust语言圣经(Rust Course)](https://course.rs/about-book.html)
-- rfcs
+- [The Rust RFC Book](https://rust-lang.github.io/rfcs/)
     - [Github - rfcs](https://github.com/rust-lang/rfcs)
-        - [Doc - The Rust RFC Book](https://rust-lang.github.io/rfcs/)
 - Rust 设计模式
     - [Rust 常用设计模式](https://refactoringguru.cn/design-patterns/rust)
     - [Rust 设计模式 中文版](http://chuxiuhong.com/chuxiuhong-rust-patterns-zh/patterns/index.html)
@@ -168,4 +162,6 @@ Rust 资源导航，附加一些语法 `Dome`
     - [用于构建客户端web应用程序的Rust/Wasm框架](https://github.com/yewstack/yew、https://github.com/denoland/deno)
 - Web 后端：
     - [Actix Web is a powerful, pragmatic, and extremely fast web framework for Rust.](https://github.com/actix/actix-web)
+        - [Actix Docs](https://actix.rs/)
+        - [Actix Docs 中文版](https://tech-cn.github.io/actix-website/)
     - [Ergonomic and modular web framework built with Tokio, Tower, and Hyper](https://github.com/tokio-rs/axum)

@@ -1,0 +1,38 @@
+use super::{ListNode, ListNodePtr, Solution};
+
+impl Solution {
+    pub fn delete_middle(head: ListNodePtr) -> ListNodePtr {
+        let mut dummy = Box::new(ListNode { val: 0, next: head });
+        let mut fast = &mut dummy as *mut Box<ListNode>;
+        let mut slow = &mut dummy as *mut Box<ListNode>;
+
+        unsafe {
+            while (*fast).next.is_some() && (*fast).next.as_ref().unwrap().next.is_some() {
+                fast = (*fast).next.as_mut().unwrap().next.as_mut().unwrap();
+                slow = (*slow).next.as_mut().unwrap();
+            }
+            (*slow).next = (*slow).next.take().unwrap().next;
+        }
+
+        dummy.next
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::ListNode;
+    use crate::{leet_code::Solution, linked_list};
+
+    #[test]
+    fn test_delete_middle() {
+        assert_eq!(Solution::delete_middle(linked_list!(2, 1)), linked_list!(2));
+        assert_eq!(
+            Solution::delete_middle(linked_list!(1, 3, 4, 7, 1, 2, 6)),
+            linked_list!(1, 3, 4, 1, 2, 6)
+        );
+        assert_eq!(
+            Solution::delete_middle(linked_list!(1, 2, 3, 4)),
+            linked_list!(1, 2, 4)
+        );
+    }
+}
