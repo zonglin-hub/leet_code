@@ -1,5 +1,4 @@
 //! 回文链表
-//!
 
 use super::{ListNodePtr, Solution};
 

@@ -4,6 +4,35 @@ use super::Solution;
 
 impl Solution {
     pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
+        fn dfs(
+            board: &mut Vec<Vec<char>>,
+            rest: &[(usize, usize)],
+            row: &mut Vec<Vec<bool>>,
+            col: &mut Vec<Vec<bool>>,
+            block: &mut Vec<Vec<bool>>,
+        ) -> bool {
+            match rest.first() {
+                None => true,
+                Some((i, j)) => {
+                    for x in 0..9 {
+                        if !row[*i][x] && !col[*j][x] && !block[i / 3 * 3 + j / 3][x] {
+                            row[*i][x] = true;
+                            col[*j][x] = true;
+                            block[i / 3 * 3 + j / 3][x] = true;
+                            board[*i][*j] = (x as u8 + b'1') as char;
+                            if dfs(board, &rest[1..], row, col, block) {
+                                return true;
+                            }
+                            row[*i][x] = false;
+                            col[*j][x] = false;
+                            block[i / 3 * 3 + j / 3][x] = false;
+                        }
+                    }
+                    false
+                }
+            }
+        }
+
         let mut row = vec![vec![false; 9]; 9];
         let mut col = vec![vec![false; 9]; 9];
         let mut block = vec![vec![false; 9]; 9];
@@ -19,35 +48,6 @@ impl Solution {
                         block[i / 3 * 3 + j / 3][n] = true;
                     }
                 }
-            }
-        }
-
-        fn dfs(
-            board: &mut Vec<Vec<char>>,
-            rest: &[(usize, usize)],
-            row: &mut Vec<Vec<bool>>,
-            col: &mut Vec<Vec<bool>>,
-            block: &mut Vec<Vec<bool>>,
-        ) -> bool {
-            if let Some((i, j)) = rest.first() {
-                let (i, j) = (*i, *j);
-                for x in 0..9 {
-                    if !row[i][x] && !col[j][x] && !block[i / 3 * 3 + j / 3][x] {
-                        row[i][x] = true;
-                        col[j][x] = true;
-                        block[i / 3 * 3 + j / 3][x] = true;
-                        board[i][j] = (x as u8 + b'1') as char;
-                        if dfs(board, &rest[1..], row, col, block) {
-                            return true;
-                        }
-                        row[i][x] = false;
-                        col[j][x] = false;
-                        block[i / 3 * 3 + j / 3][x] = false;
-                    }
-                }
-                false
-            } else {
-                true
             }
         }
 

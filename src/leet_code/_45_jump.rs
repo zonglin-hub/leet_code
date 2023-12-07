@@ -6,7 +6,6 @@ impl Solution {
         let mut max = 0;
         let mut end = 0;
 
-        // for i in 0..nums.len() - 1 { 等同
         for (i, _) in nums.iter().enumerate().take(nums.len() - 1) {
             max = max.max(i + nums[i] as usize);
             if i == end {

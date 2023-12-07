@@ -17,11 +17,6 @@ impl Solution {
 
         for i in 0..=s.len() {
             for j in 1..=p.len() {
-                // dp[i][j] = if p[j - 1] == '*' {
-                //     match_c(i, j - 1) && dp[i - 1][j] || dp[i][j - 2]
-                // } else {
-                //     match_c(i, j) && dp[i - 1][j - 1]
-                // } 等同
                 dp[i][j] = match p[j - 1] {
                     '*' => match_c(i, j - 1) && dp[i - 1][j] || dp[i][j - 2],
                     _ => match_c(i, j) && dp[i - 1][j - 1],

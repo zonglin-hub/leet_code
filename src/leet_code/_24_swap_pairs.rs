@@ -9,7 +9,7 @@ impl Solution {
     /// 最后返回合并后的链表。在合并时，我们需要将原来的头节点连接到已经反转的子链表的尾部。
     pub fn swap_pairs(head: ListNodePtr) -> ListNodePtr {
         head.map(|mut n| match n.next {
-            None => n, // 添加这一行以确保奇数长度的链表最后一个节点被正确返回
+            None => n,
             Some(mut m) => {
                 n.next = Self::swap_pairs(m.next);
                 m.next = Some(n);

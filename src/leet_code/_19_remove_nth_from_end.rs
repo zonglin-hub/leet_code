@@ -52,9 +52,8 @@ impl Solution {
 
         while fast.is_some() {
             fast = &fast.as_ref()?.next;
-            let val = slow.as_ref()?.val;
+            curr.next = Some(Box::new(ListNode::new(slow.as_ref()?.val)));
             slow = &slow.as_ref()?.next;
-            curr.next = Some(Box::new(ListNode::new(val)));
             curr = curr.next.as_mut()?;
         }
 

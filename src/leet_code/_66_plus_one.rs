@@ -9,7 +9,6 @@ impl Solution {
             }
             res[i] = 0;
         }
-        // digits 中所有的元素均为 9
         res.insert(0, 1);
         res
     }

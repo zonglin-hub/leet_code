@@ -16,7 +16,7 @@ impl Solution {
         let mut cnt = t.len();
         let mut start = 0;
         let mut end = 0;
-        let mut range = 0; // New variable to hold the range
+        let mut range = 0;
 
         for j in 0..n {
             if let Some(p) = map.get_mut(&ss[j]) {

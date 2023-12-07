@@ -23,10 +23,8 @@ impl Solution {
                             carry += x.val;
                             x.next
                         }),
-                        // 09 -> 0; 18 -> 1
                         carry / 10,
                     ),
-                    // 09 -> 9; 18 -> 8
                     val: carry % 10,
                 })),
             }

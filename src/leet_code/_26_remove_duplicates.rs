@@ -22,18 +22,10 @@ impl Solution {
     pub fn remove_duplicates_v3(nums: &mut [i32]) -> i32 {
         let (mut p1, mut p2) = (0, 1);
         while p2 < nums.len() {
-            //   error: expected one of `=>`, `@`, `if`, or `|`, found `[`
-            //     --> src\leet_code\_26_remove_duplicates.rs:26:21
-            //      |
-            //   26 |                 nums[p1] => p2 += 1,
-            //      |                     ^ expected one of `=>`, `@`, `if`, or `|`
-            //
-            //   error: could not compile `leet_code` (lib test) due to previous error
             match nums[p2] == nums[p1] {
                 true => p2 += 1,
                 false => {
                     p1 += 1;
-                    // 等同 nums[p1] = nums[p2];
                     nums.swap(p1, p2);
                     p2 += 1;
                 }

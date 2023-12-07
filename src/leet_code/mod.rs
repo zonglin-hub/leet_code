@@ -1,6 +1,8 @@
 //! leet code 算法题
 
 pub mod _1008_bst_from_preorder;
+pub mod _102_level_order;
+pub mod _103_zigzag_level_order;
 pub mod _105_build_tree;
 pub mod _108_sorted_array_to_bst;
 pub mod _109_sorted_list_to_bst;
@@ -166,9 +168,6 @@ pub mod _95_generate_trees;
 pub mod _96_num_trees;
 pub mod _990_equations_possible;
 pub mod _9_is_palindrome;
-pub mod _lcp_06_min_count;
-pub mod _lcp_50_give_gem;
-pub mod _offer_06_reverse_print;
 
 use std::{cell::RefCell, rc::Rc};
 

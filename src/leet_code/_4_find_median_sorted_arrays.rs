@@ -9,9 +9,7 @@ impl Solution {
 
         let n = nums1.len();
         match n & 1 != 0 {
-            // 奇数
             true => nums1[n / 2] as f64,
-            // 偶数
             false => (nums1[n / 2] + nums1[n / 2 - 1]) as f64 / 2.0,
         }
     }
