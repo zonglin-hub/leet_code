@@ -133,6 +133,7 @@ pub mod _68_full_justify;
 pub mod _69_my_sqrt;
 pub mod _6_convert;
 pub mod _700_search_bst;
+pub mod _706_my_hash_map;
 pub mod _707_my_linked_list;
 pub mod _70_climb_stairs;
 pub mod _71_simplify_path;

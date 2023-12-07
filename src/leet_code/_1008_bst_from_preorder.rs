@@ -25,8 +25,8 @@ impl Solution {
 
         Some(Rc::new(RefCell::new(TreeNode {
             val: preorder[0],
-            left: Solution::bst_from_preorder(preorder[1..devide].to_vec()),
-            right: Solution::bst_from_preorder(preorder[devide..].to_vec()),
+            left: Self::bst_from_preorder(preorder[1..devide].to_vec()),
+            right: Self::bst_from_preorder(preorder[devide..].to_vec()),
         })))
     }
 }
