@@ -2,7 +2,7 @@ use super::Solution;
 
 impl Solution {
     pub fn total_n_queens(n: usize) -> i32 {
-        fn format(columns: &Vec<i32>) -> Vec<String> {
+        fn format(columns: &[i32]) -> Vec<String> {
             let n = columns.len();
             let all_rows = Vec::new();
 

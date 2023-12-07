@@ -11,7 +11,7 @@ impl Solution {
     /// 所以，如果你想象这个矩阵是一个二维的表格，这个函数的作用就是旋转这个表格90度。
     ///
     /// 注意：这个函数假设输入的矩阵是方阵（即行数和列数相等）。如果输入的矩阵不是方阵，这个函数可能会产生错误的结果或导致未定义的行为。
-    pub fn rotate(matrix: &mut Vec<Vec<i32>>) {
+    pub fn rotate(matrix: &mut [Vec<i32>]) {
         for i in 0..matrix.len() - 1 {
             for j in i + 1..matrix.len() {
                 let t = matrix[i][j];

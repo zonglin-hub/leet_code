@@ -7,7 +7,7 @@ impl Solution {
     pub fn solve_n_queens(n: usize) -> Vec<Vec<String>> {
         /// `columns` 是一个整数向量，表示每行皇后的列位置。例如，如果`columns`是[0, 2, 1, 3]，则表示第一个皇后在第一行的第一列，第二个皇后在第二行的第三列，依此类推。
         /// 该函数通过`columns`生成一个字符串向量，其中每个字符串代表一行皇后。如果当前位置有皇后（即列位置是有效的），则用'Q'表示，否则用'.'表示。
-        fn format(columns: &Vec<i32>) -> Vec<String> {
+        fn format(columns: &[i32]) -> Vec<String> {
             let n = columns.len();
             let mut all_rows = Vec::new();
             for (i, _) in columns.iter().enumerate().take(n) {

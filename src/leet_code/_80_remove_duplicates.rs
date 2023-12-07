@@ -1,7 +1,7 @@
 use super::Solution;
 
 impl Solution {
-    pub fn remove_duplicates_v4(nums: &mut Vec<i32>) -> i32 {
+    pub fn remove_duplicates_v4(nums: &mut [i32]) -> i32 {
         if nums.len() <= 2 {
             return nums.len() as i32;
         }

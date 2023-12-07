@@ -4,6 +4,12 @@ pub struct List {
     head: Link,
 }
 
+impl Default for List {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 enum Link {
     Empty,
     More(Box<Node>),

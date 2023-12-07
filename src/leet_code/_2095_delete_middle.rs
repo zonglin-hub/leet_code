@@ -2,19 +2,32 @@ use super::{ListNode, ListNodePtr, Solution};
 
 impl Solution {
     pub fn delete_middle(head: ListNodePtr) -> ListNodePtr {
-        let mut dummy = Box::new(ListNode { val: 0, next: head });
-        let mut fast = &mut dummy as *mut Box<ListNode>;
-        let mut slow = &mut dummy as *mut Box<ListNode>;
+        // let mut dummy = Box::new(ListNode { val: 0, next: head });
+        // let mut fast = &mut dummy as *mut Box<ListNode>;
+        // let mut slow = &mut dummy as *mut Box<ListNode>;
+
+        // unsafe {
+        //     while (*fast).next.as_ref().is_some() && (*fast).next.as_ref().unwrap().next.is_some() {
+        //         fast = (*fast).next.as_mut().unwrap().next.as_mut().unwrap();
+        //         slow = (*slow).next.as_mut().unwrap();
+        //     }
+        //     (*slow).next = (*slow).next.take().unwrap().next;
+        // }
+
+        // dummy.next
 
         unsafe {
-            while (*fast).next.is_some() && (*fast).next.as_ref().unwrap().next.is_some() {
-                fast = (*fast).next.as_mut().unwrap().next.as_mut().unwrap();
-                slow = (*slow).next.as_mut().unwrap();
-            }
-            (*slow).next = (*slow).next.take().unwrap().next;
-        }
+            let dummy = &mut ListNode { val: 0, next: head } as *mut ListNode;
+            let mut fast = dummy;
+            let mut slow = dummy;
 
-        dummy.next
+            while (*fast).next.is_some() && (*fast).next.as_mut()?.next.is_some() {
+                fast = (*fast).next.as_mut()?.as_mut().next.as_mut()?.as_mut();
+                slow = (*slow).next.as_mut()?.as_mut();
+            }
+            (*slow).next = (*slow).next.take()?.next;
+            (*dummy).next.to_owned()
+        }
     }
 }
 

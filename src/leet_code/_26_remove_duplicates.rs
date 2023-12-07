@@ -3,7 +3,7 @@
 use super::Solution;
 
 impl Solution {
-    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+    pub fn remove_duplicates(nums: &mut [i32]) -> i32 {
         let mut i = 1;
         for j in 1..nums.len() {
             if nums[j] != nums[j - 1] {
@@ -19,7 +19,7 @@ impl Solution {
         nums.len() as i32
     }
 
-    pub fn remove_duplicates_v3(nums: &mut Vec<i32>) -> i32 {
+    pub fn remove_duplicates_v3(nums: &mut [i32]) -> i32 {
         let (mut p1, mut p2) = (0, 1);
         while p2 < nums.len() {
             //   error: expected one of `=>`, `@`, `if`, or `|`, found `[`

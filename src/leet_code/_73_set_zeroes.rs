@@ -15,7 +15,7 @@ impl Solution {
     /// 1  1  1
     /// ```
     #[allow(clippy::needless_range_loop)]
-    pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
+    pub fn set_zeroes(matrix: &mut [Vec<i32>]) {
         let m = matrix.len();
         let n = matrix[0].len();
         let mut rows = vec![false; m];
