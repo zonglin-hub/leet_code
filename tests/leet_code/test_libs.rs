@@ -7,7 +7,7 @@ use leet_code::leet_code::TreeNode;
 use leet_code::linked_list;
 
 #[test]
-fn test_() {
+fn test_linked_list() {
     assert_eq!(
         linked_list!(1, 2, 3, 4, 5),
         Some(Box::new(ListNode {
@@ -27,7 +27,7 @@ fn test_() {
 }
 
 #[test]
-fn test_1() {
+fn test_linked_tree() {
     assert_eq!(
         linked_tree(1, None, linked_tree(3, None, None)),
         Some(Rc::new(RefCell::new(TreeNode {

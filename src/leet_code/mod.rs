@@ -1,6 +1,7 @@
 //! leet code 算法题
 
 pub mod _1008_bst_from_preorder;
+pub mod _100_is_same_tree;
 pub mod _102_level_order;
 pub mod _103_zigzag_level_order;
 pub mod _105_build_tree;
@@ -164,9 +165,14 @@ pub mod _8_my_atoi;
 pub mod _90_subsets_with_dup;
 pub mod _91_num_decodings;
 pub mod _92_reverse_between;
+pub mod _93_restore_ip_addresses;
+pub mod _94_inorder_traversal;
 pub mod _95_generate_trees;
 pub mod _96_num_trees;
+pub mod _97_is_interleave;
+pub mod _98_is_valid_bst;
 pub mod _990_equations_possible;
+pub mod _99_recover_tree;
 pub mod _9_is_palindrome;
 
 use std::{cell::RefCell, rc::Rc};
