@@ -2,12 +2,17 @@
 
 pub mod _1008_bst_from_preorder;
 pub mod _100_is_same_tree;
+pub mod _101_is_symmetric;
 pub mod _102_level_order;
 pub mod _103_zigzag_level_order;
+pub mod _104_max_depth;
 pub mod _105_build_tree;
+pub mod _106_build_tree;
+pub mod _107_level_order_bottom;
 pub mod _108_sorted_array_to_bst;
 pub mod _109_sorted_list_to_bst;
 pub mod _10_is_match;
+pub mod _110_is_balanced;
 pub mod _1114_print_sequence;
 pub mod _112_has_path_sum;
 pub mod _114_flatten;

@@ -1,17 +1,15 @@
-use crate::leet_code::ListNode;
-
 use super::{ListNodePtr, Solution, TreeNodePtr};
 
 impl Solution {
     #[allow(clippy::borrowed_box)]
     pub fn is_sub_path(head: ListNodePtr, root: TreeNodePtr) -> bool {
-        fn is_same(head: Option<&Box<ListNode>>, root: TreeNodePtr) -> bool {
+        fn is_same(head: &ListNodePtr, root: TreeNodePtr) -> bool {
             match (head, root) {
                 (None, _) => true,
                 (_, None) => false,
                 (Some(head), Some(root)) => {
                     let root_ref = root.borrow();
-                    let head_ref = head.next.as_ref();
+                    let head_ref = &head.next;
 
                     head.val == root_ref.val
                         && (is_same(head_ref, root_ref.left.clone())
@@ -20,7 +18,7 @@ impl Solution {
             }
         }
 
-        fn dfs(head: Option<&Box<ListNode>>, root: TreeNodePtr) -> bool {
+        fn dfs(head: &ListNodePtr, root: TreeNodePtr) -> bool {
             match (head, root) {
                 (None, _) | (_, None) => false,
                 (Some(temp_head), Some(root)) => {
@@ -35,7 +33,7 @@ impl Solution {
             }
         }
 
-        dfs(head.as_ref(), root)
+        dfs(&head, root)
     }
 }
 
