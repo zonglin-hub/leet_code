@@ -20,15 +20,6 @@ impl Solution {
                     return;
                 }
 
-                if tree.left.is_none() && tree.right.is_none() {
-                    if pre_sum + tree.val == target_sum {
-                        tmp.push(tree.val);
-                        ret.push(tmp.clone());
-                        tmp.pop();
-                    }
-                    return;
-                }
-
                 tmp.push(tree.val);
                 dfs(&tree.left, pre_sum + tree.val, target_sum, tmp, ret);
                 dfs(&tree.right, pre_sum + tree.val, target_sum, tmp, ret);
