@@ -59,16 +59,14 @@ mod tests {
 
     #[test]
     fn test_is_scramble() {
+        assert!(Solution::is_scramble("a".to_string(), "a".to_string()));
         assert!(Solution::is_scramble(
             "great".to_string(),
             "rgeat".to_string()
         ));
-
         assert_eq!(
             Solution::is_scramble("abcde".to_string(), "caebd".to_string()),
             false
         );
-
-        assert!(Solution::is_scramble("a".to_string(), "a".to_string()));
     }
 }

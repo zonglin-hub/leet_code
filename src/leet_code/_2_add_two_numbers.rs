@@ -33,33 +33,28 @@ impl Solution {
         carried(l1, l2, 0)
     }
 
-    /// 这个函数的实现思路是将两个链表的元素相加，然后将结果构建成一个新的链表。
-    /// 具体来说，函数首先创建一个空的链表`new_list`，并将其初始化为`None`。然后，它使用一个循环来处理两个链表中的元素。
-    /// 在每次循环中，它首先检查两个链表中是否有元素。如果有，它将这些元素的值加到变量`carry`中，并将链表的下一个节点设置为下一个元素。
-    /// 然后，它将`carry`除以 10，并将余数作为新的链表节点的值添加到`new_list`中。
-    /// 最后，它将`new_list`返回。
-    pub fn _add_two_numbers(mut l1: ListNodePtr, mut l2: ListNodePtr) -> ListNodePtr {
-        let mut new_list = None;
-        let mut p = &mut new_list;
-        let mut carry = 0;
+    // pub fn _add_two_numbers(mut l1: ListNodePtr, mut l2: ListNodePtr) -> ListNodePtr {
+    //     let mut new_list = None;
+    //     let mut p = &mut new_list;
+    //     let mut carry = 0;
 
-        while l1.is_some() || l2.is_some() || carry != 0 {
-            if let Some(j1) = l1 {
-                carry += j1.val;
-                l1 = j1.next;
-            }
+    //     while l1.is_some() || l2.is_some() || carry != 0 {
+    //         if let Some(j1) = l1 {
+    //             carry += j1.val;
+    //             l1 = j1.next;
+    //         }
 
-            if let Some(j2) = l2 {
-                carry += j2.val;
-                l2 = j2.next;
-            }
+    //         if let Some(j2) = l2 {
+    //             carry += j2.val;
+    //             l2 = j2.next;
+    //         }
 
-            *p = Some(Box::new(ListNode::new(carry % 10)));
-            carry /= 10;
-            p = &mut p.as_mut()?.next;
-        }
-        new_list
-    }
+    //         *p = Some(Box::new(ListNode::new(carry % 10)));
+    //         carry /= 10;
+    //         p = &mut p.as_mut()?.next;
+    //     }
+    //     new_list
+    // }
 }
 
 #[cfg(test)]

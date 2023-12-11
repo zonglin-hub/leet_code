@@ -11,15 +11,15 @@ impl Solution {
         (0..n).fold((0, 1), |t, _| (t.1, t.0 + t.1)).0
     }
 
-    /// 这是一个计算斐波那契数列的函数。输入参数n为需要计算的数列项数，返回值为第n项的值。
-    /// 该函数的实现方法是通过模式匹配判断n的值，当n为0或1时，直接返回n。当n大于1时，将n减2和减1分别作为参数递归调用函数本身，将两个递归调用的结果相加返回，即为第n项的值。
-    /// 需要注意的是，该函数使用了Self::fib_v2的形式来调用本身，表示调用同一结构体中的另一个同名函数。
-    pub fn fib_v2(n: i32) -> i32 {
-        match n {
-            0 | 1 => n,
-            _ => Self::fib_v2(n - 2) + Self::fib_v2(n - 1),
-        }
-    }
+    // /// 这是一个计算斐波那契数列的函数。输入参数n为需要计算的数列项数，返回值为第n项的值。
+    // /// 该函数的实现方法是通过模式匹配判断n的值，当n为0或1时，直接返回n。当n大于1时，将n减2和减1分别作为参数递归调用函数本身，将两个递归调用的结果相加返回，即为第n项的值。
+    // /// 需要注意的是，该函数使用了Self::fib_v2的形式来调用本身，表示调用同一结构体中的另一个同名函数。
+    // pub fn fib_v2(n: i32) -> i32 {
+    //     match n {
+    //         0 | 1 => n,
+    //         _ => Self::fib_v2(n - 2) + Self::fib_v2(n - 1),
+    //     }
+    // }
 }
 
 #[cfg(test)]
@@ -33,10 +33,10 @@ mod tests {
         assert_eq!(Solution::fib_v1(4), 3);
     }
 
-    #[test]
-    fn test_fib_v2() {
-        assert_eq!(Solution::fib_v2(2), 1);
-        assert_eq!(Solution::fib_v2(3), 2);
-        assert_eq!(Solution::fib_v2(4), 3);
-    }
+    // #[test]
+    // fn test_fib_v2() {
+    //     assert_eq!(Solution::fib_v2(2), 1);
+    //     assert_eq!(Solution::fib_v2(3), 2);
+    //     assert_eq!(Solution::fib_v2(4), 3);
+    // }
 }

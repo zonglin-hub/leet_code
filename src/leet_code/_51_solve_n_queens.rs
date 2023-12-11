@@ -22,14 +22,14 @@ impl Solution {
 
         /// 检查在给定的行和列上是否可以放置一个皇后，而不与其他已经放置的皇后冲突。
         /// 通过检查同一列或对角线上的其他皇后来决定。如果在同一列或对角线上有任何其他皇后，函数返回false。
-        fn _check(row: usize, col: i32, columns: &[i32]) -> bool {
-            for (r, _) in columns.iter().enumerate().take(row) {
-                if columns[r] == col || row - r == (columns[r] - col).unsigned_abs() as usize {
-                    return false;
-                }
-            }
-            true
-        }
+        // fn _check(row: usize, col: i32, columns: &[i32]) -> bool {
+        //     for (r, _) in columns.iter().enumerate().take(row) {
+        //         if columns[r] == col || row - r == (columns[r] - col).unsigned_abs() as usize {
+        //             return false;
+        //         }
+        //     }
+        //     true
+        // }
         fn check(row: usize, col: i32, columns: &[i32]) -> bool {
             columns
                 .iter()
@@ -71,6 +71,7 @@ mod tests {
 
     #[test]
     fn test_my_pow() {
+        assert_eq!(Solution::solve_n_queens(1), vec![vec!["Q"]]);
         assert_eq!(
             Solution::solve_n_queens(4),
             vec![
@@ -78,23 +79,22 @@ mod tests {
                 vec!["..Q.", "Q...", "...Q", ".Q.."]
             ]
         );
-        assert_eq!(Solution::solve_n_queens(1), vec![vec!["Q"]]);
     }
 
-    #[test]
-    fn test_vec() {
-        let a = [1, 3, 4, 2];
-        let n = a.len();
-        for (i, _) in a.iter().enumerate().take(n) {
-            println!("ele: {}", i);
-        }
+    // #[test]
+    // fn test_vec() {
+    //     let a = [1, 3, 4, 2];
+    //     let n = a.len();
+    //     for (i, _) in a.iter().enumerate().take(n) {
+    //         println!("ele: {}", i);
+    //     }
 
-        for i in a.iter().take(n) {
-            println!("ele: {}", i);
-        }
+    //     for i in a.iter().take(n) {
+    //         println!("ele: {}", i);
+    //     }
 
-        for i in 0..n {
-            println!("{}", i);
-        }
-    }
+    //     for i in 0..n {
+    //         println!("{}", i);
+    //     }
+    // }
 }

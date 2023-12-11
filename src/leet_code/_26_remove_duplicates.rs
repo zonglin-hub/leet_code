@@ -14,26 +14,26 @@ impl Solution {
         i as i32
     }
 
-    pub fn remove_duplicates_v2(nums: &mut Vec<i32>) -> i32 {
-        nums.dedup();
-        nums.len() as i32
-    }
+    // pub fn remove_duplicates_v2(nums: &mut Vec<i32>) -> i32 {
+    //     nums.dedup();
+    //     nums.len() as i32
+    // }
 
-    pub fn remove_duplicates_v3(nums: &mut [i32]) -> i32 {
-        let (mut p1, mut p2) = (0, 1);
-        while p2 < nums.len() {
-            match nums[p2] == nums[p1] {
-                true => p2 += 1,
-                false => {
-                    p1 += 1;
-                    nums.swap(p1, p2);
-                    p2 += 1;
-                }
-            }
-        }
-        p1 += 1;
-        p1 as i32
-    }
+    // pub fn remove_duplicates_v3(nums: &mut [i32]) -> i32 {
+    //     let (mut p1, mut p2) = (0, 1);
+    //     while p2 < nums.len() {
+    //         match nums[p2] == nums[p1] {
+    //             true => p2 += 1,
+    //             false => {
+    //                 p1 += 1;
+    //                 nums.swap(p1, p2);
+    //                 p2 += 1;
+    //             }
+    //         }
+    //     }
+    //     p1 += 1;
+    //     p1 as i32
+    // }
 }
 
 #[cfg(test)]

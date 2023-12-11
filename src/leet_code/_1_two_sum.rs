@@ -2,7 +2,7 @@
 
 use super::Solution;
 use std::collections::HashMap;
-use std::ops::ControlFlow;
+// use std::ops::ControlFlow;
 
 impl Solution {
     /// 这个函数是用于解决 "Two Sum" 这种问题的其中一个版本。给定一个整数数组 `nums` 和一个目标值 `target`，找出数组中和为目标值的那两个整数，并返回它们的数组下标。
@@ -25,90 +25,81 @@ impl Solution {
 
         for (i, k) in nums.iter().enumerate() {
             if let Some(&a) = map.get(&(target - k)) {
-                return vec![a, i.try_into().unwrap()];
+                return vec![a, i as i32];
             }
-            map.insert(k, i.try_into().unwrap());
+            map.insert(k, i as i32);
         }
 
         vec![]
     }
 
-    /// 这段代码是一个使用迭代器和控制流来解决两数之和问题的函数。函数接受一个整数向量 `nums` 和一个目标值 `target`，返回一个包含两个整数的向量，表示满足两数之和等于目标值的两个整数的索引。
-    ///
-    /// 首先，函数使用 `HashMap` 来存储每个整数及其索引。然后，函数使用 `try_for_each` 方法遍历整数向量 `nums`，并对每个整数 `k` 执行以下操作：
-    ///
-    /// 1. 将整数索引 `i` 转换为字符串，因为 `HashMap` 的键必须是可哈希的。
-    /// 2. 如果 `HashMap` 中已经存在 `target - k`，则返回一个包含该整数索引和当前整数索引的向量。
-    /// 3. 将 `k` 和 `i` 插入到 `HashMap` 中。
-    ///
-    ///最后，函数根据 `try_for_each` 的返回结果来决定返回什么。如果返回了 `ControlFlow::Break(v)`，则返回 `v`，表示找到了满足条件的两个整数的索引。如果返回了 `ControlFlow::Continue(())`，则返回一个空向量，表示没有找到满足条件的两个整数的索引。
-    pub fn two_sum_1_v4(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let mut map = HashMap::new();
+    // pub fn two_sum_1_v4(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    //     let mut map = HashMap::new();
 
-        let r = nums.iter().enumerate().try_for_each(|(i, &k)| {
-            let i = i.try_into().unwrap();
-            if let Some(&a) = map.get(&(target - k)) {
-                return ControlFlow::Break(vec![a, i]);
-            }
-            map.insert(k, i);
-            ControlFlow::Continue(())
-        });
+    //     let r = nums.iter().enumerate().try_for_each(|(i, &k)| {
+    //         let i = i.try_into().unwrap();
+    //         if let Some(&a) = map.get(&(target - k)) {
+    //             return ControlFlow::Break(vec![a, i]);
+    //         }
+    //         map.insert(k, i);
+    //         ControlFlow::Continue(())
+    //     });
 
-        match r {
-            ControlFlow::Break(v) => v,
-            ControlFlow::Continue(()) => vec![],
-        }
-    }
+    //     match r {
+    //         ControlFlow::Break(v) => v,
+    //         ControlFlow::Continue(()) => vec![],
+    //     }
+    // }
 
-    pub fn two_sum_1_v5(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        nums.iter()
-            .enumerate()
-            .try_fold(HashMap::new(), |mut map, (i, n)| {
-                map.get(&(target - n))
-                    .and_then(|&v| match v {
-                        v if v != i => Err(vec![v as i32, i as i32]).into(),
-                        _ => Ok(()).into(),
-                    })
-                    .unwrap_or(Ok(()))?;
-                map.insert(n, i);
-                Ok(map)
-            })
-            .err()
-            .unwrap_or(vec![])
-    }
+    // pub fn two_sum_1_v5(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    //     nums.iter()
+    //         .enumerate()
+    //         .try_fold(HashMap::new(), |mut map, (i, n)| {
+    //             map.get(&(target - n))
+    //                 .and_then(|&v| match v {
+    //                     v if v != i => Err(vec![v as i32, i as i32]).into(),
+    //                     _ => Ok(()).into(),
+    //                 })
+    //                 .unwrap_or(Ok(()))?;
+    //             map.insert(n, i);
+    //             Ok(map)
+    //         })
+    //         .err()
+    //         .unwrap_or(vec![])
+    // }
 
-    pub fn two_sum_1_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        if nums.len() == 1 && nums[0] == target {
-            return vec![0];
-        }
+    // pub fn two_sum_1_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    //     if nums.len() == 1 && nums[0] == target {
+    //         return vec![0];
+    //     }
 
-        for i in 0..nums.len() {
-            for j in i + 1..nums.len() {
-                if target == nums[i] + nums[j] {
-                    return vec![i as i32, j as i32];
-                }
-            }
-        }
-        vec![]
-    }
+    //     for i in 0..nums.len() {
+    //         for j in i + 1..nums.len() {
+    //             if target == nums[i] + nums[j] {
+    //                 return vec![i as i32, j as i32];
+    //             }
+    //         }
+    //     }
+    //     vec![]
+    // }
 
-    pub fn two_sum_1_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        if nums.len() == 1 && nums[0] == target {
-            return vec![0];
-        }
-        let len = nums.len();
-        for i in 0..len {
-            let left = i;
-            let mut right = len - 1;
-            while left < right {
-                if nums[left] + nums[right] == target {
-                    return vec![i as i32, right as i32];
-                }
-                right -= 1;
-            }
-        }
-        vec![]
-    }
+    // pub fn two_sum_1_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    //     if nums.len() == 1 && nums[0] == target {
+    //         return vec![0];
+    //     }
+    //     let len = nums.len();
+    //     for i in 0..len {
+    //         let left = i;
+    //         let mut right = len - 1;
+    //         while left < right {
+    //             if nums[left] + nums[right] == target {
+    //                 return vec![i as i32, right as i32];
+    //             }
+    //             right -= 1;
+    //         }
+    //     }
+    //     vec![]
+    // }
 }
 
 #[cfg(test)]

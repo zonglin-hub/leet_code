@@ -1,7 +1,7 @@
 use super::Solution;
 
 impl Solution {
-    pub fn remove_duplicates_v4(nums: &mut [i32]) -> i32 {
+    pub fn remove_duplicates_80(nums: &mut [i32]) -> i32 {
         if nums.len() <= 2 {
             return nums.len() as i32;
         }
@@ -23,13 +23,14 @@ mod tests {
     use crate::leet_code::Solution;
 
     #[test]
-    fn test_remove_duplicates() {
-        let mut nums = vec![1, 1, 1, 2, 2, 3];
-        let out = Solution::remove_duplicates_v4(&mut nums);
-        assert_eq!(out, 5);
-
-        let mut nums = vec![0, 0, 1, 1, 1, 1, 2, 3, 3];
-        let out = Solution::remove_duplicates_v4(&mut nums);
-        assert_eq!(out, 7);
+    fn test_remove_duplicates_80() {
+        assert_eq!(
+            Solution::remove_duplicates_80(&mut vec![1, 1, 1, 2, 2, 3]),
+            5
+        );
+        assert_eq!(
+            Solution::remove_duplicates_80(&mut vec![0, 0, 1, 1, 1, 1, 2, 3, 3]),
+            7
+        );
     }
 }

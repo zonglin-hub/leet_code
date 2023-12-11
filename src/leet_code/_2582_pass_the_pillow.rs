@@ -18,16 +18,16 @@ impl Solution {
     }
 }
 
-impl Solution {
-    pub fn pass_the_pillow_v1(n: i32, time: i32) -> i32 {
-        let k = time / (n - 1);
-        let md = time % (n - 1);
-        if k & 1 == 1 {
-            return n - md;
-        }
-        md + 1
-    }
-}
+// impl Solution {
+//     pub fn pass_the_pillow_v1(n: i32, time: i32) -> i32 {
+//         let k = time / (n - 1);
+//         let md = time % (n - 1);
+//         if k & 1 == 1 {
+//             return n - md;
+//         }
+//         md + 1
+//     }
+// }
 
 #[cfg(test)]
 mod tests {
@@ -39,9 +39,9 @@ mod tests {
         assert_eq!(Solution::pass_the_pillow(3, 2), 3);
     }
 
-    #[test]
-    fn test_largest_integer_v1() {
-        assert_eq!(Solution::pass_the_pillow_v1(4, 5), 2);
-        assert_eq!(Solution::pass_the_pillow_v1(3, 2), 3);
-    }
+    // #[test]
+    // fn test_largest_integer_v1() {
+    //     assert_eq!(Solution::pass_the_pillow_v1(4, 5), 2);
+    //     assert_eq!(Solution::pass_the_pillow_v1(3, 2), 3);
+    // }
 }

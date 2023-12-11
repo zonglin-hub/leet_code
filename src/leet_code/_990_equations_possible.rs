@@ -69,13 +69,13 @@ mod tests {
         );
     }
 
-    #[test]
-    fn test_partition() {
-        let a = [1, 2, 3];
+    // #[test]
+    // fn test_partition() {
+    //     let a = [1, 2, 3];
 
-        let (even, odd): (Vec<_>, Vec<_>) = a.into_iter().partition(|n| n % 2 == 0);
+    //     let (even, odd): (Vec<_>, Vec<_>) = a.into_iter().partition(|n| n % 2 == 0);
 
-        assert_eq!(even, vec![2]);
-        assert_eq!(odd, vec![1, 3]);
-    }
+    //     assert_eq!(even, vec![2]);
+    //     assert_eq!(odd, vec![1, 3]);
+    // }
 }

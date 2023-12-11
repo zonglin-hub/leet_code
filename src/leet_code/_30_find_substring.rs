@@ -85,7 +85,6 @@ mod tests {
                 vec!["foo".to_string(), "bar".to_string()]
             )
         );
-
         assert_eq!(
             Vec::<i32>::new(),
             Solution::find_substring(

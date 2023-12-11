@@ -96,9 +96,9 @@ where
 }
 
 impl Solution {
-    pub fn _is_number(s: String) -> bool {
-        s.trim().parse::<f32>().is_ok()
-    }
+    // pub fn _is_number(s: String) -> bool {
+    //     s.trim().parse::<f32>().is_ok()
+    // }
 
     pub fn is_number(s: String) -> bool {
         let mut state = State::Start;

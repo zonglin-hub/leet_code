@@ -58,29 +58,18 @@ mod tests {
 
     #[test]
     fn test_maximal_rectangle() {
-        let matrix = vec![
-            vec!['1', '0', '1', '0', '0'],
-            vec!['1', '0', '1', '1', '1'],
-            vec!['1', '1', '1', '1', '1'],
-            vec!['1', '0', '0', '1', '0'],
-        ];
-        let out = Solution::maximal_rectangle(matrix);
-        assert_eq!(out, 6);
-
-        let matrix = vec![];
-        let out = Solution::maximal_rectangle(matrix);
-        assert_eq!(out, 0);
-
-        let matrix = vec![vec!['0']];
-        let out = Solution::maximal_rectangle(matrix);
-        assert_eq!(out, 0);
-
-        let matrix = vec![vec!['1']];
-        let out = Solution::maximal_rectangle(matrix);
-        assert_eq!(out, 1);
-
-        let matrix = vec![vec!['0'], vec!['0']];
-        let out = Solution::maximal_rectangle(matrix);
-        assert_eq!(out, 0);
+        assert_eq!(Solution::maximal_rectangle(vec![]), 0);
+        assert_eq!(Solution::maximal_rectangle(vec![vec!['0']]), 0);
+        assert_eq!(Solution::maximal_rectangle(vec![vec!['1']]), 1);
+        assert_eq!(Solution::maximal_rectangle(vec![vec!['0'], vec!['0']]), 0);
+        assert_eq!(
+            Solution::maximal_rectangle(vec![
+                vec!['1', '0', '1', '0', '0'],
+                vec!['1', '0', '1', '1', '1'],
+                vec!['1', '1', '1', '1', '1'],
+                vec!['1', '0', '0', '1', '0'],
+            ]),
+            6
+        );
     }
 }

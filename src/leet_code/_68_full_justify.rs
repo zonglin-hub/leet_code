@@ -58,7 +58,6 @@ mod tests {
                 "justification.  ".to_string()
             ]
         );
-
         assert_eq!(
             Solution::full_justify(
                 vec![
@@ -77,7 +76,6 @@ mod tests {
                 "shall be        ".to_string()
             ]
         );
-
         assert_eq!(
             Solution::full_justify(
                 vec![

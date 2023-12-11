@@ -6,7 +6,7 @@ impl Solution {
     pub fn search_v1(nums: Vec<i32>, target: i32) -> i32 {
         match nums.iter().position(|&x| x == target) {
             Some(i) => i as i32,
-            _ => -1,
+            None => -1,
         }
     }
 }

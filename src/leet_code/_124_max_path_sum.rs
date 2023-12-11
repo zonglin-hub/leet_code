@@ -34,7 +34,6 @@ mod tests {
             )),
             6
         );
-
         assert_eq!(
             Solution::max_path_sum(linked_tree(
                 -10,

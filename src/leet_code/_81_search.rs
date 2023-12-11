@@ -12,14 +12,7 @@ mod tests {
 
     #[test]
     fn test_search() {
-        let nums = vec![2, 5, 6, 0, 0, 1, 2];
-        let target = 0;
-        let out = Solution::search_v2(nums, target);
-        assert!(out);
-
-        let nums = vec![2, 5, 6, 0, 0, 1, 2];
-        let target = 3;
-        let out = Solution::search_v2(nums, target);
-        assert_eq!(out, false);
+        assert!(Solution::search_v2(vec![2, 5, 6, 0, 0, 1, 2], 0));
+        assert_eq!(Solution::search_v2(vec![2, 5, 6, 0, 0, 1, 2], 3), false);
     }
 }

@@ -80,23 +80,8 @@ mod tests {
             vec!['S', 'F', 'C', 'S'],
             vec!['A', 'D', 'E', 'E'],
         ];
-        let word = "ABCCED".to_string();
-        assert_eq!(Solution::exist(board, word), true);
-
-        let board = vec![
-            vec!['A', 'B', 'C', 'E'],
-            vec!['S', 'F', 'C', 'S'],
-            vec!['A', 'D', 'E', 'E'],
-        ];
-        let word = "SEE".to_string();
-        assert_eq!(Solution::exist(board, word), true);
-
-        let board = vec![
-            vec!['A', 'B', 'C', 'E'],
-            vec!['S', 'F', 'C', 'S'],
-            vec!['A', 'D', 'E', 'E'],
-        ];
-        let word = "SEE".to_string();
-        assert_eq!(Solution::exist(board, word), true);
+        assert!(Solution::exist(board.clone(), "ABCCED".to_string()));
+        assert!(Solution::exist(board.clone(), "SEE".to_string()));
+        assert!(Solution::exist(board.clone(), "SEE".to_string()));
     }
 }

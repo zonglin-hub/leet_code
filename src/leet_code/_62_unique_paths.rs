@@ -12,9 +12,9 @@ impl Solution {
         res as i32
     }
 
-    pub fn _unique_paths(m: i32, n: i32) -> i32 {
-        (1..m.min(n)).fold(1, |acc: i32, x| acc * (m + n - 1 - x) / x)
-    }
+    // pub fn _unique_paths(m: i32, n: i32) -> i32 {
+    //     (1..m.min(n)).fold(1, |acc: i32, x| acc * (m + n - 1 - x) / x)
+    // }
 }
 
 #[cfg(test)]

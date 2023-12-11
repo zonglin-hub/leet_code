@@ -3,17 +3,17 @@
 use super::{ListNodePtr, Solution};
 
 impl Solution {
-    pub fn reverse_list(head: ListNodePtr) -> ListNodePtr {
-        fn reverse(head: ListNodePtr, prev: ListNodePtr) -> ListNodePtr {
-            if let Some(mut node) = head {
-                let tail = node.next.take();
-                node.next = prev;
-                return reverse(tail, Some(node));
-            }
-            prev
-        }
-        reverse(head, None)
-    }
+    // pub fn reverse_list(head: ListNodePtr) -> ListNodePtr {
+    //     fn reverse(head: ListNodePtr, prev: ListNodePtr) -> ListNodePtr {
+    //         if let Some(mut node) = head {
+    //             let tail = node.next.take();
+    //             node.next = prev;
+    //             return reverse(tail, Some(node));
+    //         }
+    //         prev
+    //     }
+    //     reverse(head, None)
+    // }
 
     /// 这个函数实现了单链表的反转。
     ///
@@ -44,18 +44,18 @@ mod tests {
     use crate::leet_code::Solution;
     use crate::linked_list;
 
-    #[test]
-    fn test_reverse_list() {
-        assert_eq!(Solution::reverse_list(None), None);
-        assert_eq!(
-            Solution::reverse_list(linked_list!(1, 2)),
-            linked_list!(2, 1)
-        );
-        assert_eq!(
-            Solution::reverse_list(linked_list!(1, 2, 3, 4, 5)),
-            linked_list!(5, 4, 3, 2, 1)
-        );
-    }
+    // #[test]
+    // fn test_reverse_list() {
+    //     assert_eq!(Solution::reverse_list(None), None);
+    //     assert_eq!(
+    //         Solution::reverse_list(linked_list!(1, 2)),
+    //         linked_list!(2, 1)
+    //     );
+    //     assert_eq!(
+    //         Solution::reverse_list(linked_list!(1, 2, 3, 4, 5)),
+    //         linked_list!(5, 4, 3, 2, 1)
+    //     );
+    // }
 
     #[test]
     fn test_reverse_list_v1() {

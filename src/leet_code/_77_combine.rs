@@ -33,18 +33,17 @@ mod tests {
 
     #[test]
     fn test_combine() {
-        let mut out = vec![
-            vec![2, 4],
-            vec![3, 4],
-            vec![2, 3],
-            vec![1, 2],
-            vec![1, 3],
-            vec![1, 4],
-        ];
-        out.sort();
-        assert_eq!(Solution::combine(4, 2), out);
-
-        let out = vec![vec![1]];
-        assert_eq!(Solution::combine(1, 1), out);
+        assert_eq!(
+            Solution::combine(4, 2),
+            vec![
+                vec![1, 2],
+                vec![1, 3],
+                vec![1, 4],
+                vec![2, 3],
+                vec![2, 4],
+                vec![3, 4]
+            ]
+        );
+        assert_eq!(Solution::combine(1, 1), vec![vec![1]]);
     }
 }

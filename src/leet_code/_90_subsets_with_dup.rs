@@ -35,6 +35,7 @@ mod tests {
 
     #[test]
     fn test_subsets_with_dup() {
+        assert_eq!(Solution::subsets_with_dup(vec![0]), vec![vec![], vec![0]]);
         assert_eq!(
             Solution::subsets_with_dup(vec![1, 2, 2]),
             vec![
@@ -46,7 +47,5 @@ mod tests {
                 vec![2, 2]
             ]
         );
-
-        assert_eq!(Solution::subsets_with_dup(vec![0]), vec![vec![], vec![0]]);
     }
 }

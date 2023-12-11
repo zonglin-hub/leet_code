@@ -40,12 +40,7 @@ mod tests {
 
     #[test]
     fn test_largest_rectangle_area() {
-        let heights = vec![2, 1, 5, 6, 2, 3];
-        let out = Solution::largest_rectangle_area(heights);
-        assert_eq!(out, 10);
-
-        let heights = vec![2, 4];
-        let out = Solution::largest_rectangle_area(heights);
-        assert_eq!(out, 4);
+        assert_eq!(Solution::largest_rectangle_area(vec![2, 1, 5, 6, 2, 3]), 10);
+        assert_eq!(Solution::largest_rectangle_area(vec![2, 4]), 4);
     }
 }

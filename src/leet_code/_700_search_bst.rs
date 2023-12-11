@@ -1,21 +1,21 @@
 use super::{Solution, TreeNodePtr};
-use std::cmp::Ordering;
+// use std::cmp::Ordering;
 
 impl Solution {
-    pub fn _search_bst(root: TreeNodePtr, val: i32) -> TreeNodePtr {
-        match root.is_some() {
-            true => {
-                let v = root.as_ref()?.borrow().val;
-                let mut tree = root.as_ref()?.borrow_mut();
-                match v.cmp(&val) {
-                    Ordering::Less => Self::search_bst(tree.right.take(), val),
-                    Ordering::Greater => Self::search_bst(tree.left.take(), val),
-                    Ordering::Equal => root.clone(),
-                }
-            }
-            false => root,
-        }
-    }
+    // pub fn _search_bst(root: TreeNodePtr, val: i32) -> TreeNodePtr {
+    //     match root.is_some() {
+    //         true => {
+    //             let v = root.as_ref()?.borrow().val;
+    //             let mut tree = root.as_ref()?.borrow_mut();
+    //             match v.cmp(&val) {
+    //                 Ordering::Less => Self::search_bst(tree.right.take(), val),
+    //                 Ordering::Greater => Self::search_bst(tree.left.take(), val),
+    //                 Ordering::Equal => root.clone(),
+    //             }
+    //         }
+    //         false => root,
+    //     }
+    // }
 
     pub fn search_bst(root: TreeNodePtr, val: i32) -> TreeNodePtr {
         let mut cur = root;

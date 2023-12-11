@@ -53,7 +53,6 @@ mod tests {
             Solution::permute_unique(vec![1, 1, 2]),
             vec![vec![1, 1, 2], vec![1, 2, 1], vec![2, 1, 1]]
         );
-
         assert_eq!(
             Solution::permute_unique(vec![1, 2, 3]),
             vec![

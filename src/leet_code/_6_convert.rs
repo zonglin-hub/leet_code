@@ -31,7 +31,6 @@ mod tests {
             Solution::convert(String::from("PAYPALISHIRING"), 3),
             String::from("PAHNAPLSIIGYIR")
         );
-
         assert_eq!(
             Solution::convert(String::from("PAYPALISHIRING"), 4),
             String::from("PINALSIGYAHRPI")

@@ -33,6 +33,7 @@ mod tests {
 
     #[test]
     fn test_is_valid_sudoku() {
+        assert_eq!("hello".chars().nth(0).unwrap(), 'h');
         assert!(Solution::is_valid_sudoku(vec![
             vec!['5', '3', '.', '.', '7', '.', '.', '.', '.'],
             vec!['6', '.', '.', '1', '9', '5', '.', '.', '.'],
@@ -44,7 +45,6 @@ mod tests {
             vec!['.', '.', '.', '4', '1', '9', '.', '.', '5'],
             vec!['.', '.', '.', '.', '8', '.', '.', '7', '9']
         ]));
-
         assert_eq!(
             Solution::is_valid_sudoku(vec![
                 vec!['8', '3', '.', '.', '7', '.', '.', '.', '.'],
@@ -59,7 +59,5 @@ mod tests {
             ]),
             false
         );
-
-        assert_eq!("hello".chars().nth(0).unwrap(), 'h');
     }
 }

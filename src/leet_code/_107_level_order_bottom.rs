@@ -1,46 +1,44 @@
-use std::vec;
-
 use super::{Solution, TreeNodePtr};
 
 impl Solution {
+    // pub fn level_order_bottom(root: TreeNodePtr) -> Vec<Vec<i32>> {
+    //     let mut res = vec![];
+
+    //     if root.is_none() {
+    //         return res;
+    //     }
+
+    //     let mut queue = vec![root];
+
+    //     while !queue.is_empty() {
+    //         let mut level = vec![];
+    //         let mut next_queue = vec![];
+
+    //         for node in &queue {
+    //             if node.is_none() {
+    //                 continue;
+    //             }
+
+    //             let node = node.as_ref().unwrap();
+    //             level.push(node.borrow().val);
+
+    //             if node.borrow().left.is_some() {
+    //                 next_queue.push(node.borrow().left.clone());
+    //             }
+
+    //             if node.borrow().right.is_some() {
+    //                 next_queue.push(node.borrow().right.clone());
+    //             }
+    //         }
+    //         queue = next_queue;
+    //         res.push(level);
+    //     }
+
+    //     res.reverse();
+    //     res
+    // }
+
     pub fn level_order_bottom(root: TreeNodePtr) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-
-        if root.is_none() {
-            return res;
-        }
-
-        let mut queue = vec![root];
-
-        while !queue.is_empty() {
-            let mut level = vec![];
-            let mut next_queue = vec![];
-
-            for node in &queue {
-                if node.is_none() {
-                    continue;
-                }
-
-                let node = node.as_ref().unwrap();
-                level.push(node.borrow().val);
-
-                if node.borrow().left.is_some() {
-                    next_queue.push(node.borrow().left.clone());
-                }
-
-                if node.borrow().right.is_some() {
-                    next_queue.push(node.borrow().right.clone());
-                }
-            }
-            queue = next_queue;
-            res.push(level);
-        }
-
-        res.reverse();
-        res
-    }
-
-    pub fn level_order_bottom_v1(root: TreeNodePtr) -> Vec<Vec<i32>> {
         fn dfs(node: &TreeNodePtr, level: usize, res: &mut Vec<Vec<i32>>) {
             if let Some(tree) = node {
                 if res.len() < level + 1 {
@@ -80,23 +78,23 @@ mod tests {
         assert_eq!(Solution::level_order_bottom(None), Vec::<Vec<i32>>::new());
     }
 
-    #[test]
-    fn test_level_order_bottom_v1() {
-        assert_eq!(
-            Solution::level_order_bottom_v1(linked_tree(
-                3,
-                linked_tree(9, None, None),
-                linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
-            )),
-            vec![vec![15, 7], vec![9, 20], vec![3]]
-        );
-        assert_eq!(
-            Solution::level_order_bottom_v1(linked_tree(1, None, None)),
-            vec![vec![1]]
-        );
-        assert_eq!(
-            Solution::level_order_bottom_v1(None),
-            Vec::<Vec<i32>>::new()
-        );
-    }
+    // #[test]
+    // fn test_level_order_bottom_v1() {
+    //     assert_eq!(
+    //         Solution::level_order_bottom_v1(linked_tree(
+    //             3,
+    //             linked_tree(9, None, None),
+    //             linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
+    //         )),
+    //         vec![vec![15, 7], vec![9, 20], vec![3]]
+    //     );
+    //     assert_eq!(
+    //         Solution::level_order_bottom_v1(linked_tree(1, None, None)),
+    //         vec![vec![1]]
+    //     );
+    //     assert_eq!(
+    //         Solution::level_order_bottom_v1(None),
+    //         Vec::<Vec<i32>>::new()
+    //     );
+    // }
 }
