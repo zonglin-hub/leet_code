@@ -29,13 +29,12 @@ impl Solution {
                 })),
             }
         }
-
         carried(l1, l2, 0)
     }
 
-    // pub fn _add_two_numbers(mut l1: ListNodePtr, mut l2: ListNodePtr) -> ListNodePtr {
+    // pub fn add_two_numbers(mut l1: ListNodePtr, mut l2: ListNodePtr) -> ListNodePtr {
     //     let mut new_list = None;
-    //     let mut p = &mut new_list;
+    //     let mut tail = &mut new_list;
     //     let mut carry = 0;
 
     //     while l1.is_some() || l2.is_some() || carry != 0 {
@@ -49,10 +48,11 @@ impl Solution {
     //             l2 = j2.next;
     //         }
 
-    //         *p = Some(Box::new(ListNode::new(carry % 10)));
+    //         *tail = Some(Box::new(ListNode::new(carry % 10)));
     //         carry /= 10;
-    //         p = &mut p.as_mut()?.next;
+    //         tail = &mut tail.as_mut()?.next;
     //     }
+
     //     new_list
     // }
 }

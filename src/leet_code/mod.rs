@@ -31,6 +31,8 @@ pub mod _124_max_path_sum;
 pub mod _125_is_palindrome;
 pub mod _126_find_ladders;
 pub mod _127_ladder_length;
+pub mod _128_longest_consecutive;
+pub mod _129_sum_numbers;
 pub mod _12_int_to_roman;
 pub mod _1333_filter_restaurants;
 pub mod _1367_is_sub_path;

@@ -5,6 +5,8 @@ use std::collections::HashMap;
 // use std::ops::ControlFlow;
 
 impl Solution {
+    /// 哈希表
+    ///
     /// 这个函数是用于解决 "Two Sum" 这种问题的其中一个版本。给定一个整数数组 `nums` 和一个目标值 `target`，找出数组中和为目标值的那两个整数，并返回它们的数组下标。
     ///
     /// 函数的参数包括一个整数向量 `nums` 和一个目标整数 `target`。函数返回一个向量，包含两个整数的索引。
@@ -21,13 +23,14 @@ impl Solution {
     ///
     /// 这种解法的时间复杂度为 O(n)，其中 n 是输入数组的长度，因为我们只遍历了一次数组。空间复杂度也是 O(n)，因为在最坏的情况下，我们可能需要存储数组中的每个元素到哈希表中。
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let mut map = HashMap::new();
+        let mut hashtable = HashMap::new();
 
-        for (i, k) in nums.iter().enumerate() {
-            if let Some(&a) = map.get(&(target - k)) {
+        for (i, num) in nums.iter().enumerate() {
+            if let Some(&a) = hashtable.get(&(target - num)) {
                 return vec![a, i as i32];
             }
-            map.insert(k, i as i32);
+
+            hashtable.insert(num, i as i32);
         }
 
         vec![]
@@ -68,6 +71,7 @@ impl Solution {
     //         .unwrap_or(vec![])
     // }
 
+    // /// 暴力枚举
     // pub fn two_sum_1_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
     //     if nums.len() == 1 && nums[0] == target {
     //         return vec![0];

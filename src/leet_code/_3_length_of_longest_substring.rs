@@ -1,32 +1,51 @@
 //! 无重复字符的最长子串
 
-use super::Solution;
-use std::collections::HashMap;
+use std::collections::HashSet;
 
-impl Solution {
+impl super::Solution {
+    // pub fn length_of_longest_substring(s: String) -> i32 {
+    //     let (mut max_len, mut current_len) = (0, 0);
+    //     let mut charset = std::collections::HashMap::new();
+    //     let s = s.chars().collect::<Vec<char>>();
+    //     let mut l = 0;
+    //     s.iter().enumerate().for_each(|(i, c)| {
+    //         match charset.get(c) {
+    //             None => {
+    //                 current_len += 1;
+    //                 max_len = max_len.max(current_len);
+    //             }
+    //             Some(&i) => {
+    //                 for c in &s[l..=i] {
+    //                     charset.remove(c);
+    //                 }
+    //                 current_len -= i - l;
+    //                 l = i + 1;
+    //             }
+    //         }
+    //         charset.insert(*c, i);
+    //     });
+    //     max_len as i32
+    // }
+
+    /// 滑动窗口
     pub fn length_of_longest_substring(s: String) -> i32 {
-        let (mut ans, mut cnt) = (0, 0);
-        let mut map = HashMap::new();
-        let s = s.chars().collect::<Vec<_>>();
+        let (mut max_len, mut current_len) = (0, 0);
+        let mut charset = HashSet::new();
+        let s = s.chars().collect::<Vec<char>>();
         let mut l = 0;
 
-        s.iter().enumerate().for_each(|(i, c)| {
-            match map.get(c) {
-                None => {
-                    cnt += 1;
-                    ans = ans.max(cnt);
-                }
-                Some(&i) => {
-                    for c in &s[l..=i] {
-                        map.remove(c);
-                    }
-                    cnt -= i - l;
-                    l = i + 1;
-                }
+        s.iter().enumerate().for_each(|(_, c)| {
+            while charset.contains(c) {
+                charset.remove(&s[l]);
+                l += 1;
             }
-            map.insert(*c, i);
+
+            charset.insert(c);
+            max_len = max_len.max(current_len - l + 1);
+            current_len += 1;
         });
-        ans as i32
+
+        max_len as i32
     }
 }
 

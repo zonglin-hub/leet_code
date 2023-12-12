@@ -18,10 +18,6 @@ impl Solution {
     /// 在`merge_two_lists`函数中，它使用模式匹配来处理不同的情况，并使用`Box::new`函数来创建新的链表节点。
     pub fn merge_two_lists(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
         fn carried(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
-            if l1.is_none() && l2.is_none() {
-                return None;
-            }
-
             match (l1, l2) {
                 (None, None) => None,
                 (Some(n), None) | (None, Some(n)) => Some(n),
@@ -35,8 +31,22 @@ impl Solution {
                         next: carried(l1.next, Some(l2)),
                     })),
                 },
+                // (Some(l1), Some(l2)) => {
+                //     if l1.val >= l2.val {
+                //         Some(Box::new(ListNode {
+                //             val: l2.val,
+                //             next: carried(Some(l1), l2.next),
+                //         }))
+                //     } else {
+                //         Some(Box::new(ListNode {
+                //             val: l1.val,
+                //             next: carried(l1.next, Some(l2)),
+                //         }))
+                //     }
+                // }
             }
         }
+
         carried(l1, l2)
     }
 }
