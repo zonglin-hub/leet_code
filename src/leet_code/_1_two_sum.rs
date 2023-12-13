@@ -38,7 +38,6 @@ impl Solution {
 
     // pub fn two_sum_1_v4(nums: Vec<i32>, target: i32) -> Vec<i32> {
     //     let mut map = HashMap::new();
-
     //     let r = nums.iter().enumerate().try_for_each(|(i, &k)| {
     //         let i = i.try_into().unwrap();
     //         if let Some(&a) = map.get(&(target - k)) {
@@ -47,13 +46,11 @@ impl Solution {
     //         map.insert(k, i);
     //         ControlFlow::Continue(())
     //     });
-
     //     match r {
     //         ControlFlow::Break(v) => v,
     //         ControlFlow::Continue(()) => vec![],
     //     }
     // }
-
     // pub fn two_sum_1_v5(nums: Vec<i32>, target: i32) -> Vec<i32> {
     //     nums.iter()
     //         .enumerate()
@@ -70,13 +67,11 @@ impl Solution {
     //         .err()
     //         .unwrap_or(vec![])
     // }
-
     // /// 暴力枚举
     // pub fn two_sum_1_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
     //     if nums.len() == 1 && nums[0] == target {
     //         return vec![0];
     //     }
-
     //     for i in 0..nums.len() {
     //         for j in i + 1..nums.len() {
     //             if target == nums[i] + nums[j] {
@@ -86,7 +81,6 @@ impl Solution {
     //     }
     //     vec![]
     // }
-
     // pub fn two_sum_1_v3(nums: Vec<i32>, target: i32) -> Vec<i32> {
     //     if nums.len() == 1 && nums[0] == target {
     //         return vec![0];

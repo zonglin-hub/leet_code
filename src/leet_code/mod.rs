@@ -34,6 +34,7 @@ pub mod _127_ladder_length;
 pub mod _128_longest_consecutive;
 pub mod _129_sum_numbers;
 pub mod _12_int_to_roman;
+pub mod _130_solve;
 pub mod _1333_filter_restaurants;
 pub mod _1367_is_sub_path;
 pub mod _136_single_number;

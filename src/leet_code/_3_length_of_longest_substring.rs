@@ -33,20 +33,19 @@ impl super::Solution {
         let mut charset = HashSet::new();
         let s = s.chars().collect::<Vec<char>>();
         let mut l = 0;
-
-        s.iter().enumerate().for_each(|(_, c)| {
+        s.iter().for_each(|c| {
             while charset.contains(c) {
                 charset.remove(&s[l]);
                 l += 1;
             }
-
             charset.insert(c);
             max_len = max_len.max(current_len - l + 1);
             current_len += 1;
         });
-
         max_len as i32
     }
+
+    
 }
 
 #[cfg(test)]

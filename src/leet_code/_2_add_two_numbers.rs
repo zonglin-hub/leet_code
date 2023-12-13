@@ -3,6 +3,8 @@
 use super::{ListNode, ListNodePtr, Solution};
 
 impl Solution {
+    /// 递归
+    ///
     /// 用于将两个链表的元素相加并返回结果。
     /// 其中，`carried`函数用于处理进位，并返回结果。在` carried `函数中，我们使用` match `语句检查是否存在进位。
     /// 如果没有进位，我们返回` None `表示没有结果；
@@ -32,27 +34,24 @@ impl Solution {
         carried(l1, l2, 0)
     }
 
+    // /// 模拟
     // pub fn add_two_numbers(mut l1: ListNodePtr, mut l2: ListNodePtr) -> ListNodePtr {
     //     let mut new_list = None;
     //     let mut tail = &mut new_list;
     //     let mut carry = 0;
-
     //     while l1.is_some() || l2.is_some() || carry != 0 {
     //         if let Some(j1) = l1 {
     //             carry += j1.val;
     //             l1 = j1.next;
     //         }
-
     //         if let Some(j2) = l2 {
     //             carry += j2.val;
     //             l2 = j2.next;
     //         }
-
     //         *tail = Some(Box::new(ListNode::new(carry % 10)));
     //         carry /= 10;
     //         tail = &mut tail.as_mut()?.next;
     //     }
-
     //     new_list
     // }
 }
