@@ -44,8 +44,6 @@ impl super::Solution {
         });
         max_len as i32
     }
-
-    
 }
 
 #[cfg(test)]

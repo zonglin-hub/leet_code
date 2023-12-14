@@ -2,46 +2,115 @@
 
 use super::Solution;
 
+// impl Solution {
+//     pub fn my_atoi(str: String) -> i32 {
+//         let mut negative = false;
+//         let mut res = 0_i64;
+//         for (i, ch) in str.trim().chars().enumerate() {
+//             if ch == '+' && i == 0 {
+//                 continue;
+//             }
+//             if ch == '-' && i == 0 {
+//                 negative = true;
+//                 continue;
+//             }
+//             if !ch.is_ascii_digit() {
+//                 break;
+//             }
+//             res = 10_i64 * res + ch.to_digit(10).unwrap() as i64;
+//             match negative {
+//                 true => {
+//                     if -res < i32::min_value() as i64 {
+//                         return i32::min_value();
+//                     }
+//                 }
+//                 false => {
+//                     if res > i32::max_value() as i64 {
+//                         return i32::max_value();
+//                     }
+//                 }
+//             }
+//         }
+//         match negative {
+//             true => -res as i32,
+//             false => res as i32,
+//         }
+//     }
+// }
+
+enum Status {
+    Waiting,             // 等等..
+    PositiveNumber(i32), // 正数
+    NegativeNumber(i32), // 负数
+    End(i32),            // 结束
+}
+
 impl Solution {
-    pub fn my_atoi_v1(s: String) -> i32 {
-        let s = s.trim_start();
-        let mut num = 0;
-        let mut sign = 1;
-        for (i, b) in s.bytes().enumerate() {
-            if i == 0 {
-                sign = match b {
-                    b'+' => 1,
-                    b'-' => -1,
-                    b'0'..=b'9' => {
-                        num = (b - b'0') as i32;
-                        1
-                    }
-                    _ => return 0,
-                };
-            } else {
-                match b {
-                    b'0'..=b'9' => {
-                        num = match num.checked_mul(10) {
-                            Some(val) => val,
-                            None => match sign == 1 {
-                                true => return i32::MAX,
-                                false => return i32::MIN,
-                            },
-                        };
-                        let v = (b - b'0') as i32 * sign;
-                        num = match num.checked_add(v) {
-                            Some(val) => val,
-                            None => match sign == 1 {
-                                true => return i32::MAX,
-                                false => return i32::MIN,
-                            },
-                        };
-                    }
-                    _ => break,
-                }
+    pub fn my_atoi(s: String) -> i32 {
+        fn overflowing_muli(a: i32) -> (i32, bool) {
+            match a.overflowing_mul(10) {
+                (_, true) => match a > 0 {
+                    true => (i32::max_value(), true),
+                    false => (i32::min_value(), true),
+                },
+                (ans, false) => (ans, false),
             }
         }
-        num
+
+        fn overflowing_muli_add(a: i32, b: i32) -> (i32, bool) {
+            match overflowing_muli(a) {
+                (o, true) => (o, true),
+                (a, false) => match a.overflowing_add(b) {
+                    (_, true) => (i32::max_value(), true),
+                    (ans, false) => (ans, false),
+                },
+            }
+        }
+
+        fn overflowing_muli_sub(a: i32, b: i32) -> (i32, bool) {
+            match overflowing_muli(a) {
+                (o, true) => (o, true),
+                (a, false) => match a.overflowing_sub(b) {
+                    (_, true) => (i32::min_value(), true),
+                    (ans, false) => (ans, false),
+                },
+            }
+        }
+
+        let mut status = Status::Waiting;
+        let to_int = |ch: char| (ch as u8 - b'0') as i32;
+
+        for ch in s.chars() {
+            status = match status {
+                Status::Waiting => match ch {
+                    ' ' => continue,
+                    '-' => Status::NegativeNumber(0),
+                    '+' => Status::PositiveNumber(0),
+                    '0'..='9' => Status::PositiveNumber(to_int(ch)),
+                    _ => Status::End(0),
+                },
+                Status::PositiveNumber(a) => match ch {
+                    '0'..='9' => match overflowing_muli_add(a, to_int(ch)) {
+                        (o, true) => Status::End(o),
+                        (ans, false) => Status::PositiveNumber(ans),
+                    },
+                    _ => Status::End(a),
+                },
+                Status::NegativeNumber(a) => match ch {
+                    '0'..='9' => match overflowing_muli_sub(a, to_int(ch)) {
+                        (o, true) => Status::End(o),
+                        (ans, false) => Status::NegativeNumber(ans),
+                    },
+                    _ => Status::End(a),
+                },
+                Status::End(_) => break,
+            };
+        }
+
+        match status {
+            Status::PositiveNumber(ans) | Status::NegativeNumber(ans) | Status::End(ans) => ans,
+            Status::Waiting => 0,
+        }
     }
 }
 
@@ -50,9 +119,9 @@ mod tests {
     use crate::leet_code::Solution;
 
     #[test]
-    fn test_my_atoi_v1() {
-        assert_eq!(Solution::my_atoi_v1(String::from("42")), 42);
-        assert_eq!(Solution::my_atoi_v1(String::from("   -42")), -42);
-        assert_eq!(Solution::my_atoi_v1(String::from("4193 with words")), 4193);
+    fn test_my_atoi() {
+        assert_eq!(Solution::my_atoi(String::from("42")), 42);
+        assert_eq!(Solution::my_atoi(String::from("   -42")), -42);
+        assert_eq!(Solution::my_atoi(String::from("4193 with words")), 4193);
     }
 }

@@ -9,7 +9,7 @@ impl Solution {
                 dp[i] = row[i] + dp[i].min(dp[i + 1]);
             }
         }
-        
+
         dp[0]
     }
 }
