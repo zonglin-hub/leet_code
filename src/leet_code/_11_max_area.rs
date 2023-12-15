@@ -3,19 +3,18 @@
 use super::Solution;
 
 impl Solution {
-    pub fn max_area_v1(height: Vec<i32>) -> i32 {
-        let (mut left, mut right, mut ans) = (0, height.len() - 1, 0);
-
-        while left < right {
-            ans = ans.max(height[left].min(height[right]) * (right - left) as i32);
-
-            if height[left] < height[right] {
-                left += 1;
+    // 双指针 (力扣官方题解)
+    pub fn max_area(height: Vec<i32>) -> i32 {
+        let (mut l, mut r) = (0, height.len() - 1);
+        let mut ans = 0;
+        while l < r {
+            ans = ans.max(height[l].min(height[r]) * (r - l) as i32);
+            if height[l] < height[r] {
+                l += 1;
             } else {
-                right -= 1;
+                r -= 1;
             }
         }
-
         ans
     }
 }
@@ -25,8 +24,8 @@ mod tests {
     use super::Solution;
 
     #[test]
-    fn test_max_area_v1() {
-        assert_eq!(Solution::max_area_v1(vec![1, 8, 6, 2, 5, 4, 8, 3, 7]), 49);
-        assert_eq!(Solution::max_area_v1(vec![1, 1]), 1);
+    fn test_max_area() {
+        assert_eq!(Solution::max_area(vec![1, 8, 6, 2, 5, 4, 8, 3, 7]), 49);
+        assert_eq!(Solution::max_area(vec![1, 1]), 1);
     }
 }

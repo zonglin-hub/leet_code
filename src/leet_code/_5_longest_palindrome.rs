@@ -3,34 +3,7 @@
 use super::Solution;
 
 impl Solution {
-    // /// 窗口移动法
-    // pub fn longest_palindrome_5_v1(s: String) -> String {
-    //     fn is_palindrome(v: &[char]) -> bool {
-    //         for i in 0..v.len() / 2 {
-    //             if v[i] != v[v.len() - 1 - i] {
-    //                 return false;
-    //             }
-    //         }
-    //         true
-    //     }
-    //     let sv = s.chars().collect::<Vec<char>>();
-    //     let mut windows = s.len();
-    //     let mut head = 0;
-    //     while head != sv.len() {
-    //         if head + windows > sv.len() {
-    //             windows -= 1;
-    //             head = 0;
-    //             continue;
-    //         }
-    //         if is_palindrome(&sv[head..head + windows]) {
-    //             return sv[head..head + windows].iter().collect::<String>();
-    //         }
-    //         head += 1
-    //     }
-    //     "".to_string()
-    // }
-
-    /// 动态规划
+    /// 动态规划 (力扣官方题解)
     pub fn longest_palindrome(s: String) -> String {
         let n = s.len();
         let s = s.chars().collect::<Vec<char>>();
@@ -52,6 +25,33 @@ impl Solution {
         }
 
         s[res.0..=res.1].iter().collect()
+    }
+
+    /// 窗口移动法
+    pub fn longest_palindrome_5_v1(s: String) -> String {
+        fn is_palindrome(v: &[char]) -> bool {
+            for i in 0..v.len() / 2 {
+                if v[i] != v[v.len() - 1 - i] {
+                    return false;
+                }
+            }
+            true
+        }
+        let sv = s.chars().collect::<Vec<char>>();
+        let mut windows = s.len();
+        let mut head = 0;
+        while head != sv.len() {
+            if head + windows > sv.len() {
+                windows -= 1;
+                head = 0;
+                continue;
+            }
+            if is_palindrome(&sv[head..head + windows]) {
+                return sv[head..head + windows].iter().collect::<String>();
+            }
+            head += 1
+        }
+        "".to_string()
     }
 }
 
