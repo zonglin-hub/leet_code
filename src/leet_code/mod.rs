@@ -41,6 +41,7 @@ pub mod _136_single_number;
 pub mod _13_roman_to_int;
 pub mod _146_lru_cache;
 pub mod _147_insertion_sort_list;
+pub mod _1480_running_sum;
 pub mod _148_sort_list;
 pub mod _1491_average;
 pub mod _149_max_points;
