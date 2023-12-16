@@ -40,7 +40,7 @@ pub fn reverse_odd_levels(mut root: TreeNodePtr) -> TreeNodePtr {
 **问：**
 
 那我的理解，
-`let r = root? 等同 let r = root.clone()?`, `clone()` 函数只是创建了一个指向 `root` 的一个指针
+~~`let r = root?`~~ 等同 `let r = root.clone()?`, `clone()` 函数只是创建了一个指向 `root` 的一个指针
 
 **回答：**
 

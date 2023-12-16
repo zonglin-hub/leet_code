@@ -25,8 +25,7 @@ use super::Solution;
 //     pub fn letter_combinations_v1(digits: String) -> Vec<String> {
 //         fn dfs(idx: usize, digits: &str, path: &mut String, ans: &mut Vec<String>) {
 //             if digits.len() == idx {
-//                 ans.push(path.clone());
-//                 return;
+//                 return ans.push(path.clone());
 //             }
 //             if let Some(c) = digits.chars().nth(idx) {
 //                 for &ch in MAP
@@ -70,8 +69,8 @@ impl Solution {
                 return ans.push(path.clone());
             }
 
-            for c in map.get(&digits.chars().nth(idx).unwrap()).unwrap().chars() {
-                path.push(c);
+            for ch in map.get(&digits.chars().nth(idx).unwrap()).unwrap().chars() {
+                path.push(ch);
                 dfs(idx + 1, digits, map, path, ans);
                 path.pop();
             }
