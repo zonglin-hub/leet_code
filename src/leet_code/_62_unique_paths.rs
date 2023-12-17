@@ -1,31 +1,28 @@
-// use super::Solution;
+use super::Solution;
 
-// impl Solution {
-//     pub fn unique_paths(m: i32, n: i32) -> i32 {
-//         let u = (m + n - 2) as i64;
-//         let d = (m - 1).min(n - 1) as i64;
-//         let mut res = 1;
+impl Solution {
+    pub fn unique_paths(m: i32, n: i32) -> i32 {
+        let u = (m + n - 2) as i64;
+        let d = (m - 1).min(n - 1) as i64;
+        let mut res = 1;
 
-//         for (x, y) in (u - d + 1..=u).zip(1..=d) {
-//             res = res * x / y;
-//         }
-//         res as i32
-//     }
+        for (x, y) in (u - d + 1..=u).zip(1..=d) {
+            res = res * x / y;
+        }
+        res as i32
+    }
+}
 
-//     // pub fn _unique_paths(m: i32, n: i32) -> i32 {
-//     //     (1..m.min(n)).fold(1, |acc: i32, x| acc * (m + n - 1 - x) / x)
-//     // }
-// }
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
 
-// #[cfg(test)]
-// mod tests {
-//     use crate::leet_code::Solution;
-
-//     #[test]
-//     fn test_unique_paths() {
-//         assert_eq!(Solution::unique_paths(3, 7), 28);
-//         assert_eq!(Solution::unique_paths(3, 2), 3);
-//         assert_eq!(Solution::unique_paths(7, 3), 28);
-//         assert_eq!(Solution::unique_paths(3, 3), 6);
-//     }
-// }
+    #[test]
+    fn test_unique_paths() {
+        assert_eq!(Solution::unique_paths(3, 7), 28);
+        assert_eq!(Solution::unique_paths(3, 2), 3);
+        assert_eq!(Solution::unique_paths(7, 3), 28);
+        assert_eq!(Solution::unique_paths(3, 3), 6);
+        assert_eq!(Solution::unique_paths(51, 9), 1916797311);
+    }
+}

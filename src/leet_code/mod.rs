@@ -160,6 +160,7 @@ pub mod _71_simplify_path;
 pub mod _729_book;
 pub mod _72_min_distance;
 pub mod _73_set_zeroes;
+pub mod _746_min_cost_climbing_stairs;
 pub mod _74_search_matrix;
 pub mod _75_sort_colors;
 pub mod _76_min_window;

@@ -1,74 +1,113 @@
-// //! 四数之和
+//! 四数之和
 
-// use std::cmp::Ordering;
+use super::Solution;
 
-// use super::Solution;
+use std::cmp::Ordering;
 
-// impl Solution {
-//     pub fn four_sum_v1(nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-//         fn k_sum(k: i32, nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-//             if nums.len() < k as usize {
-//                 return Vec::new();
-//             }
+fn it(nums: &[i32], i: usize, n: usize) -> i64 {
+    (nums[i..i + n]).iter().map(|x| *x as i64).sum::<i64>()
+}
 
-//             let mut results = Vec::new();
-//             let mut nums = nums;
-//             nums.sort();
+fn its(nums: &[i32], length: usize, n: usize) -> i64 {
+    (nums[length - n..length])
+        .iter()
+        .map(|x| *x as i64)
+        .sum::<i64>()
+}
 
-//             if k == 2 {
-//                 let mut left = 0;
-//                 let mut right = nums.len() - 1;
+fn bo(nums: &[i32], n: usize) -> bool {
+    nums[n] == nums[n - 1]
+}
 
-//                 while left < right {
-//                     match (nums[left] + nums[right]).cmp(&target) {
-//                         Ordering::Less => left += 1,
-//                         Ordering::Greater => right -= 1,
-//                         Ordering::Equal => {
-//                             results.push(vec![nums[left], nums[right]]);
-//                             left += 1;
-//                             while left < right && nums[left] == nums[left - 1] {
-//                                 left += 1;
-//                             }
-//                         }
-//                     }
-//                 }
-//             } else {
-//                 for i in 0..nums.len() - k as usize + 1 {
-//                     if nums[i] * k > target {
-//                         break;
-//                     }
+impl Solution {
+    pub fn four_sum(mut nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
+        let mut quadruplets = vec![];
+        let target = target as i64;
+        let length = nums.len();
 
-//                     if i > 0 && nums[i] == nums[i - 1] {
-//                         continue;
-//                     }
+        if length < 4 {
+            return quadruplets;
+        }
 
-//                     let sub_results = k_sum(k - 1, nums[i + 1..].to_vec(), target - nums[i]);
-//                     for mut r in sub_results {
-//                         r.push(nums[i]);
-//                         results.push(r);
-//                     }
-//                 }
-//             }
-//             results
-//         }
+        nums.sort_unstable();
 
-//         k_sum(4, nums, target)
-//     }
-// }
+        for i in 0..length - 3 {
+            // i > 0 && nums[i] == nums[i - 1]
+            if i > 0 && bo(&nums, i) {
+                continue; // 去重
+            }
 
-// #[cfg(test)]
-// mod tests {
-//     use crate::leet_code::Solution;
+            // nums[i + 1] + nums[i + 2] + nums[i + 3]
+            if it(&nums, i, 4) > target {
+                break; // 剪枝
+            }
 
-//     #[test]
-//     fn test_four_sum_v1() {
-//         assert_eq!(
-//             Solution::four_sum_v1(vec![1, 0, -1, 0, -2, 2], 0),
-//             vec![vec![1, 2, -1, -2], vec![0, 2, 0, -2], vec![0, 1, 0, -1]]
-//         );
-//         assert_eq!(
-//             Solution::four_sum_v1(vec![2, 2, 2, 2, 2], 8),
-//             vec![vec![2, 2, 2, 2]]
-//         );
-//     }
-// }
+            // nums[i] + nums[length - 3] + nums[length - 2] + nums[length - 1]
+            if nums[i] as i64 + its(&nums, length, 3) < target {
+                continue;
+            }
+
+            for j in (i + 1)..length - 2 {
+                if j > i + 1 && bo(&nums, j) {
+                    continue;
+                }
+
+                if nums[i] as i64 + it(&nums, j, 3) > target {
+                    break;
+                }
+
+                if (nums[i] + nums[j]) as i64 + its(&nums, length, 2) < target {
+                    continue;
+                }
+
+                let mut left = j + 1;
+                let mut right = length - 1;
+
+                while left < right {
+                    match ((nums[i] + nums[j] + nums[left] + nums[right]) as i64).cmp(&target) {
+                        Ordering::Less => left += 1,
+                        Ordering::Greater => right -= 1,
+                        Ordering::Equal => {
+                            quadruplets.push(vec![nums[i], nums[j], nums[left], nums[right]]);
+                            right -= 1;
+                            left += 1;
+
+                            while left < right && nums[left] == nums[left - 1] {
+                                left += 1;
+                            }
+
+                            while left < right && nums[right] == nums[right + 1] {
+                                right -= 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        quadruplets
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
+
+    #[test]
+    fn test_four_sum() {
+        assert_eq!(
+            Solution::four_sum(vec![1, 0, -1, 0, -2, 2], 0),
+            vec![vec![-2, -1, 1, 2], vec![-2, 0, 0, 2], vec![-1, 0, 0, 1]]
+        );
+        assert_eq!(
+            Solution::four_sum(vec![2, 2, 2, 2, 2], 8),
+            vec![vec![2, 2, 2, 2]]
+        );
+        assert_eq!(
+            Solution::four_sum(
+                vec![0, 0, 0, 1000000000, 1000000000, 1000000000, 1000000000],
+                1000000000
+            ),
+            vec![vec![0, 0, 0, 1000000000]]
+        );
+    }
+}
