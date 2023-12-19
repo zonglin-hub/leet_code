@@ -33,6 +33,7 @@ impl Solution {
     /// 然后，我们递归地调用` carried `函数，处理下一个节点，并将进位除以 10 作为下一次递归的进位。
     /// 最后，我们将所有的节点连接起来，返回结果。
     pub fn add_two_numbers_v1(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
+        #[inline]
         fn carried(l1: ListNodePtr, l2: ListNodePtr, mut carry: i32) -> ListNodePtr {
             match l1.is_none() && l2.is_none() && carry == 0 {
                 true => None,

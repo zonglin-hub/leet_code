@@ -12,6 +12,7 @@ impl Solution {
     /// 在 DFS 的过程中，我们需要记录剩余的左右括号数量。
     /// 为了保证每添加一对括号，产生的新组合都是唯一的，我们需要限制添加的顺序，即我们可以在剩余的左右括号数量中，只在剩余左括号数量大于剩余右括号数量时，添加右括号。
     pub fn generate_parenthesis_v1(n: i32) -> Vec<String> {
+        #[inline]
         fn dfs(l: i32, r: i32, cur: &mut Vec<char>, res: &mut Vec<String>) {
             if l == 0 && r == 0 {
                 res.push(cur.iter().collect())

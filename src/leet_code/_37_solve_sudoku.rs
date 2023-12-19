@@ -89,6 +89,7 @@ impl Solution {
     // }
 
     pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
+        #[inline]
         fn dfs(spaces: &[(usize, usize)], msg: &mut Msg, board: &mut Vec<Vec<char>>) {
             if spaces.is_empty() {
                 msg.ok = true;

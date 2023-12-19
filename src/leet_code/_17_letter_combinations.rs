@@ -58,6 +58,7 @@ use super::Solution;
 
 impl Solution {
     pub fn letter_combinations(digits: String) -> Vec<String> {
+        #[inline]
         fn dfs(
             idx: usize,
             digits: &String,

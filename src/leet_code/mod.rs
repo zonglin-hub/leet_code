@@ -53,6 +53,7 @@ pub mod _162_find_peak_element;
 pub mod _16_three_sum_closest;
 pub mod _17_letter_combinations;
 pub mod _18_four_sum;
+pub mod _1901_find_peak_grid;
 pub mod _1967_num_of_strings;
 pub mod _198_rob;
 pub mod _19_remove_nth_from_end;
