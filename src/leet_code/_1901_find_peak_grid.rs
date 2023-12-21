@@ -1,6 +1,7 @@
 use super::Solution;
 
 impl Solution {
+    #[allow(clippy::int_plus_one)]
     pub fn find_peak_grid(mat: Vec<Vec<i32>>) -> Vec<i32> {
         let mut left = 0;
         let mut right = mat.len() - 1;
@@ -41,6 +42,10 @@ mod tests {
             vec![1, 1]
         );
         assert_eq!(
+            Solution::find_peak_grid(vec![vec![10, 40, 41], vec![21, 30, 14], vec![7, 16, 32]]),
+            vec![0, 2]
+        );
+        assert_eq!(
             Solution::find_peak_grid(vec![
                 vec![16, 10, 7, 4, 19, 25, 40, 27, 16],
                 vec![11, 21, 37, 47, 21, 13, 49, 11, 32],
@@ -49,7 +54,7 @@ mod tests {
                 vec![42, 44, 31, 19, 35, 1, 7, 28, 9],
                 vec![17, 47, 24, 49, 26, 24, 3, 26, 4]
             ]),
-            vec![5, 3]
+            Some(vec![5, 3]).unwrap_or(vec![4, 4])
         );
     }
 }
