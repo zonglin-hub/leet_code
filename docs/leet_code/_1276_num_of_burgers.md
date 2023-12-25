@@ -7,7 +7,7 @@
 - <strong>巨无霸汉堡：</strong> 4 片番茄和 1 片奶酪
 - <strong>小皇堡：</strong> 2 片番茄和 1 片奶酪
 
-请你以 `[total_jumbo, total_small]`（[巨无霸汉堡总数，小皇堡总数]）的格式返回恰当的制作方案，使得剩下的番茄片 `tomatoSlices` 和奶酪片 `cheeseSlices` 的数量都是 `0`。
+请你以「total_jumbo, total_small 巨无霸汉堡总数，小皇堡总数」的格式返回恰当的制作方案，使得剩下的番茄片 `tomatoSlices` 和奶酪片 `cheeseSlices` 的数量都是 `0`。
 
 如果无法使剩下的番茄片 `tomatoSlices` 和奶酪片 `cheeseSlices` 的数量为 `0`，就请返回 `[]`。
 
@@ -66,8 +66,8 @@
 
 $$
 \begin{cases}
- \text 4x + 2y = tomatoSlices \\
- \text x + y = cheeseSlices
+4x + 2y = tomatoSlices \\
+x + y = cheeseSlices
 \end{cases}
 $$
 
@@ -79,8 +79,8 @@ $$
 
 $$
 \begin{cases}
- \text 4x + 2y = tomatoSlices \\
- \text x + y = cheeseSlices
+4x + 2y = tomatoSlices \\
+x + y = cheeseSlices
 \end{cases}
 $$
 
@@ -88,8 +88,8 @@ $$
 
 $$
 \begin{cases}
- \text 4x + 2y = tomatoSlices \\
- \text 2x + 2y = 2 \times cheeseSlices
+4x + 2y = tomatoSlices \\
+2x + 2y = 2 \times cheeseSlices
 \end{cases}
 $$
 
@@ -135,8 +135,8 @@ $$
 
 $$
 \begin{cases}
- \text x = \frac{1}{2} \times tomatoSlices - cheeseSlices \\
- \text y = 2 \times cheeseSlices - \frac{1}{2} \times tomatoSlices
+x = \frac{1}{2} \times tomatoSlices - cheeseSlices \\
+y = 2 \times cheeseSlices - \frac{1}{2} \times tomatoSlices
 \end{cases}
 $$
 
