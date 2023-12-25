@@ -1,5 +1,4 @@
-[cow](https://rustwiki.org/zh-CN/std/borrow/enum.Cow.html)
-
+# [cow](https://rustwiki.org/zh-CN/std/borrow/enum.Cow.html)
 
 ```rust
 fn main() {

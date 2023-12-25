@@ -34,7 +34,6 @@ impl Person {
 
 ```
 
-
 ```rust
 #[allow(unused_imports)]
 pub mod person;

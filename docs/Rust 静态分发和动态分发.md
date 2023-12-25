@@ -74,5 +74,4 @@ fn main() {
 // 喵喵.....
 ```
 
-
 [探索Rust中的动态分派](https://alschwalm.com/blog/static/2017/03/07/exploring-dynamic-dispatch-in-rust/)

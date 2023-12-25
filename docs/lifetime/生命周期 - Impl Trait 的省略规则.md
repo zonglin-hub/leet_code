@@ -1,11 +1,10 @@
 # `impl Trait` 的生命周期省略规则
 
-
 - [`RFC 1951 expanded impl trait`][RFC 1951]
-    - 作为返回值，只捕捉类型参数，不捕捉参数生命周期
+  - 作为返回值，只捕捉类型参数，不捕捉参数生命周期
 
 - [`RFC 2394 async await`][RFC 2394]
-    - `async fn` 返回匿名 `impl Future` + 参数生命周期
+  - `async fn` 返回匿名 `impl Future` + 参数生命周期
 
 [RFC 1951]: https://rust-lang.github.io/rfcs/1951-expand-impl-trait.html
 [RFC 2394]: https://rust-lang.github.io/rfcs/2394-async_await.html

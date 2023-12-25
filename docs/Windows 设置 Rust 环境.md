@@ -8,7 +8,7 @@
 
     ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923114520833-509672411.png)
     ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923114559005-2087802634.png)
-    
+
     </details>
 
 - 官网下载 `rustup-init.exe` 并安装，下载地址[在这！][download_rustup]
@@ -20,7 +20,6 @@
     ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923114614643-572766821.png)
     ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923114635026-1714409751.png)
 
-
     ```powershell
     ~> gcc -v
     Using built-in specs.
@@ -31,6 +30,7 @@
     Thread model: win32
     gcc version 8.1.0 (x86_64-win32-seh-rev0, Built by MinGW-W64 project)
     ```
+
     </details>
 
 ## windows 安装 Rust 安装太慢解决办法
@@ -91,7 +91,7 @@ registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
 
 请产生 `.cargo` 文件夹下面的 `.package_cache` 文件：
 
-```
+```sh
 rm ~/.cargo/.package-cache
 ```
 
@@ -107,21 +107,19 @@ info: checking for self-update
   stable-x86_64-pc-windows-msvc unchanged - rustc 1.71.0 (8ede3aae2 2023-07-12)
 
 info: cleaning up downloads & tmp directories
-
 ```
 
 rustup升级
 
-```
+```sh
 ~> rustup self update                                                                                             2023/07/16 01:11:12 下午
 info: checking for self-update
   rustup unchanged - 1.26.0
-
 ```
 
 nightly版安装
 
-```
+```sh
 ~> rustup install nightly
 info: syncing channel updates for 'nightly'
 info: downloading toolchain manifest
@@ -135,12 +133,11 @@ info: installing component 'rust-docs'
 info: installing component 'cargo'
 
 nightly installed: rustc 1.9.0-nightly (02310fd31 2016-03-19)
-
 ```
 
 查询版本
 
-```
+```sh
 rustup run nightly rustc --version
 ```
 
@@ -152,14 +149,13 @@ rustup run nightly rustc --version
 rustup default nightly
 ```
 
-
 ## 参考文档
+
 - [Substrate 开发系列 - 环境搭建][substrate_dev_install]
 - [清华大学开源软件镜像站 Rust crates.io 索引][tsinghua_university]
 - [RsProxy国内镜像代理][RsProxy国内镜像代理]
 - [安装 Rust - Rust 程序设计语言 (rust-lang.org)][download_rustup]
 - [Windows安装Rust指南 - 哔哩哔哩 (bilibili.com)][Windows安装Rust指南]
-
 
 [Microsoft C++ 生成工具]: https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/
 [download_rustup]: https://www.rust-lang.org/zh-CN/tools/install

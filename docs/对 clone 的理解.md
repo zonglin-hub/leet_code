@@ -1,4 +1,6 @@
-**问：**
+# 对 `clone()` 的理解
+
+问:
 
 我有一个疑问？
 你对 Rust `clone()` 函数的理解，我这里有一段代码！
@@ -20,6 +22,7 @@ pub fn reverse_odd_levels(mut root: TreeNodePtr) -> TreeNodePtr {
     root
 }
 ```
+
 这里 `root.clone()` 克隆了 `root` 传递到 `dfs` 函数中，我的疑问是，这里我克隆了 `root`, 为什么 可以返回 `root`
 
 **回答：**
@@ -29,9 +32,9 @@ pub fn reverse_odd_levels(mut root: TreeNodePtr) -> TreeNodePtr {
 >
 > 在你的代码中，`root` 是一个 `TreeNodePtr` 类型的智能指针，它指向一个 `TreeNode` 结构。
 当你执行 `root.clone()?`; 时，你创建了一个新的 `TreeNodePtr` 实例，它与 `root` 指向同一个 `TreeNode` 结构。
-> 
+>
 > 然后，你将这个新的 `TreeNodePtr` 实例传递给 `dfs` 函数，而 `dfs` 函数接收的是一个引用（`&`），所以它仍然可以访问和修改原始的 `TreeNode` 结构，即 `root` 所指向的结构。
-> 
+>
 > 最后，当 `dfs` 函数返回时，它不会修改传递给它的引用所指向的对象。
 因此，尽管 `dfs` 函数接收了一个克隆的 `TreeNodePtr`，但它仍然可以修改原始的 `TreeNode` 结构，因为它们都指向同一个对象。
 >
@@ -58,4 +61,4 @@ pub fn reverse_odd_levels(mut root: TreeNodePtr) -> TreeNodePtr {
 > 总之，`let r = root.clone()?;` 创建了一个新的智能指针，但它和 `root` 都指向同一个 `TreeNode` 结构。
 所以，当你修改 `r` 所指向的对象时，`root` 也会被修改。
 
-**以上内容为 AI 生成，不代表开发者立场，请勿删除或修改本标记**
+以上内容为 AI 生成，不代表开发者立场，请勿删除或修改本标记

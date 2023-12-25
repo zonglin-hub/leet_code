@@ -1,16 +1,14 @@
 # 生命周期 - HRTB & GAT
 
-
 ## 「高级特质约束 `higher-ranked trait bounds`」
 
 - [RFC 387 higher ranked trait bounds][RFC 387]（`for<'a>...`）
-    - `for<'a>` 表示 `for any lifetime` 都会成立
-    - 目前 `fn*` 系列默认 `HRTB`
-    - 区别 `lifetime` 的「早期绑定 `early_bound`」和「延迟绑定 `late_bound`」
-        - 早期绑定：如果一个泛型函数的参数使用双引号 `('')` 包裹，那么这个参数就是早期绑定的。
+  - `for<'a>` 表示 `for any lifetime` 都会成立
+  - 目前 `fn*` 系列默认 `HRTB`
+  - 区别 `lifetime` 的「早期绑定 `early_bound`」和「延迟绑定 `late_bound`」
+    - 早期绑定：如果一个泛型函数的参数使用双引号 `('')` 包裹，那么这个参数就是早期绑定的。
         早期绑定参数的实际值在编译期间就会确定，而不是在函数调用时。
-        
-        - 延迟绑定：如果一个泛型函数的参数使用单引号 `( ')` 包裹，那么这个参数就是延迟绑定的。
+    - 延迟绑定：如果一个泛型函数的参数使用单引号 `( ')` 包裹，那么这个参数就是延迟绑定的。
         延迟绑定参数的实际值在函数调用时才会被确定，而不是在编译期间。
 
 [RFC 387]: https://rust-lang.github.io/rfcs/0387-higher-ranked-trait-bounds.html
@@ -53,7 +51,6 @@
 
     在上面的例子中，
 
-
     ```rust
     fn foo<'a>(b: Box<dyn DoSomething<&'a usize>>)
     ```
@@ -61,14 +58,12 @@
     编译器看到 `'a` 是会实施早期绑定，也就是在编译时根据局部变量 `s` 的生命周期，判断会出现悬垂指针。
     然而根据语义，这里逻辑是没有问题的，所以需要使用：
 
-
     ```rust
     fn foo(b: Box<dyn for<'a> DoSomething<&'a usize>>)
     ```
 
     `for<'a>` 是高阶 `trait` 限定，提示编译器进行，延迟绑定，也就是检查了 `b` 调用 `do_sth` 函数的具体实现，再进行生命周期泛型参数的实例化。
     编译器发现 `b` 实现的 `do_sth` 函数没有返回引用，也就不需要进行生命周期的检查了，通过编译。
-
 
     ```rust
     impl<'a, T: Debug> DoSomething<T> for &'a usize {
@@ -79,7 +74,6 @@
     ```
 
     编译器为什么实施早期绑定
-
 
     ```rust
     fn foo1<'a>(b: Box<dyn DoSomething<&'a usize>>) {
@@ -98,7 +92,6 @@
     }
     ```
 
-
 - 示例：
 
     ```rust
@@ -113,6 +106,7 @@
         f(&zero); // error[E0597]: `zero` does not live long enough
     }
     ```
+
     在上面的例子中，`'a` 会实施早期绑定
 
     ```rust
@@ -140,7 +134,6 @@
         f(&zero);
     }
     ```
-
 
 - 示例：
 
@@ -171,7 +164,9 @@
 ```rust  
 use std::associated_types::{AssociatedType, Generic};  
 ```
+
 然后，我们可以创建一个泛型类型，该类型使用一个泛型参数 `A`，并将其关联到一个特定的类型 `B`：
+
 ```rust  
 struct Point<A> {  
    x: A,  
@@ -193,8 +188,8 @@ impl<A: std::fmt::Display> Point<A> {
 在使用泛型关联类型时，需要遵循一定的语法规则和限制。
 
 - [RFC 1598 generic associated types][RFC 1598]
-    - 「关联 associated」type 中可以增加类型参数，当然也就包括 `lifetime`
-    - [加强理解 GAT 的一篇文章][gat]
+  - 「关联 associated」type 中可以增加类型参数，当然也就包括 `lifetime`
+  - [加强理解 GAT 的一篇文章][gat]
 
 [RFC 1598]: https://rust-lang.github.io/rfcs/1598-generic_associated_types.html
 [gat]: https://sabrinajewson.org/blog/the-better-alternative-to-lifetime-gats

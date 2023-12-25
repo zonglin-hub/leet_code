@@ -1,13 +1,13 @@
-### 使用 cargo expand 查看被宏隐藏的代码
+# 使用 cargo expand 查看被宏隐藏的代码
 
-使用 VScode 安装扩展 `Rust Macro Expand` 
+使用 VScode 安装扩展 `Rust Macro Expand`
 
 需要安装以下软件:
 
 - [cargo-expand](https://github.com/dtolnay/cargo-expand) A cargo crate for easier handling of compiler commands
 - Rust nightly compiler, you can install it with `rustup toolchain install nightly`
 
-#### cargo expand简介
+## cargo expand简介
 
 - `cargo expand` 目前这个需要安装 `nightly` 的 `toolchain`，`rustup toolchain install nightly-x86_64-unknown-linux-gnu`
 
@@ -52,7 +52,7 @@
     Installed package `cargo-expand v1.0.62` (executable `cargo-expand.exe`)
     ```
 
-#### 使用方法
+## 使用方法
 
 - 源代码
 
