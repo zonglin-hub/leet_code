@@ -30,6 +30,7 @@ pub mod _123_max_profit;
 pub mod _124_max_path_sum;
 pub mod _125_is_palindrome;
 pub mod _126_find_ladders;
+pub mod _1276_num_of_burgers;
 pub mod _127_ladder_length;
 pub mod _128_longest_consecutive;
 pub mod _129_sum_numbers;

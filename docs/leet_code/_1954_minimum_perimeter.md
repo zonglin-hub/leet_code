@@ -11,35 +11,39 @@
 - 如果 `x >= 0` ，那么值为 `x`
 - 如果 `x < 0` ，那么值为 `-x`
 
-示例 1：
+<p>&nbsp;</p>
+
+<strong>示例 1：</strong>
 
 ![矩阵图像](./assets/img/_1954_minimum_perimeter.png "example images")
 
-```text
-输入：neededApples = 1
-输出：8
-解释：边长长度为 1 的正方形不包含任何苹果。
-但是边长为 2 的正方形包含 12 个苹果（如上图所示）。
-周长为 2 * 4 = 8 。
-```
+<pre>
+<strong>输入：</strong> neededApples = 1
+<strong>输出：</strong> 8
+<strong>解释：</strong> 边长长度为 1 的正方形不包含任何苹果。但是边长为 2 的正方形包含 12 个苹果（如上图所示）。周长为 2 * 4 = 8 。
+</pre>
 
-示例 2：
+<strong>示例 2：</strong>
 
-```text
-输入：neededApples = 13
-输出：16
-```
+<pre>
+<strong>输入：</strong> neededApples = 13
+<strong>输出：</strong> 16
+</pre>
 
-示例 3：
+<strong>示例 3：</strong>
 
-```text
-输入：neededApples = 1000000000
-输出：5040
-```
+<pre>
+<strong>输入：</strong> neededApples = 1000000000
+<strong>输出：</strong> 5040
+</pre>
 
-提示：
+<p>&nbsp;</p>
 
-- $1 <= neededApples <= 10^5$
+<strong>提示：</strong>
+
+- <code>1 &lt;= neededApples &lt;= 10<sup>5</sup></code>
+
+<p>&nbsp;</p>
 
 ## 方法一：枚举
 
@@ -71,11 +75,11 @@ Sn
 \end{aligned}
 $$
 
-思路与算法
+<strong>思路与算法</strong>
 
 我们从小到大枚举 $n$，直到 $2n(n+1)(2n+1)≥neededApples$ 为止。
 
-代码
+<strong>代码</strong>
 
 ```rust
 use super::Solution;
@@ -103,32 +107,34 @@ mod tests {
 }
 ```
 
-复杂度分析
+<strong>复杂度分析</strong>
 
 - 时间复杂度：$O(m^{1/3})$，其中 $m$ 表示题目中的 $neededApples$。可以发现，$Sn$ 是关于 $n$ 的三次函数，因此需要枚举的 $n$ 的数量级为 $O(m^{1/3})$。
 
 - 空间复杂度：$O(1)$ 。
 
+<p>&nbsp;</p>
+
 ## 方法二：二分查找
 
-思路与算法
+<strong>思路与算法</strong>
 
 由于 $Sn$ 是随着 $n$ 单调递增的，那么我们可以通过二分查找的方法，找出最小的满足 $Sn≥neededApples$ 的 $n$ 值即为答案。
 
-细节
+<strong>细节</strong>
 
 二分查找的下界可以直接置为 $1$，而上界 $right$ 需要保证有 $C_{right}^{}>=neededApples$。
 根据方法一，我们只需要令 $right=⌊neededApples^{1/3}⌋$ 即可，其中 $⌊⋅⌋$ 表示向下取整。
 但由于大部分语言中立方根运算较难实现，在实际的编码中，我们可以取一个更加宽松的上界，
 例如 $neededApples^{1/3}$ 最大值 $10^{15}$ 的立方根 $10^5$。
 
-代码
+<strong>代码</strong>
 
 ```rust
 
 ```
 
-复杂度分析
+<strong>复杂度分析</strong>
 
 - 时间复杂度：$O(log\ m)$，其中 $m$ 表示题目中的 $neededApples$。即为二分查找需要的时间。
 
