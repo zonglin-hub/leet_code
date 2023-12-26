@@ -37,6 +37,7 @@ pub mod _129_sum_numbers;
 pub mod _12_int_to_roman;
 pub mod _130_solve;
 pub mod _1333_filter_restaurants;
+pub mod _1349_max_students;
 pub mod _1367_is_sub_path;
 pub mod _136_single_number;
 pub mod _13_roman_to_int;
