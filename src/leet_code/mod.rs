@@ -92,6 +92,7 @@ pub mod _2582_pass_the_pillow;
 pub mod _2591_dist_money;
 pub mod _25_reverse_k_group;
 pub mod _2603_collect_the_coins;
+pub mod _2660_is_winner;
 pub mod _2672_color_the_array;
 pub mod _26_remove_duplicates;
 pub mod _2731_sum_distance;
