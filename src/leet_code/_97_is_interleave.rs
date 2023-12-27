@@ -52,13 +52,10 @@ mod tests {
             "".to_string(),
             "".to_string()
         ));
-        assert_eq!(
-            Solution::is_interleave(
-                "aabcc".to_string(),
-                "dbbca".to_string(),
-                "aadbbbaccc".to_string()
-            ),
-            false
-        );
+        assert!(!Solution::is_interleave(
+            "aabcc".to_string(),
+            "dbbca".to_string(),
+            "aadbbbaccc".to_string()
+        ));
     }
 }

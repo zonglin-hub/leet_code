@@ -89,11 +89,11 @@ mod tests {
             Vec::<i32>::new(),
             Solution::find_substring(
                 "wordgoodgoodgoodbestword".to_string(),
-                vec![
+                [
                     "word".to_string(),
                     "good".to_string(),
                     "best".to_string(),
-                    "word".to_string(),
+                    "word".to_string()
                 ]
                 .to_vec()
             )

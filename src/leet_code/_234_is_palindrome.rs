@@ -32,6 +32,6 @@ mod tests {
 
     #[test]
     fn test_is_palindrome() {
-        assert_eq!(Solution::is_palindrome(linked_list!(1, 2)), false);
+        assert!(!Solution::is_palindrome(linked_list!(1, 2)));
     }
 }

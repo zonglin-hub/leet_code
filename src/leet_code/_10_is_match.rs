@@ -37,9 +37,6 @@ mod tests {
     fn test_is_match_10() {
         assert!(Solution::is_match_10("aa".to_string(), "a*".to_string()),);
         assert!(Solution::is_match_10("ab".to_string(), ".*".to_string()),);
-        assert_ne!(
-            Solution::is_match_10("aa".to_string(), "a".to_string()),
-            true
-        );
+        assert!(!Solution::is_match_10("aa".to_string(), "a".to_string()));
     }
 }

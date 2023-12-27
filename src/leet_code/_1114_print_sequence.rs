@@ -62,7 +62,7 @@ mod tests {
     #[test]
     fn test_first_second_third() {
         let foo = Arc::new(Foo::new());
-        let nums = vec![1, 2, 3];
+        let nums = [1, 2, 3];
         let mut threads = Vec::new();
         for &num in nums.iter() {
             let foo_clone = foo.clone();
@@ -93,7 +93,7 @@ mod tests {
     #[test]
     fn test_first_third_second() {
         let foo = Arc::new(Foo::new());
-        let nums = vec![1, 3, 2];
+        let nums = [1, 3, 2];
         let mut threads = Vec::new();
         for &num in nums.iter() {
             let foo_clone = foo.clone();

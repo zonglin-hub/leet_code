@@ -22,19 +22,13 @@ mod tests {
     fn test_is_same_tree() {
         let root = linked_tree(1, linked_tree(2, None, None), linked_tree(3, None, None));
         assert!(Solution::is_same_tree(root.clone(), root.clone()));
-        assert_eq!(
-            Solution::is_same_tree(
-                linked_tree(1, linked_tree(2, None, None), None),
-                linked_tree(1, None, linked_tree(2, None, None))
-            ),
-            false
-        );
-        assert_eq!(
-            Solution::is_same_tree(
-                linked_tree(1, linked_tree(2, None, None), linked_tree(1, None, None)),
-                linked_tree(1, linked_tree(1, None, None), linked_tree(2, None, None))
-            ),
-            false
-        );
+        assert!(!Solution::is_same_tree(
+            linked_tree(1, linked_tree(2, None, None), None),
+            linked_tree(1, None, linked_tree(2, None, None))
+        ));
+        assert!(!Solution::is_same_tree(
+            linked_tree(1, linked_tree(2, None, None), linked_tree(1, None, None)),
+            linked_tree(1, linked_tree(1, None, None), linked_tree(2, None, None))
+        ));
     }
 }

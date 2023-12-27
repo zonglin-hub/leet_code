@@ -39,17 +39,14 @@ mod tests {
             linked_tree(9, None, None),
             linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
         )));
-        assert_eq!(
-            Solution::is_balanced(linked_tree(
-                1,
-                linked_tree(
-                    2,
-                    linked_tree(3, linked_tree(4, None, None), linked_tree(4, None, None)),
-                    linked_tree(3, None, None)
-                ),
-                linked_tree(2, None, None)
-            )),
-            false
-        );
+        assert!(!Solution::is_balanced(linked_tree(
+            1,
+            linked_tree(
+                2,
+                linked_tree(3, linked_tree(4, None, None), linked_tree(4, None, None)),
+                linked_tree(3, None, None)
+            ),
+            linked_tree(2, None, None)
+        )));
     }
 }

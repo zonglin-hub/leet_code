@@ -64,9 +64,9 @@ mod tests {
             "great".to_string(),
             "rgeat".to_string()
         ));
-        assert_eq!(
-            Solution::is_scramble("abcde".to_string(), "caebd".to_string()),
-            false
-        );
+        assert!(!Solution::is_scramble(
+            "abcde".to_string(),
+            "caebd".to_string()
+        ));
     }
 }

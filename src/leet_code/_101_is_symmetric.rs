@@ -32,13 +32,10 @@ mod tests {
             linked_tree(2, linked_tree(3, None, None), linked_tree(4, None, None)),
             linked_tree(2, linked_tree(4, None, None), linked_tree(3, None, None))
         )));
-        assert_eq!(
-            Solution::is_symmetric(linked_tree(
-                1,
-                linked_tree(2, None, linked_tree(3, None, None)),
-                linked_tree(2, None, linked_tree(3, None, None))
-            )),
-            false
-        );
+        assert!(!Solution::is_symmetric(linked_tree(
+            1,
+            linked_tree(2, None, linked_tree(3, None, None)),
+            linked_tree(2, None, linked_tree(3, None, None))
+        )));
     }
 }

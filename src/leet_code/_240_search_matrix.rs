@@ -32,6 +32,6 @@ mod tests {
             vec![18, 21, 23, 26, 30],
         ];
         assert!(Solution::search_matrix_ii(matrix.clone(), 5));
-        assert_eq!(Solution::search_matrix_ii(matrix.clone(), 20), false);
+        assert!(!Solution::search_matrix_ii(matrix.clone(), 20));
     }
 }

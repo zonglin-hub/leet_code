@@ -35,7 +35,7 @@ mod tests {
         assert!(Solution::is_valid_v1(String::from("{}")));
         assert!(Solution::is_valid_v1(String::from("()[]{}")));
         assert!(Solution::is_valid_v1(String::from("({[]})")));
-        assert_eq!(Solution::is_valid_v1(String::from("(]")), false);
+        assert!(!Solution::is_valid_v1(String::from("(]")));
     }
 
     // #[test]

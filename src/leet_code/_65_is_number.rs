@@ -115,9 +115,9 @@ mod tests {
     fn test_is_number() {
         assert!(Solution::is_number("0".to_string()));
         assert!(Solution::is_number("-123.456e789".to_string()));
-        assert_eq!(Solution::is_number("e".to_string()), false);
-        assert_eq!(Solution::is_number(".".to_string()), false);
-        assert_eq!(Solution::is_number("95a54e53".to_string()), false);
-        assert_eq!(Solution::is_number("99e2.5".to_string()), false);
+        assert!(!Solution::is_number("e".to_string()));
+        assert!(!Solution::is_number(".".to_string()));
+        assert!(!Solution::is_number("95a54e53".to_string()));
+        assert!(!Solution::is_number("99e2.5".to_string()));
     }
 }

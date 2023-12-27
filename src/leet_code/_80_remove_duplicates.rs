@@ -24,12 +24,9 @@ mod tests {
 
     #[test]
     fn test_remove_duplicates_80() {
+        assert_eq!(Solution::remove_duplicates_80(&mut [1, 1, 1, 2, 2, 3]), 5);
         assert_eq!(
-            Solution::remove_duplicates_80(&mut vec![1, 1, 1, 2, 2, 3]),
-            5
-        );
-        assert_eq!(
-            Solution::remove_duplicates_80(&mut vec![0, 0, 1, 1, 1, 1, 2, 3, 3]),
+            Solution::remove_duplicates_80(&mut [0, 0, 1, 1, 1, 1, 2, 3, 3]),
             7
         );
     }

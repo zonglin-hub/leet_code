@@ -30,14 +30,11 @@ mod tests {
 
     #[test]
     fn test_max_profit() {
-        assert_eq!(
-            Solution::is_subsequence("a".to_string(), "b".to_string()),
-            false
-        );
-        assert_eq!(
-            Solution::is_subsequence("aa".to_string(), "ab".to_string()),
-            false
-        );
+        assert!(!Solution::is_subsequence("a".to_string(), "b".to_string()));
+        assert!(!Solution::is_subsequence(
+            "aa".to_string(),
+            "ab".to_string()
+        ));
         assert!(Solution::is_subsequence(
             "aa".to_string(),
             "aab".to_string()

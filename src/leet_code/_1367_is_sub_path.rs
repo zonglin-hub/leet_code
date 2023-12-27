@@ -64,9 +64,9 @@ mod tests {
             linked_list!(1, 4, 2, 6),
             tree.clone()
         ));
-        assert_eq!(
-            Solution::is_sub_path(linked_list!(1, 4, 2, 6, 8), tree.clone()),
-            false
-        );
+        assert!(!Solution::is_sub_path(
+            linked_list!(1, 4, 2, 6, 8),
+            tree.clone()
+        ));
     }
 }

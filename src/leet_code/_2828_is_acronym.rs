@@ -40,9 +40,9 @@ mod tests {
             ],
             "ngguoy".to_string()
         ));
-        assert_eq!(
-            Solution::is_acronym(vec!["an".to_string(), "apple".to_string()], "a".to_string()),
-            false
-        );
+        assert!(!Solution::is_acronym(
+            vec!["an".to_string(), "apple".to_string()],
+            "a".to_string()
+        ));
     }
 }

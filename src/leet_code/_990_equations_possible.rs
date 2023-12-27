@@ -37,36 +37,27 @@ mod tests {
 
     #[test]
     fn test_equations_possible() {
-        assert_eq!(
-            Solution::equations_possible(vec!["b==a".to_string(), "a==b".to_string()]),
-            true
-        );
-        assert_eq!(
-            Solution::equations_possible(vec![
-                "a==b".to_string(),
-                "b==c".to_string(),
-                "a==c".to_string()
-            ]),
-            true
-        );
+        assert!(Solution::equations_possible(vec![
+            "b==a".to_string(),
+            "a==b".to_string()
+        ]));
+        assert!(Solution::equations_possible(vec![
+            "a==b".to_string(),
+            "b==c".to_string(),
+            "a==c".to_string()
+        ]));
 
-        assert_eq!(
-            Solution::equations_possible(vec![
-                "a==b".to_string(),
-                "b!=c".to_string(),
-                "c==a".to_string()
-            ]),
-            false
-        );
+        assert!(!Solution::equations_possible(vec![
+            "a==b".to_string(),
+            "b!=c".to_string(),
+            "c==a".to_string()
+        ]));
 
-        assert_eq!(
-            Solution::equations_possible(vec![
-                "c==c".to_string(),
-                "b==d".to_string(),
-                "x!=z".to_string()
-            ]),
-            true
-        );
+        assert!(Solution::equations_possible(vec![
+            "c==c".to_string(),
+            "b==d".to_string(),
+            "x!=z".to_string()
+        ]));
     }
 
     // #[test]

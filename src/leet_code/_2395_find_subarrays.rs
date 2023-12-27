@@ -30,7 +30,7 @@ mod tests {
     #[test]
     fn test_find_subarrays() {
         assert!(Solution::find_subarrays(vec![4, 2, 4]));
-        assert_eq!(Solution::find_subarrays(vec![1, 2, 3, 4, 5]), false);
+        assert!(!Solution::find_subarrays(vec![1, 2, 3, 4, 5]));
         assert!(Solution::find_subarrays(vec![0, 0, 0]));
     }
 

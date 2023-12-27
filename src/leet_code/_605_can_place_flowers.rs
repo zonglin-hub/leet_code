@@ -35,8 +35,8 @@ mod tests {
 
     #[test]
     fn test_fib_v1() {
-        assert_eq!(Solution::can_place_flowers(vec![1, 0, 0, 0, 1], 1), true);
-        assert_eq!(Solution::can_place_flowers(vec![1, 0, 0, 0, 1], 2), false);
+        assert!(Solution::can_place_flowers(vec![1, 0, 0, 0, 1], 1));
+        assert!(!Solution::can_place_flowers(vec![1, 0, 0, 0, 1], 2));
     }
 
     // #[test]

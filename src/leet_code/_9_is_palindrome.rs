@@ -31,14 +31,14 @@ mod tests {
     #[test]
     fn test_is_palindrome_9() {
         assert!(Solution::is_palindrome_9(121));
-        assert_eq!(Solution::is_palindrome_9(-121), false);
-        assert_eq!(Solution::is_palindrome_9(10), false);
+        assert!(!Solution::is_palindrome_9(-121));
+        assert!(!Solution::is_palindrome_9(10));
     }
 
     #[test]
     fn test_is_palindrome_9_v1() {
         assert!(Solution::is_palindrome_9_v1(121));
-        assert_eq!(Solution::is_palindrome_9_v1(-121), false);
-        assert_eq!(Solution::is_palindrome_9_v1(10), false);
+        assert!(!Solution::is_palindrome_9_v1(-121));
+        assert!(!Solution::is_palindrome_9_v1(10));
     }
 }
