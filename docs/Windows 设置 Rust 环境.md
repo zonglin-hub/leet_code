@@ -1,26 +1,18 @@
 # Windows 设置 Rust 环境
 
-## 安装 Rust
+- 官网下载 [Microsoft C++ 生成工具][Microsoft C++ 生成工具]，并安装 <strong style="color: yellow;">Desktop development with C++</strong> 如果不安装无法正常编译。
 
-- 官网下载 [Microsoft C++ 生成工具][Microsoft C++ 生成工具] 不安装无法编译
+- 这里我们需要一个完整的 `gcc` 运行时环境。请在 MinGW64 官网[进行下载 `x86_64-win32-seh`][MinGW64]。如不安装，编辑代码时，会影响部分函数提示。
+  
+  并于系统变量 `Path` 中编辑环境变量，指定 `mingw64\bin` 目录。
 
-    <details><summary><b>参考</b></summary>
+  ```text
+  D:\program\mingw64\bin
+  ```
 
-    ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923114520833-509672411.png)
-    ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923114559005-2087802634.png)
+    <details><summary><b>使用 <code>gcc -v</code> 测试 gcc 环境是否正常。</b></summary>
 
-    </details>
-
-- 官网下载 `rustup-init.exe` 并安装，下载地址[在这！][download_rustup]
-
-- 官网下载 MinGW64 [x86_64-win32-seh][MinGW64] 不安装代码提示，不全
-
-    <details><summary><b>参考</b></summary>
-
-    ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923114614643-572766821.png)
-    ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923114635026-1714409751.png)
-
-    ```powershell
+    ```text
     ~> gcc -v
     Using built-in specs.
     COLLECT_GCC=D:\program\mingw64\bin\gcc.exe
@@ -33,9 +25,13 @@
 
     </details>
 
-## windows 安装 Rust 安装太慢解决办法
+- 官网下载 `rustup-init.exe` 并安装，[点击这里下载！][download_rustup]
+
+## Windows 安装 Rust 安装太慢解决办法
 
 打开 `powershell` 分别执行下面两行代码：
+
+作用：国内加速通道，注：这里时临时变量
 
 ```powershell
 $ENV:RUSTUP_DIST_SERVER='https://mirrors.ustc.edu.cn/rust-static'
@@ -44,14 +40,14 @@ $ENV:RUSTUP_UPDATE_ROOT='https://mirrors.ustc.edu.cn/rust-static/rustup'
 
 ## 配置 cargo 国内源
 
-找到当前用户目录下 .cargo文件夹，建立config文件：
+找到当前用户目录下 `.cargo` 文件夹，建立 `config` 文件：
 
 ```bash
 touch ~/.cargo/config
 vim ~/.cargo/config
 ```
 
-输入下面内容：
+并输入下面内容：
 
 ```toml
 [source.crates-io]
@@ -80,26 +76,16 @@ registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
 
 删除 `.package-cache`
 
-```sh
+```bash
 ~/.cargo> rm -rf registry
 ~/.cargo> rm -rf .package-cache
 ```
 
-## 解决 cargo 堵塞 blocking 问题
-
-如果在运行 cargo 的时候，出现：<u>Blocking waiting for file lock on package cache</u>
-
-请产生 `.cargo` 文件夹下面的 `.package_cache` 文件：
-
-```sh
-rm ~/.cargo/.package-cache
-```
-
 ## Rust 更新
 
-稳定版和nightly版的升级
+稳定版和 `nightly` 版的升级
 
-```rust
+```bash
 ~> rustup update                                                                                                  2023/07/16 01:06:05 下午
 info: syncing channel updates for 'stable-x86_64-pc-windows-msvc'
 info: checking for self-update
@@ -109,17 +95,17 @@ info: checking for self-update
 info: cleaning up downloads & tmp directories
 ```
 
-rustup升级
+`rustup` 升级
 
-```sh
+```bash
 ~> rustup self update                                                                                             2023/07/16 01:11:12 下午
 info: checking for self-update
   rustup unchanged - 1.26.0
 ```
 
-nightly版安装
+`nightly` 版安装
 
-```sh
+```bash
 ~> rustup install nightly
 info: syncing channel updates for 'nightly'
 info: downloading toolchain manifest
@@ -137,15 +123,15 @@ nightly installed: rustc 1.9.0-nightly (02310fd31 2016-03-19)
 
 查询版本
 
-```sh
+```bash
 rustup run nightly rustc --version
 ```
 
-选择稳定版或者nightly版
+选择稳定版或者 `nightly` 版
 
-如果想长期使用 nightly版。
+如果想长期使用 `nightly` 版。
 
-```rust
+```bash
 rustup default nightly
 ```
 
@@ -173,6 +159,22 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
 <pre>
 tmp 无法删除，目前没有正在运行的 rust 项目，应当是有其它 rust 的进程还在活动，检查 vscode, rust-analyzer 还在活动，停止插件或关闭 vscode。
+</pre>
+
+<p>&nbsp;</p>
+
+<strong>如果在运行 cargo 的时候：Blocking waiting for file lock on package cache</strong>
+
+请产生 `.cargo` 文件夹下面的 `.package_cache` 文件：
+
+```sh
+rm ~/.cargo/.package-cache
+```
+
+<strong>原因：</strong>
+
+<pre>
+cargo 堵塞问题。
 </pre>
 
 <p>&nbsp;</p>

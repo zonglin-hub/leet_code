@@ -4,12 +4,14 @@
 
 需要安装以下软件:
 
-- [cargo-expand](https://github.com/dtolnay/cargo-expand) A cargo crate for easier handling of compiler commands
-- Rust nightly compiler, you can install it with `rustup toolchain install nightly`
+- [cargo-expand](https://github.com/dtolnay/cargo-expand) A cargo crate for easier handling of compiler commands。
+- Rust nightly compiler, you can install it with `rustup toolchain install nightly`。
 
-## cargo expand简介
+## cargo expand 简介
 
-- `cargo expand` 目前这个需要安装 `nightly` 的 `toolchain`，`rustup toolchain install nightly-x86_64-unknown-linux-gnu`
+- <strong>cargo expand</strong> 目前这个需要安装 `nightly` 的 toolchain。
+
+    <details><summary><b>你可以使用 <code>rustup toolchain install nightly</code> 命令进行安装。</b></summary>
 
     ```sh
     ~> rustup toolchain install nightly
@@ -37,7 +39,11 @@
     info: checking for self-update
     ```
 
-- 安装命令：`cargo +nightly install cargo-expand`
+    </details>
+
+- 再安装 <strong>cargo expand</strong>：
+
+    <details><summary><b>你可以使用以下命令 <code>cargo +nightly install cargo-expand</code> 命令进行安装。</b></summary>
 
     ```sh
     ~> cargo +nightly install cargo-expand
@@ -51,6 +57,8 @@
     Installing C:\Users\liuzonglin\.cargo\bin\cargo-expand.exe
     Installed package `cargo-expand v1.0.62` (executable `cargo-expand.exe`)
     ```
+
+    </details>
 
 ## 使用方法
 
