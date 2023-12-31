@@ -18,6 +18,7 @@ pub mod _111_min_depth;
 pub mod _112_has_path_sum;
 pub mod _113_path_sum;
 pub mod _114_flatten;
+pub mod _1154_day_of_year;
 pub mod _115_num_distinct;
 pub mod _1185_day_of_the_week;
 pub mod _118_generate;
