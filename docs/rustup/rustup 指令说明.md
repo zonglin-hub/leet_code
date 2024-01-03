@@ -20,7 +20,7 @@ The Rust toolchain installer
     -V, --version    打印版本信息
 
 子命令：
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;show           显示活动和解压的工具链或配置文件</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;show           显示活动和解压的工具链或配置文件</strong></summary>
     ~> rustup show -h
     rustup-show
     显示活动工具链和安装的工具链或配置文件
@@ -33,16 +33,16 @@ The Rust toolchain installer
         -h, --help       打印帮助信息
 
     子命令：
-        <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;active-toolchain    显示活动工具链</strong></summary>
+        <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;active-toolchain    显示活动工具链</strong></summary>
             沾污扩展
         </details>
-        <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home                显示计算得出的 RUSTUP_HOME 值</strong></summary>
+        <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home                显示计算得出的 RUSTUP_HOME 值</strong></summary>
             沾污扩展
         </details>
-        <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile             显示当前配置文件</strong></summary>
+        <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile             显示当前配置文件</strong></summary>
             沾污扩展
         </details>
-        <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help                打印此消息或给定子命令的帮助信息</strong></summary>
+        <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;help                打印此消息或给定子命令的帮助信息</strong></summary>
             沾污扩展
         </details>
 
@@ -54,46 +54,46 @@ The Rust toolchain installer
         如果安装了多个工具链，那么所有安装的工具链也会被列出。
 
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;update         更新 Rust 工具链和 rustup</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;update         更新 Rust 工具链和 rustup</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;check          检查 Rust 工具链和 rustup 的更新</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;check          检查 Rust 工具链和 rustup 的更新</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;default        设置默认工具链</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;default        设置默认工具链</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;toolchain      修改或查询已安装的工具链</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;toolchain      修改或查询已安装的工具链</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;target         修改工具链支持的目标</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;target         修改工具链支持的目标</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;component      修改工具链安装的组件</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;component      修改工具链安装的组件</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;override       修改目录工具链覆盖</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;override       修改目录工具链覆盖</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;run            使用为给定工具链配置的环境运行命令</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;run            使用为给定工具链配置的环境运行命令</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;which          显示将为给定命令运行的二进制文件</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;which          显示将为给定命令运行的二进制文件</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;doc            打开当前工具链的文档</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;doc            打开当前工具链的文档</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;self           修改 rustup 安装</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;self           修改 rustup 安装</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;set            修改 rustup 设置</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;set            修改 rustup 设置</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;completions    为您的 shell 生成制表完成脚本</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;completions    为您的 shell 生成制表完成脚本</strong></summary>
         沾污扩展
     </details>
-    <details><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;help           打印此消息或给定子命令的帮助信息</strong></summary>
+    <details style="margin-bottom: -20px;"><summary style="line-height: 0"><strong>&nbsp;&nbsp;&nbsp;help           打印此消息或给定子命令的帮助信息</strong></summary>
         沾污扩展
     </details>
 
@@ -131,7 +131,7 @@ The Rust toolchain installer
 
 </code></pre>
 
-<style type="text/css">
+<!-- <style>
     details > summary {
         display: flex;
         align-items: center; /* 这将使得子元素在交叉轴上居中对齐 */
@@ -154,4 +154,4 @@ The Rust toolchain installer
     pre > code > details > details {
         margin-bottom: -20px;
     }
-</style>
+</style> -->
