@@ -86,6 +86,7 @@ pub mod _23_merge_k_lists;
 pub mod _240_search_matrix;
 pub mod _2415_reverse_odd_levels;
 pub mod _2472_max_palindromes;
+pub mod _2487_remove_nodes;
 pub mod _24_swap_pairs;
 pub mod _2525_categorize_box;
 pub mod _2560_min_capability;
