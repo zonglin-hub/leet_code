@@ -1,31 +1,6 @@
 
 # rustup -h
 
-<style>
-    details > summary {
-        display: flex;
-        align-items: center; /* 这将使得子元素在交叉轴上居中对齐 */
-        padding-right: 10px; /* 这将为右侧的图标提供一些空间 */
-        margin-left: 10px; /* 这将使得文本靠左一些 */
-    }
-
-    details > summary::before {
-      content: "✨";
-    }
-  
-    details > summary::-webkit-details-marker {
-        float: right; /* 这将使得图标靠右 */
-    }
-
-    pre > code > details {
-        margin-bottom: -20px; /* 设置标签底部边距 */
-    }
-
-    pre > code > details > details {
-        margin-bottom: -20px;
-    }
-</style>
-
 <pre><code>
 ~> rustup -h
 
@@ -155,3 +130,28 @@ The Rust toolchain installer
     > ['/path/to/directory' '/path/to/file'] | each {|| ls -D $in } | flatten
 
 </code></pre>
+
+<style type="text/css">
+    details > summary {
+        display: flex;
+        align-items: center; /* 这将使得子元素在交叉轴上居中对齐 */
+        padding-right: 10px; /* 这将为右侧的图标提供一些空间 */
+        margin-left: 10px; /* 这将使得文本靠左一些 */
+    }
+
+    details > summary::before {
+      content: "✨";
+    }
+  
+    details > summary::-webkit-details-marker {
+        float: right; /* 这将使得图标靠右 */
+    }
+
+    pre > code > details {
+        margin-bottom: -20px; /* 设置标签底部边距 */
+    }
+
+    pre > code > details > details {
+        margin-bottom: -20px;
+    }
+</style>
