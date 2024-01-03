@@ -83,27 +83,58 @@ registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
 
 ## Rust 更新
 
-稳定版和 `nightly` 版的升级
+### 升级 Rust 「stable _稳定版_」
+
+<details><summary><b>可以执行 <code>rustup update</code> 来升级 Rust 「Stable Release <i>稳定版本</i>」</b></summary>
 
 ```bash
-~> rustup update                                                                                                  2023/07/16 01:06:05 下午
+~> rustup update
 info: syncing channel updates for 'stable-x86_64-pc-windows-msvc'
+info: latest update on 2023-12-28, rust version 1.75.0 (82e1608df 2023-12-21)
+info: downloading component 'rust-std' for 'wasm32-unknown-unknown'
+ 16.9 MiB /  16.9 MiB (100 %)   6.2 MiB/s in  2s ETA:  0s
+info: downloading component 'rust-src'
+info: downloading component 'cargo'
+info: downloading component 'clippy'
+info: downloading component 'rust-docs'
+ 14.3 MiB /  14.3 MiB (100 %)   4.8 MiB/s in  2s ETA:  0s
+info: downloading component 'rust-std'
+ 17.9 MiB /  17.9 MiB (100 %)   7.7 MiB/s in  2s ETA:  0s
+info: downloading component 'rustc'
+ 58.7 MiB /  58.7 MiB (100 %)   7.3 MiB/s in  8s ETA:  0s
+info: downloading component 'rustfmt'
+info: removing previous version of component 'rust-std' for 'wasm32-unknown-unknown'
+info: removing previous version of component 'rust-src'
+info: removing previous version of component 'cargo'
+info: removing previous version of component 'clippy'
+info: removing previous version of component 'rust-docs'
+info: removing previous version of component 'rust-std'
+info: removing previous version of component 'rustc'
+info: removing previous version of component 'rustfmt'
+info: installing component 'rust-std' for 'wasm32-unknown-unknown'
+ 16.9 MiB /  16.9 MiB (100 %)  13.9 MiB/s in  3s ETA:  0s
+info: installing component 'rust-src'
+info: installing component 'cargo'
+info: installing component 'clippy'
+info: installing component 'rust-docs'
+ 14.3 MiB /  14.3 MiB (100 %)   2.0 MiB/s in  4s ETA:  0s
+info: installing component 'rust-std'
+ 17.9 MiB /  17.9 MiB (100 %)  13.7 MiB/s in  1s ETA:  0s
+info: installing component 'rustc'
+ 58.7 MiB /  58.7 MiB (100 %)  15.2 MiB/s in  3s ETA:  0s
+info: installing component 'rustfmt'
 info: checking for self-update
 
-  stable-x86_64-pc-windows-msvc unchanged - rustc 1.71.0 (8ede3aae2 2023-07-12)
+  stable-x86_64-pc-windows-msvc updated - rustc 1.75.0 (82e1608df 2023-12-21) (from rustc 1.74.1 (a28077b28 2023-12-04))
 
 info: cleaning up downloads & tmp directories
 ```
 
-`rustup` 升级
+</details>
 
-```bash
-~> rustup self update                                                                                             2023/07/16 01:11:12 下午
-info: checking for self-update
-  rustup unchanged - 1.26.0
-```
+### 安装 Rust 「Nightly Build _夜间构建_」
 
-`nightly` 版安装
+<details><summary><b>可以执行 <code>rustup install nightly</code> 来安装 「Nightly Build <i>夜间构建</i>」</b></summary>
 
 ```bash
 ~> rustup install nightly
@@ -121,19 +152,25 @@ info: installing component 'cargo'
 nightly installed: rustc 1.9.0-nightly (02310fd31 2016-03-19)
 ```
 
-查询版本
+</details>
 
-```bash
-rustup run nightly rustc --version
-```
+### 切换默认版本
 
-选择稳定版或者 `nightly` 版
-
-如果想长期使用 `nightly` 版。
+选择稳定版或者 `nightly` 版，如果想长期使用 `nightly` 版。
 
 ```bash
 rustup default nightly
 ```
+
+<p>&nbsp;</p>
+
+卸载 Rust
+
+在任何时候如果您想卸载 Rust，您可以运行 `rustup self uninstall`。
+
+卸载 Rust nightly 可以使用 `rustup toolchain uninstall nightly-x86_64-pc-windows-msvc`。
+
+查询 rustup 安装的工具链 请使用 `rustup show` 或 `rustup toolchain list`
 
 <p>&nbsp;</p>
 
