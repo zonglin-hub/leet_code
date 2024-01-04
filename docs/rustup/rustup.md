@@ -1,12 +1,12 @@
 # rustup -h
 
 <pre>
-~> rustup -h
+$ rustup -h
 rustup 1.26.0 (5af9b9484 2023-04-05)
 The Rust toolchain installer
 
 使用方法：
-    ~> rustup [选项] [+toolchain] <+子命令>
+    $ rustup [选项] [+toolchain] <+子命令>
 
 参数：
     <+toolchain>    发布渠道（例如 +stable）或自定义工具链以设置覆盖
@@ -41,30 +41,17 @@ The Rust toolchain installer
     如果您是 Rust 的新手，请考虑运行 `rustup doc --book` 来学习 Rust。
 
 示例:
-    列出当前目录中的可见文件
-    ~> ls
+    升级 Rust 「stable _稳定版_」：
 
-    列出子目录中的可见文件
-    ~> ls subdir
+        $ rustup update
 
-    列出父目录中的可见文件的完整路径
-    ~> ls -f ..
+    显示工具链信息：
 
-    列出 Rust 文件
-    ~> ls *.rs
+        $ rustup show
 
-    列出名称不包含 'bar' 的文件和目录
-    ~> ls -s | where name !~ bar
-
-    列出主目录中的所有目录
-    ~> ls -a ~ | where type == dir
-
-    列出主目录中在 7 天内未被修改的所有目录
-    ~> ls -as ~ | where type == dir and modified < ((date now) - 7day)
-
-    列出给定路径并显示目录本身
-    ~> ['/path/to/directory' '/path/to/file'] | each {|| ls -D $in } | flatten
 </pre>
+
+<p>&nbsp;</p>
 
 ## rustup show -h
 
@@ -92,6 +79,12 @@ rustup-show
     如果活动工具链安装了支持其他编译目标的支持，那么它们也会被列出。
 
     如果安装了多个工具链，那么所有安装的工具链也会被列出。
+
+示例:
+    显示计算得出的 RUSTUP_HOME 值：
+
+        $ rustup show home
+
 </pre>
 
 ### rustup show active-toolchain -h
@@ -145,6 +138,8 @@ rustup-show-profile
 选项：
     -h, --help    打印帮助信息
 </pre>
+
+<p>&nbsp;</p>
 
 ## rustup update -h
 
@@ -206,6 +201,8 @@ rustup-default
     将默认工具链设置为指定的工具链。如果工具链
     尚未安装，则首先安装它。
 </pre>
+
+<p>&nbsp;</p>
 
 ## rustup toolchain -h
 
@@ -355,6 +352,8 @@ DISCUSSION:
     toolchain 'latest-stage1' will be used.
 </pre>
 
+<p>&nbsp;</p>
+
 ## rustup target -h
 
 <pre>
@@ -429,6 +428,8 @@ OPTIONS:
                                    `rustup help toolchain`
     -h, --help                     Print help information
 </pre>
+
+<p>&nbsp;</p>
 
 ## rustup component -h
 
@@ -506,6 +507,8 @@ OPTIONS:
         --target <target>
     -h, --help                     Print help information
 </pre>
+
+<p>&nbsp;</p>
 
 ## rustup override -h
 
@@ -599,6 +602,8 @@ DISCUSSION:
     directories. Otherwise, removes the override toolchain for the
     current directory.
 </pre>
+
+<p>&nbsp;</p>
 
 ## rustup run -h
 
@@ -694,6 +699,8 @@ rustup-doc
     默认情况下，它会打开文档索引。使用各种标志来打开特定的文档部分。
 </pre>
 
+<p>&nbsp;</p>
+
 ## rustup self -h
 
 <pre>
@@ -756,6 +763,8 @@ USAGE:
 OPTIONS:
     -h, --help    Print help information
 </pre>
+
+<p>&nbsp;</p>
 
 ## rustup set -h
 
@@ -827,6 +836,8 @@ ARGS:
 OPTIONS:
     -h, --help    Print help information
 </pre>
+
+<p>&nbsp;</p>
 
 ## rustup completions -h
 
