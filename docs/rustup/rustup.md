@@ -3,7 +3,7 @@
 <pre>
 $ rustup -h
 rustup 1.26.0 (5af9b9484 2023-04-05)
-The Rust toolchain installer
+Rust 工具链安装程序
 
 使用方法：
     $ rustup [选项] [+toolchain] <+子命令>
@@ -56,7 +56,7 @@ The Rust toolchain installer
 ## rustup show -h
 
 <pre>
-~> rustup show -h
+$ rustup show -h
 rustup-show
 显示活动工具链和安装的工具链或配置文件
 
@@ -90,7 +90,7 @@ rustup-show
 ### rustup show active-toolchain -h
 
 <pre>
-~> rustup show active-toolchain -h
+$ rustup show active-toolchain -h
 rustup-show-active-toolchain
 Show the active toolchain
 
@@ -114,7 +114,7 @@ DISCUSSION:
 ### rustup show home -h
 
 <pre>
-~> rustup show home -h
+$ rustup show home -h
 rustup-show-home
 显示 RUSTUP_HOME 的计算值
 
@@ -128,7 +128,7 @@ rustup-show-home
 ### rustup show profile -h
 
 <pre>
-~> rustup show profile -h
+$ rustup show profile -h
 rustup-show-profile
 显示当前配置文件
 
@@ -144,7 +144,7 @@ rustup-show-profile
 ## rustup update -h
 
 <pre>
-~> rustup update -h
+$ rustup update -h
 rustup-update
 更新 Rust 工具链和 rustup
 
@@ -170,7 +170,7 @@ rustup-update
 ## rustup check -h
 
 <pre>
-~> rustup check -h
+$ rustup check -h
 rustup-check
 检查 Rust 工具链和 rustup 的更新
 
@@ -184,7 +184,7 @@ rustup-check
 ## rustup default -h
 
 <pre>
-~> rustup default -h
+$ rustup default -h
 rustup-default
 设置默认工具链
 
@@ -207,7 +207,7 @@ rustup-default
 ## rustup toolchain -h
 
 <pre>
-~> rustup toolchain -h
+$ rustup toolchain -h
 rustup-toolchain
 修改或查询已安装的工具链
 
@@ -259,7 +259,7 @@ rustup-toolchain
 ### rustup toolchain list -h
 
 <pre>
-~> rustup toolchain list -h
+$ rustup toolchain list -h
 rustup-toolchain-list
 List installed toolchains
 
@@ -274,7 +274,7 @@ OPTIONS:
 ### rustup toolchain install -h
 
 <pre>
-~> rustup toolchain install -h
+$ rustup toolchain install -h
 rustup-toolchain-install
 Install or update a given toolchain
 
@@ -300,7 +300,7 @@ OPTIONS:
 ### rustup toolchain uninstall -h
 
 <pre>
-~> rustup toolchain uninstall -h
+$ rustup toolchain uninstall -h
 rustup-toolchain-uninstall
 Uninstall a toolchain
 
@@ -318,7 +318,7 @@ OPTIONS:
 ### rustup toolchain link -h
 
 <pre>
-~> rustup toolchain link -h
+$ rustup toolchain link -h
 rustup-toolchain-link
 Create a custom toolchain by symlinking to a directory
 
@@ -357,7 +357,7 @@ DISCUSSION:
 ## rustup target -h
 
 <pre>
-~> rustup target -h
+$ rustup target -h
 rustup-target
 修改工具链的支持目标
 
@@ -377,7 +377,7 @@ rustup-target
 ### rustup target list -h
 
 <pre>
-~> rustup target list -h
+$ rustup target list -h
 rustup-target-list
 List installed and available targets
 
@@ -394,7 +394,7 @@ OPTIONS:
 ### rustup target add -h
 
 <pre>
-~> rustup target add -h
+$ rustup target add -h
 rustup-target-add
 Add a target to a Rust toolchain
 
@@ -413,7 +413,7 @@ OPTIONS:
 ### rustup target remove -h
 
 <pre>
-~> rustup target remove -h
+$ rustup target remove -h
 rustup-target-remove
 Remove a target from a Rust toolchain
 
@@ -434,7 +434,7 @@ OPTIONS:
 ## rustup component -h
 
 <pre>
-~> rustup component -h
+$ rustup component -h
 rustup-component
 修改工具链的已安装组件
 
@@ -454,7 +454,7 @@ rustup-component
 ### rustup component list -h
 
 <pre>
-~> rustup component list -h
+$ rustup component list -h
 rustup-component-list
 List installed and available components
 
@@ -471,7 +471,7 @@ OPTIONS:
 ### rustup component add -h
 
 <pre>
-~> rustup component add -h
+$ rustup component add -h
 rustup-component-add
 Add a component to a Rust toolchain
 
@@ -491,7 +491,7 @@ OPTIONS:
 ### rustup component remove -h
 
 <pre>
-~> rustup component remove -h
+$ rustup component remove -h
 rustup-component-remove
 Remove a component from a Rust toolchain
 
@@ -513,7 +513,7 @@ OPTIONS:
 ## rustup override -h
 
 <pre>
-~> rustup override -h
+$ rustup override -h
 rustup-override
 修改目录工具链覆盖
 
@@ -550,7 +550,7 @@ rustup-override
 ### rustup override list -h
 
 <pre>
-~> rustup override list -h
+$ rustup override list -h
 rustup-override-list
 List directory toolchain overrides
 
@@ -564,7 +564,7 @@ OPTIONS:
 ### rustup override set -h
 
 <pre>
-~> rustup override set -h
+$ rustup override set -h
 rustup-override-set
 Set the override toolchain for a directory
 
@@ -583,7 +583,7 @@ OPTIONS:
 ### rustup override unset -h
 
 <pre>
-~> rustup override unset -h
+$ rustup override unset -h
 rustup-override-unset
 Remove the override toolchain for a directory
 
@@ -608,7 +608,7 @@ DISCUSSION:
 ## rustup run -h
 
 <pre>
-~> rustup run -h
+$ rustup run -h
 rustup-run
 使用为给定工具链配置的环境运行命令
 
@@ -634,15 +634,13 @@ rustup-run
         $ cargo +nightly build
 
         $ rustup run nightly cargo build
-</details>
-<details><summary style="line-height: 0"><p>&nbsp;&nbsp;&nbsp;</p></summary>
 
 </pre>
 
 ## rustup which -h
 
 <pre>
-~> rustup which -h
+$ rustup which -h
 rustup-which
 显示给定命令将运行的二进制文件
 
@@ -661,7 +659,7 @@ rustup-which
 ## rustup doc -h
 
 <pre>
-~> rustup doc -h
+$ rustup doc -h
 rustup-doc
 打开当前工具链的文档
 
@@ -704,7 +702,7 @@ rustup-doc
 ## rustup self -h
 
 <pre>
-~> rustup self -h
+$ rustup self -h
 rustup-self
 修改 rustup 安装
 
@@ -724,7 +722,7 @@ rustup-self
 ### rustup self update -h
 
 <pre>
-~> rustup self update -h
+$ rustup self update -h
 rustup-self-update
 Download and install updates to rustup
 
@@ -738,7 +736,7 @@ OPTIONS:
 ### rustup self uninstall -h
 
 <pre>
-~> rustup self uninstall -h
+$ rustup self uninstall -h
 rustup-self-uninstall
 Uninstall rustup.
 
@@ -753,7 +751,7 @@ OPTIONS:
 ### rustup self upgrade-data -h
 
 <pre>
-~> rustup self upgrade-data -h
+$ rustup self upgrade-data -h
 rustup-self-upgrade-data
 Upgrade the internal data format.
 
@@ -769,7 +767,7 @@ OPTIONS:
 ## rustup set -h
 
 <pre>
-~> rustup set -h
+$ rustup set -h
 rustup-set
 修改 rustup 设置
 
@@ -789,7 +787,7 @@ rustup-set
 ### rustup set default-host -h
 
 <pre>
-~> rustup set default-host -h
+$ rustup set default-host -h
 rustup-set-default-host
 The triple used to identify toolchains when not specified
 
@@ -806,7 +804,7 @@ OPTIONS:
 ### rustup set profile -h
 
 <pre>
-~> rustup set profile -h
+$ rustup set profile -h
 rustup-set-profile
 The default components installed
 
@@ -823,7 +821,7 @@ OPTIONS:
 ### rustup set auto-self-update -h
 
 <pre>
-~> rustup set auto-self-update -h
+$ rustup set auto-self-update -h
 rustup-set-auto-self-update
 The rustup auto self update mode
 
@@ -842,7 +840,7 @@ OPTIONS:
 ## rustup completions -h
 
 <pre>
-~> rustup completions -h
+$ rustup completions -h
 rustup-completions
 为您的 shell 生成 tab 补全脚本
 
