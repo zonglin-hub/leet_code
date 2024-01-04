@@ -82,6 +82,7 @@ pub mod _22_generate_parenthesis;
 pub mod _231_is_power_of_two;
 pub mod _234_is_palindrome;
 pub mod _2395_find_subarrays;
+pub mod _2397_maximum_rows;
 pub mod _23_merge_k_lists;
 pub mod _240_search_matrix;
 pub mod _2415_reverse_odd_levels;
