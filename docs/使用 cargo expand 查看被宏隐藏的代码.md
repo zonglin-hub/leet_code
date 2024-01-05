@@ -9,56 +9,13 @@
 
 ## cargo expand 简介
 
-- <strong>cargo expand</strong> 目前这个需要安装 `nightly` 的 toolchain。
+- cargo expand 目前这个需要安装 nightly 的工具链。
 
-    <details><summary><b>你可以使用 <code>rustup toolchain install nightly</code> 命令进行安装。</b></summary>
+    你可以使用 `rustup toolchain install nightly` 命令进行安装。
 
-    ```sh
-    ~> rustup toolchain install nightly
-    info: syncing channel updates for 'nightly-x86_64-pc-windows-msvc'
-    info: latest update on 2023-07-26, rust version 1.73.0-nightly (864bdf784 2023-07-25)
-    info: downloading component 'cargo'
-    info: downloading component 'clippy'
-    info: downloading component 'rust-docs'
-    info: downloading component 'rust-std'
-    info: downloading component 'rustc'
-    58.2 MiB /  58.2 MiB (100 %)  40.5 MiB/s in  1s ETA:  0s
-    info: downloading component 'rustfmt'
-    info: installing component 'cargo'
-    info: installing component 'clippy'
-    info: installing component 'rust-docs'
-    13.7 MiB /  13.7 MiB (100 %)   2.0 MiB/s in  4s ETA:  0s
-    info: installing component 'rust-std'
-    23.6 MiB /  23.6 MiB (100 %)  16.2 MiB/s in  1s ETA:  0s
-    info: installing component 'rustc'
-    58.2 MiB /  58.2 MiB (100 %)  17.4 MiB/s in  3s ETA:  0s
-    info: installing component 'rustfmt'
+- 再安装 cargo expand
 
-    nightly-x86_64-pc-windows-msvc installed - rustc 1.73.0-nightly (864bdf784 2023-07-25)
-
-    info: checking for self-update
-    ```
-
-    </details>
-
-- 再安装 <strong>cargo expand</strong>：
-
-    <details><summary><b>你可以使用以下命令 <code>cargo +nightly install cargo-expand</code> 命令进行安装。</b></summary>
-
-    ```sh
-    ~> cargo +nightly install cargo-expand
-        Updating `ustc` index
-    Downloaded cargo-expand v1.0.62 (registry `ustc`)
-    Downloaded 1 crate (26.8 KB) in 1.29s
-    Installing cargo-expand v1.0.62
-    Downloaded ansi_colours v1.2.2 (registry `ustc`)
-    ...
-        Finished release [optimized] target(s) in 1m 25s
-    Installing C:\Users\liuzonglin\.cargo\bin\cargo-expand.exe
-    Installed package `cargo-expand v1.0.62` (executable `cargo-expand.exe`)
-    ```
-
-    </details>
+    你可以使用以下命令 `cargo +nightly install cargo-expand` 命令进行安装。
 
 ## 使用方法
 
