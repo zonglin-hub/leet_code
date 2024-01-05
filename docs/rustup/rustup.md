@@ -1,6 +1,6 @@
 # rustup -h
 
-<pre>
+```text
 $ rustup -h
 rustup 1.26.0 (5af9b9484 2023-04-05)
 Rust 工具链安装程序
@@ -39,23 +39,13 @@ Rust 工具链安装程序
     它通过为常见平台的标准库提供二进制构建，使交叉编译变得简单。
 
     如果您是 Rust 的新手，请考虑运行 `rustup doc --book` 来学习 Rust。
-
-示例:
-    升级 Rust 「stable _稳定版_」：
-
-        $ rustup update
-
-    显示工具链信息：
-
-        $ rustup show
-
-</pre>
+```
 
 <p>&nbsp;</p>
 
 ## rustup show -h
 
-<pre>
+```text
 $ rustup show -h
 rustup-show
 显示活动工具链和安装的工具链或配置文件
@@ -79,41 +69,34 @@ rustup-show
     如果活动工具链安装了支持其他编译目标的支持，那么它们也会被列出。
 
     如果安装了多个工具链，那么所有安装的工具链也会被列出。
-
-示例:
-    显示计算得出的 RUSTUP_HOME 值：
-
-        $ rustup show home
-
-</pre>
+```
 
 ### rustup show active-toolchain -h
 
-<pre>
+```text
 $ rustup show active-toolchain -h
 rustup-show-active-toolchain
-Show the active toolchain
+显示活动的工具链
 
-USAGE:
-    rustup show active-toolchain [OPTIONS]
+使用方法：
+    rustup show active-toolchain [选项]
 
-OPTIONS:
-    -v, --verbose    Enable verbose output with rustc information
-    -h, --help       Print help information
+选项：
+    -v, --verbose    启用带有rustc信息的详细输出
+    -h, --help       打印帮助信息
 
-DISCUSSION:
-    Shows the name of the active toolchain.
+说明：
+    显示活动工具链的名称。
 
-    This is useful for figuring out the active tool chain from
-    scripts.
+    这对于从脚本中确定活动的工具链很有用。
 
-    You should use `rustc --print sysroot` to get the sysroot, or
-    `rustc --version` to get the toolchain version.
-</pre>
+    您应该使用 `rustc --print sysroot` 来获取sysroot，或者
+    `rustc --version` 来获取工具链版本。
+```
 
 ### rustup show home -h
 
-<pre>
+```text
 $ rustup show home -h
 rustup-show-home
 显示 RUSTUP_HOME 的计算值
@@ -123,11 +106,11 @@ rustup-show-home
 
 选项：
     -h, --help    打印帮助信息
-</pre>
+```
 
 ### rustup show profile -h
 
-<pre>
+```text
 $ rustup show profile -h
 rustup-show-profile
 显示当前配置文件
@@ -137,13 +120,13 @@ rustup-show-profile
 
 选项：
     -h, --help    打印帮助信息
-</pre>
+```
 
 <p>&nbsp;</p>
 
 ## rustup update -h
 
-<pre>
+```text
 $ rustup update -h
 rustup-update
 更新 Rust 工具链和 rustup
@@ -157,19 +140,18 @@ rustup-update
 选项：
         --no-self-update    在运行 `rustup update` 命令时不执行自我更新
         --force             即使某些组件缺失，也强制执行更新
-        --force-non-host    安装需要模拟器的工具链。请参阅
-                            https://github.com/rust-lang/rustup/wiki/Non-host-toolchains
+        --force-non-host    安装需要模拟器的工具链。请参阅：https://github.com/rust-lang/rustup/wiki/Non-host-toolchains
     -h, --help              打印帮助信息
 
 讨论：
     如果没有指定工具链，`update` 命令会从官方发布渠道更新每个已安装的工具链，然后更新 rustup 本身。
 
     如果提供了工具链参数，则 `update` 会更新该工具链，这与 `rustup toolchain install` 相同。
-</pre>
+```
 
 ## rustup check -h
 
-<pre>
+```text
 $ rustup check -h
 rustup-check
 检查 Rust 工具链和 rustup 的更新
@@ -179,11 +161,11 @@ rustup-check
 
 选项：
     -h, --help    打印帮助信息
-</pre>
+```
 
 ## rustup default -h
 
-<pre>
+```text
 $ rustup default -h
 rustup-default
 设置默认工具链
@@ -200,13 +182,13 @@ rustup-default
 讨论：
     将默认工具链设置为指定的工具链。如果工具链
     尚未安装，则首先安装它。
-</pre>
+```
 
 <p>&nbsp;</p>
 
 ## rustup toolchain -h
 
-<pre>
+```text
 $ rustup toolchain -h
 rustup-toolchain
 修改或查询已安装的工具链
@@ -254,109 +236,100 @@ rustup-toolchain
 
     `rustup` 还可以管理符号链接的本地工具链构建，这通常用于开发 Rust 本身。
     更多信息请参见 `rustup toolchain help link`。
-</pre>
+```
 
 ### rustup toolchain list -h
 
-<pre>
+```text
 $ rustup toolchain list -h
 rustup-toolchain-list
-List installed toolchains
+列出已安装的工具链
 
-USAGE:
-    rustup toolchain list [OPTIONS]
+使用方法：
+    rustup toolchain list [选项]
 
-OPTIONS:
-    -v, --verbose    Enable verbose output with toolchain information
-    -h, --help       Print help information
-</pre>
+选项：
+    -v, --verbose    启用详细输出，包含工具链信息
+    -h, --help       打印帮助信息
+```
 
 ### rustup toolchain install -h
 
-<pre>
+```text
 $ rustup toolchain install -h
 rustup-toolchain-install
-Install or update a given toolchain
+安装或更新给定的工具链
 
-USAGE:
-    rustup toolchain install [OPTIONS] <toolchain>...
+使用方法：
+    rustup toolchain install [选项] <工具链>...
 
-ARGS:
-    <toolchain>...    Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see `rustup help
-                      toolchain`
+参数：
+    <工具链>...    工具链名称，例如 'stable'，'nightly' 或 '1.8.0'。更多信息请参见 `rustup help toolchain`
 
-OPTIONS:
-        --profile <profile>            [possible values: minimal, default, complete]
-    -c, --component <components>...    Add specific components on installation
-    -t, --target <targets>...          Add specific targets on installation
-        --no-self-update               Don't perform self update when running the`rustup toolchain install` command
-        --force                        Force an update, even if some components are missing
-        --allow-downgrade              Allow rustup to downgrade the toolchain to satisfy your component choice
-        --force-non-host               Install toolchains that require an emulator. See
+选项：
+        --profile <配置文件>           [可能值：minimal, default, complete]
+    -c, --component <组件>...          安装时添加特定组件
+    -t, --target <目标>...             安装时添加特定目标
+        --no-self-update               在运行 `rustup toolchain install` 命令时不执行自我更新
+        --force                        即使某些组件缺失，也强制更新
+        --allow-downgrade              允许rustup降级工具链以满足您的组件选择
+        --force-non-host               安装需要模拟器的工具链。请参阅
                                        https://github.com/rust-lang/rustup/wiki/Non-host-toolchains
-    -h, --help                         Print help information
-</pre>
+    -h, --help                         打印帮助信息
+```
 
 ### rustup toolchain uninstall -h
 
-<pre>
+```text
 $ rustup toolchain uninstall -h
 rustup-toolchain-uninstall
-Uninstall a toolchain
+卸载工具链
 
-USAGE:
-    rustup toolchain uninstall <toolchain>...
+使用方法：
+    rustup toolchain uninstall <工具链>...
 
-ARGS:
-    <toolchain>...    Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see `rustup help
-                      toolchain`
+参数：
+    <工具链>...    工具链名称，例如 'stable'，'nightly' 或 '1.8.0'。更多信息请参见 `rustup help toolchain`
 
-OPTIONS:
-    -h, --help    Print help information
-</pre>
+选项：
+    -h, --help    打印帮助信息
+```
 
 ### rustup toolchain link -h
 
-<pre>
+```text
 $ rustup toolchain link -h
 rustup-toolchain-link
-Create a custom toolchain by symlinking to a directory
+通过符号链接到目录创建自定义工具链
 
-USAGE:
-    rustup toolchain link <toolchain> <path>
+使用方法：
+    rustup toolchain link <工具链> <路径>
 
-ARGS:
-    <toolchain>    Custom toolchain name
-    <path>         Path to the directory
+参数：
+    <工具链>    自定义工具链的名称
+    <路径>         目标目录的路径
 
-OPTIONS:
-    -h, --help    Print help information
+选项：
+    -h, --help    打印帮助信息
 
-DISCUSSION:
-    'toolchain' is the custom name to be assigned to the new toolchain.
-    Any name is permitted as long as it does not fully match an initial
-    substring of a standard release channel. For example, you can use
-    the names 'latest' or '2017-04-01' but you cannot use 'stable' or
-    'beta-i686' or 'nightly-x86_64-unknown-linux-gnu'.
+讨论：
+    '工具链'是即将分配给新工具链的自定义名称。只要名称不与标准发布通道的初始子字符串完全匹配，任何名称都是允许的。
+    例如，你可以使用 'latest' 或 '2017-04-01'，但你不能使用 'stable' 或 'beta-i686' 或 'nightly-x86_64-unknown-linux-gnu'。
 
-    'path' specifies the directory where the binaries and libraries for
-    the custom toolchain can be found. For example, when used for
-    development of Rust itself, toolchains can be linked directly out of
-    the build directory. After building, you can test out different
-    compiler versions as follows:
+    '路径'指定了存放自定义工具链的二进制文件和库的目录。例如，当用于Rust本身的开发时，工具链可以直接从构建目录中链接。
+    构建完成后，你可以按照以下方式测试不同的编译器版本：
 
         $ rustup toolchain link latest-stage1 build/x86_64-unknown-linux-gnu/stage1
         $ rustup override set latest-stage1
 
-    If you now compile a crate in the current directory, the custom
-    toolchain 'latest-stage1' will be used.
-</pre>
+    如果你现在在当前目录中编译一个crate，将使用自定义的工具链 'latest-stage1'。
+```
 
 <p>&nbsp;</p>
 
 ## rustup target -h
 
-<pre>
+```text
 $ rustup target -h
 rustup-target
 修改工具链的支持目标
@@ -372,68 +345,68 @@ rustup-target
     add       将目标添加到 Rust 工具链中
     remove    从 Rust 工具链中移除目标
     help      打印此消息或给定子命令的帮助
-</pre>
+```
 
 ### rustup target list -h
 
-<pre>
+```text
 $ rustup target list -h
 rustup-target-list
-List installed and available targets
+列出已安装和可用的目标
 
-USAGE:
-    rustup target list [OPTIONS]
+使用方法：
+    rustup target list [选项]
 
-OPTIONS:
-        --toolchain <toolchain>    Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see
+选项：
+        --toolchain <toolchain>    工具链名称，例如 'stable'，'nightly' 或 '1.8.0'。更多信息请参阅
                                    `rustup help toolchain`
-        --installed                List only installed targets
-    -h, --help                     Print help information
-</pre>
+        --installed                仅列出已安装的目标
+    -h, --help                     打印帮助信息
+```
 
 ### rustup target add -h
 
-<pre>
+```text
 $ rustup target add -h
 rustup-target-add
-Add a target to a Rust toolchain
+向 Rust 工具链添加一个目标
 
-USAGE:
-    rustup target add [OPTIONS] <target>...
+使用方法：
+    rustup target add [选项] <目标>...
 
-ARGS:
-    <target>...    List of targets to install; "all" installs all available targets
+参数：
+    <目标>...    要安装的目标列表；"all"安装所有可用目标
 
-OPTIONS:
-        --toolchain <toolchain>    Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see
+选项：
+        --toolchain <toolchain>    工具链名称，例如 'stable'，'nightly' 或 '1.8.0'。更多信息请参阅
                                    `rustup help toolchain`
-    -h, --help                     Print help information
-</pre>
+    -h, --help                     打印帮助信息
+```
 
 ### rustup target remove -h
 
-<pre>
+```text
 $ rustup target remove -h
 rustup-target-remove
-Remove a target from a Rust toolchain
+从Rust工具链中移除一个目标
 
-USAGE:
-    rustup target remove [OPTIONS] <target>...
+使用方法：
+    rustup target remove [选项] <目标>...
 
-ARGS:
-    <target>...    List of targets to uninstall
+参数：
+    <目标>...    要卸载的目标列表
 
-OPTIONS:
-        --toolchain <toolchain>    Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see
+选项：
+        --toolchain <toolchain>    工具链名称，例如 'stable'，'nightly' 或 '1.8.0'。更多信息请参阅
                                    `rustup help toolchain`
-    -h, --help                     Print help information
-</pre>
+    -h, --help                     打印帮助信息
+```
 
 <p>&nbsp;</p>
 
 ## rustup component -h
 
-<pre>
+```text
 $ rustup component -h
 rustup-component
 修改工具链的已安装组件
@@ -449,70 +422,70 @@ rustup-component
     add       将组件添加到 Rust 工具链中
     remove    从 Rust 工具链中移除组件
     help      打印此消息或给定子命令的帮助
-</pre>
+```
 
 ### rustup component list -h
 
-<pre>
+```text
 $ rustup component list -h
 rustup-component-list
-List installed and available components
+列出已安装和可用的组件
 
-USAGE:
-    rustup component list [OPTIONS]
+使用方法：
+    rustup component list [选项]
 
-OPTIONS:
-        --toolchain <toolchain>    Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see
+选项：
+        --toolchain <toolchain>    工具链名称，例如 'stable'，'nightly' 或 '1.8.0'。更多信息请参阅
                                    `rustup help toolchain`
-        --installed                List only installed components
-    -h, --help                     Print help information
-</pre>
+        --installed                仅列出已安装的组件
+    -h, --help                     打印帮助信息
+```
 
 ### rustup component add -h
 
-<pre>
+```text
 $ rustup component add -h
 rustup-component-add
-Add a component to a Rust toolchain
+向Rust工具链添加一个组件
 
-USAGE:
-    rustup component add [OPTIONS] <component>...
+使用方法：
+    rustup component add [选项] <组件>...
 
-ARGS:
-    <component>...
+参数：
+    <组件>...
 
-OPTIONS:
-        --toolchain <toolchain>    Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see
+选项：
+        --toolchain <toolchain>    工具链名称，例如 'stable'，'nightly' 或 '1.8.0'。更多信息请参阅
                                    `rustup help toolchain`
         --target <target>
-    -h, --help                     Print help information
-</pre>
+    -h, --help                     打印帮助信息
+```
 
 ### rustup component remove -h
 
-<pre>
+```text
 $ rustup component remove -h
 rustup-component-remove
-Remove a component from a Rust toolchain
+从 Rust 工具链中移除一个组件
 
-USAGE:
-    rustup component remove [OPTIONS] <component>...
+使用方法：
+    rustup component remove [选项] <组件>...
 
-ARGS:
-    <component>...
+参数：
+    <组件>...
 
-OPTIONS:
-        --toolchain <toolchain>    Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see
+选项：
+        --toolchain <toolchain>    工具链名称，例如 'stable'，'nightly' 或 '1.8.0'。更多信息请参阅
                                    `rustup help toolchain`
         --target <target>
-    -h, --help                     Print help information
-</pre>
+    -h, --help                     打印帮助信息
+```
 
 <p>&nbsp;</p>
 
 ## rustup override -h
 
-<pre>
+```text
 $ rustup override -h
 rustup-override
 修改目录工具链覆盖
@@ -545,69 +518,66 @@ rustup-override
 
     要查看活动工具链，请使用 `rustup show`。
     要移除覆盖并再次使用默认工具链，请使用 `rustup override unset`。
-</pre>
+```
 
 ### rustup override list -h
 
-<pre>
+```text
 $ rustup override list -h
 rustup-override-list
-List directory toolchain overrides
+列出目录工具链覆盖
 
-USAGE:
+使用方法：
     rustup override list
 
-OPTIONS:
-    -h, --help    Print help information
-</pre>
+选项：
+    -h, --help    打印帮助信息
+```
 
 ### rustup override set -h
 
-<pre>
+```text
 $ rustup override set -h
 rustup-override-set
-Set the override toolchain for a directory
+为目录设置覆盖工具链
 
-USAGE:
-    rustup override set [OPTIONS] <toolchain>
+使用方法：
+    rustup override set [选项] <工具链>
 
-ARGS:
-    <toolchain>    Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see `rustup help
-                   toolchain`
+参数：
+    <工具链>    工具链名称，例如 'stable'，'nightly' 或 '1.8.0'。更多信息请参阅 `rustup help toolchain`
 
-OPTIONS:
-        --path <path>    Path to the directory
-    -h, --help           Print help information
-</pre>
+选项：
+        --path <path>    目录的路径
+    -h, --help           打印帮助信息
+```
 
 ### rustup override unset -h
 
-<pre>
+```text
 $ rustup override unset -h
 rustup-override-unset
-Remove the override toolchain for a directory
+移除目录的覆盖工具链
 
-USAGE:
-    rustup override unset [OPTIONS]
+使用方法：
+    rustup override unset [选项]
 
-OPTIONS:
-        --path <path>    Path to the directory
-        --nonexistent    Remove override toolchain for all nonexistent directories
-    -h, --help           Print help information
+选项：
+        --path <path>    目录的路径
+        --nonexistent    移除所有不存在目录的覆盖工具链
+    -h, --help           打印帮助信息
 
-DISCUSSION:
-    If `--path` argument is present, removes the override toolchain
-    for the specified directory. If `--nonexistent` argument is
-    present, removes the override toolchain for all nonexistent
-    directories. Otherwise, removes the override toolchain for the
-    current directory.
-</pre>
+讨论：
+    如果提供了 `--path` 参数，将移除指定目录的覆盖工具链。
+    如果提供了 `--nonexistent` 参数，将移除所有不存在目录的覆盖工具链。
+    否则，将移除当前目录的覆盖工具链。
+```
 
 <p>&nbsp;</p>
 
 ## rustup run -h
 
-<pre>
+```text
 $ rustup run -h
 rustup-run
 使用为给定工具链配置的环境运行命令
@@ -635,11 +605,11 @@ rustup-run
 
         $ rustup run nightly cargo build
 
-</pre>
+```
 
 ## rustup which -h
 
-<pre>
+```text
 $ rustup which -h
 rustup-which
 显示给定命令将运行的二进制文件
@@ -654,11 +624,11 @@ rustup-which
         --toolchain <工具链>    工具链名称，例如 'stable'、'nightly' 或 '1.8.0'。
                             更多信息请参见 `rustup help toolchain`
     -h, --help                     打印帮助信息
-</pre>
+```
 
 ## rustup doc -h
 
-<pre>
+```text
 $ rustup doc -h
 rustup-doc
 打开当前工具链的文档
@@ -695,13 +665,13 @@ rustup-doc
     使用默认浏览器打开当前活动工具链的文档。
 
     默认情况下，它会打开文档索引。使用各种标志来打开特定的文档部分。
-</pre>
+```
 
 <p>&nbsp;</p>
 
 ## rustup self -h
 
-<pre>
+```text
 $ rustup self -h
 rustup-self
 修改 rustup 安装
@@ -717,56 +687,56 @@ rustup-self
     uninstall       卸载 rustup。
     upgrade-data    升级内部数据格式。
     help            打印此消息或给定子命令的帮助信息
-</pre>
+```
 
 ### rustup self update -h
 
-<pre>
+```text
 $ rustup self update -h
 rustup-self-update
-Download and install updates to rustup
+下载并安装rustup的更新
 
-USAGE:
+使用方法：
     rustup self update
 
-OPTIONS:
-    -h, --help    Print help information
-</pre>
+选项：
+    -h, --help    打印帮助信息
+```
 
 ### rustup self uninstall -h
 
-<pre>
+```text
 $ rustup self uninstall -h
 rustup-self-uninstall
-Uninstall rustup.
+卸载 rustup。
 
-USAGE:
-    rustup self uninstall [OPTIONS]
+使用方法：
+    rustup self uninstall [选项]
 
-OPTIONS:
+选项：
     -y
-    -h, --help    Print help information
-</pre>
+    -h, --help    打印帮助信息
+```
 
 ### rustup self upgrade-data -h
 
-<pre>
+```text
 $ rustup self upgrade-data -h
 rustup-self-upgrade-data
-Upgrade the internal data format.
+升级内部数据格式。
 
-USAGE:
+使用方法：
     rustup self upgrade-data
 
-OPTIONS:
-    -h, --help    Print help information
-</pre>
+选项：
+    -h, --help    打印帮助信息
+```
 
 <p>&nbsp;</p>
 
 ## rustup set -h
 
-<pre>
+```text
 $ rustup set -h
 rustup-set
 修改 rustup 设置
@@ -782,64 +752,64 @@ rustup-set
     profile             默认安装的组件
     auto-self-update    rustup 自动自我更新模式
     help                打印此消息或给定子命令的帮助信息
-</pre>
+```
 
 ### rustup set default-host -h
 
-<pre>
+```text
 $ rustup set default-host -h
 rustup-set-default-host
-The triple used to identify toolchains when not specified
+未指定时用于标识工具链的三元组
 
-USAGE:
-    rustup set default-host <host_triple>
+使用方法：
+    rustup set default-host <主机三元组>
 
-ARGS:
-    <host_triple>
+参数：
+    <主机三元组>
 
-OPTIONS:
-    -h, --help    Print help information
-</pre>
+选项：
+    -h, --help    打印帮助信息
+```
 
 ### rustup set profile -h
 
-<pre>
+```text
 $ rustup set profile -h
 rustup-set-profile
-The default components installed
+默认安装的组件
 
-USAGE:
-    rustup set profile <profile-name>
+使用方法：
+    rustup set profile <配置文件名称>
 
-ARGS:
-    <profile-name>    [default: default] [possible values: minimal, default, complete]
+参数：
+    <配置文件名称>    [默认： default] [可能的值： minimal, default, complete]
 
-OPTIONS:
-    -h, --help    Print help information
-</pre>
+选项：
+    -h, --help    打印帮助信息
+```
 
 ### rustup set auto-self-update -h
 
-<pre>
+```text
 $ rustup set auto-self-update -h
 rustup-set-auto-self-update
-The rustup auto self update mode
+rustup的自动自我更新模式
 
-USAGE:
-    rustup set auto-self-update <auto-self-update-mode>
+使用方法：
+    rustup set auto-self-update <自动自我更新模式>
 
-ARGS:
-    <auto-self-update-mode>    [default: enable] [possible values: enable, disable, check-only]
+参数：
+    <自动自我更新模式>    [默认： enable] [可能的值： enable, disable, check-only]
 
-OPTIONS:
-    -h, --help    Print help information
-</pre>
+选项：
+    -h, --help    打印帮助信息
+```
 
 <p>&nbsp;</p>
 
 ## rustup completions -h
 
-<pre>
+```text
 $ rustup completions -h
 rustup-completions
 为您的 shell 生成 tab 补全脚本
@@ -952,4 +922,4 @@ rustup-completions
     ZSH：
 
         $ rustup completions zsh cargo > ~/.zfunc/_cargo
-</pre>
+```

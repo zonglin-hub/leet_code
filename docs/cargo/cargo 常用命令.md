@@ -1,46 +1,5 @@
 # cargo 常用命令
 
-```bash
-[root@localhost ~]# cargo
-Rust's package manager
-
-Usage: cargo [+toolchain] [OPTIONS] [COMMAND]
-
-Options:
-  -V, --version             Print version info and exit
-      --list                List installed commands
-      --explain <CODE>      Run `rustc --explain CODE`
-  -v, --verbose...          Use verbose output (-vv very verbose/build.rs output)
-  -q, --quiet               Do not print cargo log messages
-      --color <WHEN>        Coloring: auto, always, never
-      --frozen              Require Cargo.lock and cache are up to date
-      --locked              Require Cargo.lock is up to date
-      --offline             Run without accessing the network
-      --config <KEY=VALUE>  Override a configuration value
-  -Z <FLAG>                 Unstable (nightly-only) flags to Cargo, see 'cargo -Z help' for details
-  -h, --help                Print help information
-
-Some common cargo commands are (see all commands with --list):
-    build, b    编译当前包
-    check, c    分析当前包并报告错误，但不要构建目标文件
-    clean       删除目标目录
-    doc, d      构建此包及其依赖项的留档
-    new         创建一个创建项目包
-    init        在现有目录中创建一个新的货物包
-    add         Add dependencies to a manifest file
-    remove      Remove dependencies from a manifest file
-    run, r      Run a binary or example of the local package
-    test, t     Run the tests
-    bench       Run the benchmarks
-    update      Update dependencies listed in Cargo.lock
-    search      Search registry for crates
-    publish     Package and upload this package to the registry
-    install     Install a Rust binary. Default location is $HOME/.cargo/bin
-    uninstall   Uninstall a Rust binary
-
-See 'cargo help <command>' for more information on a specific command.
-```
-
 | 指令 | 解释                                               |
 | ------ | ---------------------------------------------------- |
 | `cargo --version`     | cargo 版本                                         |

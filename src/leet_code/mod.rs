@@ -61,6 +61,7 @@ pub mod _16_three_sum_closest;
 pub mod _17_letter_combinations;
 pub mod _18_four_sum;
 pub mod _1901_find_peak_grid;
+pub mod _1944_can_see_persons_count;
 pub mod _1954_minimum_perimeter;
 pub mod _1962_min_stone_sum;
 pub mod _1967_num_of_strings;
