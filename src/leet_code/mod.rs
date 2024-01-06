@@ -105,6 +105,7 @@ pub mod _2706_buy_choco;
 pub mod _2731_sum_distance;
 pub mod _2735_min_cost;
 pub mod _27_remove_element;
+pub mod _2807_insert_greatest_common_divisors;
 pub mod _2828_is_acronym;
 pub mod _2831_longest_equal_subarray;
 pub mod _2840_check_strings;
