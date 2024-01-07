@@ -15,14 +15,14 @@ impl Solution {
 
         #[inline]
         fn insert_gcd(head: ListNodePtr) -> ListNodePtr {
-            head.and_then(|mut cur| {
+            head.map(|mut cur| {
                 if let Some(next) = cur.next {
                     cur.next = Some(Box::new(ListNode {
                         val: gcd(cur.val, next.val),
                         next: insert_gcd(Some(next)),
                     }));
                 }
-                Some(cur)
+                cur
             })
         }
 

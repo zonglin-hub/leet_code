@@ -7,15 +7,16 @@ use super::{Solution, TreeNodePtr};
 
 impl Solution {
     pub fn generate_trees(n: i32) -> Vec<TreeNodePtr> {
-        fn generate_rec(start: i32, end: i32) -> Vec<TreeNodePtr> {
+        #[inline]
+        fn generate(start: i32, end: i32) -> Vec<TreeNodePtr> {
             if start > end {
                 return vec![None];
             }
 
             let mut res = vec![];
             for i in start..=end {
-                for left_tree in generate_rec(start, i - 1) {
-                    for right_tree in generate_rec(i + 1, end) {
+                for left_tree in generate(start, i - 1) {
+                    for right_tree in generate(i + 1, end) {
                         res.push(Some(Rc::new(RefCell::new(TreeNode {
                             val: i,
                             left: left_tree.clone(),
@@ -31,7 +32,7 @@ impl Solution {
             return vec![None];
         }
 
-        generate_rec(1, n)
+        generate(1, n)
     }
 }
 

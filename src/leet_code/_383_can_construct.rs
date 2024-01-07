@@ -13,12 +13,12 @@ impl Solution {
         ransom_note
             .as_bytes()
             .iter()
-            .for_each(|i| arr[(*i - b'a') as usize] -= 1);
+            .for_each(|i| arr[(i - b'a') as usize] -= 1);
 
         magazine
             .as_bytes()
             .iter()
-            .for_each(|i| arr[(*i - b'a') as usize] += 1);
+            .for_each(|i| arr[(i - b'a') as usize] += 1);
 
         (0..26).all(|i| arr[i] >= 0)
     }
@@ -31,22 +31,7 @@ mod tests {
     #[test]
     fn test_max_profit() {
         assert!(!Solution::is_subsequence("a".to_string(), "b".to_string()));
-        assert!(!Solution::is_subsequence(
-            "aa".to_string(),
-            "ab".to_string()
-        ));
-        assert!(Solution::is_subsequence(
-            "aa".to_string(),
-            "aab".to_string()
-        ));
+        assert!(!Solution::is_subsequence("aa".to_owned(), "ab".to_owned()));
+        assert!(Solution::is_subsequence("aa".to_owned(), "aab".to_owned()));
     }
-
-    // #[test]
-    // fn test_all() {
-    //     let a = [1, 2, 3];
-
-    //     assert!(a.iter().all(|&x| x > 0));
-
-    //     assert!(!a.iter().all(|&x| x > 2));
-    // }
 }

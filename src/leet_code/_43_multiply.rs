@@ -2,7 +2,7 @@ use super::Solution;
 
 impl Solution {
     pub fn multiply(num1: String, num2: String) -> String {
-        let to_vev = |x: String| {
+        let to_vec_rev = |x: String| {
             x.chars()
                 .rev()
                 .map(|x| (x as u8 - b'0') as i32)
@@ -10,8 +10,8 @@ impl Solution {
         };
 
         let mut mul = vec![0; num1.len() + num2.len()];
-        let c1 = to_vev(num1);
-        let c2 = to_vev(num2);
+        let c1 = to_vec_rev(num1);
+        let c2 = to_vec_rev(num2);
         for i in 0..c1.len() {
             for j in 0..c2.len() {
                 mul[i + j] += c1[i] * c2[j];
