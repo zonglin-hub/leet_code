@@ -140,6 +140,7 @@ pub mod _41_first_missing_positive;
 pub mod _42_trap;
 pub mod _43_multiply;
 pub mod _445_add_two_numbers;
+pub mod _447_number_of_boomerangs;
 pub mod _44_is_match;
 pub mod _45_jump;
 pub mod _460_lfu_cache;
