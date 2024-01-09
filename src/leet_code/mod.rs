@@ -102,6 +102,7 @@ pub mod _2660_is_winner;
 pub mod _2672_color_the_array;
 pub mod _26_remove_duplicates;
 pub mod _2706_buy_choco;
+pub mod _2707_min_extra_char;
 pub mod _2731_sum_distance;
 pub mod _2735_min_cost;
 pub mod _27_remove_element;
