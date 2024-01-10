@@ -100,6 +100,7 @@ pub mod _25_reverse_k_group;
 pub mod _2603_collect_the_coins;
 pub mod _2660_is_winner;
 pub mod _2672_color_the_array;
+pub mod _2696_min_length;
 pub mod _26_remove_duplicates;
 pub mod _2706_buy_choco;
 pub mod _2707_min_extra_char;
