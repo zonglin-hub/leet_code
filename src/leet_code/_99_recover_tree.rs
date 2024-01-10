@@ -2,66 +2,51 @@ use super::{Solution, TreeNodePtr};
 
 impl Solution {
     pub fn recover_tree(root: &mut TreeNodePtr) {
-        fn inorder_traverse<F>(root: &TreeNodePtr, consumer: &mut F)
-        where
-            F: FnMut(i32),
-        {
+        #[inline]
+        fn inorder(root: &TreeNodePtr, nums: &mut Vec<i32>) {
             if let Some(node) = root {
-                inorder_traverse(&node.borrow().left, consumer);
-                consumer(root.as_ref().unwrap().borrow().val);
-                inorder_traverse(&node.borrow().right, consumer);
+                inorder(&node.borrow().left, nums);
+                nums.push(node.borrow().val);
+                inorder(&node.borrow().right, nums);
             }
         }
 
-        fn inorder(root: TreeNodePtr) -> Vec<i32> {
-            let mut res = vec![];
-            inorder_traverse(&root, &mut (|x| res.push(x)));
-            res
-        }
-
-        fn recove(node: &TreeNodePtr, count: &mut i32, x: i32, y: i32) {
-            if let Some(n) = node {
-                if n.borrow().val == x || n.borrow().val == y {
-                    *count -= 1;
-
-                    if *count == 0 {
-                        return;
-                    }
-
-                    if n.borrow().val == x {
-                        n.borrow_mut().val = y;
-                    } else {
-                        n.borrow_mut().val = x;
-                    }
-                }
-                recove(&n.borrow().right, count, x, y);
-                recove(&n.borrow().left, count, x, y);
-            }
-        }
-
-        fn find_2swap(nums: &[i32]) -> (i32, i32) {
-            let n = nums.len();
-            let mut x = -1;
-            let mut y = -1;
-
-            for i in 0..(n - 1) {
+        #[inline]
+        fn find_two_swapped(nums: &Vec<i32>) -> (i32, i32) {
+            let mut index1 = -1;
+            let mut index2 = -1;
+            for i in 0..nums.len() - 1 {
                 if nums[i + 1] < nums[i] {
-                    y = nums[i + 1];
-
-                    if x == -1 {
-                        x = nums[i];
+                    index2 = (i + 1) as i32;
+                    if index1 == -1 {
+                        index1 = i as i32;
                     } else {
                         break;
                     }
                 }
             }
-            (x, y)
+            (nums[index1 as usize], nums[index2 as usize])
         }
 
-        let ret = inorder(root.to_owned());
-        let (x, y) = find_2swap(&ret);
-        let mut cnt = 3;
-        recove(root, &mut cnt, x, y);
+        #[inline]
+        fn recover(root: &mut TreeNodePtr, mut count: i32, x: i32, y: i32) {
+            if let Some(node) = root {
+                recover(&mut node.borrow_mut().right, count, x, y);
+                if node.borrow().val == x || node.borrow().val == y {
+                    node.borrow_mut().val = if node.borrow().val == x { y } else { x };
+                    count -= 1;
+                    if count == 0 {
+                        return;
+                    }
+                }
+                recover(&mut node.borrow_mut().left, count, x, y);
+            }
+        }
+
+        let mut nums = Vec::new();
+        inorder(root, &mut nums);
+        let swapped = find_two_swapped(&nums);
+        recover(root, 2, swapped.0, swapped.1);
     }
 }
 

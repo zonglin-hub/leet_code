@@ -1,64 +1,75 @@
-// use std::collections::HashMap;
+use super::Solution;
 
-// use super::Solution;
+use std::collections::HashMap;
 
-// impl Solution {
-//     pub fn min_window(s: String, t: String) -> String {}
-// }
+impl Solution {
+    pub fn min_window(s: String, t: String) -> String {
+        let mut map = HashMap::new();
+        for c in t.chars() {
+            let cnt = map.entry(c).or_insert(0);
+            *cnt += 1;
+        }
 
-// #[cfg(test)]
-// mod tests {
-//     use crate::leet_code::Solution;
+        let mut ans = "";
+        let ch = s.chars().collect::<Vec<_>>();
+        let mut ans_len = s.len();
+        let mut count = t.len();
+        let mut l = 0;
+        for r in 0..ch.len() {
+            if !map.contains_key(&ch[r]) {
+                continue;
+            }
 
-//     #[test]
-//     fn test_min_window() {
-//         assert_eq!(
-//             Solution::min_window("ADOBECODEBANC".to_string(), "ABC".to_string()),
-//             "BANC".to_string()
-//         );
-//         assert_eq!(
-//             Solution::min_window("a".to_string(), "a".to_string()),
-//             "a".to_string()
-//         );
-//         assert_eq!(
-//             Solution::min_window("a".to_string(), "aa".to_string()),
-//             "".to_string()
-//         );
-//     }
+            if let Some(n) = map.get_mut(&ch[r]) {
+                *n -= 1;
+                if *n >= 0 {
+                    count -= 1;
+                }
+            }
 
-//     // #[test]
-//     // #[ignore = "insignificant"]
-//     // fn test_entry() {
-//     //     use std::collections::HashMap;
+            while count == 0 {
+                if ans_len > r - l {
+                    ans = &s[l..=r];
+                    ans_len = r - l + 1;
+                }
 
-//     //     let mut letters = HashMap::new();
+                if !map.contains_key(&ch[l]) {
+                    l += 1;
+                    continue;
+                }
 
-//     //     for ch in "a short treatise on fungi".chars() {
-//     //         letters
-//     //             .entry(ch)
-//     //             .and_modify(|counter| *counter += 1)
-//     //             .or_insert(1);
-//     //     }
+                if let Some(n) = map.get_mut(&ch[l]) {
+                    *n += 1;
+                    if *n > 0 {
+                        count += 1;
+                    }
+                }
 
-//     //     assert_eq!(letters[&'s'], 2);
-//     //     assert_eq!(letters[&'t'], 3);
-//     //     assert_eq!(letters[&'u'], 1);
-//     //     assert_eq!(letters.get(&'y'), None);
-//     // }
+                l += 1;
+            }
+        }
 
-//     // #[test]
-//     // #[ignore = "insignificant"]
-//     // fn test_or_insert() {
-//     //     use std::collections::HashMap;
+        ans.to_owned()
+    }
+}
 
-//     //     let mut map: HashMap<&str, u32> = HashMap::new();
-//     //     // 个表达式会查找键为"poneyland"的条目。如果找到这个条目，它就返回这个条目的引用，否则它会插入值10并返回这个新插入条目的引用。
-//     //     // 然后，*= 2 操作将找到（或插入的）值乘以2。
-//     //     // 所以，如果"poneyland"这个键之前不存在于map中，那么这行代码会插入值10，然后乘以2，结果为20。如果"poneyland"这个键已经存在，那么这行代码会将其值乘以2。
-//     //     map.entry("poneyland").or_insert(3);
-//     //     assert_eq!(map["poneyland"], 3);
+#[cfg(test)]
+mod tests {
+    use crate::leet_code::Solution;
 
-//     //     *map.entry("poneyland").or_insert(10) *= 2;
-//     //     assert_eq!(map["poneyland"], 6);
-//     // }
-// }
+    #[test]
+    fn test_min_window() {
+        assert_eq!(
+            Solution::min_window("ADOBECODEBANC".to_string(), "ABC".to_string()),
+            "BANC".to_string()
+        );
+        assert_eq!(
+            Solution::min_window("a".to_string(), "a".to_string()),
+            "a".to_string()
+        );
+        assert_eq!(
+            Solution::min_window("a".to_string(), "aa".to_string()),
+            "".to_string()
+        );
+    }
+}
