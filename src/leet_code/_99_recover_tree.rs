@@ -12,7 +12,7 @@ impl Solution {
         }
 
         #[inline]
-        fn find_two_swapped(nums: &Vec<i32>) -> (i32, i32) {
+        fn find_two_swapped(nums: &[i32]) -> (i32, i32) {
             let mut index1 = -1;
             let mut index2 = -1;
             for i in 0..nums.len() - 1 {

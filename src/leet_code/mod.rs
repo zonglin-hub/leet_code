@@ -79,6 +79,7 @@ pub mod _2181_merge_nodes;
 pub mod _21_merge_two_lists;
 pub mod _2224_convert_time;
 pub mod _2231_largest_integer;
+pub mod _226_invert_tree;
 pub mod _22_generate_parenthesis;
 pub mod _231_is_power_of_two;
 pub mod _234_is_palindrome;
