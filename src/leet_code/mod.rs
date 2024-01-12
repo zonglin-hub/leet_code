@@ -70,6 +70,7 @@ pub mod _19_remove_nth_from_end;
 pub mod _1_two_sum;
 pub mod _203_remove_elements;
 pub mod _206_reverse_list;
+pub mod _2085_count_words;
 pub mod _2086_minimum_buckets;
 pub mod _2095_delete_middle;
 pub mod _20_is_valid;
