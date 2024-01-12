@@ -18,10 +18,7 @@ impl Solution {
             return None;
         }
 
-        let devide = preorder
-            .iter()
-            .position(|&val| val > preorder[0])
-            .unwrap_or(preorder.len());
+        let devide = preorder.iter().position(|&val| val > preorder[0]).unwrap_or(preorder.len());
 
         Some(Rc::new(RefCell::new(TreeNode {
             val: preorder[0],

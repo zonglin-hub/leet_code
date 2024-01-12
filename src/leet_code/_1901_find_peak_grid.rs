@@ -33,10 +33,7 @@ mod tests {
 
     #[test]
     fn test_find_peak_grid() {
-        assert_eq!(
-            Solution::find_peak_grid(vec![vec![1, 4], vec![3, 2]]),
-            vec![0, 1]
-        );
+        assert_eq!(Solution::find_peak_grid(vec![vec![1, 4], vec![3, 2]]), vec![0, 1]);
         assert_eq!(
             Solution::find_peak_grid(vec![vec![10, 20, 15], vec![21, 30, 14], vec![7, 16, 32]]),
             vec![1, 1]

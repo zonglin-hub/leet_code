@@ -60,13 +60,7 @@ mod tests {
             ),
         );
         assert!(Solution::is_sub_path(linked_list!(4, 2, 8), tree.clone()));
-        assert!(Solution::is_sub_path(
-            linked_list!(1, 4, 2, 6),
-            tree.clone()
-        ));
-        assert!(!Solution::is_sub_path(
-            linked_list!(1, 4, 2, 6, 8),
-            tree.clone()
-        ));
+        assert!(Solution::is_sub_path(linked_list!(1, 4, 2, 6), tree.clone()));
+        assert!(!Solution::is_sub_path(linked_list!(1, 4, 2, 6, 8), tree.clone()));
     }
 }

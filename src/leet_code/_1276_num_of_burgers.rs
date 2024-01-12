@@ -9,10 +9,7 @@ impl Solution {
             return vec![];
         }
 
-        vec![
-            tomato_slices / 2 - cheese_slices,
-            cheese_slices * 2 - tomato_slices / 2,
-        ]
+        vec![tomato_slices / 2 - cheese_slices, cheese_slices * 2 - tomato_slices / 2]
     }
 }
 

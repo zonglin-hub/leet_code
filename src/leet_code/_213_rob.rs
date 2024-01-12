@@ -11,12 +11,7 @@ impl Solution {
             .iter()
             .fold((0, 0), |(a, b), &x| (b, b.max(a + x)))
             .1
-            .max(
-                nums[1..nums.len()]
-                    .iter()
-                    .fold((0, 0), |(a, b), &x| (b, b.max(a + x)))
-                    .1,
-            )
+            .max(nums[1..nums.len()].iter().fold((0, 0), |(a, b), &x| (b, b.max(a + x))).1)
             .max(nums[0])
     }
 }

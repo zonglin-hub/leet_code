@@ -48,10 +48,7 @@ mod tests {
             Solution::restore_ip_addresses("25525511135".to_string()),
             vec!["255.255.11.135".to_string(), "255.255.111.35".to_string()]
         );
-        assert_eq!(
-            Solution::restore_ip_addresses("0000".to_string()),
-            vec!["0.0.0.0".to_string()]
-        );
+        assert_eq!(Solution::restore_ip_addresses("0000".to_string()), vec!["0.0.0.0".to_string()]);
         assert_eq!(
             Solution::restore_ip_addresses("101023".to_string()),
             vec![

@@ -23,10 +23,7 @@ impl Solution {
         };
 
         let mut f = vec![vec![vec![false; len]; len]; len + 1];
-        let (s1, s2) = (
-            s1.chars().collect::<Vec<char>>(),
-            s2.chars().collect::<Vec<char>>(),
-        );
+        let (s1, s2) = (s1.chars().collect::<Vec<char>>(), s2.chars().collect::<Vec<char>>());
 
         s1.iter().enumerate().for_each(|(i, &x)| {
             s2.iter().enumerate().for_each(|(j, &y)| {
@@ -60,13 +57,7 @@ mod tests {
     #[test]
     fn test_is_scramble() {
         assert!(Solution::is_scramble("a".to_string(), "a".to_string()));
-        assert!(Solution::is_scramble(
-            "great".to_string(),
-            "rgeat".to_string()
-        ));
-        assert!(!Solution::is_scramble(
-            "abcde".to_string(),
-            "caebd".to_string()
-        ));
+        assert!(Solution::is_scramble("great".to_string(), "rgeat".to_string()));
+        assert!(!Solution::is_scramble("abcde".to_string(), "caebd".to_string()));
     }
 }

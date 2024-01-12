@@ -31,13 +31,7 @@ mod tests {
 
     #[test]
     fn test_group_anagrams() {
-        assert_eq!(
-            Solution::group_anagrams(vec!["".to_string(),]),
-            vec![vec![""]]
-        );
-        assert_eq!(
-            Solution::group_anagrams(vec!["a".to_string(),]),
-            vec![vec!["a"]]
-        );
+        assert_eq!(Solution::group_anagrams(vec!["".to_string(),]), vec![vec![""]]);
+        assert_eq!(Solution::group_anagrams(vec!["a".to_string(),]), vec![vec!["a"]]);
     }
 }

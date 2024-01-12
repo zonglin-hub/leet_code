@@ -91,13 +91,7 @@ mod tests {
     #[test]
     fn test_maximum_sum_of_heights_v1() {
         assert_eq!(Solution::maximum_sum_of_heights_v1(vec![5, 3, 4, 1, 1]), 13);
-        assert_eq!(
-            Solution::maximum_sum_of_heights_v1(vec![6, 5, 3, 9, 2, 7]),
-            22
-        );
-        assert_eq!(
-            Solution::maximum_sum_of_heights_v1(vec![3, 2, 5, 5, 2, 3]),
-            18
-        );
+        assert_eq!(Solution::maximum_sum_of_heights_v1(vec![6, 5, 3, 9, 2, 7]), 22);
+        assert_eq!(Solution::maximum_sum_of_heights_v1(vec![3, 2, 5, 5, 2, 3]), 18);
     }
 }

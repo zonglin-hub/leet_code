@@ -31,9 +31,6 @@ mod tests {
             )),
             3
         );
-        assert_eq!(
-            Solution::max_depth(linked_tree(1, None, linked_tree(2, None, None))),
-            2
-        );
+        assert_eq!(Solution::max_depth(linked_tree(1, None, linked_tree(2, None, None))), 2);
     }
 }

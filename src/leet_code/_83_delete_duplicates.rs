@@ -43,10 +43,7 @@ mod tests {
 
     #[test]
     fn test_delete_duplicates() {
-        assert_eq!(
-            Solution::delete_duplicates_83(linked_list!(1, 1, 2)),
-            linked_list!(1, 2)
-        );
+        assert_eq!(Solution::delete_duplicates_83(linked_list!(1, 1, 2)), linked_list!(1, 2));
         assert_eq!(
             Solution::delete_duplicates_83(linked_list!(1, 1, 2, 3, 3)),
             linked_list!(1, 2, 3)

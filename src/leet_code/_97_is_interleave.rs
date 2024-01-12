@@ -47,11 +47,7 @@ mod tests {
             "dbbca".to_string(),
             "aadbbcbcac".to_string()
         ));
-        assert!(Solution::is_interleave(
-            "".to_string(),
-            "".to_string(),
-            "".to_string()
-        ));
+        assert!(Solution::is_interleave("".to_string(), "".to_string(), "".to_string()));
         assert!(!Solution::is_interleave(
             "aabcc".to_string(),
             "dbbca".to_string(),

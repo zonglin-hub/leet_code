@@ -52,13 +52,7 @@ mod tests {
 
     #[test]
     fn test_get_max_repetitions() {
-        assert_eq!(
-            Solution::get_max_repetitions("acb".to_owned(), 4, "ab".to_owned(), 2),
-            2
-        );
-        assert_eq!(
-            Solution::get_max_repetitions("acb".to_owned(), 1, "acb".to_owned(), 1),
-            1
-        );
+        assert_eq!(Solution::get_max_repetitions("acb".to_owned(), 4, "ab".to_owned(), 2), 2);
+        assert_eq!(Solution::get_max_repetitions("acb".to_owned(), 1, "acb".to_owned(), 1), 1);
     }
 }

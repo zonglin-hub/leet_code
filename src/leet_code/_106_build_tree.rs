@@ -59,9 +59,6 @@ mod tests {
                 linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
             )
         );
-        assert_eq!(
-            Solution::build_tree_106(vec![-1], vec![-1]),
-            linked_tree(-1, None, None)
-        );
+        assert_eq!(Solution::build_tree_106(vec![-1], vec![-1]), linked_tree(-1, None, None));
     }
 }

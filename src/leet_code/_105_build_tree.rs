@@ -40,14 +40,7 @@ impl Solution {
             let (left, preorder) = build(&inorder[0..pos], preorder);
             let (right, preorder) = build(&inorder[pos + 1..len], preorder);
 
-            (
-                Some(Rc::new(RefCell::new(TreeNode {
-                    val: *root.unwrap(),
-                    left,
-                    right,
-                }))),
-                preorder,
-            )
+            (Some(Rc::new(RefCell::new(TreeNode { val: *root.unwrap(), left, right }))), preorder)
         }
 
         build(&inorder, preorder.iter()).0
@@ -78,9 +71,6 @@ mod tests {
                 linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
             )
         );
-        assert_eq!(
-            Solution::build_tree(vec![-1], vec![-1]),
-            linked_tree(-1, None, None)
-        );
+        assert_eq!(Solution::build_tree(vec![-1], vec![-1]), linked_tree(-1, None, None));
     }
 }

@@ -4,15 +4,8 @@ use std::collections::HashMap;
 
 use super::Solution;
 
-const VALUES: [(char, i32); 7] = [
-    ('I', 1),
-    ('V', 5),
-    ('X', 10),
-    ('L', 50),
-    ('C', 100),
-    ('D', 500),
-    ('M', 1000),
-];
+const VALUES: [(char, i32); 7] =
+    [('I', 1), ('V', 5), ('X', 10), ('L', 50), ('C', 100), ('D', 500), ('M', 1000)];
 
 impl Solution {
     /// 模拟 (力扣官方题解)

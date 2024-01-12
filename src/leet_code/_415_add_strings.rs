@@ -4,16 +4,8 @@ use super::Solution;
 
 impl Solution {
     pub fn add_strings_415_v1(nums1: String, nums2: String) -> String {
-        let s1 = &nums1
-            .bytes()
-            .map(|x| (x - b'0') as i32)
-            .rev()
-            .collect::<Vec<i32>>();
-        let s2 = &nums2
-            .bytes()
-            .map(|x| (x - b'0') as i32)
-            .rev()
-            .collect::<Vec<i32>>();
+        let s1 = &nums1.bytes().map(|x| (x - b'0') as i32).rev().collect::<Vec<i32>>();
+        let s2 = &nums2.bytes().map(|x| (x - b'0') as i32).rev().collect::<Vec<i32>>();
         let mut carry = 0;
         let mut s3 = vec![];
         let n1 = s1.len();
@@ -55,9 +47,6 @@ mod tests {
             Solution::add_strings_415_v1("456".to_string(), "77".to_string()),
             "533".to_string()
         );
-        assert_eq!(
-            Solution::add_strings_415_v1("0".to_string(), "0".to_string()),
-            "0".to_string()
-        );
+        assert_eq!(Solution::add_strings_415_v1("0".to_string(), "0".to_string()), "0".to_string());
     }
 }

@@ -53,9 +53,6 @@ mod tests {
                 linked_tree(3, linked_tree(2, linked_tree(1, None, None), None), None),
             ]
         );
-        assert_eq!(
-            Solution::generate_trees(1),
-            vec![linked_tree(1, None, None)]
-        );
+        assert_eq!(Solution::generate_trees(1), vec![linked_tree(1, None, None)]);
     }
 }

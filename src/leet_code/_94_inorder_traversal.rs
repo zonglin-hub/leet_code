@@ -10,9 +10,7 @@ impl Solution {
                 Some(rc) => {
                     let tree = rc.borrow();
                     Box::new(
-                        inorder(&tree.left)
-                            .chain(iter::once(tree.val))
-                            .chain(inorder(&tree.right)),
+                        inorder(&tree.left).chain(iter::once(tree.val)).chain(inorder(&tree.right)),
                     )
                 }
             }
@@ -29,10 +27,7 @@ mod tests {
     #[test]
     fn test_inorder_traversal() {
         assert_eq!(Solution::inorder_traversal(None), Vec::<i32>::new());
-        assert_eq!(
-            Solution::inorder_traversal(linked_tree(1, None, None)),
-            vec![1]
-        );
+        assert_eq!(Solution::inorder_traversal(linked_tree(1, None, None)), vec![1]);
         assert_eq!(
             Solution::inorder_traversal(linked_tree(
                 1,

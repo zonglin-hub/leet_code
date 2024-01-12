@@ -2,15 +2,7 @@ use super::Solution;
 
 impl Solution {
     pub fn day_of_the_week(day: i32, month: i32, year: i32) -> String {
-        let week = [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday",
-        ];
+        let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
         let month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30];
 
@@ -37,10 +29,7 @@ mod tests {
 
     #[test]
     fn test_day_of_the_week() {
-        assert_eq!(
-            Solution::day_of_the_week(31, 8, 2019),
-            "Saturday".to_owned()
-        );
+        assert_eq!(Solution::day_of_the_week(31, 8, 2019), "Saturday".to_owned());
         assert_eq!(Solution::day_of_the_week(18, 7, 1999), "Sunday".to_owned());
         assert_eq!(Solution::day_of_the_week(15, 8, 1993), "Sunday".to_owned());
         assert_eq!(Solution::day_of_the_week(29, 2, 2000), "Tuesday".to_owned());

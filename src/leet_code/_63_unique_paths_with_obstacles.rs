@@ -38,10 +38,7 @@ mod tests {
             ]),
             2
         );
-        assert_eq!(
-            Solution::unique_paths_with_obstacles(vec![vec![0, 1], vec![0, 0]]),
-            1
-        );
+        assert_eq!(Solution::unique_paths_with_obstacles(vec![vec![0, 1], vec![0, 0]]), 1);
         assert_eq!(Solution::unique_paths_with_obstacles(vec![vec![0, 1]]), 0);
     }
 }

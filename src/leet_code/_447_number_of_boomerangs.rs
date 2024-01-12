@@ -29,13 +29,7 @@ mod tests {
     #[test]
     fn test_number_of_boomerangs() {
         assert_eq!(Solution::number_of_boomerangs(vec![vec![1, 1]]), 0);
-        assert_eq!(
-            Solution::number_of_boomerangs(vec![vec![0, 0], vec![1, 0], vec![2, 0]]),
-            2
-        );
-        assert_eq!(
-            Solution::number_of_boomerangs(vec![vec![1, 1], vec![2, 2], vec![3, 3]]),
-            2
-        );
+        assert_eq!(Solution::number_of_boomerangs(vec![vec![0, 0], vec![1, 0], vec![2, 0]]), 2);
+        assert_eq!(Solution::number_of_boomerangs(vec![vec![1, 1], vec![2, 2], vec![3, 3]]), 2);
     }
 }

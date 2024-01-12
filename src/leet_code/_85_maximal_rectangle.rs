@@ -28,11 +28,7 @@ impl Solution {
         for row in 0..rows {
             for col in 0..cols {
                 if matrix[row][col] == '1' {
-                    heights[row][col] = if row > 0 {
-                        heights[row - 1][col] + 1
-                    } else {
-                        1
-                    };
+                    heights[row][col] = if row > 0 { heights[row - 1][col] + 1 } else { 1 };
 
                     let mut h = rows;
                     let mut w = 1;

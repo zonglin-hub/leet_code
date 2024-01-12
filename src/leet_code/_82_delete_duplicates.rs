@@ -44,9 +44,6 @@ mod tests {
             Solution::delete_duplicates_82(linked_list!(1, 2, 3, 3, 4, 4, 5)),
             linked_list!(1, 2, 5)
         );
-        assert_eq!(
-            Solution::delete_duplicates_82(linked_list!(1, 1, 1, 2, 3)),
-            linked_list!(2, 3)
-        );
+        assert_eq!(Solution::delete_duplicates_82(linked_list!(1, 1, 1, 2, 3)), linked_list!(2, 3));
     }
 }

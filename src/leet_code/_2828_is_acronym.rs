@@ -22,11 +22,7 @@ mod tests {
     #[test]
     fn test_is_acronym() {
         assert!(Solution::is_acronym(
-            vec![
-                "alice".to_string(),
-                "bob".to_string(),
-                "charlie".to_string()
-            ],
+            vec!["alice".to_string(), "bob".to_string(), "charlie".to_string()],
             "abc".to_string()
         ));
         assert!(Solution::is_acronym(

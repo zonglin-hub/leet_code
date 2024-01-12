@@ -3,13 +3,11 @@ use super::Solution;
 impl Solution {
     #[allow(clippy::ptr_arg)]
     pub fn sort_colors(nums: &mut Vec<i32>) {
-        let (c0, c1) = nums
-            .iter()
-            .fold((0_usize, 0_usize), |(c0, c1), &v| match v {
-                0 => (c0 + 1, c1),
-                1 => (c0, c1 + 1),
-                _ => (c0, c1),
-            });
+        let (c0, c1) = nums.iter().fold((0_usize, 0_usize), |(c0, c1), &v| match v {
+            0 => (c0 + 1, c1),
+            1 => (c0, c1 + 1),
+            _ => (c0, c1),
+        });
 
         nums[0..c0].fill(0);
         nums[c0..c0 + c1].fill(1);

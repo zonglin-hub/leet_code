@@ -16,14 +16,10 @@ impl Solution {
 
         let mut parent = vec![0; 128];
         (1..128).for_each(|f| parent[f] = f);
-        let (equal, not_equal): (Vec<_>, Vec<_>) = equations
-            .iter()
-            .map(|f| f.bytes().collect())
-            .partition(|x: &Vec<_>| x[1] == b'=');
+        let (equal, not_equal): (Vec<_>, Vec<_>) =
+            equations.iter().map(|f| f.bytes().collect()).partition(|x: &Vec<_>| x[1] == b'=');
 
-        equal
-            .iter()
-            .for_each(|x| union(&mut parent, x[0] as usize, x[3] as usize));
+        equal.iter().for_each(|x| union(&mut parent, x[0] as usize, x[3] as usize));
 
         not_equal
             .iter()
@@ -37,10 +33,7 @@ mod tests {
 
     #[test]
     fn test_equations_possible() {
-        assert!(Solution::equations_possible(vec![
-            "b==a".to_string(),
-            "a==b".to_string()
-        ]));
+        assert!(Solution::equations_possible(vec!["b==a".to_string(), "a==b".to_string()]));
         assert!(Solution::equations_possible(vec![
             "a==b".to_string(),
             "b==c".to_string(),

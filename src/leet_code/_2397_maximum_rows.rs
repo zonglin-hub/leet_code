@@ -6,11 +6,7 @@ impl Solution {
         let bits_len = matrix[0].len();
         let tab = matrix
             .into_iter()
-            .map(|a| {
-                a.into_iter()
-                    .enumerate()
-                    .fold(0, |x, (i, b)| (x | (b << i) as u32))
-            })
+            .map(|a| a.into_iter().enumerate().fold(0, |x, (i, b)| (x | (b << i) as u32)))
             .collect::<Vec<u32>>();
         for x in 0_u32..1 << bits_len {
             if x.count_ones() != num_select as u32 {

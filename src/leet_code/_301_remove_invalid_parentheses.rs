@@ -120,9 +120,6 @@ mod tests {
             vec!["(a())()".to_string(), "(a)()()".to_string()]
         );
 
-        assert_eq!(
-            Solution::remove_invalid_parentheses(")(".to_string()),
-            vec!["".to_string()]
-        );
+        assert_eq!(Solution::remove_invalid_parentheses(")(".to_string()), vec!["".to_string()]);
     }
 }

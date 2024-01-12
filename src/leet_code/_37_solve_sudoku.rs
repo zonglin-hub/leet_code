@@ -11,12 +11,7 @@ struct Msg {
 
 impl Msg {
     fn new() -> Self {
-        Self {
-            rows: [0_u16; 9],
-            cols: [0_u16; 9],
-            blks: [[0_u16; 3]; 3],
-            ok: false,
-        }
+        Self { rows: [0_u16; 9], cols: [0_u16; 9], blks: [[0_u16; 3]; 3], ok: false }
     }
 
     fn flip(&mut self, i: usize, j: usize, d: u8) {

@@ -9,10 +9,7 @@ fn it(nums: &[i32], i: usize, n: usize) -> i64 {
 }
 
 fn its(nums: &[i32], length: usize, n: usize) -> i64 {
-    (nums[length - n..length])
-        .iter()
-        .map(|x| *x as i64)
-        .sum::<i64>()
+    (nums[length - n..length]).iter().map(|x| *x as i64).sum::<i64>()
 }
 
 fn bo(nums: &[i32], n: usize) -> bool {
@@ -98,10 +95,7 @@ mod tests {
             Solution::four_sum(vec![1, 0, -1, 0, -2, 2], 0),
             vec![vec![-2, -1, 1, 2], vec![-2, 0, 0, 2], vec![-1, 0, 0, 1]]
         );
-        assert_eq!(
-            Solution::four_sum(vec![2, 2, 2, 2, 2], 8),
-            vec![vec![2, 2, 2, 2]]
-        );
+        assert_eq!(Solution::four_sum(vec![2, 2, 2, 2, 2], 8), vec![vec![2, 2, 2, 2]]);
         assert_eq!(
             Solution::four_sum(
                 vec![0, 0, 0, 1000000000, 1000000000, 1000000000, 1000000000],

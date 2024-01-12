@@ -39,10 +39,7 @@ mod tests {
     #[test]
     fn test_level_order() {
         assert_eq!(Solution::level_order(None), Vec::<Vec<i32>>::new());
-        assert_eq!(
-            Solution::level_order(linked_tree(1, None, None)),
-            vec![vec![1]]
-        );
+        assert_eq!(Solution::level_order(linked_tree(1, None, None)), vec![vec![1]]);
         assert_eq!(
             Solution::level_order(linked_tree(
                 3,

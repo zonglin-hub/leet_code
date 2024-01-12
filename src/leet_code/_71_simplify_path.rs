@@ -21,18 +21,9 @@ mod tests {
     #[test]
     fn test_simplify_path() {
         assert_eq!(Solution::simplify_path("/../".to_string()), "/".to_string());
-        assert_eq!(
-            Solution::simplify_path("/home//foo/".to_string()),
-            "/home/foo".to_string()
-        );
-        assert_eq!(
-            Solution::simplify_path("/home/".to_string()),
-            "/home".to_string()
-        );
-        assert_eq!(
-            Solution::simplify_path("/a/./b/../../c/".to_string()),
-            "/c".to_string()
-        );
+        assert_eq!(Solution::simplify_path("/home//foo/".to_string()), "/home/foo".to_string());
+        assert_eq!(Solution::simplify_path("/home/".to_string()), "/home".to_string());
+        assert_eq!(Solution::simplify_path("/a/./b/../../c/".to_string()), "/c".to_string());
     }
 
     // #[test]

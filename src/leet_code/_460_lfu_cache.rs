@@ -12,12 +12,7 @@ struct Node {
 
 impl Node {
     fn new(id: i32, key: i32, val: i32) -> Self {
-        Self {
-            frequency: 1,
-            id,
-            key,
-            val,
-        }
+        Self { frequency: 1, id, key, val }
     }
 }
 

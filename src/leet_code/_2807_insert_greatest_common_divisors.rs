@@ -40,9 +40,6 @@ mod tests {
             Solution::insert_greatest_common_divisors(linked_list!(18, 6, 10, 3)),
             linked_list!(18, 6, 6, 2, 10, 1, 3)
         );
-        assert_eq!(
-            Solution::insert_greatest_common_divisors(linked_list!(7)),
-            linked_list!(7)
-        );
+        assert_eq!(Solution::insert_greatest_common_divisors(linked_list!(7)), linked_list!(7));
     }
 }

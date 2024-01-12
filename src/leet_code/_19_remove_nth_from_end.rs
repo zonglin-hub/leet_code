@@ -83,14 +83,8 @@ mod tests {
 
     #[test]
     fn test_remove_nth_from_end_unsafe() {
-        assert_eq!(
-            Solution::remove_nth_from_end_unsafe(linked_list!(1), 1),
-            None
-        );
-        assert_eq!(
-            Solution::remove_nth_from_end_unsafe(linked_list!(1, 2), 1),
-            linked_list!(1)
-        );
+        assert_eq!(Solution::remove_nth_from_end_unsafe(linked_list!(1), 1), None);
+        assert_eq!(Solution::remove_nth_from_end_unsafe(linked_list!(1, 2), 1), linked_list!(1));
         assert_eq!(
             Solution::remove_nth_from_end_unsafe(linked_list!(1, 2, 3, 4, 5), 2),
             linked_list!(1, 2, 3, 5)
@@ -100,10 +94,7 @@ mod tests {
     #[test]
     fn test_remove_nth_from_end_safe() {
         assert_eq!(Solution::remove_nth_from_end_safe(linked_list!(1), 1), None);
-        assert_eq!(
-            Solution::remove_nth_from_end_safe(linked_list!(1, 2), 1),
-            linked_list!(1)
-        );
+        assert_eq!(Solution::remove_nth_from_end_safe(linked_list!(1, 2), 1), linked_list!(1));
         assert_eq!(
             Solution::remove_nth_from_end_safe(linked_list!(1, 2, 3, 4, 5), 2),
             linked_list!(1, 2, 3, 5)
@@ -112,14 +103,8 @@ mod tests {
 
     #[test]
     fn test_remove_nth_from_end_scan_deep() {
-        assert_eq!(
-            Solution::remove_nth_from_end_scan_deep(linked_list!(1), 1),
-            None
-        );
-        assert_eq!(
-            Solution::remove_nth_from_end_scan_deep(linked_list!(1, 2), 1),
-            linked_list!(1)
-        );
+        assert_eq!(Solution::remove_nth_from_end_scan_deep(linked_list!(1), 1), None);
+        assert_eq!(Solution::remove_nth_from_end_scan_deep(linked_list!(1, 2), 1), linked_list!(1));
         assert_eq!(
             Solution::remove_nth_from_end_scan_deep(linked_list!(1, 2, 3, 4, 5), 2),
             linked_list!(1, 2, 3, 5)

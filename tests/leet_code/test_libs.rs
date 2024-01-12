@@ -33,11 +33,7 @@ fn test_linked_tree() {
         Some(Rc::new(RefCell::new(TreeNode {
             val: 1,
             left: None,
-            right: Some(Rc::new(RefCell::new(TreeNode {
-                val: 3,
-                left: None,
-                right: None
-            })))
+            right: Some(Rc::new(RefCell::new(TreeNode { val: 3, left: None, right: None })))
         })))
     )
 }

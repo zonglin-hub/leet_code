@@ -10,9 +10,7 @@ const BASE: i32 = 769;
 
 impl MyHashMap {
     fn new() -> Self {
-        Self {
-            base: vec![LinkedList::new(); BASE as usize],
-        }
+        Self { base: vec![LinkedList::new(); BASE as usize] }
     }
 
     fn put(&mut self, key: i32, value: i32) {

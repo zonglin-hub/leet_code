@@ -39,14 +39,7 @@ mod tests {
     fn test_queens_attackthe_king_v1() {
         assert_eq!(
             Solution::queens_attackthe_king(
-                vec![
-                    vec![0, 1],
-                    vec![1, 0],
-                    vec![4, 0],
-                    vec![0, 4],
-                    vec![3, 3],
-                    vec![2, 4]
-                ],
+                vec![vec![0, 1], vec![1, 0], vec![4, 0], vec![0, 4], vec![3, 3], vec![2, 4]],
                 vec![0, 0],
             ),
             vec![vec![0, 1], vec![3, 3], vec![1, 0]]

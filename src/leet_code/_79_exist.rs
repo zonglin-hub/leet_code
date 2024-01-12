@@ -75,11 +75,8 @@ mod tests {
 
     #[test]
     fn test_subsets() {
-        let board = vec![
-            vec!['A', 'B', 'C', 'E'],
-            vec!['S', 'F', 'C', 'S'],
-            vec!['A', 'D', 'E', 'E'],
-        ];
+        let board =
+            vec![vec!['A', 'B', 'C', 'E'], vec!['S', 'F', 'C', 'S'], vec!['A', 'D', 'E', 'E']];
         assert!(Solution::exist(board.clone(), "ABCCED".to_string()));
         assert!(Solution::exist(board.clone(), "SEE".to_string()));
         assert!(Solution::exist(board.clone(), "SEE".to_string()));

@@ -14,12 +14,10 @@ impl Solution {
 
         let mut out = vec![];
         let mut map =
-            words
-                .iter()
-                .fold(HashMap::<&[u8], (usize, usize)>::new(), |mut map, word| {
-                    map.entry(word.as_bytes()).or_default().0 += 1;
-                    map
-                });
+            words.iter().fold(HashMap::<&[u8], (usize, usize)>::new(), |mut map, word| {
+                map.entry(word.as_bytes()).or_default().0 += 1;
+                map
+            });
 
         let mut map_is_reset = true;
 
@@ -89,13 +87,8 @@ mod tests {
             Vec::<i32>::new(),
             Solution::find_substring(
                 "wordgoodgoodgoodbestword".to_string(),
-                [
-                    "word".to_string(),
-                    "good".to_string(),
-                    "best".to_string(),
-                    "word".to_string()
-                ]
-                .to_vec()
+                ["word".to_string(), "good".to_string(), "best".to_string(), "word".to_string()]
+                    .to_vec()
             )
         );
     }

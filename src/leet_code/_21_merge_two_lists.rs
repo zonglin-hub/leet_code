@@ -23,14 +23,12 @@ impl Solution {
                 (None, None) => None,
                 (Some(n), None) | (None, Some(n)) => Some(n),
                 (Some(l1), Some(l2)) => match l1.val >= l2.val {
-                    true => Some(Box::new(ListNode {
-                        val: l2.val,
-                        next: carried(Some(l1), l2.next),
-                    })),
-                    false => Some(Box::new(ListNode {
-                        val: l1.val,
-                        next: carried(l1.next, Some(l2)),
-                    })),
+                    true => {
+                        Some(Box::new(ListNode { val: l2.val, next: carried(Some(l1), l2.next) }))
+                    }
+                    false => {
+                        Some(Box::new(ListNode { val: l1.val, next: carried(l1.next, Some(l2)) }))
+                    }
                 },
             }
         }
@@ -52,9 +50,6 @@ mod tests {
             Solution::merge_two_lists(linked_list!(1, 2, 4), linked_list!(1, 3, 4)),
             linked_list!(1, 1, 2, 3, 4, 4)
         );
-        assert_eq!(
-            Solution::merge_two_lists(None, linked_list!(0)),
-            linked_list!(0)
-        );
+        assert_eq!(Solution::merge_two_lists(None, linked_list!(0)), linked_list!(0));
     }
 }

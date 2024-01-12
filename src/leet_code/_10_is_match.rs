@@ -5,10 +5,7 @@ use super::Solution;
 impl Solution {
     /// 动态规划 (力扣官方题解)
     pub fn is_match_10(s: String, p: String) -> bool {
-        let (s, p) = (
-            s.chars().collect::<Vec<char>>(),
-            p.chars().collect::<Vec<char>>(),
-        );
+        let (s, p) = (s.chars().collect::<Vec<char>>(), p.chars().collect::<Vec<char>>());
 
         let (m, n) = (s.len(), p.len());
         let mut f = vec![vec![false; n + 1]; m + 1];

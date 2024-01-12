@@ -49,10 +49,7 @@ impl Solution {
         }
 
         let mut dp = vec![];
-        let left = nums
-            .iter()
-            .map(|x| subscript(&mut dp, *x))
-            .collect::<Vec<usize>>();
+        let left = nums.iter().map(|x| subscript(&mut dp, *x)).collect::<Vec<usize>>();
 
         dp.clear();
         let right = nums
@@ -81,26 +78,14 @@ mod tests {
     #[test]
     fn test_minimum_mountain_removals() {
         assert_eq!(Solution::minimum_mountain_removals(vec![1, 3, 1]), 0);
-        assert_eq!(
-            Solution::minimum_mountain_removals(vec![4, 3, 2, 1, 1, 2, 3, 1]),
-            4
-        );
-        assert_eq!(
-            Solution::minimum_mountain_removals(vec![2, 1, 1, 5, 6, 2, 3, 1]),
-            3
-        );
+        assert_eq!(Solution::minimum_mountain_removals(vec![4, 3, 2, 1, 1, 2, 3, 1]), 4);
+        assert_eq!(Solution::minimum_mountain_removals(vec![2, 1, 1, 5, 6, 2, 3, 1]), 3);
     }
 
     #[test]
     fn test_minimum_mountain_removals_v1() {
         assert_eq!(Solution::minimum_mountain_removals_v1(vec![1, 3, 1]), 0);
-        assert_eq!(
-            Solution::minimum_mountain_removals_v1(vec![4, 3, 2, 1, 1, 2, 3, 1]),
-            4
-        );
-        assert_eq!(
-            Solution::minimum_mountain_removals_v1(vec![2, 1, 1, 5, 6, 2, 3, 1]),
-            3
-        );
+        assert_eq!(Solution::minimum_mountain_removals_v1(vec![4, 3, 2, 1, 1, 2, 3, 1]), 4);
+        assert_eq!(Solution::minimum_mountain_removals_v1(vec![2, 1, 1, 5, 6, 2, 3, 1]), 3);
     }
 }

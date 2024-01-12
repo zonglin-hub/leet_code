@@ -60,9 +60,6 @@ mod tests {
     fn test_min_operations_max_profit() {
         assert_eq!(Solution::min_operations_max_profit(vec![8, 3], 5, 6), 3);
         assert_eq!(Solution::min_operations_max_profit(vec![10, 9, 6], 6, 4), 7);
-        assert_eq!(
-            Solution::min_operations_max_profit(vec![3, 4, 0, 5, 1], 1, 92),
-            -1
-        );
+        assert_eq!(Solution::min_operations_max_profit(vec![3, 4, 0, 5, 1], 1, 92), -1);
     }
 }

@@ -2,11 +2,7 @@ use super::Solution;
 
 impl Solution {
     pub fn max_profit_122(prices: Vec<i32>) -> i32 {
-        prices
-            .windows(2)
-            .map(|x| x[1] - x[0])
-            .filter(|&x| x > 0)
-            .sum()
+        prices.windows(2).map(|x| x[1] - x[0]).filter(|&x| x > 0).sum()
     }
 }
 

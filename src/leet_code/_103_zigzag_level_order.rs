@@ -49,10 +49,7 @@ mod tests {
     #[test]
     fn test_zigzag_level_order() {
         assert_eq!(Solution::zigzag_level_order(None), Vec::<Vec<i32>>::new());
-        assert_eq!(
-            Solution::zigzag_level_order(linked_tree(1, None, None)),
-            vec![vec![1]]
-        );
+        assert_eq!(Solution::zigzag_level_order(linked_tree(1, None, None)), vec![vec![1]]);
         assert_eq!(
             Solution::zigzag_level_order(linked_tree(
                 3,

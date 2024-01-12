@@ -7,13 +7,9 @@ impl Solution {
         let mut freq1 = HashMap::new();
         let mut freq2 = HashMap::new();
 
-        words1
-            .into_iter()
-            .for_each(|x| *freq1.entry(x).or_insert(0) += 1);
+        words1.into_iter().for_each(|x| *freq1.entry(x).or_insert(0) += 1);
 
-        words2
-            .into_iter()
-            .for_each(|x| *freq2.entry(x).or_insert(0) += 1);
+        words2.into_iter().for_each(|x| *freq2.entry(x).or_insert(0) += 1);
 
         let mut res = 0;
 
@@ -57,12 +53,7 @@ mod tests {
         assert_eq!(
             Solution::count_words(
                 vec!["a".to_owned(), "ab".to_owned()],
-                vec![
-                    "a".to_owned(),
-                    "a".to_owned(),
-                    "a".to_owned(),
-                    "ab".to_owned()
-                ]
+                vec!["a".to_owned(), "a".to_owned(), "a".to_owned(), "ab".to_owned()]
             ),
             1
         );

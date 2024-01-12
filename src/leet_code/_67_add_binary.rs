@@ -35,10 +35,7 @@ mod tests {
 
     #[test]
     fn test_add_binary() {
-        assert_eq!(
-            Solution::add_binary("11".to_string(), "1".to_string()),
-            "100".to_string()
-        );
+        assert_eq!(Solution::add_binary("11".to_string(), "1".to_string()), "100".to_string());
         assert_eq!(
             Solution::add_binary("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111".to_string(), "1".to_string()),
             "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000".to_string()

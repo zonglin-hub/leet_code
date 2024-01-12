@@ -10,15 +10,9 @@ impl Solution {
 
         let mut arr = [0; 26];
 
-        ransom_note
-            .as_bytes()
-            .iter()
-            .for_each(|i| arr[(i - b'a') as usize] -= 1);
+        ransom_note.as_bytes().iter().for_each(|i| arr[(i - b'a') as usize] -= 1);
 
-        magazine
-            .as_bytes()
-            .iter()
-            .for_each(|i| arr[(i - b'a') as usize] += 1);
+        magazine.as_bytes().iter().for_each(|i| arr[(i - b'a') as usize] += 1);
 
         (0..26).all(|i| arr[i] >= 0)
     }

@@ -29,9 +29,6 @@ mod tests {
             Solution::delete_middle(linked_list!(1, 3, 4, 7, 1, 2, 6)),
             linked_list!(1, 3, 4, 1, 2, 6)
         );
-        assert_eq!(
-            Solution::delete_middle(linked_list!(1, 2, 3, 4)),
-            linked_list!(1, 2, 4)
-        );
+        assert_eq!(Solution::delete_middle(linked_list!(1, 2, 3, 4)), linked_list!(1, 2, 4));
     }
 }

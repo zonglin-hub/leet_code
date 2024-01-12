@@ -3,9 +3,7 @@ use super::Solution;
 impl Solution {
     pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {
         nums.into_iter().fold(vec![vec![]], |v, n| {
-            v.into_iter()
-                .flat_map(|f| [[vec![n], f.clone()].concat(), f])
-                .collect()
+            v.into_iter().flat_map(|f| [[vec![n], f.clone()].concat(), f]).collect()
         })
     }
 }

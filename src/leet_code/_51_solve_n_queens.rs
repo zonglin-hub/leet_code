@@ -74,10 +74,7 @@ mod tests {
         assert_eq!(Solution::solve_n_queens(1), vec![vec!["Q"]]);
         assert_eq!(
             Solution::solve_n_queens(4),
-            vec![
-                vec![".Q..", "...Q", "Q...", "..Q."],
-                vec!["..Q.", "Q...", "...Q", ".Q.."]
-            ]
+            vec![vec![".Q..", "...Q", "Q...", "..Q."], vec!["..Q.", "Q...", "...Q", ".Q.."]]
         );
     }
 

@@ -67,9 +67,6 @@ mod tests {
             Solution::rotate_right(linked_list!(1, 2, 3, 4, 5), 3),
             linked_list!(3, 4, 5, 1, 2)
         );
-        assert_eq!(
-            Solution::rotate_right(linked_list!(0, 1, 2), 4),
-            linked_list!(2, 0, 1)
-        );
+        assert_eq!(Solution::rotate_right(linked_list!(0, 1, 2), 4), linked_list!(2, 0, 1));
     }
 }

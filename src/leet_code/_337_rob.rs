@@ -17,10 +17,7 @@ impl Solution {
             if let Some(n) = root {
                 let dp_l = rob(&n.borrow().left);
                 let dp_r = rob(&n.borrow().right);
-                [
-                    dp_l[1] + dp_r[1],
-                    (dp_l[0] + dp_r[0] + n.borrow().val).max(dp_l[1] + dp_r[1]),
-                ]
+                [dp_l[1] + dp_r[1], (dp_l[0] + dp_r[0] + n.borrow().val).max(dp_l[1] + dp_r[1])]
             } else {
                 [0; 2]
             }

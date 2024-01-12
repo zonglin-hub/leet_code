@@ -2,12 +2,8 @@ use super::Solution;
 
 impl Solution {
     pub fn multiply(num1: String, num2: String) -> String {
-        let to_vec_rev = |x: String| {
-            x.chars()
-                .rev()
-                .map(|x| (x as u8 - b'0') as i32)
-                .collect::<Vec<_>>()
-        };
+        let to_vec_rev =
+            |x: String| x.chars().rev().map(|x| (x as u8 - b'0') as i32).collect::<Vec<_>>();
 
         let mut mul = vec![0; num1.len() + num2.len()];
         let c1 = to_vec_rev(num1);
@@ -40,13 +36,7 @@ mod tests {
 
     #[test]
     fn test_trap() {
-        assert_eq!(
-            Solution::multiply("2".to_string(), "3".to_string()),
-            "6".to_string()
-        );
-        assert_eq!(
-            Solution::multiply("123".to_string(), "456".to_string()),
-            "56088".to_string()
-        );
+        assert_eq!(Solution::multiply("2".to_string(), "3".to_string()), "6".to_string());
+        assert_eq!(Solution::multiply("123".to_string(), "456".to_string()), "56088".to_string());
     }
 }

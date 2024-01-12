@@ -9,9 +9,7 @@ pub struct MyCalendar {
 
 impl MyCalendar {
     pub fn new() -> Self {
-        Self {
-            bts: BTreeSet::new(),
-        }
+        Self { bts: BTreeSet::new() }
     }
 
     pub fn book(&mut self, start: i32, end: i32) -> bool {

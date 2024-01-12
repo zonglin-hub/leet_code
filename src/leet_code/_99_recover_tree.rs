@@ -58,10 +58,7 @@ mod tests {
     fn test_recover_tree() {
         let mut root = linked_tree(1, linked_tree(3, None, linked_tree(2, None, None)), None);
         Solution::recover_tree(&mut root);
-        assert_eq!(
-            root,
-            linked_tree(3, linked_tree(1, None, linked_tree(2, None, None)), None)
-        );
+        assert_eq!(root, linked_tree(3, linked_tree(1, None, linked_tree(2, None, None)), None));
 
         let mut root = linked_tree(
             3,

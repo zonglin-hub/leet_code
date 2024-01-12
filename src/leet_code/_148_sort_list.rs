@@ -31,14 +31,8 @@ mod tests {
 
     #[test]
     fn test_sort_list() {
-        assert_eq!(
-            Solution::sort_list(linked_list!(4, 2, 1, 3)),
-            linked_list!(1, 2, 3, 4)
-        );
-        assert_eq!(
-            Solution::sort_list(linked_list!(-1, 5, 3, 4, 0)),
-            linked_list!(-1, 0, 3, 4, 5)
-        );
+        assert_eq!(Solution::sort_list(linked_list!(4, 2, 1, 3)), linked_list!(1, 2, 3, 4));
+        assert_eq!(Solution::sort_list(linked_list!(-1, 5, 3, 4, 0)), linked_list!(-1, 0, 3, 4, 5));
         assert_eq!(Solution::sort_list(None), None);
     }
 }

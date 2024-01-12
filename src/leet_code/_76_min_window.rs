@@ -63,13 +63,7 @@ mod tests {
             Solution::min_window("ADOBECODEBANC".to_string(), "ABC".to_string()),
             "BANC".to_string()
         );
-        assert_eq!(
-            Solution::min_window("a".to_string(), "a".to_string()),
-            "a".to_string()
-        );
-        assert_eq!(
-            Solution::min_window("a".to_string(), "aa".to_string()),
-            "".to_string()
-        );
+        assert_eq!(Solution::min_window("a".to_string(), "a".to_string()), "a".to_string());
+        assert_eq!(Solution::min_window("a".to_string(), "aa".to_string()), "".to_string());
     }
 }

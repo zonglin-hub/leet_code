@@ -45,12 +45,7 @@ impl Solution {
             return ans;
         }
 
-        dfs(
-            0,
-            &digits,
-            &mut String::with_capacity(digits.len()),
-            &mut ans,
-        );
+        dfs(0, &digits, &mut String::with_capacity(digits.len()), &mut ans);
 
         ans
     }
@@ -113,14 +108,8 @@ mod tests {
             Solution::letter_combinations_v1("23".to_string()),
             vec!["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
         );
-        assert_eq!(
-            Solution::letter_combinations_v1("".to_string()),
-            Vec::<String>::new()
-        );
-        assert_eq!(
-            Solution::letter_combinations_v1("2".to_string()),
-            vec!["a", "b", "c"]
-        );
+        assert_eq!(Solution::letter_combinations_v1("".to_string()), Vec::<String>::new());
+        assert_eq!(Solution::letter_combinations_v1("2".to_string()), vec!["a", "b", "c"]);
     }
 
     #[test]
@@ -129,13 +118,7 @@ mod tests {
             Solution::letter_combinations("23".to_string()),
             vec!["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
         );
-        assert_eq!(
-            Solution::letter_combinations("".to_string()),
-            Vec::<String>::new()
-        );
-        assert_eq!(
-            Solution::letter_combinations("2".to_string()),
-            vec!["a", "b", "c"]
-        );
+        assert_eq!(Solution::letter_combinations("".to_string()), Vec::<String>::new());
+        assert_eq!(Solution::letter_combinations("2".to_string()), vec!["a", "b", "c"]);
     }
 }

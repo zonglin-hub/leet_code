@@ -22,8 +22,6 @@ mod tests {
     fn test_is_palindrome() {
         assert!(!Solution::is_palindrome_125("race a car".to_string()));
         assert!(Solution::is_palindrome_125(" ".to_string()));
-        assert!(Solution::is_palindrome_125(
-            "A man, a plan, a canal: Panama".to_string()
-        ));
+        assert!(Solution::is_palindrome_125("A man, a plan, a canal: Panama".to_string()));
     }
 }

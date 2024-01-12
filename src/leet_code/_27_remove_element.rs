@@ -22,9 +22,6 @@ mod tests {
     #[test]
     fn test() {
         assert_eq!(Solution::remove_element(&mut [3, 2, 2, 3], 3), 2);
-        assert_eq!(
-            Solution::remove_element(&mut [0, 1, 2, 2, 3, 0, 4, 2], 2),
-            5
-        );
+        assert_eq!(Solution::remove_element(&mut [0, 1, 2, 2, 3, 0, 4, 2], 2), 5);
     }
 }

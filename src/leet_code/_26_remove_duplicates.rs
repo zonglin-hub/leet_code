@@ -43,9 +43,6 @@ mod tests {
     #[test]
     fn test_remove_duplicates() {
         assert_eq!(Solution::remove_duplicates(&mut [1, 1, 2]), 2);
-        assert_eq!(
-            Solution::remove_duplicates(&mut [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]),
-            5
-        );
+        assert_eq!(Solution::remove_duplicates(&mut [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]), 5);
     }
 }

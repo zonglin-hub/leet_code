@@ -71,10 +71,7 @@ mod tests {
             )),
             vec![vec![15, 7], vec![9, 20], vec![3]]
         );
-        assert_eq!(
-            Solution::level_order_bottom(linked_tree(1, None, None)),
-            vec![vec![1]]
-        );
+        assert_eq!(Solution::level_order_bottom(linked_tree(1, None, None)), vec![vec![1]]);
         assert_eq!(Solution::level_order_bottom(None), Vec::<Vec<i32>>::new());
     }
 

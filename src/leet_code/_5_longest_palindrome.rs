@@ -61,25 +61,13 @@ mod tests {
 
     #[test]
     fn test_longest_palindrome() {
-        assert_eq!(
-            Solution::longest_palindrome("babde".to_owned()),
-            String::from("bab")
-        );
-        assert_eq!(
-            Solution::longest_palindrome("cbbd".to_owned()),
-            "bb".to_owned()
-        );
+        assert_eq!(Solution::longest_palindrome("babde".to_owned()), String::from("bab"));
+        assert_eq!(Solution::longest_palindrome("cbbd".to_owned()), "bb".to_owned());
     }
 
     #[test]
     fn test_longest_palindrome_5_v1() {
-        assert_eq!(
-            Solution::longest_palindrome_5_v1("babde".to_owned()),
-            String::from("bab")
-        );
-        assert_eq!(
-            Solution::longest_palindrome_5_v1("cbbd".to_owned()),
-            "bb".to_owned()
-        );
+        assert_eq!(Solution::longest_palindrome_5_v1("babde".to_owned()), String::from("bab"));
+        assert_eq!(Solution::longest_palindrome_5_v1("cbbd".to_owned()), "bb".to_owned());
     }
 }

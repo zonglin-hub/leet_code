@@ -60,10 +60,7 @@ mod tests {
     #[test]
     fn test_reverse_list_v1() {
         assert_eq!(Solution::reverse_list_v1(None), None);
-        assert_eq!(
-            Solution::reverse_list_v1(linked_list!(1, 2)),
-            linked_list!(2, 1)
-        );
+        assert_eq!(Solution::reverse_list_v1(linked_list!(1, 2)), linked_list!(2, 1));
         assert_eq!(
             Solution::reverse_list_v1(linked_list!(1, 2, 3, 4, 5)),
             linked_list!(5, 4, 3, 2, 1)

@@ -65,10 +65,7 @@ impl State {
     }
 
     fn accept(&self) -> bool {
-        matches!(
-            self,
-            State::Integer | State::Dot | State::Decimal | State::EInteger
-        )
+        matches!(self, State::Integer | State::Dot | State::Decimal | State::EInteger)
     }
 }
 

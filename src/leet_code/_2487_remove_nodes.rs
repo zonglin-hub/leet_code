@@ -30,13 +30,7 @@ mod tests {
 
     #[test]
     fn test_remove_nodes() {
-        assert_eq!(
-            Solution::remove_nodes(linked_list!(5, 2, 13, 3, 8)),
-            linked_list!(13, 8)
-        );
-        assert_eq!(
-            Solution::remove_nodes(linked_list!(1, 1, 1, 1)),
-            linked_list!(1, 1, 1, 1)
-        );
+        assert_eq!(Solution::remove_nodes(linked_list!(5, 2, 13, 3, 8)), linked_list!(13, 8));
+        assert_eq!(Solution::remove_nodes(linked_list!(1, 1, 1, 1)), linked_list!(1, 1, 1, 1));
     }
 }

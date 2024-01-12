@@ -25,13 +25,7 @@ mod tests {
 
     #[test]
     fn test_longest_equal_subarray() {
-        assert!(Solution::check_strings(
-            "abcdba".to_string(),
-            "cabdab".to_string()
-        ));
-        assert!(!Solution::check_strings(
-            "abe".to_string(),
-            "bea".to_string()
-        ));
+        assert!(Solution::check_strings("abcdba".to_string(), "cabdab".to_string()));
+        assert!(!Solution::check_strings("abe".to_string(), "bea".to_string()));
     }
 }

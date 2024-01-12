@@ -4,12 +4,7 @@ use super::Solution;
 
 impl Solution {
     pub fn num_of_strings(patterns: Vec<String>, word: String) -> i32 {
-        patterns
-            .into_iter()
-            .filter(|s| word.contains(s))
-            .count()
-            .try_into()
-            .unwrap()
+        patterns.into_iter().filter(|s| word.contains(s)).count().try_into().unwrap()
     }
 
     // pub fn num_of_strings_v1(patterns: Vec<String>, word: String) -> i32 {
@@ -31,12 +26,7 @@ mod tests {
     fn test_num_of_strings() {
         assert_eq!(
             Solution::num_of_strings(
-                vec![
-                    "a".to_string(),
-                    "abc".to_string(),
-                    "bc".to_string(),
-                    "d".to_string()
-                ],
+                vec!["a".to_string(), "abc".to_string(), "bc".to_string(), "d".to_string()],
                 "abc".to_string()
             ),
             3

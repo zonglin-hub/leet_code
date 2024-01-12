@@ -24,9 +24,7 @@ impl Solution {
     /// 模拟 (力扣官方题解)
     pub fn int_to_roman_v1(mut num: i32) -> String {
         let values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-        let symbols = vec![
-            "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I",
-        ];
+        let symbols = vec!["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
         let mut ans = String::new();
         let mut i = 0;
         while i < values.len() && num >= 0 {

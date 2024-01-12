@@ -4,10 +4,7 @@ use super::Solution;
 
 impl Solution {
     pub fn rob_198(nums: Vec<i32>) -> i32 {
-        nums.iter()
-            .skip(1)
-            .fold((nums[0], 0), |dp, &n| (dp.0, dp.0).max((dp.1 + n, dp.0)))
-            .0
+        nums.iter().skip(1).fold((nums[0], 0), |dp, &n| (dp.0, dp.0).max((dp.1 + n, dp.0))).0
     }
 }
 

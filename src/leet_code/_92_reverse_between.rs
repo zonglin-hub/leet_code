@@ -19,10 +19,7 @@ impl Solution {
     ///
     /// 最后，它返回哑元节点的下一个节点，即反转后的链表头节点指针。
     pub fn reverse_between(head: ListNodePtr, left: i32, right: i32) -> ListNodePtr {
-        let mut dummy_node = Some(Box::new(ListNode {
-            val: -1,
-            next: head,
-        }));
+        let mut dummy_node = Some(Box::new(ListNode { val: -1, next: head }));
 
         let mut pre = &mut dummy_node;
         for _ in 0..left - 1 {
@@ -59,9 +56,6 @@ mod tests {
             Solution::reverse_between(linked_list!(1, 2, 3, 4, 5), 2, 4),
             linked_list!(1, 4, 3, 2, 5)
         );
-        assert_eq!(
-            Solution::reverse_between(linked_list!(5), 1, 1),
-            linked_list!(5)
-        );
+        assert_eq!(Solution::reverse_between(linked_list!(5), 1, 1), linked_list!(5));
     }
 }
