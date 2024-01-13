@@ -1,6 +1,5 @@
 //! leet code 算法题
 
-pub mod _2643_row_and_maximum_ones;
 pub mod _1008_bst_from_preorder;
 pub mod _100_is_same_tree;
 pub mod _101_is_symmetric;
@@ -78,6 +77,7 @@ pub mod _20_is_valid;
 pub mod _2136_earliest_full_bloom;
 pub mod _213_rob;
 pub mod _2181_merge_nodes;
+pub mod _2182_repeat_limited_string;
 pub mod _21_merge_two_lists;
 pub mod _2224_convert_time;
 pub mod _2231_largest_integer;
@@ -101,6 +101,7 @@ pub mod _2582_pass_the_pillow;
 pub mod _2591_dist_money;
 pub mod _25_reverse_k_group;
 pub mod _2603_collect_the_coins;
+pub mod _2643_row_and_maximum_ones;
 pub mod _2645_add_minimum;
 pub mod _2660_is_winner;
 pub mod _2672_color_the_array;
