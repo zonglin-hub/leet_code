@@ -77,21 +77,4 @@ mod tests {
             vec![vec![".Q..", "...Q", "Q...", "..Q."], vec!["..Q.", "Q...", "...Q", ".Q.."]]
         );
     }
-
-    // #[test]
-    // fn test_vec() {
-    //     let a = [1, 3, 4, 2];
-    //     let n = a.len();
-    //     for (i, _) in a.iter().enumerate().take(n) {
-    //         println!("ele: {}", i);
-    //     }
-
-    //     for i in a.iter().take(n) {
-    //         println!("ele: {}", i);
-    //     }
-
-    //     for i in 0..n {
-    //         println!("{}", i);
-    //     }
-    // }
 }

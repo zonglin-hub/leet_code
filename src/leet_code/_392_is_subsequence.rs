@@ -25,7 +25,7 @@ impl Solution {
         false
     }
 
-    pub fn is_subsequence_1(s: String, t: String) -> bool {
+    pub fn is_subsequence_v1(s: String, t: String) -> bool {
         let (mut i, mut j) = (0, 0);
         let s_bytes = s.as_bytes();
         let t_bytes = t.as_bytes();
@@ -44,9 +44,16 @@ mod tests {
     use crate::leet_code::Solution;
 
     #[test]
-    fn test_max_profit() {
+    fn test_is_subsequence() {
         assert!(Solution::is_subsequence("abc".to_string(), "ahbgdc".to_string()));
         assert!(!Solution::is_subsequence("axc".to_string(), "ahbgdc".to_string()));
         assert!(!Solution::is_subsequence("acb".to_string(), "ahbgdc".to_string()));
+    }
+
+    #[test]
+    fn test_is_subsequence_v1() {
+        assert!(Solution::is_subsequence_v1("abc".to_string(), "ahbgdc".to_string()));
+        assert!(!Solution::is_subsequence_v1("axc".to_string(), "ahbgdc".to_string()));
+        assert!(!Solution::is_subsequence_v1("acb".to_string(), "ahbgdc".to_string()));
     }
 }

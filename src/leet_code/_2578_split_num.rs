@@ -17,35 +17,31 @@ impl Solution {
         a[0] + a[1]
     }
 
-    // /// 贪心+排序(fold)
-    // pub fn split_num_v1(num: i32) -> i32 {
-    //     let mut nums = num.to_string().bytes().collect::<Vec<_>>();
-    //     nums.sort();
+    /// 贪心+排序(fold)
+    pub fn split_num_v1(num: i32) -> i32 {
+        let mut nums = num.to_string().bytes().collect::<Vec<_>>();
+        nums.sort();
 
-    //     let a = nums.iter().enumerate().fold([0; 2], |mut acc, (i, &c)| {
-    //         let idx = i % 2;
-    //         acc[idx] = acc[idx] * 10 + (c as i32 - '0' as i32);
-    //         acc
-    //     });
+        let a = nums.iter().enumerate().fold([0; 2], |mut acc, (i, &c)| {
+            let idx = i % 2;
+            acc[idx] = acc[idx] * 10 + (c as i32 - '0' as i32);
+            acc
+        });
 
-    //     a[0] + a[1]
-    // }
+        a[0] + a[1]
+    }
 
-    // /// (0, 0)
-    // pub fn split_num_v2(num: i32) -> i32 {
-    //     let mut nums = num
-    //         .to_string()
-    //         .chars()
-    //         .map(|c| c as i32 - 48)
-    //         .collect::<Vec<_>>();
-    //     nums.sort();
+    /// (0, 0)
+    pub fn split_num_v2(num: i32) -> i32 {
+        let mut nums = num.to_string().chars().map(|c| c as i32 - 48).collect::<Vec<_>>();
+        nums.sort();
 
-    //     let num = nums.iter().fold((0, 0), |(mut a, b), ipt| {
-    //         a = a * 10 + ipt;
-    //         (b, a)
-    //     });
-    //     num.0 + num.1
-    // }
+        let num = nums.iter().fold((0, 0), |(mut a, b), ipt| {
+            a = a * 10 + ipt;
+            (b, a)
+        });
+        num.0 + num.1
+    }
 }
 
 #[cfg(test)]
@@ -58,15 +54,15 @@ mod tests {
         assert_eq!(Solution::split_num(687), 75);
     }
 
-    // #[test]
-    // fn test_split_num_v1() {
-    //     assert_eq!(Solution::split_num_v1(4325), 59);
-    //     assert_eq!(Solution::split_num_v1(687), 75);
-    // }
+    #[test]
+    fn test_split_num_v1() {
+        assert_eq!(Solution::split_num_v1(4325), 59);
+        assert_eq!(Solution::split_num_v1(687), 75);
+    }
 
-    // #[test]
-    // fn test_split_num_v2() {
-    //     assert_eq!(Solution::split_num_v2(4325), 59);
-    //     assert_eq!(Solution::split_num_v2(687), 75);
-    // }
+    #[test]
+    fn test_split_num_v2() {
+        assert_eq!(Solution::split_num_v2(4325), 59);
+        assert_eq!(Solution::split_num_v2(687), 75);
+    }
 }

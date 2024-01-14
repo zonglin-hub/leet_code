@@ -25,15 +25,6 @@ impl Solution {
     }
 }
 
-// impl Solution {
-//     pub fn count_arrangement_(n: i32) -> i32 {
-//         let res = [
-//             0, 1, 2, 3, 8, 10, 36, 41, 132, 250, 700, 750, 4010, 4237, 10680, 24679,
-//         ];
-//         res[n as usize]
-//     }
-// }
-
 #[cfg(test)]
 mod tests {
     use crate::leet_code::Solution;

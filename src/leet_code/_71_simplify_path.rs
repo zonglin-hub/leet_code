@@ -25,16 +25,4 @@ mod tests {
         assert_eq!(Solution::simplify_path("/home/".to_string()), "/home".to_string());
         assert_eq!(Solution::simplify_path("/a/./b/../../c/".to_string()), "/c".to_string());
     }
-
-    // #[test]
-    // #[ignore = "insignificant"]
-    // fn test_empty_tuple() {
-    //     let mut vec = vec![1, 2, 3];
-    //     let _a = {
-    //         vec.pop();
-    //     };
-    //     let a = vec.pop();
-    //     assert_eq!(a, Some(2));
-    //     assert_eq!(vec, [1]);
-    // }
 }

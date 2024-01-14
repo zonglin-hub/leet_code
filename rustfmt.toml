@@ -1,2 +1,4 @@
+# See more keys and their definitions at https://rust-lang.github.io/rustfmt/
+
 reorder_modules = false
 use_small_heuristics = "Max"

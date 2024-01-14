@@ -38,9 +38,5 @@ mod tests {
         );
         assert_eq!(Solution::insert(Vec::<Vec<i32>>::new(), vec![5, 7]), vec![vec![5, 7]]);
         assert_eq!(Solution::insert(vec![vec![1, 5]], vec![2, 3]), vec![vec![1, 5]]);
-        // assert_eq!(
-        //     Solution::insert(vec![vec![1, 5]], vec![2, 7]),
-        //     vec![vec![1, 7]]
-        // );
     }
 }

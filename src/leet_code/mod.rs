@@ -1,5 +1,6 @@
 //! leet code 算法题
 
+pub mod _539_find_min_difference;
 pub mod _2185_prefix_count;
 pub mod _2215_find_difference;
 pub mod _1008_bst_from_preorder;

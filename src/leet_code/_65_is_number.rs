@@ -93,11 +93,11 @@ where
 }
 
 impl Solution {
-    // pub fn _is_number(s: String) -> bool {
-    //     s.trim().parse::<f32>().is_ok()
-    // }
-
     pub fn is_number(s: String) -> bool {
+        s.trim().parse::<f32>().is_ok()
+    }
+
+    pub fn is_number_v1(s: String) -> bool {
         let mut state = State::Start;
         s.chars().for_each(|f| state = state.next(f.into()));
         state.accept()
@@ -116,5 +116,15 @@ mod tests {
         assert!(!Solution::is_number(".".to_string()));
         assert!(!Solution::is_number("95a54e53".to_string()));
         assert!(!Solution::is_number("99e2.5".to_string()));
+    }
+
+    #[test]
+    fn test_is_number_v1() {
+        assert!(Solution::is_number_v1("0".to_string()));
+        assert!(Solution::is_number_v1("-123.456e789".to_string()));
+        assert!(!Solution::is_number_v1("e".to_string()));
+        assert!(!Solution::is_number_v1(".".to_string()));
+        assert!(!Solution::is_number_v1("95a54e53".to_string()));
+        assert!(!Solution::is_number_v1("99e2.5".to_string()));
     }
 }

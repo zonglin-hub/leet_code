@@ -45,13 +45,4 @@ mod tests {
             "10101".to_string()
         );
     }
-
-    // #[test]
-    // #[ignore = "insignificant"]
-    // fn test_() {
-    //     let b = "10"; // 二进制
-    //     let a = i128::from_str_radix(&b, 2).unwrap();
-    //     println!("{}", a); // 十进制
-    //     println!("{:b}", a); // 二进制
-    // }
 }
