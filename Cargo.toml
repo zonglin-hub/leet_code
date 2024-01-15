@@ -1,3 +1,5 @@
+# 配置选项 https://doc.rust-lang.org/cargo/reference/manifest.html
+
 [package]
 name = "leet_code"
 version = "0.1.0"
@@ -10,8 +12,6 @@ description = """
 repository = "https://github.com/zonglin-hub/leet_code"
 readme = "./README.md"
 license = "MIT OR Apache-2.0"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 
