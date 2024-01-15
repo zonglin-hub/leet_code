@@ -152,6 +152,7 @@ pub mod _0338_count_bits;
 pub mod _0342_is_power_of_four;
 pub mod _0343_integer_break;
 pub mod _0383_can_construct;
+pub mod _0389_find_the_difference;
 pub mod _0392_is_subsequence;
 pub mod _0414_third_max;
 pub mod _0415_add_strings;

@@ -15,13 +15,8 @@ impl Solution {
     ///
     /// 这个函数通过遍历链表，将重复的元素删除，只保留第一个出现的元素。最终返回处理后的链表头节点。需要注意的是，在遍历过程中，通过更新 `node` 变量来移动到下一个节点，并且使用 `take()` 方法取消原链表中节点的所有权，从而实现删除操作。
     pub fn delete_duplicates_83(mut head: ListNodePtr) -> ListNodePtr {
-        if head.is_none() {
-            return head;
-        }
-
         let mut node = head.as_mut()?;
         let mut duplicate = node.val;
-
         while let Some(x) = node.next.take() {
             if x.val == duplicate {
                 node.next = x.next
@@ -48,5 +43,6 @@ mod tests {
             Solution::delete_duplicates_83(linked_list!(1, 1, 2, 3, 3)),
             linked_list!(1, 2, 3)
         );
+        assert_eq!(Solution::delete_duplicates_83(None), None);
     }
 }
