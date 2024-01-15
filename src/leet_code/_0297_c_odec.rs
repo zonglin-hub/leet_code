@@ -1,9 +1,7 @@
 #![allow(dead_code)]
 
 use super::{TreeNode, TreeNodePtr};
-use std::cell::RefCell;
-use std::rc::Rc;
-use std::str;
+use std::{cell::RefCell, rc::Rc, str};
 
 struct Codec {}
 

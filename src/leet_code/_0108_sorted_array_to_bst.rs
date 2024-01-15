@@ -1,8 +1,7 @@
 //! 将有序数组转换为二叉搜索树
 
 use super::{Solution, TreeNode, TreeNodePtr};
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
 
 impl Solution {
     /// 这个函数是用于将一个有序数组转换为一个高度平衡的二叉搜索树（Balanced Binary Search Tree，BST）。
@@ -41,8 +40,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
 
-    use crate::leet_code::linked_tree;
-    use crate::leet_code::Solution;
+    use crate::leet_code::{linked_tree, Solution};
 
     #[test]
     fn test_sorted_array_to_bst() {

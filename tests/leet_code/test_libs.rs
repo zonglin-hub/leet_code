@@ -1,10 +1,9 @@
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
 
-use leet_code::leet_code::linked_tree;
-use leet_code::leet_code::ListNode;
-use leet_code::leet_code::TreeNode;
-use leet_code::linked_list;
+use leet_code::{
+    leet_code::{linked_tree, ListNode, TreeNode},
+    linked_list,
+};
 
 #[test]
 fn test_linked_list() {

@@ -2,9 +2,7 @@ use crate::leet_code::TreeNode;
 
 use super::{Solution, TreeNodePtr};
 
-use std::cell::RefCell;
-use std::collections::HashMap;
-use std::rc::Rc;
+use std::{cell::RefCell, collections::HashMap, rc::Rc};
 
 impl Solution {
     pub fn build_tree_106(inorder: Vec<i32>, postorder: Vec<i32>) -> TreeNodePtr {

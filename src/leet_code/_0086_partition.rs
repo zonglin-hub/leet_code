@@ -35,9 +35,10 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::ListNode;
-    use crate::leet_code::Solution;
-    use crate::linked_list;
+    use crate::{
+        leet_code::{ListNode, Solution},
+        linked_list,
+    };
 
     #[test]
     fn test_partition() {

@@ -39,8 +39,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
 
-    use crate::leet_code::linked_tree;
-    use crate::leet_code::Solution;
+    use crate::leet_code::{linked_tree, Solution};
     #[test]
     fn test_flatten() {
         let mut root = linked_tree(

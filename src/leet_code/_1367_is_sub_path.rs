@@ -39,10 +39,10 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::linked_tree;
-    use crate::leet_code::ListNode;
-    use crate::leet_code::Solution;
-    use crate::linked_list;
+    use crate::{
+        leet_code::{linked_tree, ListNode, Solution},
+        linked_list,
+    };
 
     #[test]
     fn test_is_sub_path() {

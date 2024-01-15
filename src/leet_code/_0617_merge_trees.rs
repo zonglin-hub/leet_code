@@ -1,8 +1,7 @@
 //! 合并二叉树
 
 use super::{Solution, TreeNode, TreeNodePtr};
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
 
 impl Solution {
     /// 这个函数实现了合并两棵二叉树的功能。它接受两个二叉树的根节点指针作为输入，并返回一个新的二叉树的根节点指针。
@@ -33,8 +32,7 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::linked_tree;
-    use crate::leet_code::Solution;
+    use crate::leet_code::{linked_tree, Solution};
 
     #[test]
     fn test_merge_trees() {

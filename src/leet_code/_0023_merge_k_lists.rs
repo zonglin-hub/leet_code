@@ -1,7 +1,6 @@
 //! 合并 K 个升序链表
 
-use std::cmp::Ordering;
-use std::collections::BinaryHeap;
+use std::{cmp::Ordering, collections::BinaryHeap};
 
 use super::{ListNode, ListNodePtr, Solution};
 
@@ -47,9 +46,10 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::ListNode;
-    use crate::leet_code::Solution;
-    use crate::linked_list;
+    use crate::{
+        leet_code::{ListNode, Solution},
+        linked_list,
+    };
 
     #[test]
     fn test_merge_k_lists() {

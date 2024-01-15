@@ -55,8 +55,7 @@ impl Foo {
 
 #[cfg(test)]
 mod tests {
-    use super::Foo;
-    use super::FooTrait;
+    use super::{Foo, FooTrait};
     use std::sync::Arc;
 
     #[test]

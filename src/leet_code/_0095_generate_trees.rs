@@ -1,5 +1,4 @@
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
 
 use crate::leet_code::TreeNode;
 
@@ -38,8 +37,7 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::linked_tree;
-    use crate::leet_code::Solution;
+    use crate::leet_code::{linked_tree, Solution};
 
     #[test]
     fn test_generate_trees() {

@@ -32,7 +32,10 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::{leet_code::ListNode, leet_code::Solution, linked_list};
+    use crate::{
+        leet_code::{ListNode, Solution},
+        linked_list,
+    };
 
     #[test]
     fn test_insert_greatest_common_divisors() {

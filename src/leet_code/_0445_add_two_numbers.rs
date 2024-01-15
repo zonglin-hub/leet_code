@@ -1,7 +1,6 @@
 //! 两数相加 II
 
-use super::ListNodePtr;
-use super::Solution;
+use super::{ListNodePtr, Solution};
 
 impl Solution {
     pub fn add_two_numbers_445(l1: ListNodePtr, l2: ListNodePtr) -> ListNodePtr {
@@ -14,9 +13,10 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::ListNode;
-    use crate::leet_code::Solution;
-    use crate::linked_list;
+    use crate::{
+        leet_code::{ListNode, Solution},
+        linked_list,
+    };
 
     #[test]
     fn test_add_two_numbers_445() {

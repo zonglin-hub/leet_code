@@ -1,7 +1,4 @@
-# See more keys and their definitions at https://rust-lang.github.io/rustfmt/
-
-# 重新排序模块列表
 reorder_modules = true
-
-# 如果项和表达式满足“小”的启发式概念，是否对它们使用不同的格式
 use_small_heuristics = "Max"
+condense_wildcard_suffixes = true
+imports_granularity = "Crate"

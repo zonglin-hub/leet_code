@@ -1,8 +1,7 @@
 //! 前序遍历构造二叉搜索树
 
 use super::{Solution, TreeNode, TreeNodePtr};
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
 
 impl Solution {
     /// 这个函数实现了从给定的前序遍历序列中构建二叉搜索树的功能。它接受一个包含整数的向量作为输入，并返回一个二叉树的根节点指针。
@@ -30,8 +29,7 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::linked_tree;
-    use crate::leet_code::Solution;
+    use crate::leet_code::{linked_tree, Solution};
 
     #[test]
     fn test_bst_from_preorder() {

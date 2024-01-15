@@ -1,8 +1,7 @@
 //! 两数之和
 
 use super::Solution;
-use std::collections::HashMap;
-use std::ops::ControlFlow;
+use std::{collections::HashMap, ops::ControlFlow};
 
 impl Solution {
     /// 哈希表 (力扣官方题解)

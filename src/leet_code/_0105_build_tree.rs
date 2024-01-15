@@ -1,8 +1,7 @@
 //! 从前序与中序遍历序列构造二叉树
 
 use super::{Solution, TreeNode, TreeNodePtr};
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
 
 impl Solution {
     /// 这个函数是用于构建二叉树的，它根据给定的先序遍历和中序遍历的结果来构建二叉树。函数接受两个参数，`preorder` 是先序遍历结果的整数数组，`inorder` 是中序遍历结果的整数数组。返回值是构建的二叉树的根节点的指针。
@@ -50,8 +49,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
 
-    use crate::leet_code::linked_tree;
-    use crate::leet_code::Solution;
+    use crate::leet_code::{linked_tree, Solution};
 
     #[test]
     fn test_build_tree() {
