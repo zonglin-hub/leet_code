@@ -23,10 +23,32 @@
 - [The Rust Programming Language](https://doc.rust-lang.org/book/)
   - [Rust 程序设计语言 中文版](https://rustwiki.org/zh-CN/book/)
   - [Rust 程序设计语言 简体中文版](https://kaisery.github.io/trpl-zh-cn/)
+
 - Rust中生命周期的探索
-  - [Github - lifetimekata](https://github.com/tfpk/lifetimekata)
-    - [LifetimeKata](https://tfpk.github.io/lifetimekata/)
-  - [Rust - 生命周期](https://rustcc.cn/article?id=0d606476-0a98-4f5a-afba-951f999408e6)
+  - [Github - lifetimekata]
+    - [lifetime kata]
+  - [Rust 的生命周期]
+  - [bilibili - Rust 生命周期 专题合]
+  - [协变 逆变]
+  - [Lifetimes in Rust]
+  - [RFC 1951]
+  - [RFC 2394]
+  - [rust reference]
+  - [rust nomicon]
+  - [Rust - 生命周期]
+
+[Github - lifetimekata]: <https://github.com/tfpk/lifetimekata>
+[lifetime kata]: <https://tfpk.github.io/lifetimekata/>
+[Rust 的生命周期]: <https://hashrust.com/blog/lifetimes-in-rust/>
+[bilibili - Rust 生命周期 专题合]: <https://www.bilibili.com/video/BV1az4y1e7jA/>
+[协变 逆变]: <https://www.cnblogs.com/allmignt/p/12353746.html>
+[Lifetimes in Rust]: <https://blog.thoughtram.io/lifetimes-in-rust/>
+[RFC 1951]: <https://rust-lang.github.io/rfcs/1951-expand-impl-trait.html>
+[RFC 2394]: <https://rust-lang.github.io/rfcs/2394-async_await.html>
+[rust reference]: <https://rustwiki.org/zh-CN/reference/subtyping.html>
+[rust nomicon]: <https://nomicon.purewhite.io/subtyping.html>
+[Rust - 生命周期]: <https://rustcc.cn/article?id=0d606476-0a98-4f5a-afba-951f999408e6>
+
 - Rust 初级读本
   - [Rust Primer](https://rustcc.gitbooks.io/rustprimer/content/)
 - Rust 高级编程
