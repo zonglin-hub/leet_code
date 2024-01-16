@@ -1,3 +1,9 @@
+---
+title: my title
+author: my name
+date: today
+---
+
 # Windows 设置 Rust 环境
 
 - 官网下载 [Microsoft C++ 生成工具][Microsoft C++ 生成工具]，并安装 <strong style="color: yellow;">Desktop development with C++</strong> 如果不安装无法正常编译。

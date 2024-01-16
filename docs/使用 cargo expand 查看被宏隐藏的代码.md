@@ -19,46 +19,46 @@
 
 ## 使用方法
 
-- 源代码
+源代码为：
 
-    ```rust
-    #![allow(non_camel_case_types)]
-    use async_trait::async_trait;
-    fn main() {}
-    #[async_trait]
-    trait example {
-        async fn fetch(trace_id: &str, span_id: &str);
-    }
-    ```
+```rust
+#![allow(non_camel_case_types)]
+use async_trait::async_trait;
+fn main() {}
+#[async_trait]
+trait example {
+    async fn fetch(trace_id: &str, span_id: &str);
+}
+```
 
-- 运行 `cargo expand`
+运行 `cargo expand` 你可以得到以下结果
 
-    ```sh
-    ~> cargo expand
-        Checking lifetime_kata v0.1.0 (D:\.github\rust\lifetime_kata)
-        Finished dev [unoptimized + debuginfo] target(s) in 0.04s
+```bash
+~> cargo expand
+    Checking lifetime_kata v0.1.0 (D:\.github\rust\lifetime_kata)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.04s
 
-    #![feature(prelude_import)]
-    #![allow(non_camel_case_types)]
-    #[prelude_import]
-    use std::prelude::rust_2021::*;
-    #[macro_use]
-    extern crate std;
-    use async_trait::async_trait;
-    fn main() {}
-    trait example {
-        #[must_use]
-        #[allow(clippy::type_complexity, clippy::type_repetition_in_bounds)]
-        fn fetch<'life0, 'life1, 'async_trait>(
-            trace_id: &'life0 str,
-            span_id: &'life1 str,
-        ) -> ::core::pin::Pin<
-            Box<
-                dyn ::core::future::Future<Output = ()> + ::core::marker::Send + 'async_trait,
-            >,
-        >
-        where
-            'life0: 'async_trait,
-            'life1: 'async_trait;
-    }
-    ```
+#![feature(prelude_import)]
+#![allow(non_camel_case_types)]
+#[prelude_import]
+use std::prelude::rust_2021::*;
+#[macro_use]
+extern crate std;
+use async_trait::async_trait;
+fn main() {}
+trait example {
+    #[must_use]
+    #[allow(clippy::type_complexity, clippy::type_repetition_in_bounds)]
+    fn fetch<'life0, 'life1, 'async_trait>(
+        trace_id: &'life0 str,
+        span_id: &'life1 str,
+    ) -> ::core::pin::Pin<
+        Box<
+            dyn ::core::future::Future<Output = ()> + ::core::marker::Send + 'async_trait,
+        >,
+    >
+    where
+        'life0: 'async_trait,
+        'life1: 'async_trait;
+}
+```

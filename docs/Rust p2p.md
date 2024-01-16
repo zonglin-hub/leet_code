@@ -192,6 +192,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
 }
 ```
 
+运行这段代码；你应该能看到如下输出：
+
 ```sh
 PS D:\.github\async> cargo run --package async --bin async
     Finished dev [unoptimized + debuginfo] target(s) in 3.14s
@@ -248,6 +250,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
     }
 }
 ```
+
+运行这段代码；你应该能看到如下输出：
 
 ```sh
 PS D:\.github\async> cargo run --package async --bin async
@@ -328,6 +332,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
     }
 }
 ```
+
+运行这段代码；你应该能看到如下输出：
 
 ```sh
 PS D:\.github\rust> cargo run --package async --example p2p  # 启动第一个节点
