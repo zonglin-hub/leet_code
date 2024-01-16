@@ -1,6 +1,6 @@
 # Windows 设置 Rust 环境
 
-- 官网下载 [Microsoft C++ 生成工具][Microsoft C++ 生成工具]，并安装 <strong style="color: red;">Desktop development with C++</strong> 如果不安装无法正常编译。
+- 官网下载 [Microsoft C++ 生成工具][Microsoft C++ 生成工具]，并安装 <strong>Desktop development with C++</strong> 如果不安装无法正常编译。
 
 - 这里我们需要一个完整的 `gcc` 运行时环境。
   请在 MinGW64 官网[进行下载 `x86_64-win32-seh`][MinGW64]。

@@ -64,7 +64,7 @@
 
 最后我们调用 $dp$，求出最后一排所有状态下的最大学生数量。因为求解过程中会多次求解同一个状态，所以对动态规划进行记忆化的处理来降低时间复杂度。
 
-<details><summary><font size="4" color="orange"><strong>Code (Rust)</strong></font></summary>
+<details><summary><strong>Code (Rust)</strong></summary>
 
 ```rust
 use std::collections::HashMap;
