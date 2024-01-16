@@ -1,8 +1,4 @@
----
-title: my title
-author: my name
-date: today
----
+[TOC]
 
 # Windows 设置 Rust 环境
 
