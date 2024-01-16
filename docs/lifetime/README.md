@@ -1,7 +1,5 @@
 # Lifetime
 
-## 目录
-
 - [引用 & 生命周期](./生命周期%20-%20借用.md)
 - [生产周期 - 标注](./生命周期%20-%20标注.md)
 - [生命周期 - 可变引用](./生命周期%20-%20可变引用.md)
@@ -14,15 +12,3 @@
 - [生命周期 - Impl Trait 的省略规则](./生命周期%20-%20Impl%20Trait%20的省略规则.md)
 - [HRTB & GAT](./生命周期%20-%20HRTB%20&%20GAT.md)
 - [生命周期 - 过度约束](./生命周期%20-%20过度约束.md)
-
-## 参考
-
-- [Rust 的生命周期](https://hashrust.com/blog/lifetimes-in-rust/)
-- [LifetimeKata](https://tfpk.github.io/lifetimekata/)
-- [bilibili - Rust 生命周期 专题合](https://www.bilibili.com/video/BV1az4y1e7jA/)
-- [协变、逆变](https://www.cnblogs.com/allmignt/p/12353746.html)
-- [Lifetimes in Rust](https://blog.thoughtram.io/lifetimes-in-rust/)
-- [RFC 1951](https://rust-lang.github.io/rfcs/1951-expand-impl-trait.html)
-- [RFC 2394](https://rust-lang.github.io/rfcs/2394-async_await.html)
-- [rust reference](https://rustwiki.org/zh-CN/reference/subtyping.html)
-- [rust nomicon](https://nomicon.purewhite.io/subtyping.html)
