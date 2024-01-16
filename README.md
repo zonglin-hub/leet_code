@@ -1,10 +1,12 @@
-# Leet Code
+<div align="center">
+    <h1><a href="https://github.com/zonglin-hub/leet_code">Leet Code</a></h1>
+    <a href="https://github.com/zonglin-hub/leet_code/actions/workflows/rust.yml" />
+        <img src="https://github.com/zonglin-hub/leet_code/actions/workflows/rust.yml/badge.svg" height="20"
+            alt="Build workflow" />
+        <h3>使用 Rust 解决 Leetcode Code</h3>
+</div>
 
-使用 Rust 解决 Leetcode Code。
-
-先写 Docs，再写测试，以测试驱动完成 Code。
-
-## Tests
+## 测试
 
 测试可以在这里找到：
 
