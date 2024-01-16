@@ -1,8 +1,8 @@
 <div align="center">
     <h1><a href="https://github.com/zonglin-hub/leet_code">Leet Code Rust 🦀</a></h1>
-    <a href="https://github.com/zonglin-hub/leet_code/actions/workflows/rust.yml" />
-    <img src="https://github.com/zonglin-hub/leet_code/actions/workflows/rust.yml/badge.svg" height="20"
-        alt="Build workflow" />
+    <a href="https://github.com/zonglin-hub/leet_code/actions/workflows/rust.yml"><img
+            src="https://github.com/zonglin-hub/leet_code/actions/workflows/rust.yml/badge.svg" height="20"
+            alt="Build workflow" /></a>
     <p>使用 Rust 解决 Leetcode Code</p>
 </div>
 
