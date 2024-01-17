@@ -22,8 +22,7 @@
   - [Rust 程序设计语言 中文版](https://rustwiki.org/zh-CN/book/)
   - [Rust 程序设计语言 简体中文版](https://kaisery.github.io/trpl-zh-cn/)
 - Rust中生命周期的探索
-  - [Github - lifetimekata](https://github.com/tfpk/lifetimekata)
-    - [lifetime kata](https://tfpk.github.io/lifetimekata/)
+  - [lifetime kata](https://tfpk.github.io/lifetimekata/) - [Github](https://github.com/tfpk/lifetimekata)
   - [Rust 的生命周期](https://hashrust.com/blog/lifetimes-in-rust/)
   - [bilibili - Rust 生命周期 专题合](https://www.bilibili.com/video/BV1az4y1e7jA/)
   - [协变 逆变](https://www.cnblogs.com/allmignt/p/12353746.html)
@@ -106,8 +105,7 @@
 - [Shipyard.rs: the Book - Private Cargo Registry Service](https://docs.shipyard.rs/intro/summary.html)
 - Rust语言圣经(Rust Course)
   - [Rust语言圣经(Rust Course)](https://course.rs/about-book.html)
-- [The Rust RFC Book](https://rust-lang.github.io/rfcs/)
-  - [Github - rfcs](https://github.com/rust-lang/rfcs)
+- [The Rust RFC Book](https://rust-lang.github.io/rfcs/) - [Github](https://github.com/rust-lang/rfcs)
 - Rust 设计模式
   - [Rust 常用设计模式](https://refactoringguru.cn/design-patterns/rust)
   - [Rust 设计模式 中文版](http://chuxiuhong.com/chuxiuhong-rust-patterns-zh/patterns/index.html)
@@ -121,8 +119,7 @@
   - [Rust精选 2021](https://rustmagazine.github.io/rust_magazine_2021/index.html)
 - Rust 实践挑战
   - Rust 编程实战
-    - [Leetcode Solutions in Rust, Advent of Code Solutions in Rust and more](https://github.com/warycat/rustgym)
-      - [RUSTGYM](https://rustgym.com/)
+    - [RUSTGYM](https://rustgym.com/) - [Github](https://github.com/warycat/rustgym)
     - [Rustlings](https://github.com/rust-lang/rustlings)
     - [Rust practice challenges – train on code kata | Codewars](https://www.codewars.com/kata/577ff15ad648a14b780000e7/train/rust)
     - [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode.cn)
