@@ -2,10 +2,10 @@
 
 <strong>Git 全局设置：</strong>
 
-<pre>
-$ git config --global user.name "user_name"      # 设置用户签名
-$ git config --global user.email "user_email"     # 设置用户邮箱
-</pre>
+```sh
+git config --global user.name <user_name>      # 设置用户签名
+git config --global user.email <user_email>     # 设置用户邮箱
+```
 
 <pre>
 说明：
@@ -58,11 +58,6 @@ $ git clone <remote_repository_address> # 克隆远程版本库
 
 $ git init # 初始化本地版本库
 Initialized empty Git repository in D:/.github/.dome/df/.git/
-
-$ ls -al
-drwxr-xr-x 1 liuzonglin 197121 0 Jan  6 13:35 ./
-drwxr-xr-x 1 liuzonglin 197121 0 Jan  6 13:35 ../
-drwxr-xr-x 1 liuzonglin 197121 0 Jan  6 13:35 .git/ # 生成了 `.git`
 
 $ cat .git/config # 每个git库都会有一个配置信息文件
 [core]
@@ -126,32 +121,10 @@ git tag -d <tag_name>         # 删除标签
 
 ## 合并与衍合
 
-<pre>
-$ git merge <branch_name>  # 合并指定分支到当前分支
-$ git rebase <branch_name> # 衍和指定分支到当前分支
-
-$ cat ss.txt # 查看冲突文件
-<<<<<<< HEAD # 特殊符号
-111111111111111111111111111111111111111111111111111111111111111111111111
-======= # 当前分支的代码
-123456
->>>>>>> lzl # 合并过来的代码
-$ vim ss.txt # 编辑有冲突的文件，删除特殊符号，决定要使用的内容
-
-liuzonglin@LAPTOP-CGO0UV3J MINGW64 /d/.github/.dome/df (main|MERGING)
-$ cat ss.txt
-111111111111111111111111111111111111111111111111111111111111111111111111
-123456
-
-liuzonglin@LAPTOP-CGO0UV3J MINGW64 /d/.github/.dome/df (main|MERGING)
-$ git add ss.txt # 添加到暂存区
-
-liuzonglin@LAPTOP-CGO0UV3J MINGW64 /d/.github/.dome/df (main|MERGING)
-$ git commit -m "解决冲突" # 执行提交（注意：此时使用 git commit 命令时不能带文件名）
-[main 3eaeba5] 解决冲突
-
-liuzonglin@LAPTOP-CGO0UV3J MINGW64 /d/.github/.dome/df (main) # MERGING 消失，变为正常
-</pre>
+```sh
+git merge <branch_name>  # 合并指定分支到当前分支
+git rebase <branch_name> # 衍和指定分支到当前分支
+```
 
 ## Git 远程仓库操作
 
@@ -166,7 +139,7 @@ git push origin --delete branch_name # 删除远程分支或标签
 git push --tags # 上传所有标签
 ```
 
-- 其中，origin是远程仓库的名称，branch_name是要删除的分支的名称。
+其中，origin是远程仓库的名称，branch_name是要删除的分支的名称。
 
 ### 强制覆盖本地文件
 
@@ -453,3 +426,4 @@ liuzonglin@LAPTOP-CGO0UV3J MINGW64 /d/.github/java-dome (master)
 - [Git 的下载安装和初始设置](https://blog.csdn.net/m0_59751822/article/details/125940620)
 - [git push后出现错误 ![rejected] master -&gt; master(non-fast-forward)](https://www.cnblogs.com/qingheshiguang/p/14777557.html)
 - [git commit 时报错HEAD detached from 85e119d nothing to commit, working tree clean问题解决](https://www.jianshu.com/p/07786e5af9fd)
+- [Git Book](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git)
