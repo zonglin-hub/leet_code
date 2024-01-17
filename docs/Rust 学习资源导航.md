@@ -1,30 +1,30 @@
-# 🦀 Rust 学习资源导航
+# Rust 🦀 学习资源导航 🎉
 
-- Rust | Home
-  - [Rust 程序设计语言](https://www.rust-lang.org/zh-CN/)
-    - [Github - rust](https://github.com/rust-lang/rust)
+- Rust | Home [^1]
+  - [Rust 程序设计语言]
+
 - Rust libs
-  - [crates.io: Rust Package Registry](https://crates.io)
-  - [Lib.rs — home for Rust crates // Lib.rs](https://lib.rs/)
+  - [crates.io: Rust Package Registry]
+  - [Lib.rs — home for Rust crates // Lib.rs]
+
 - Rust 社区
-  - [The Rust Programming Language Forum](https://users.rust-lang.org/)
-  - [Rust Internals](https://internals.rust-lang.org)
-  - [Recent conversations - rust-lang - Zulip](https://rust-lang.zulipchat.com)
+  - [The Rust Programming Language Forum]
+  - [Rust Internals]
+  - [Recent conversations - rust-lang - Zulip]
 
-- [Rust：资料搜集](https://www.yuque.com/zhoujiping/programming/rust-materials)
-- [Rust Language Cheat Sheet](https://cheats.rs/)
-  - Rust 语言备忘单
-- [Rust 官方文档中文教程](https://rustwiki.org/)
-- [tauri](https://tauri.app/zh-cn/)
-- [The Rust Performance Book](https://nnethercote.github.io/perf-book/title-page.html)
-- [Rust Compiler Development Guide](https://rustc-dev-guide.rust-lang.org/)
-- [Standard library developers Guide](https://std-dev-guide.rust-lang.org/)
-- [The bindgen User Guide](https://rust-lang.github.io/rust-bindgen/)
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-  - [Rust 程序设计语言 中文版](https://rustwiki.org/zh-CN/book/)
-  - [Rust 程序设计语言 简体中文版](https://kaisery.github.io/trpl-zh-cn/)
+- 学习 Rust Book
+  - [《Rust 程序设计语言》] [^2] - [中文版][rustbook中文版]
 
-- Rust中生命周期的探索
+  - [《通过例子学 Rust》] - [中文版][通过例子学 Rust 中文版]
+
+  - [《Rust 标准库》] - [中文版][The Rust Standard Library 中文版]
+
+  - [《Rust 语言备忘单》]
+
+  - [《Rust 设计模式》][Rust Design Patterns] - [中文版][Rust 设计模式 中文版] - [bilibli - 教学视频]
+    - [设计模式示例代码]
+
+- Rust 中生命周期的探索
   - [Github - lifetimekata]
     - [lifetime kata]
   - [Rust 的生命周期]
@@ -37,18 +37,6 @@
   - [rust nomicon]
   - [Rust - 生命周期]
 
-[Github - lifetimekata]: <https://github.com/tfpk/lifetimekata>
-[lifetime kata]: <https://tfpk.github.io/lifetimekata/>
-[Rust 的生命周期]: <https://hashrust.com/blog/lifetimes-in-rust/>
-[bilibili - Rust 生命周期 专题合]: <https://www.bilibili.com/video/BV1az4y1e7jA/>
-[协变 逆变]: <https://www.cnblogs.com/allmignt/p/12353746.html>
-[Lifetimes in Rust]: <https://blog.thoughtram.io/lifetimes-in-rust/>
-[RFC 1951]: <https://rust-lang.github.io/rfcs/1951-expand-impl-trait.html>
-[RFC 2394]: <https://rust-lang.github.io/rfcs/2394-async_await.html>
-[rust reference]: <https://rustwiki.org/zh-CN/reference/subtyping.html>
-[rust nomicon]: <https://nomicon.purewhite.io/subtyping.html>
-[Rust - 生命周期]: <https://rustcc.cn/article?id=0d606476-0a98-4f5a-afba-951f999408e6>
-
 - Rust 初级读本
   - [Rust Primer](https://rustcc.gitbooks.io/rustprimer/content/)
 - Rust 高级编程
@@ -59,15 +47,8 @@
   - [Rust in Action](https://livebook.manning.com/book/rust-in-action/)
 - Rust 安全的系统编程
   - [Rust 中的安全系统编程 | 2021年4月 | ACM的通信](https://cacm.acm.org/magazines/2021/4/251364-safe-systems-programming-in-rust/fulltext)
-- 通过例子学 Rust
-  - [通过例子学 Rust 中文版](https://rustwiki.org/zh-CN/rust-by-example/)
-  - [Rust by Example](https://doc.rust-lang.org/stable/rust-by-example/)
-  - [Rust by Example](https://doc.rust-lang.org/rust-by-example/index.html)
 - [The Rust Reference](https://doc.rust-lang.org/reference/index.html)
   - [Rust 参考手册 中文版](https://rustwiki.org/zh-CN/reference/)
-- Rust 标准库
-  - [Rust 标准库 中文版](https://rustwiki.org/zh-CN/std/)
-  - [The Rust Standard Library](https://doc.rust-lang.org/std/index.html)
 - Rust Cookbook
   - [Rust Cookbook 中文版](https://rustwiki.org/zh-CN/rust-cookbook/)
   - [Rust Cookbook](https://rustwiki.org/en/rust-cookbook/)
@@ -121,16 +102,8 @@
 - [Rust Forge](https://forge.rust-lang.org/index.html)
 - [The rustup book](https://rust-lang.github.io/rustup/)
 - [Shipyard.rs: the Book - Private Cargo Registry Service](https://docs.shipyard.rs/intro/summary.html)
-- Rust语言圣经(Rust Course)
-  - [Rust语言圣经(Rust Course)](https://course.rs/about-book.html)
 - [The Rust RFC Book](https://rust-lang.github.io/rfcs/)
   - [Github - rfcs](https://github.com/rust-lang/rfcs)
-- Rust 设计模式
-  - [Rust 常用设计模式](https://refactoringguru.cn/design-patterns/rust)
-  - [Rust 设计模式 中文版](http://chuxiuhong.com/chuxiuhong-rust-patterns-zh/patterns/index.html)
-    - [bilibli - 教学视频](https://space.bilibili.com/485433391)
-    - [Github - Rust 设计模式中文翻译](https://github.com/chuxiuhong/chuxiuhong-rust-patterns-zh)
-  - [Rust Design Patterns](https://rust-unofficial.github.io/patterns/)
 - 清华大学计算机系开设的《程序设计训练（Rust）》课程的文档
   - [清华大学计算机系开设的《程序设计训练（Rust）》课程的文档](https://lab.cs.tsinghua.edu.cn/rust/)
 - Rust Magazine
@@ -155,6 +128,12 @@
 - [Rust 编写的现有软件的精选替换列表](https://github.com/TaKO8Ki/awesome-alternatives-in-rust)
 - [精选的 Rust 资源列表。](https://github.com/rust-unofficial/awesome-rust)
 - [一个功能强大的，快速的 Rust 命令行参数解析器](https://github.com/clap-rs/clap)
+- [Rust：资料搜集](https://www.yuque.com/zhoujiping/programming/rust-materials)
+- [tauri](https://tauri.app/zh-cn/)
+- [The Rust Performance Book](https://nnethercote.github.io/perf-book/title-page.html)
+- [Rust Compiler Development Guide](https://rustc-dev-guide.rust-lang.org/)
+- [Standard library developers Guide](https://std-dev-guide.rust-lang.org/)
+- [The bindgen User Guide](https://rust-lang.github.io/rust-bindgen/)
 - Wasm：
   - [Wasmer - Run, Publish & Deploy any code, anywhere](https://wasmer.io)
   - [Wasmtime](https://wasmtime.dev)
@@ -187,3 +166,35 @@
     - [Actix Docs](https://actix.rs/)
     - [Actix Docs 中文版](https://tech-cn.github.io/actix-website/)
   - [Ergonomic and modular web framework built with Tokio, Tower, and Hyper](https://github.com/tokio-rs/axum)
+
+[bilibli - 教学视频]: https://space.bilibili.com/485433391
+[Rust Design Patterns]: https://rust-unofficial.github.io/patterns/
+[Rust 设计模式 中文版]: http://chuxiuhong.com/chuxiuhong-rust-patterns-zh/patterns/index.html
+[设计模式示例代码]: https://refactoringguru.cn/design-patterns/rust
+[The Rust Programming Language Forum]: https://users.rust-lang.org/
+[Rust Internals]: https://internals.rust-lang.org
+[Recent conversations - rust-lang - Zulip]: https://rust-lang.zulipchat.com
+[crates.io: Rust Package Registry]: https://crates.io
+[Lib.rs — home for Rust crates // Lib.rs]: https://lib.rs/
+[Rust 程序设计语言]: https://www.rust-lang.org/zh-CN/
+[《Rust 程序设计语言》]: https://doc.rust-lang.org/book/
+[rustbook中文版]: https://kaisery.github.io/trpl-zh-cn/
+[《通过例子学 Rust》]: https://doc.rust-lang.org/rust-by-example/index.html
+[通过例子学 Rust 中文版]: https://rustwiki.org/zh-CN/rust-by-example/
+[《Rust 标准库》]: https://doc.rust-lang.org/std/index.html
+[The Rust Standard Library 中文版]: https://rustwiki.org/zh-CN/std/
+[《Rust 语言备忘单》]: https://cheats.rs/
+[Github - lifetimekata]: <https://github.com/tfpk/lifetimekata>
+[lifetime kata]: <https://tfpk.github.io/lifetimekata/>
+[Rust 的生命周期]: <https://hashrust.com/blog/lifetimes-in-rust/>
+[bilibili - Rust 生命周期 专题合]: <https://www.bilibili.com/video/BV1az4y1e7jA/>
+[协变 逆变]: <https://www.cnblogs.com/allmignt/p/12353746.html>
+[Lifetimes in Rust]: <https://blog.thoughtram.io/lifetimes-in-rust/>
+[RFC 1951]: <https://rust-lang.github.io/rfcs/1951-expand-impl-trait.html>
+[RFC 2394]: <https://rust-lang.github.io/rfcs/2394-async_await.html>
+[rust reference]: <https://rustwiki.org/zh-CN/reference/subtyping.html>
+[rust nomicon]: <https://nomicon.purewhite.io/subtyping.html>
+[Rust - 生命周期]: <https://rustcc.cn/article?id=0d606476-0a98-4f5a-afba-951f999408e6>
+
+[^1]: 一门赋予每个人构建可靠且高效软件能力的语言。
+[^2]: 《Rust 程序设计语言》被亲切地称为“圣经”。本书从基本原则出发，给出了 Rust 语言的概览。您将在阅读本书的过程中构建几个项目，读完本书后，您就能扎实地掌握 Rust 语言。
