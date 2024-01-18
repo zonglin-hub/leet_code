@@ -200,6 +200,7 @@ pub mod _2085_count_words;
 pub mod _2086_minimum_buckets;
 pub mod _2095_delete_middle;
 pub mod _2136_earliest_full_bloom;
+pub mod _2171_minimum_removal;
 pub mod _2181_merge_nodes;
 pub mod _2182_repeat_limited_string;
 pub mod _2185_prefix_count;
