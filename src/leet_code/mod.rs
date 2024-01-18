@@ -161,6 +161,7 @@ pub mod _0447_number_of_boomerangs;
 pub mod _0460_lfu_cache;
 pub mod _0466_get_max_repetitions;
 pub mod _0485_find_max_consecutive_ones;
+pub mod _0501_find_mode;
 pub mod _0509_fib;
 pub mod _0526_count_arrangement;
 pub mod _0539_find_min_difference;
