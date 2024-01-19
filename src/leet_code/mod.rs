@@ -234,6 +234,7 @@ pub mod _2731_sum_distance;
 pub mod _2735_min_cost;
 pub mod _2744_maximum_number_of_string_pairs;
 pub mod _2807_insert_greatest_common_divisors;
+pub mod _2809_minimum_time;
 pub mod _2828_is_acronym;
 pub mod _2831_longest_equal_subarray;
 pub mod _2840_check_strings;
