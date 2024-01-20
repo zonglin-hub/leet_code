@@ -24,16 +24,16 @@ pip（Python Package Manager）是 Python 的包管理工具，用于查找、�
 ## 三、高级使用
 
 1. 使用 requirements.txt 文件
-在进行项目开发时，我们可以使用 requirements.txt 文件来记录项目所需的依赖库及其版本。只需在文件中逐行列出所需库的名称和版本，然后使用`pip install -r requirements.txt`命令进行安装。
+在进行项目开发时，我们可以使用 requirements.txt 文件来记录项目所需的依赖库及其版本。只需在文件中逐行列出所需库的名称和版本，然后使用 `pip install -r requirements.txt` 命令进行安装。
 
 1. 使用约束文件
-当项目依赖于多个库时，可以使用约束文件（如 constraints.txt）来指定各个库的版本范围。在文件中逐行列出库的名称和版本范围，然后使用`pip install -r constraints.txt`命令进行安装。
+当项目依赖于多个库时，可以使用约束文件（如 constraints.txt）来指定各个库的版本范围。在文件中逐行列出库的名称和版本范围，然后使用 `pip install -r constraints.txt` 命令进行安装。
 
 1. 从 Wheels 中安装
-Wheels 是 Python 的一种打包格式，可以方便地安装和管理第三方库。要使用 Wheels 文件进行安装，只需将 Wheels 文件拖放到命令行窗口，或使用`pip install <Wheels 文件名>`命令进行安装。
+Wheels 是 Python 的一种打包格式，可以方便地安装和管理第三方库。要使用 Wheels 文件进行安装，只需将 Wheels 文件拖放到命令行窗口，或使用 `pip install <Wheels 文件名>` 命令进行安装。
 
 1. 配置 pip
-通过编辑 pip 的配置文件（通常位于`~/.pip/pip.conf`或`%APPDATA%\pip\pip.ini`），可以定制 pip 的行为。
+通过编辑 pip 的配置文件（通常位于 `~/.pip/pip.conf` 或 `%APPDATA%\pip\pip.ini` ），可以定制 pip 的行为。
 
     例如，可以设置默认的镜像站点、启用或禁用缓存等。
 

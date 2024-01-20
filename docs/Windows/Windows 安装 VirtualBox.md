@@ -1,6 +1,7 @@
-参考文档：
-<http://www.javashuo.com/article/p-xnxjpcal-bm.html>
-<https://www.vagrantup.com/docs/vagrantfile>
+参考
+
+- <http://www.javashuo.com/article/p-xnxjpcal-bm.html>
+- <https://www.vagrantup.com/docs/vagrantfile>
 
 ---
 
