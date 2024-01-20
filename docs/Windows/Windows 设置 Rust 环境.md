@@ -38,7 +38,7 @@ vim ~/.cargo/config
 
 并输入下面内容：
 
-```toml
+```tomls
 [source.crates-io]
 registry = "https://github.com/rust-lang/crates.io-index"
 # 指定镜像
@@ -72,19 +72,19 @@ registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
 
 ## Rust 更新
 
-### 升级 Rust 「stable _稳定版_」
+**升级 Rust 「stable _稳定版_」**
 
 可以执行 <code>rustup update</code> 来升级 Rust 「Stable Release _稳定版本_」
 
-### 安装 Rust 「Nightly Build _夜间构建_」
+**安装 Rust 「Nightly Build _夜间构建_」**
 
 可以执行 <code>rustup install nightly</code> 来安装 「Nightly Build <i>夜间构建</i>」
 
-### 切换默认版本
+**切换默认版本**
 
 选择稳定版或者 `nightly` 版，如果想长期使用 `nightly` 版。可以使用以下命令：`rustup default nightly`
 
-### 卸载 Rust
+**卸载 Rust**
 
 在任何时候如果您想卸载 Rust，您可以运行 `rustup self uninstall`。
 
