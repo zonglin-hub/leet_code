@@ -1,4 +1,4 @@
-# Maven 配置热部署
+Maven 配置热部署
 
 ```xml
 <dependency>

@@ -91,7 +91,7 @@ Libp2p 的主要模块
 
 相关依赖
 
-```toml
+```tomls
 [dependencies]
 libp2p = "0.46.1"
 tokio = { version = "1.19.2", features = ["full"] }
@@ -125,7 +125,6 @@ async fn main() {
     // New Peer ID is PeerId("12D3KooWGgzCi5mozvnV2SNuFpZy13hgKVmvryM3wyADwi6PRiza")
     println!("New Peer ID is {:?}", new_peer_id);
 }
-
 ```
 
 多地址（Multiaddresses）

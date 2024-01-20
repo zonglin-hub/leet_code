@@ -70,5 +70,4 @@ fn test() {
     convert_a_to_b2(&mut a);
     println!("After Convert, a is {:?}", a);
 }
-
 ```

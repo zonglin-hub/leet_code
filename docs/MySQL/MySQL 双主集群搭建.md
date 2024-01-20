@@ -2,8 +2,8 @@
 
 参考文档：
 
-- [图文结合带你搞懂MySQL日志之relay log（中继日志） - GreatSQL - 博客园 (cnblogs.com)](https://www.cnblogs.com/greatsql/p/17052055.html)
-- [一个月后，我们又从 MySQL 双主切换成了主 - 从！ (baidu.com)](https://baijiahao.baidu.com/s?id=1738097788602997045&wfr=spider&for=pc)
+- [图文结合带你搞懂MySQL日志之relay log（中继日志）](https://www.cnblogs.com/greatsql/p/17052055.html)
+- [一个月后，我们又从 MySQL 双主切换成了主 - 从](https://baijiahao.baidu.com/s?id=1738097788602997045&wfr=spider&for=pc)
 
 ## MySQL 简介
 
@@ -61,11 +61,11 @@ MySQL Replication是MySQL非常出色的一个功能，该功能将一个MySQL�
 
 ​
 
-1. 修改配置文件
+- 修改配置文件
 
     修改 MySQL 的配置文件 my.cnf
 
-![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923154146298-618014855.png)
+  ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923154146298-618014855.png)
 
     server-id   可以为任意自然数，必须保证两台mysql主机不重复
 
@@ -88,7 +88,7 @@ MySQL Replication是MySQL非常出色的一个功能，该功能将一个MySQL�
     注：如果是复制的虚拟机，mysql data/auto.cnf 中server-uuid的值不能相同
 
     ‍
-2. salve节点创建复制账号
+- salve节点创建复制账号
 
     192.168.56.103 数据库1：
 
@@ -101,18 +101,14 @@ MySQL Replication是MySQL非常出色的一个功能，该功能将一个MySQL�
     `grant replication slave, replication client on *.* to 'fort'@'192.168.56.103' identified by 'xxxxxxx';`​
 
     `flush privileges;`​ // 刷新MySQL的系统权限相关表，否则会无法用账号链接
-
     ‍
-
     每个 slave 使用标准的 MySQL 用户名和密码连接 master。进行复制操作的用户会授予 REPLICATION SLAVE 权限。用户名的密码都会存储在文本文件 `data/master.info`​ 中
 
-3. slave 连接 master
+- slave 连接 master
 
-    在 master 上执行 `show master status;`​查看日志位置
+  在 master 上执行 `show master status;`​查看日志位置
 
-![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923154206021-1410661849.png)
-
-    ‍
+  ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923154206021-1410661849.png)
 
     slave 使用 CHANGE MASTER TO 语句连接 master
 
@@ -126,15 +122,15 @@ MySQL Replication是MySQL非常出色的一个功能，该功能将一个MySQL�
     ->master_log_pos = 154;
     ```
 
-4. 启动同步并查看状态
+- 启动同步并查看状态
 
-    执行start slave; 启动启动slave服务
+  执行start slave; 启动启动slave服务
 
-    执行show slave status\G 查看服务状态
+  执行show slave status\G 查看服务状态
 
-![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923154222629-771381995.png)
+  ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923154222629-771381995.png)
 
-    主主模式下，两台机器做同样的操作即可实现双 MASTER
+  主主模式下，两台机器做同样的操作即可实现双 MASTER
 
 ## 常见问题
 

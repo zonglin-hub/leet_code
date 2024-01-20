@@ -21,7 +21,7 @@ JDBC是什么？JDBC英文名为：Java Data Base Connectivity(Java数据库连�
 
 ### 使用JDBC连接数据库
 
-**注意：**6.0版本以上，不用手动加载驱动，我们直接使用即可！
+**注意：** 6.0版本以上，不用手动加载驱动，我们直接使用即可！
 
 ```java
 //1. 通过DriverManager来获得数据库连接
@@ -187,7 +187,7 @@ while (set.next()){
 }
 ```
 
-**注意：**列的下标是从1开始的。
+**注意：** 列的下标是从1开始的。
 
 我们也可以利用反射机制来将查询结果映射为对象，使用反射的好处是，无论什么类型都可以通过我们的方法来进行实体类型映射：
 
@@ -281,7 +281,7 @@ public static void main(String[] args) throws ClassNotFoundException {
 
 我们发现，我们需要提前给到PreparedStatement一个SQL语句，并且使用`?`作为占位符，它会预编译一个SQL语句，通过直接将我们的内容进行替换的方式来填写数据。使用这种方式，我们之前的例子就失效了！我们来看看实际执行的SQL语句是什么：
 
-```
+```text
 com.mysql.cj.jdbc.ClientPreparedStatement: select * from user where username= 'Test' and pwd='123456'' or 1=1; -- ';
 ```
 
@@ -459,15 +459,11 @@ Lombok是一种插件化注解API，是通过添加注解来实现的，然后�
 
 Java的编译过程可以分成三个阶段：
 
-![img](assets/Java%20%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/format,png.png)
-
 1. 所有源文件会被解析成语法树。
 2. 调用注解处理器。如果注解处理器产生了新的源文件，新文件也要进行编译。
 3. 最后，语法树会被分析并转化成类文件。
 
-实际上在上述的第二阶段，会执行*[lombok.core.AnnotationProcessor](https://github.com/rzwitserloot/lombok/blob/master/src/core/lombok/core/AnnotationProcessor.java)*，它所做的工作就是我们上面所说的，修改语法树。
-
-### 使用Lombok
+实际上在上述的第二阶段，会执行[lombok.core.AnnotationProcessor](https://github.com/rzwitserloot/lombok/blob/master/src/core/lombok/core/AnnotationProcessor.java)，它所做的工作就是我们上面所说的，修改语法树。
 
 我们通过实战来演示一下Lombok的实用注解：
 
@@ -492,7 +488,7 @@ Java的编译过程可以分成三个阶段：
 
 在前面JDBC的学习中，虽然我们能够通过JDBC来连接和操作数据库，但是哪怕只是完成一个SQL语句的执行，都需要编写大量的代码，更不用说如果我还需要进行实体类映射，将数据转换为我们可以直接操作的实体类型，JDBC很方便，但是还不够方便，我们需要一种更加简洁高效的方式来和数据库进行交互。
 
-**再次强调：**学习厉害的框架或是厉害的技术，并不是为了一定要去使用它，而是它们能够使得我们在不同的开发场景下，合理地使用这些技术，以灵活地应对需要解决的问题。
+**再次强调：** 学习厉害的框架或是厉害的技术，并不是为了一定要去使用它，而是它们能够使得我们在不同的开发场景下，合理地使用这些技术，以灵活地应对需要解决的问题。
 
 MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs(Plain Ordinary Java Object,普通的 Java对象)映射成数据库中的记录。
 
@@ -509,7 +505,7 @@ MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过�
 <outer>
   <name>阿伟</name>
   <desc>怎么又在玩电动啊</desc>
-	<inner type="1">
+ <inner type="1">
     <age>10</age>
     <sex>男</sex>
   </inner>
@@ -616,7 +612,7 @@ try {
 public static void main(String[] args) throws FileNotFoundException {
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(new FileInputStream("mybatis-config.xml"));
     try (SqlSession sqlSession = sqlSessionFactory.openSession(true)){
-			//暂时还没有业务
+   //暂时还没有业务
     }
 }
 ```
@@ -904,8 +900,8 @@ Map中就会以键值对的形式来存放这些结果了。
 ### The error occurred while handling results
 ### SQL: select * from student where sid = ?
 ### Cause: org.apache.ibatis.executor.ExecutorException: No constructor found in com.test.entity.Student matching [java.lang.Integer, java.lang.String, java.lang.String]
-	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
-	...
+ at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+ ...
 ```
 
 这时就需要使用`constructor`标签来指定构造方法：
@@ -1322,7 +1318,7 @@ List<Student> getAllStudent();
 <resultMap id="test" type="Student">
     <id property="sid" column="sid"/>
     <result column="name" property="sex"/>    
-  	<result column="sex" property="name"/>
+   <result column="sex" property="name"/>
 </resultMap>
 ```
 
@@ -1427,16 +1423,16 @@ Student getStudentBySidAndSex(int sid, String sex);
 Exception in thread "main" org.apache.ibatis.exceptions.PersistenceException: 
 ### Error querying database.  Cause: org.apache.ibatis.binding.BindingException: Parameter 'sid' not found. Available parameters are [arg1, arg0, param1, param2]
 ### Cause: org.apache.ibatis.binding.BindingException: Parameter 'sid' not found. Available parameters are [arg1, arg0, param1, param2]
-	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:153)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
-	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)
-	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
-	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
-	at com.sun.proxy.$Proxy6.getStudentBySidAndSex(Unknown Source)
-	at com.test.Main.main(Main.java:16)
+ at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+ at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:153)
+ at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145)
+ at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+ at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+ at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)
+ at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
+ at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+ at com.sun.proxy.$Proxy6.getStudentBySidAndSex(Unknown Source)
+ at com.test.Main.main(Main.java:16)
 ```
 
 原因是Mybatis不明确到底哪个参数是什么，因此我们可以添加`@Param`来指定参数名称：
@@ -1462,14 +1458,14 @@ int addStudent(@Param("sid") int sid, @Param("student")  Student student);
 ```java
 ### SQL: insert into student(sid, name, sex) values(?, ?, ?)
 ### Cause: org.apache.ibatis.binding.BindingException: Parameter 'name' not found. Available parameters are [student, param1, sid, param2]
-	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:196)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:181)
-	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
-	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
-	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
-	at com.sun.proxy.$Proxy6.addStudent(Unknown Source)
-	at com.test.Main.main(Main.java:16)
+ at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+ at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:196)
+ at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:181)
+ at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+ at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
+ at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+ at com.sun.proxy.$Proxy6.addStudent(Unknown Source)
+ at com.test.Main.main(Main.java:16)
 ```
 
 那么我们就通过参数名称.属性的方式去让Mybatis知道我们要用的是哪个属性：
@@ -1589,7 +1585,7 @@ public static void main(String[] args) {
     Shopper shopper = (Shopper) Proxy.newProxyInstance(impl.getClass().getClassLoader(),
             impl.getClass().getInterfaces(), new ShopperProxy(impl));
     shopper.saleWatermelon("小强");
-  	System.out.println(shopper.getClass());
+   System.out.println(shopper.getClass());
 }
 ```
 
@@ -1784,9 +1780,9 @@ public void after(){
 ```java
 public class Main {
     public static void main(String[] args) {
-      	// 首先获取日志打印器
+       // 首先获取日志打印器
         Logger logger = Logger.getLogger(Main.class.getName());
-      	// 调用info来输出一个普通的信息，直接填写字符串即可
+       // 调用info来输出一个普通的信息，直接填写字符串即可
         logger.info("我是普通的日志");
     }
 }
@@ -1957,10 +1953,10 @@ public static void main(String[] args) throws IOException {
 ```java
 public static void main(String[] args) throws IOException {
     Properties properties = new Properties();
-  	// properties.setProperty("test", "lbwnb");  //和put效果一样
+   // properties.setProperty("test", "lbwnb");  //和put效果一样
     properties.put("test", "lbwnb");
     properties.store(System.out, "????");
-  	//properties.storeToXML(System.out, "????");  保存为XML格式
+   //properties.storeToXML(System.out, "????");  保存为XML格式
 }
 ```
 
@@ -2289,10 +2285,10 @@ public class Student {
 
 除了三个基本的属性用于定位坐标外，依赖还可以添加以下属性：
 
-- **type**：依赖的类型，对于项目坐标定义的packaging。大部分情况下，该元素不必声明，其默认值为jar
-- **scope**：依赖的范围（作用域，着重讲解）
-- **optional**：标记依赖是否可选
-- **exclusions**：用来排除传递性依赖（一个项目有可能依赖于其他项目，就像我们的项目，如果别人要用我们的项目作为依赖，那么就需要一起下载我们项目的依赖，如Lombok）
+* **type**：依赖的类型，对于项目坐标定义的packaging。大部分情况下，该元素不必声明，其默认值为jar
+* **scope**：依赖的范围（作用域，着重讲解）
+* **optional**：标记依赖是否可选
+* **exclusions**：用来排除传递性依赖（一个项目有可能依赖于其他项目，就像我们的项目，如果别人要用我们的项目作为依赖，那么就需要一起下载我们项目的依赖，如Lombok）
 
 我们着重来讲解一下`scope`属性，它决定了依赖的作用域范围：
 
@@ -2320,7 +2316,7 @@ public class MainTest {
     @Test
     public void test(){
         System.out.println("测试");
-      	//Assert在JUnit5时名称发生了变化Assertions
+       //Assert在JUnit5时名称发生了变化Assertions
         Assertions.assertArrayEquals(new int[]{1, 2, 3}, new int[]{1, 2});
     }
 }

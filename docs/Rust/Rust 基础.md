@@ -21,7 +21,6 @@ fn main() {
     a = 456;
     const b: i32 = 123; // 常量
 }
-
 ```
 
 数据类型
@@ -43,5 +42,4 @@ fn main() {
     let remainder = 43 % 5;
     println!("{0},{1},{2},{3},{4}", sum, difference, product, quotient, remainder);
 }
-
 ```

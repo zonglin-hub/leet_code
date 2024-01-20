@@ -62,7 +62,6 @@ fn main() {
 
     make_animal_sound(&dog);
 }
-
 ```
 
 这个例子中，我们定义了一个 `Animal` trait，然后使用 `impl` 为 `Dog` 类型实现了这个 trait。`make_animal_sound` 函数接收一个 `dyn Animal` 类型的参数，这意味着它可以接收任何实现了 `Animal` trait 的类型。在 `main` 函数中，我们创建了一个 `Dog` 实例并将其传递给 `make_animal_sound` 函数。`make_animal_sound` 函数调用了 `Dog` 实例上的 `make_sound` 方法，因为 `Dog` 类型实现了 `Animal` trait。

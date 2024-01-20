@@ -24,5 +24,3 @@ public static void main(String[] args) {
     System.out.println(a == c);     // true a自动拆箱成int类型再和c比较
 }
 ```
-
-‍

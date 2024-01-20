@@ -1,6 +1,7 @@
 # Spring整合Log4j2案例
 
 * 引入 Log4j2 依赖
+
   ```shell
   <!--log4j2的依赖-->
   <dependency>
@@ -46,7 +47,7 @@
           </console>
 
           <!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，适合临时测试用--> 
-  	<!--D:\.github\.dome（开发示例）\spring6-dome-->
+   <!--D:\.github\.dome（开发示例）\spring6-dome-->
           <File name="log" fileName="d:/.github/.dome（开发示例）/spring6-dome/spring6_log/test.log" append="false">
               <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
           </File>
@@ -68,7 +69,6 @@
   ```
 
 * 测试
-
 
   运行原测试程序，多了spring打印日志
 

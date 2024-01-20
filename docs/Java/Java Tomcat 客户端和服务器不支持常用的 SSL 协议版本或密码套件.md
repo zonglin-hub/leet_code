@@ -1,7 +1,7 @@
 参考文档：
 
-[MDN Web 文档术语表：Web 相关术语的定义](https://developer.mozilla.org/zh-CN/docs/Glossary/SSL)
-[Tomcat配置SSL证书实现 https 访问](https://zhuanlan.zhihu.com/p/108774894)
+- [MDN Web 文档术语表：Web 相关术语的定义](https://developer.mozilla.org/zh-CN/docs/Glossary/SSL)
+- [Tomcat配置SSL证书实现 https 访问](https://zhuanlan.zhihu.com/p/108774894)
 
 ---
 

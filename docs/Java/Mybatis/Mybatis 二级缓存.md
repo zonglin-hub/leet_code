@@ -4,7 +4,6 @@
 
 ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923131945896-1226187846.png)
 
-
 我们可以将Redis作为Mybatis的二级缓存，这样就能实现多台服务器使用同一个二级缓存，因为它们只需要连接同一个Redis服务器即可，所有的缓存数据全部存储在Redis服务器上。我们需要手动实现Mybatis提供的Cache接口，这里我们简单编写一下：
 
 ```java
@@ -14,12 +13,12 @@ public class RedisMybatisCache implements Cache {
     private final String id;
     private static RedisTemplate<Object, Object> template;
 
-   	//注意构造方法必须带一个String类型的参数接收id
+    //注意构造方法必须带一个String类型的参数接收id
     public RedisMybatisCache(String id){
         this.id = id;
     }
 
-  	//初始化时通过配置类将RedisTemplate给过来
+   //初始化时通过配置类将RedisTemplate给过来
     public static void setTemplate(RedisTemplate<Object, Object> template) {
         RedisMybatisCache.template = template;
     }
@@ -31,27 +30,27 @@ public class RedisMybatisCache implements Cache {
 
     @Override
     public void putObject(Object o, Object o1) {
-      	//这里直接向Redis数据库中丢数据即可，o就是Key，o1就是Value，60秒为过期时间
+       //这里直接向Redis数据库中丢数据即可，o就是Key，o1就是Value，60秒为过期时间
         template.opsForValue().set(o, o1, 60, TimeUnit.SECONDS);
     }
 
     @Override
     public Object getObject(Object o) {
-      	//这里根据Key直接从Redis数据库中获取值即可
+       //这里根据Key直接从Redis数据库中获取值即可
         return template.opsForValue().get(o);
     }
 
     @Override
     public Object removeObject(Object o) {
-      	//根据Key删除
+       //根据Key删除
         return template.delete(o);
     }
 
     @Override
     public void clear() {
-      	//由于template中没封装清除操作，只能通过connection来执行
-				template.execute((RedisCallback<Void>) connection -> {
-          	//通过connection对象执行清空操作
+       //由于template中没封装清除操作，只能通过connection来执行
+    template.execute((RedisCallback<Void>) connection -> {
+           //通过connection对象执行清空操作
             connection.flushDb();
             return null;
         });
@@ -59,7 +58,7 @@ public class RedisMybatisCache implements Cache {
 
     @Override
     public int getSize() {
-      	//这里也是使用connection对象来获取当前的Key数量
+       //这里也是使用connection对象来获取当前的Key数量
         return template.execute(RedisServerCommands::dbSize).intValue();
     }
 }
@@ -75,7 +74,7 @@ public class MainConfiguration {
 
     @PostConstruct
     public void init(){
-      	//把RedisTemplate给到RedisMybatisCache
+       //把RedisTemplate给到RedisMybatisCache
         RedisMybatisCache.setTemplate(template);
     }
 }

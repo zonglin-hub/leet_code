@@ -3,9 +3,9 @@
 - [Java面试题：内存溢出怎么产生的？如何解决的](https://zhuanlan.zhihu.com/p/413237280)
 - [Linux jar包 后台运行](https://blog.csdn.net/qq_30739519/article/details/51115075)
 
-**第一步**，修改JVM启动参数，直接增加内存。(-Xms，-Xmx参数一定不要忘记加。)  
-第二步，检查错误日志，查看 OutOfMemory（内存不足）错误前是否有其它异常或错误。  
-**第三步**，对代码进行走查和分析，找出可能发生内存溢出的位置。
+**第一步：** 修改JVM启动参数，直接增加内存。(-Xms，-Xmx参数一定不要忘记加。)  
+**第二步：** 检查错误日志，查看 OutOfMemory（内存不足）错误前是否有其它异常或错误。  
+**第三步：** 对代码进行走查和分析，找出可能发生内存溢出的位置。
 
 ```shell
 nohup java -jar xxxx.jar & # 我们经常使用nohup command &命令形式来启动一些后台程序，比如一些java服务：

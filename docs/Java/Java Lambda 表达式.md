@@ -30,8 +30,6 @@ MyInterface m = new MyInterface() {
 m.show(1, 1);
 ```
 
-‍
-
 ### Lambda接口实现
 
 ```java
@@ -40,8 +38,6 @@ MyInterface m = (k, v) -> {
 };
 m.show(1, 1);
 ```
-
-‍
 
 ## “::”方法引用  
 
@@ -183,8 +179,6 @@ public void test3() {
 
 }
 ```
-
-‍
 
 #### 实现五：代特定实例
 

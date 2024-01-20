@@ -93,7 +93,6 @@
 
     unsafe impl Send for MyBox {}
 
-
     fn main() {
         let mb = MyBox(Box::into_raw(Box::new(42)));
 
@@ -297,7 +296,7 @@
   - 由于 `serde` 是第三方库，你可 `Screenshot 2023-05-31 at 10.43.38 能不希望强制添加对它的依赖`
   - 大多数库选择提供一个 `serde` feature（功能），只有当用户选择启用该功能时才添加对 `serde` 的支持
 
-    ```toml
+    ```tomls
     [dependencies]
     serde = { version = "1.0", optional = true }
 
@@ -305,7 +304,7 @@
     serde = ["serde"]   # ["serde"] 等于 上方 serde依赖
     ```
 
-    ```toml
+    ```tomls
     [dependencies]
     mylib = { version = "0.1", features = ["serde"] }   # 如果想用 serde 就开启，不想用就不写 features = ["serde"]
     ```

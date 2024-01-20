@@ -8,7 +8,6 @@ fn main() {
     vec.push(std::borrow::Cow::Owned(s));
     println!("The string is: {}", vec[0]);
 }
-
 ```
 
 在这个修正后的示例中，我们使用 `std::borrow::Cow::Owned` 来创建一个新的 `String` 实例，并将其推送到 `vec` 矢量中。这样可以确保 `vec` 拥有自己的 `String` 实例，而不是借用 `s` 的生命周期。

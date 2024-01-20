@@ -1,6 +1,6 @@
 # Rust fmt
 
-```toml
+```tomls
 # See more keys and their definitions at https://rust-lang.github.io/rustfmt/
 
 # 回退到垂直格式之前数组文本的最大宽度。

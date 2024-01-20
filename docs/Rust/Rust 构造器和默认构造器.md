@@ -31,7 +31,6 @@ impl Person {
 //         }
 //     }
 // }
-
 ```
 
 ```rust
@@ -54,5 +53,4 @@ fn main() {
     let person = Person::default();
     person.print();
 }
-
 ```

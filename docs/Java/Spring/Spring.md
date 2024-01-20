@@ -1,5 +1,4 @@
 
-
 ![点击查看源网页](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-0e96436a999ac26218fc54344799c859_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640617321&t=806572e49f8f6deafd8486b19af6d192)
 
 **建议：**对Java开发还不是很熟悉的同学，最好先花费半个月到一个月时间大量地去编写小项目，不推荐一口气学完，后面的内容相比前面的内容几乎是降维打击，一口气学完很容易忘记之前所学的基础知识，尤其是JavaSE阶段的内容。
@@ -20,20 +19,20 @@ JavaBean就是有一定规范的Java实体类，跟普通类差不多，不同�
 
 ```java
 public class User{
-	private String name;
-	private int age;
-	public String getName(){
-		return name;
-	}
-	public String getAge(){
-		return age;
-	}
-	public void setName(String name){
-		this.name = name;
-	}
-	public void setAge(int age){
-		this.age = age;
-	}
+ private String name;
+ private int age;
+ public String getName(){
+  return name;
+ }
+ public String getAge(){
+  return age;
+ }
+ public void setName(String name){
+  this.name = name;
+ }
+ public void setAge(int age){
+  this.age = age;
+ }
 }
 ```
 
@@ -273,7 +272,7 @@ public class Student {
         this.card = card;
     }
   
-  	public void setName(String name) {
+   public void setName(String name) {
         this.name = name;
     }
 
@@ -411,7 +410,7 @@ public class Student {
     String name;
     int age;
 
-		//分别在test方法执行前后切入
+  //分别在test方法执行前后切入
     public int test(String str) {
         System.out.println("我是一个测试方法："+str);
         return str.length();
@@ -583,12 +582,12 @@ public class AopTest implements MethodBeforeAdvice, AfterReturningAdvice {
 
 其实，我们之前学习的操作正好对应了AOP 领域中的特性术语：
 
-- 通知（Advice）: AOP 框架中的增强处理，通知描述了切面何时执行以及如何执行增强处理，也就是我们上面编写的方法实现。
-- 连接点（join point）: 连接点表示应用执行过程中能够插入切面的一个点，这个点可以是方法的调用、异常的抛出，实际上就是我们在方法执行前或是执行后需要做的内容。
-- 切点（PointCut）: 可以插入增强处理的连接点，可以是方法执行之前也可以方法执行之后，还可以是抛出异常之类的。
-- 切面（Aspect）: 切面是通知和切点的结合，我们之前在xml中定义的就是切面，包括很多信息。
-- 引入（Introduction）：引入允许我们向现有的类添加新的方法或者属性。
-- 织入（Weaving）: 将增强处理添加到目标对象中，并创建一个被增强的对象，我们之前都是在将我们的增强处理添加到目标对象，也就是织入（这名字挺有文艺范的）
+* 通知（Advice）: AOP 框架中的增强处理，通知描述了切面何时执行以及如何执行增强处理，也就是我们上面编写的方法实现。
+* 连接点（join point）: 连接点表示应用执行过程中能够插入切面的一个点，这个点可以是方法的调用、异常的抛出，实际上就是我们在方法执行前或是执行后需要做的内容。
+* 切点（PointCut）: 可以插入增强处理的连接点，可以是方法执行之前也可以方法执行之后，还可以是抛出异常之类的。
+* 切面（Aspect）: 切面是通知和切点的结合，我们之前在xml中定义的就是切面，包括很多信息。
+* 引入（Introduction）：引入允许我们向现有的类添加新的方法或者属性。
+* 织入（Weaving）: 将增强处理添加到目标对象中，并创建一个被增强的对象，我们之前都是在将我们的增强处理添加到目标对象，也就是织入（这名字挺有文艺范的）
 
 ---
 
@@ -617,7 +616,7 @@ public class MainConfiguration {
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-		<!-- 没有配置任何Bean -->
+  <!-- 没有配置任何Bean -->
 </beans>
 ```
 
@@ -638,7 +637,7 @@ public Card card(){
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-		<bean class="com.test.bean.Card"></bean>
+  <bean class="com.test.bean.Card"></bean>
 </beans>
 ```
 
@@ -659,7 +658,7 @@ public Card card(){
 ```java
 public class Main {
     public static void main(String[] args) {
-      	//使用AnnotationConfigApplicationContext来实现注解配置
+       //使用AnnotationConfigApplicationContext来实现注解配置
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfiguration.class); //这里需要告诉Spring哪个类作为配置类
         Card card = context.getBean(Card.class);  //容器用法和之前一样
         System.out.println(card);
@@ -979,16 +978,16 @@ private SqlSession openSessionFromDataSource(ExecutorType execType, TransactionI
 
     DefaultSqlSession var8;
     try {
-      	//获取当前环境（由配置文件映射的对象实体）
+       //获取当前环境（由配置文件映射的对象实体）
         Environment environment = this.configuration.getEnvironment();
-      	//事务工厂（暂时不提，下一板块讲解）
+       //事务工厂（暂时不提，下一板块讲解）
         TransactionFactory transactionFactory = this.getTransactionFactoryFromEnvironment(environment);
-      	//配置文件中：<transactionManager type="JDBC"/>
-      	//生成事务（根据我们的配置，会默认生成JdbcTransaction），这里是关键，我们看到这里用到了environment.getDataSource()方法
+       //配置文件中：<transactionManager type="JDBC"/>
+       //生成事务（根据我们的配置，会默认生成JdbcTransaction），这里是关键，我们看到这里用到了environment.getDataSource()方法
         tx = transactionFactory.newTransaction(environment.getDataSource(), level, autoCommit);
-      	//执行器，包括全部的数据库操作方法定义，本质上是在使用执行器操作数据库，需要传入事务对象
+       //执行器，包括全部的数据库操作方法定义，本质上是在使用执行器操作数据库，需要传入事务对象
         Executor executor = this.configuration.newExecutor(tx, execType);
-      	//封装为SqlSession对象
+       //封装为SqlSession对象
         var8 = new DefaultSqlSession(this.configuration, executor, autoCommit);
     } catch (Exception var12) {
         this.closeTransaction(tx);
@@ -996,7 +995,7 @@ private SqlSession openSessionFromDataSource(ExecutorType execType, TransactionI
     } finally {
         ErrorContext.instance().reset();
     }
-		
+  
     return var8;
 }
 ```
@@ -1097,11 +1096,11 @@ private Connection doGetConnection(String username, String password) throws SQLE
 
 ```java
 private Connection doGetConnection(Properties properties) throws SQLException {
-  	//若未初始化驱动，需要先初始化，内部维护了一个Map来记录初始化信息，这里不多介绍了
+   //若未初始化驱动，需要先初始化，内部维护了一个Map来记录初始化信息，这里不多介绍了
     this.initializeDriver();
-  	//传统的获取连接的方式
+   //传统的获取连接的方式
     Connection connection = DriverManager.getConnection(this.url, properties);
-  	//对连接进行额外的一些配置
+   //对连接进行额外的一些配置
     this.configureConnection(connection);
     return connection;
 }
@@ -1144,7 +1143,7 @@ public Connection getConnection(String username, String password) throws SQLExce
 ```java
 private PooledConnection popConnection(String username, String password) throws SQLException {
     boolean countedWait = false;
-  	//返回的是PooledConnection对象，
+   //返回的是PooledConnection对象，
     PooledConnection conn = null;
     long t = System.currentTimeMillis();
     int localBadConnectionCount = 0;
@@ -1152,7 +1151,7 @@ private PooledConnection popConnection(String username, String password) throws 
     while(conn == null) {
         synchronized(this.state) {   //加锁，因为有可能很多个线程都需要获取连接对象
             PoolState var10000;
-          	//PoolState存了两个List，一个是空闲列表，一个是活跃列表
+           //PoolState存了两个List，一个是空闲列表，一个是活跃列表
             if (!this.state.idleConnections.isEmpty()) {   //有空闲连接时，可以直接分配Connection
                 conn = (PooledConnection)this.state.idleConnections.remove(0);  //ArrayList中取第一个元素
                 if (log.isDebugEnabled()) {
@@ -1160,28 +1159,28 @@ private PooledConnection popConnection(String username, String password) throws 
                 }
               //如果已经没有多余的连接可以分配，那么就检查一下活跃连接数是否达到最大的分配上限，如果没有，就new一个
             } else if (this.state.activeConnections.size() < this.poolMaximumActiveConnections) {
-              	//注意new了之后并没有立即往List里面塞，只是存了一些基本信息
-              	//我们发现，这里依靠UnpooledDataSource创建了一个Connection对象，并将其封装到PooledConnection中
+               //注意new了之后并没有立即往List里面塞，只是存了一些基本信息
+               //我们发现，这里依靠UnpooledDataSource创建了一个Connection对象，并将其封装到PooledConnection中
                 conn = new PooledConnection(this.dataSource.getConnection(), this);
                 if (log.isDebugEnabled()) {
                     log.debug("Created connection " + conn.getRealHashCode() + ".");
                 }
               //以上条件都不满足，那么只能从之前的连接中寻找了，看看有没有那种卡住的链接（由于网络问题有可能之前的连接一直被卡住，然而正常情况下早就结束并且可以使用了，所以这里相当于是优化也算是一种捡漏的方式）
             } else {
-              	//获取最早创建的连接
+               //获取最早创建的连接
                 PooledConnection oldestActiveConnection = (PooledConnection)this.state.activeConnections.get(0);
                 long longestCheckoutTime = oldestActiveConnection.getCheckoutTime();
-              	//判断是否超过最大的使用时间
+               //判断是否超过最大的使用时间
                 if (longestCheckoutTime > (long)this.poolMaximumCheckoutTime) {
-                  	//超时统计信息（不重要）
+                   //超时统计信息（不重要）
                     ++this.state.claimedOverdueConnectionCount;
                     var10000 = this.state;
                     var10000.accumulatedCheckoutTimeOfOverdueConnections += longestCheckoutTime;
                     var10000 = this.state;
                     var10000.accumulatedCheckoutTime += longestCheckoutTime;
-                  	//从活跃列表中移除此链接信息
+                   //从活跃列表中移除此链接信息
                     this.state.activeConnections.remove(oldestActiveConnection);
-                  	//如果开启事务，还需要回滚一下
+                   //如果开启事务，还需要回滚一下
                     if (!oldestActiveConnection.getRealConnection().getAutoCommit()) {
                         try {
                             oldestActiveConnection.getRealConnection().rollback();
@@ -1189,12 +1188,12 @@ private PooledConnection popConnection(String username, String password) throws 
                             log.debug("Bad connection. Could not roll back");
                         }
                     }
-										
-                  	//这里就根据之前的连接对象直接new一个新的连接（注意使用的还是之前的Connection对象，只是被重新封装了）
+          
+                   //这里就根据之前的连接对象直接new一个新的连接（注意使用的还是之前的Connection对象，只是被重新封装了）
                     conn = new PooledConnection(oldestActiveConnection.getRealConnection(), this);
                     conn.setCreatedTimestamp(oldestActiveConnection.getCreatedTimestamp());
                     conn.setLastUsedTimestamp(oldestActiveConnection.getLastUsedTimestamp());
-                  	//过期
+                   //过期
                     oldestActiveConnection.invalidate();
                     if (log.isDebugEnabled()) {
                         log.debug("Claimed overdue connection " + conn.getRealHashCode() + ".");
@@ -1214,7 +1213,7 @@ private PooledConnection popConnection(String username, String password) throws 
 
                         long wt = System.currentTimeMillis();
                         this.state.wait((long)this.poolTimeToWait);   //要是超过等待时间还是没等到，只能放弃
-                      	//注意这样的话con就为null了
+                       //注意这样的话con就为null了
                         var10000 = this.state;
                         var10000.accumulatedWaitTime += System.currentTimeMillis() - wt;
                     } catch (InterruptedException var16) {
@@ -1222,8 +1221,8 @@ private PooledConnection popConnection(String username, String password) throws 
                     }
                 }
             }
-						
-          	//经过之前的操作，已经成功分配到连接对象的情况下
+      
+           //经过之前的操作，已经成功分配到连接对象的情况下
             if (conn != null) {
                 if (conn.isValid()) {  //是否有效
                     if (!conn.getRealConnection().getAutoCommit()) {  //清理之前遗留的事务操作
@@ -1233,14 +1232,14 @@ private PooledConnection popConnection(String username, String password) throws 
                     conn.setConnectionTypeCode(this.assembleConnectionTypeCode(this.dataSource.getUrl(), username, password));
                     conn.setCheckoutTimestamp(System.currentTimeMillis());
                     conn.setLastUsedTimestamp(System.currentTimeMillis());
-                  	//添加到活跃表中
+                   //添加到活跃表中
                     this.state.activeConnections.add(conn);
                     //统计信息（不重要）
                     ++this.state.requestCount;
                     var10000 = this.state;
                     var10000.accumulatedRequestTime += System.currentTimeMillis() - t;
                 } else {
-                  	//无效的连接，直接抛异常
+                   //无效的连接，直接抛异常
                     if (log.isDebugEnabled()) {
                         log.debug("A bad connection (" + conn.getRealHashCode() + ") was returned from the pool, getting another connection.");
                     }
@@ -1259,8 +1258,8 @@ private PooledConnection popConnection(String username, String password) throws 
             }
         }
     }
-	
-  	//最后该干嘛干嘛，拿不到连接直接抛异常
+ 
+   //最后该干嘛干嘛，拿不到连接直接抛异常
     if (conn == null) {
         if (log.isDebugEnabled()) {
             log.debug("PooledDataSource: Unknown severe error condition.  The connection pool returned a null connection.");
@@ -1284,11 +1283,11 @@ class PooledConnection implements InvocationHandler {
   private static final String CLOSE = "close";
     private static final Class<?>[] IFACES = new Class[]{Connection.class};
     private final int hashCode;
-  	//会记录是来自哪一个数据源创建的的
+   //会记录是来自哪一个数据源创建的的
     private final PooledDataSource dataSource;
-  	//连接对象本体
+   //连接对象本体
     private final Connection realConnection;
-  	//代理的链接对象
+   //代理的链接对象
     private final Connection proxyConnection;
   ...
 ```
@@ -1298,19 +1297,19 @@ class PooledConnection implements InvocationHandler {
 ```java
 public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     String methodName = method.getName();
-  	//如果调用的是Connection对象的close方法，
+   //如果调用的是Connection对象的close方法，
     if ("close".equals(methodName)) {
-      	//这里并不会真的关闭连接（这也是为什么用代理），而是调用之前数据源的pushConnection方法，将此连接改为为空闲状态
+       //这里并不会真的关闭连接（这也是为什么用代理），而是调用之前数据源的pushConnection方法，将此连接改为为空闲状态
         this.dataSource.pushConnection(this);
         return null;
     } else {
         try {
             if (!Object.class.equals(method.getDeclaringClass())) {
                 this.checkConnection();
-              	//任何操作执行之前都会检查连接是否可用
+               //任何操作执行之前都会检查连接是否可用
             }
 
-          	//该干嘛干嘛
+           //该干嘛干嘛
             return method.invoke(this.realConnection, args);
         } catch (Throwable var6) {
             throw ExceptionUtil.unwrapThrowable(var6);
@@ -1324,12 +1323,12 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
 ```java
 protected void pushConnection(PooledConnection conn) throws SQLException {
     synchronized(this.state) {   //老规矩，先来把锁
-      	//先从活跃列表移除此连接
+       //先从活跃列表移除此连接
         this.state.activeConnections.remove(conn);
-      	//判断此链接是否可用
+       //判断此链接是否可用
         if (conn.isValid()) {
             PoolState var10000;
-          	//看看闲置列表容量是否已满（容量满了就回不去了）
+           //看看闲置列表容量是否已满（容量满了就回不去了）
             if (this.state.idleConnections.size() < this.poolMaximumIdleConnections && conn.getConnectionTypeCode() == this.expectedConnectionTypeCode) {
                 var10000 = this.state;
                 var10000.accumulatedCheckoutTime += conn.getCheckoutTime();
@@ -1337,9 +1336,9 @@ protected void pushConnection(PooledConnection conn) throws SQLException {
                     conn.getRealConnection().rollback();
                 }
 
-              	//把唯一有用的Connection对象拿出来，然后重新创建一个PooledConnection
+               //把唯一有用的Connection对象拿出来，然后重新创建一个PooledConnection
                 PooledConnection newConn = new PooledConnection(conn.getRealConnection(), this);
-              	//放入闲置列表，成功回收
+               //放入闲置列表，成功回收
                 this.state.idleConnections.add(newConn);
                 newConn.setCreatedTimestamp(conn.getCreatedTimestamp());
                 newConn.setLastUsedTimestamp(conn.getLastUsedTimestamp());
@@ -1439,7 +1438,7 @@ public class TestConfiguration {
             </dataSource>
         </environment>
     </environments>
-  	<mappers>
+   <mappers>
         <mapper class="com.test.mapper.TestMapper"/>
     </mappers>
 </configuration>
@@ -1600,10 +1599,10 @@ public class Main {
 
 在开始之前，我们还是回顾一下事务机制。首先事务遵循一个ACID原则：
 
-- 原子性（Atomicity）：事务是一个原子操作，由一系列动作组成。事务的原子性确保动作要么全部完成，要么完全不起作用。
-- 一致性（Consistency）：一旦事务完成（不管成功还是失败），系统必须确保它所建模的业务处于一致的状态，而不会是部分完成部分失败。在现实中的数据不应该被破坏。
-- 隔离性（Isolation）：可能有许多事务会同时处理相同的数据，因此每个事务都应该与其他事务隔离开来，防止数据损坏。
-- 持久性（Durability）：一旦事务完成，无论发生什么系统错误，它的结果都不应该受到影响，这样就能从任何系统崩溃中恢复过来。通常情况下，事务的结果被写到持久化存储器中。
+* 原子性（Atomicity）：事务是一个原子操作，由一系列动作组成。事务的原子性确保动作要么全部完成，要么完全不起作用。
+* 一致性（Consistency）：一旦事务完成（不管成功还是失败），系统必须确保它所建模的业务处于一致的状态，而不会是部分完成部分失败。在现实中的数据不应该被破坏。
+* 隔离性（Isolation）：可能有许多事务会同时处理相同的数据，因此每个事务都应该与其他事务隔离开来，防止数据损坏。
+* 持久性（Durability）：一旦事务完成，无论发生什么系统错误，它的结果都不应该受到影响，这样就能从任何系统崩溃中恢复过来。通常情况下，事务的结果被写到持久化存储器中。
 
 简单来说，事务就是要么完成，要么就啥都别做！并且不同的事务直接相互隔离，互不干扰。
 
@@ -1688,35 +1687,35 @@ public class JdbcTransaction implements Transaction {
     protected boolean autoCommit;
 
     public JdbcTransaction(DataSource ds, TransactionIsolationLevel desiredLevel, boolean desiredAutoCommit) {
-      	//数据源
+       //数据源
         this.dataSource = ds;
-      	//事务隔离级别，上面已经提到过了
+       //事务隔离级别，上面已经提到过了
         this.level = desiredLevel;
-      	//是否自动提交
+       //是否自动提交
         this.autoCommit = desiredAutoCommit;
     }
-  	
+   
   //也可以直接给个Connection对象
    public JdbcTransaction(Connection connection) {
         this.connection = connection;
     }
 
     public Connection getConnection() throws SQLException {
-      	//没有就通过数据源新开一个Connection
+       //没有就通过数据源新开一个Connection
         if (this.connection == null) {
             this.openConnection();
         }
-	
+ 
         return this.connection;
     }
 
     public void commit() throws SQLException {
-      	//连接已经创建并且没开启自动提交才可以使用
+       //连接已经创建并且没开启自动提交才可以使用
         if (this.connection != null && !this.connection.getAutoCommit()) {
             if (log.isDebugEnabled()) {
                 log.debug("Committing JDBC Connection [" + this.connection + "]");
             }
-						//实际上使用的是数据库驱动提供的Connection对象进行事务操作
+      //实际上使用的是数据库驱动提供的Connection对象进行事务操作
             this.connection.commit();
         }
 
@@ -1819,21 +1818,21 @@ public class Main {
 十二月 08, 2021 3:09:29 下午 com.zaxxer.hikari.HikariDataSource getConnection
 信息: HikariPool-1 - Start completed.
 Exception in thread "main" java.lang.RuntimeException: 我是测试异常！
-	at com.test.service.TestServiceImpl.test(TestServiceImpl.java:22)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
-	at com.sun.proxy.$Proxy30.test(Unknown Source)
-	at com.test.Main.main(Main.java:17)
+ at com.test.service.TestServiceImpl.test(TestServiceImpl.java:22)
+ at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+ at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ at java.lang.reflect.Method.invoke(Method.java:498)
+ at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+ at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+ at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+ at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+ at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+ at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+ at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+ at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+ at com.sun.proxy.$Proxy30.test(Unknown Source)
+ at com.test.Main.main(Main.java:17)
 ```
 
 我们发现，整个栈追踪信息中包含了大量aop包下的相关内容，也就印证了，它确实是通过AOP实现的，那么我们接着来看一下，数据库中的数据是否没有发生变化（出现异常回滚了）
@@ -1917,7 +1916,7 @@ public void test() {
 @Transactional(propagation = Propagation.SUPPORTS)
 public void test2() {
     mapper.insertStudent();
-   	if(true) throw new RuntimeException("我是测试异常！");
+    if(true) throw new RuntimeException("我是测试异常！");
 }
 ```
 
@@ -1942,14 +1941,14 @@ public void test2() {
 
 ```java
 Exception in thread "main" org.springframework.transaction.IllegalTransactionStateException: No existing transaction found for transaction marked with propagation 'mandatory'
-	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:362)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:595)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:382)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
-	at com.sun.proxy.$Proxy29.test2(Unknown Source)
-	at com.test.Main.main(Main.java:17)
+ at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:362)
+ at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:595)
+ at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:382)
+ at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+ at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+ at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+ at com.sun.proxy.$Proxy29.test2(Unknown Source)
+ at com.test.Main.main(Main.java:17)
 ```
 
 `NESTED`级别表示如果存在外层事务，则此方法单独创建一个子事务，回滚只会影响到此子事务，实际上就是利用创建Savepoint，然后回滚到此保存点实现的。`NEVER`级别表示此方法不应该加入到任何事务中，其余类型适用于同时操作多数据源情况下的分布式事务管理，这里暂时不做介绍。
@@ -2017,7 +2016,7 @@ public class TestMain {
 
 ## 探究Spring原理
 
-**注意：**本版块难度很大，作为选学内容。
+**注意：** 本版块难度很大，作为选学内容。
 
 如果学习Spring基本内容对你来说已经非常困难了，建议跳过此小节，直接进入MVC阶段的学习，此小节会从源码角度解释Spring的整个运行原理，对初学者来说等同于小学跨越到高中，它并不是必学内容，但是对于个人开发能力的提升极为重要（推荐完成整个SSM阶段的学习并且加以实战之后再来看此部分），如果你还是觉得自己能够跟上节奏继续深入钻研底层原理，那么现在就开始吧。
 
@@ -2114,22 +2113,22 @@ if (this.isPrototypeCurrentlyInCreation(beanName)) {
 @Nullable
 protected Object getSingleton(String beanName, boolean allowEarlyReference) {
     Object singletonObject = this.singletonObjects.get(beanName);
-  	//先从第一层列表中拿Bean实例，拿到直接返回
+   //先从第一层列表中拿Bean实例，拿到直接返回
     if (singletonObject == null && this.isSingletonCurrentlyInCreation(beanName)) {
-      	//第一层拿不到，并且已经认定为处于循环状态，看看第二层有没有
+       //第一层拿不到，并且已经认定为处于循环状态，看看第二层有没有
         singletonObject = this.earlySingletonObjects.get(beanName);
         if (singletonObject == null && allowEarlyReference) {
             synchronized(this.singletonObjects) {
-              	//加锁再执行一次上述流程
+               //加锁再执行一次上述流程
                 singletonObject = this.singletonObjects.get(beanName);
                 if (singletonObject == null) {
                     singletonObject = this.earlySingletonObjects.get(beanName);
                     if (singletonObject == null) {
-                      	//仍然没有获取到实例，只能从singletonFactory中获取了
+                       //仍然没有获取到实例，只能从singletonFactory中获取了
                         ObjectFactory<?> singletonFactory = (ObjectFactory)this.singletonFactories.get(beanName);
                         if (singletonFactory != null) {
                             singletonObject = singletonFactory.getObject();
-                          	//丢进earlySingletonObjects中，下次就可以直接在第二层拿到了
+                           //丢进earlySingletonObjects中，下次就可以直接在第二层拿到了
                             this.earlySingletonObjects.put(beanName, singletonObject);
                             this.singletonFactories.remove(beanName);
                         }
@@ -2185,24 +2184,24 @@ earlySingletonObjects相当于是专门处理循环依赖的表，一般包含si
 BeanFactory parentBeanFactory = this.getParentBeanFactory();
 //如果存在父BeanFactory，同时当前BeanFactory没有这个Bean的定义
 if (parentBeanFactory != null && !this.containsBeanDefinition(beanName)) {
-  	//这里是因为Bean可能有别名，找最原始的那个名称
+   //这里是因为Bean可能有别名，找最原始的那个名称
     String nameToLookup = this.originalBeanName(name);
     if (parentBeanFactory instanceof AbstractBeanFactory) {
-      	//向父BeanFactory递归查找
+       //向父BeanFactory递归查找
         return ((AbstractBeanFactory)parentBeanFactory).doGetBean(nameToLookup, requiredType, args, typeCheckOnly);
     }
 
     if (args != null) {
-      	//根据参数查找
+       //根据参数查找
         return parentBeanFactory.getBean(nameToLookup, args);
     }
 
     if (requiredType != null) {
-      	//根据类型查找
+       //根据类型查找
         return parentBeanFactory.getBean(nameToLookup, requiredType);
     }
 
-  	//各种找
+   //各种找
     return parentBeanFactory.getBean(nameToLookup);
 }
 ```
@@ -2306,8 +2305,8 @@ public class TestServiceImpl implements TestService{
         System.out.println("我是依赖注入");
         this.mapper = mapper;
     }
-  	
-  	...
+   
+   ...
 ```
 
 而TestServiceImpl的加载顺序为：
@@ -2350,7 +2349,7 @@ class AspectJAutoProxyRegistrar implements ImportBeanDefinitionRegistrar {
     }
 
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-      	//注册AnnotationAwareAspectJAutoProxyCreator到容器中
+       //注册AnnotationAwareAspectJAutoProxyCreator到容器中
         AopConfigUtils.registerAspectJAnnotationAutoProxyCreatorIfNecessary(registry);
         AnnotationAttributes enableAspectJAutoProxy = AnnotationConfigUtils.attributesFor(importingClassMetadata, EnableAspectJAutoProxy.class);
         if (enableAspectJAutoProxy != null) {
@@ -2435,24 +2434,24 @@ public void refresh() throws BeansException, IllegalStateException {
         StartupStep contextRefresh = this.applicationStartup.start("spring.context.refresh");
         this.prepareRefresh();
         ConfigurableListableBeanFactory beanFactory = this.obtainFreshBeanFactory();
-      	//初始化Bean工厂
+       //初始化Bean工厂
         this.prepareBeanFactory(beanFactory);
 
         try {
             this.postProcessBeanFactory(beanFactory);
             StartupStep beanPostProcess = this.applicationStartup.start("spring.context.beans.post-process");
-          	//调用所有的Bean工厂、Bean注册后置处理器
+           //调用所有的Bean工厂、Bean注册后置处理器
             this.invokeBeanFactoryPostProcessors(beanFactory);
-          	//注册Bean后置处理器（包括Spring内部的）
+           //注册Bean后置处理器（包括Spring内部的）
             this.registerBeanPostProcessors(beanFactory);
             beanPostProcess.end();
-          	//国际化支持
+           //国际化支持
             this.initMessageSource();
-          	//监听和事件广播
+           //监听和事件广播
             this.initApplicationEventMulticaster();
             this.onRefresh();
             this.registerListeners();
-          	//实例化所有的Bean
+           //实例化所有的Bean
             this.finishBeanFactoryInitialization(beanFactory);
             this.finishRefresh();
         } catch (BeansException var10) {
@@ -2490,7 +2489,7 @@ public @interface MapperScan {
     String[] value() default {};
 
     String[] basePackages() default {};
-  	...
+   ...
 ```
 
 我们发现，和Aop一样，它也是通过Registrar机制，通过`@Import`来进行Bean的注册，我们来看看`MapperScannerRegistrar`是个什么东西，关键代码如下：
@@ -2567,8 +2566,8 @@ public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) {
         this.processPropertyPlaceHolders();
     }
 
-  	//初始化类路径Mapper扫描器，它相当于是一个工具类，可以快速扫描出整个包下的类定义信息
-  	//ClassPathMapperScanner是Mybatis自己实现的一个扫描器，修改了一些扫描规则
+   //初始化类路径Mapper扫描器，它相当于是一个工具类，可以快速扫描出整个包下的类定义信息
+   //ClassPathMapperScanner是Mybatis自己实现的一个扫描器，修改了一些扫描规则
     ClassPathMapperScanner scanner = new ClassPathMapperScanner(registry);
     scanner.setAddToConfig(this.addToConfig);
     scanner.setAnnotationClass(this.annotationClass);
@@ -2588,9 +2587,9 @@ public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) {
         scanner.setDefaultScope(this.defaultScope);
     }
 
-  	//添加过滤器，这里会配置为所有的接口都能被扫描（因此即使你不添加@Mapper注解都能够被扫描并加载）
+   //添加过滤器，这里会配置为所有的接口都能被扫描（因此即使你不添加@Mapper注解都能够被扫描并加载）
     scanner.registerFilters();
-  	//开始扫描
+   //开始扫描
     scanner.scan(StringUtils.tokenizeToStringArray(this.basePackage, ",; \t\n"));
 }
 ```
@@ -2600,17 +2599,17 @@ public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) {
 ```java
 public Set<BeanDefinitionHolder> doScan(String... basePackages) {
     Set<BeanDefinitionHolder> beanDefinitions = super.doScan(basePackages);
-  	//首先从包中扫描所有的Bean定义
+   //首先从包中扫描所有的Bean定义
     if (beanDefinitions.isEmpty()) {
         LOGGER.warn(() -> {
             return "No MyBatis mapper was found in '" + Arrays.toString(basePackages) + "' package. Please check your configuration.";
         });
     } else {
-      	//处理所有的Bean定义，实际上就是生成对应Mapper的代理对象，并注册到容器中
+       //处理所有的Bean定义，实际上就是生成对应Mapper的代理对象，并注册到容器中
         this.processBeanDefinitions(beanDefinitions);
     }
 
-  	//最后返回所有的Bean定义集合
+   //最后返回所有的Bean定义集合
     return beanDefinitions;
 }
 ```

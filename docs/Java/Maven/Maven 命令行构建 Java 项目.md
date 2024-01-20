@@ -1,18 +1,14 @@
 # Maven 命令行构建 Java 项目
 
-[(22条消息) 使用Maven构建SpringBoot项目_Amazing_time的博客-CSDN博客_如何生成springboot项目的mvn构建命令](https://blog.csdn.net/m0_59420288/article/details/128177819)
-
-[xml - 在 Spring-Boot Intro 之后， &quot;Unable to find a suitable main class, please add a ' mainClass' 属性&quot; - IT工具网 (coder.work)](https://www.coder.work/article/4058647)
-
-[(22条消息) Spring Boot 学习笔记 3 : mvn spring-boot:run_SmileorSilence的博客-CSDN博客_spring-boot:run](https://blog.csdn.net/SmileorSilence/article/details/79085867)
-
-[springboot命令行启动的方法详解 - 第一PHP社区 (php1.cn)](https://www.php1.cn/detail/springboot_MingL_818fc6bc.html)
-
-[(37条消息) maven常用命令大全(附详细解释)_mvn命令详解_good_good_xiu的博客-CSDN博客](https://blog.csdn.net/good_good_xiu/article/details/116740333)
+- [使用Maven构建SpringBoot项目](https://blog.csdn.net/m0_59420288/article/details/128177819)
+- [xml - 在 Spring-Boot Intro 之后， &quot;Unable to find a suitable main class, please add a ' mainClass' 属性&quot;](https://www.coder.work/article/4058647)
+- [Spring Boot 学习笔记 3 : mvn spring-boot:run](https://blog.csdn.net/SmileorSilence/article/details/79085867)
+- [springboot命令行启动的方法详解](https://www.php1.cn/detail/springboot_MingL_818fc6bc.html)
+- [(maven常用命令大全(附详细解释)_mvn命令详解](https://blog.csdn.net/good_good_xiu/article/details/116740333)
 
 ---
 
-* 使用命令生成Maven工程
+- 使用命令生成Maven工程
 
   ```shell
   mvn archetype:generate \
@@ -24,15 +20,15 @@
 
   参数说明：
 
-  * -DgroupId=com.project：组 ID
+  - -DgroupId=com.project：组 ID
 
-  * -DartifactId=example：项目名称，maven会根据这个名称在当前目录下新建一个名为该名称的目录用于建立项目
+  - -DartifactId=example：项目名称，maven会根据这个名称在当前目录下新建一个名为该名称的目录用于建立项目
 
-  * -DarchetypeArtifactId：项目原型，使用哪种原型来创建项目的初始结构,在这里，我们先使用maven-archetype-quickstart创建一个简单的 Java 应用
+  - -DarchetypeArtifactId：项目原型，使用哪种原型来创建项目的初始结构,在这里，我们先使用maven-archetype-quickstart创建一个简单的 Java 应用
 
-  * -DinteractiveMode=false ：是否已交互模式进行，如果是false的话就会采用默认设置建立项目
+  - -DinteractiveMode=false ：是否已交互模式进行，如果是false的话就会采用默认设置建立项目
 
-* `mvn archetype:generate`​ 操作案例：
+- `mvn archetype:generate`​ 操作案例：
 
   ```shell
   $ mvn archetype:generate
@@ -94,7 +90,7 @@
   [INFO] ------------------------------------------------------------------------
   ```
 
-* 常用打包命令 `mvnw`​或`mvn`​
+- 常用打包命令 `mvnw`​或`mvn`​
 
   ```shell
   ./mvnw clean package -Dmaven.test.skip=true   # 跳过单测打包

@@ -68,7 +68,6 @@ fn main() {
     println!("nonce: {:?}", block.nonce);
     println!("Hash: {:?}", block.hash(),);
 }
-
 ```
 
 在上面的代码中，我们定义了一个结构体 `Block` 来表示区块信息，其中包含了区块的data（数据）和一个nonce（特定场合）。

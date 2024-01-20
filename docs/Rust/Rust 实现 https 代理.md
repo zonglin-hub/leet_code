@@ -1,6 +1,6 @@
 # Rust 实现 https 代理
 
-```toml
+```tomls
 [dependencies]
 anyhow = "1.0.75"
 colored = "2.0.4"

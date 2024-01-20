@@ -1,4 +1,4 @@
-# 持久层框架：JPA
+## 持久层框架：JPA
 
 * 用了Mybatis之后，你看那个JDBC，真是太逊了。
 * 这么说，你的项目很勇哦？
@@ -100,7 +100,7 @@ spring:
 
 我们可以在日志中发现，在启动时执行了如下SQL语句：
 
-```
+```text
 Hibernate: create table users (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
 ```
 
@@ -255,7 +255,7 @@ void test() {
 
 注意自定义条件操作的方法名称一定要遵循规则，不然会出现异常：
 
-```
+```text
 Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract  ...
 ```
 
@@ -319,7 +319,7 @@ public class Account {
 
 在修改实体类信息后，我们发现在启动时也进行了更新，日志如下：
 
-```
+```text
 Hibernate: alter table users add column detail_id integer
 Hibernate: create table users_detail (id integer not null auto_increment, address varchar(255), email varchar(255), phone varchar(255), real_name varchar(255), primary key (id)) engine=InnoDB
 Hibernate: alter table users add constraint FK7gb021edkxf3mdv5bs75ni6jd foreign key (detail_id) references users_detail (id)
@@ -338,7 +338,7 @@ void pageAccount() {
 
 查询后，可以发现，得到如下结果：
 
-```
+```text
 Hibernate: select account0_.id as id1_0_0_, account0_.detail_id as detail_i4_0_0_, account0_.password as password2_0_0_, account0_.username as username3_0_0_, accountdet1_.id as id1_1_1_, accountdet1_.address as address2_1_1_, accountdet1_.email as email3_1_1_, accountdet1_.phone as phone4_1_1_, accountdet1_.real_name as real_nam5_1_1_ from users account0_ left outer join users_detail accountdet1_ on account0_.detail_id=accountdet1_.id where account0_.id=?
 Account(id=1, username=Test, password=123456, detail=AccountDetail(id=1, address=四川省成都市青羊区, email=8371289@qq.com, phone=1234567890, realName=本伟))
 ```
@@ -368,7 +368,7 @@ void pageAccount() {
 
 接着我们来看看控制台输出了什么：
 
-```
+```text
 Hibernate: select account0_.id as id1_0_0_, account0_.detail_id as detail_i4_0_0_, account0_.password as password2_0_0_, account0_.username as username3_0_0_ from users account0_ where account0_.id=?
 Test
 Hibernate: select accountdet0_.id as id1_1_0_, accountdet0_.address as address2_1_0_, accountdet0_.email as email3_1_0_, accountdet0_.phone as phone4_1_0_, accountdet0_.real_name as real_nam5_1_0_ from users_detail accountdet0_ where accountdet0_.id=?
@@ -411,7 +411,7 @@ void addAccount(){
 
 可以看到日志结果：
 
-```
+```text
 Hibernate: insert into users_detail (address, email, phone, real_name) values (?, ?, ?, ?)
 Hibernate: insert into users (detail_id, password, username) values (?, ?, ?)
 插入时，自动生成的主键ID为：6，外键ID为：3

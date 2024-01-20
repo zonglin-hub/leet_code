@@ -1,6 +1,7 @@
 参考文档：
-[2023版Spring6零基础视频教程，spring入门到精通](https://www.bilibili.com/video/BV1kR4y1b7Qc?p=44&vd_source=9bfc54d2ed901f1eab04708cc346c2f5)
-[Core Technologies (spring.io)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#spring-core)
+
+- [2023版Spring6零基础视频教程，spring入门到精通](https://www.bilibili.com/video/BV1kR4y1b7Qc?p=44&vd_source=9bfc54d2ed901f1eab04708cc346c2f5)
+- [Core Technologies (spring.io)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#spring-core)
 
 ---
 
@@ -10,8 +11,8 @@ Java 反射实现 Spring IoC 案例：[gitee](https://gitee.com/liuzonglin1/java
 
 依赖注入实现方式：
 
-* [基于setter的依赖注入](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-setter-injection)
-* [基于构造函数的依赖注入](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-constructor-injection)
+- [基于setter的依赖注入](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-setter-injection)
+- [基于构造函数的依赖注入](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-constructor-injection)
 
 [Bean 的作用域](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-scopes)：**​ ​**在创建bean定义时，您创建了用于创建由该bean定义定义的类的实际实例的配方。bean定义是一个配方的想法很重要，因为这意味着，与类一样，您可以从一个配方创建许多对象实例。
 
@@ -20,7 +21,6 @@ Spring 提供了IoC 容器的两种实现方式：
 1. [BeanFactory](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-beanfactory)：这是 IoC 容器的基本实现，是 Spring 内部使用的接口。面向 Spring 本身，不提供给开发人员使用。
 
 2. ApplicationContext：BeanFactory 的子接口，提供了更多高级特性。面向 Spring 的使用者，几乎所有场合都使用 ApplicationContext 而不是底层的 BeanFactory。
-![images](https://img2023.cnblogs.com/blog/2402369/202303/2402369-20230310014116782-1022722002.png "ApplicationContext的主要实现类")
 
  | 类型名                          | 简介                                                                                                                          |
  | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |

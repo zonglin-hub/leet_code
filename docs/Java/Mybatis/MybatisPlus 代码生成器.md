@@ -1,6 +1,6 @@
 # MybatisPlus 代码生成器
 
-# 旧版
+## 旧版
 
 [Gradle + SpringBoot + Mybatis-plus + 代码生成器 + 多数据源配置 | 码农家园 (codenong.com)](https://www.codenong.com/cs106384267/)
 
@@ -185,19 +185,19 @@ public class CodeGet {
 ```cmd
 23:06:24.204 [main] DEBUG com.baomidou.mybatisplus.generator.AutoGenerator - ==========================准备生成文件...==========================
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
-	at com.baomidou.mybatisplus.generator.config.DataSourceConfig.getConn(DataSourceConfig.java:170)
-	at com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder.<init>(ConfigBuilder.java:110)
-	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:96)
-	at com.atguigu.CodeGet.main(CodeGet.java:77)
+ at com.baomidou.mybatisplus.generator.config.DataSourceConfig.getConn(DataSourceConfig.java:170)
+ at com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder.<init>(ConfigBuilder.java:110)
+ at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:96)
+ at com.atguigu.CodeGet.main(CodeGet.java:77)
 Caused by: java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:264)
-	at com.baomidou.mybatisplus.generator.config.DataSourceConfig.getConn(DataSourceConfig.java:167)
-	... 3 more
+ at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+ at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+ at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)
+ at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+ at java.lang.Class.forName0(Native Method)
+ at java.lang.Class.forName(Class.java:264)
+ at com.baomidou.mybatisplus.generator.config.DataSourceConfig.getConn(DataSourceConfig.java:167)
+ ... 3 more
 ```
 
 ### slf4j 依赖缺失
@@ -207,25 +207,25 @@ SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver
-	at com.baomidou.mybatisplus.generator.config.DataSourceConfig.getConn(DataSourceConfig.java:170)
-	at com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder.<init>(ConfigBuilder.java:110)
-	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:96)
-	at CodeGet.main(CodeGet.java:76)
+ at com.baomidou.mybatisplus.generator.config.DataSourceConfig.getConn(DataSourceConfig.java:170)
+ at com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder.<init>(ConfigBuilder.java:110)
+ at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:96)
+ at CodeGet.main(CodeGet.java:76)
 Caused by: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:352)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:264)
-	at com.baomidou.mybatisplus.generator.config.DataSourceConfig.getConn(DataSourceConfig.java:167)
-	... 3 more
+ at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+ at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+ at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:352)
+ at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+ at java.lang.Class.forName0(Native Method)
+ at java.lang.Class.forName(Class.java:264)
+ at com.baomidou.mybatisplus.generator.config.DataSourceConfig.getConn(DataSourceConfig.java:167)
+ ... 3 more
 ```
 
-# 新版
+## 新版
 
-- [代码生成器（新） | MyBatis-Plus](https://baomidou.com/pages/779a6e/#%E5%AE%89%E8%A3%85)
-- [Maven Repository: Search/Browse/Explore](https://mvnrepository.com/)
+* [代码生成器（新） | MyBatis-Plus](https://baomidou.com/pages/779a6e/#%E5%AE%89%E8%A3%85)
+* [Maven Repository: Search/Browse/Explore](https://mvnrepository.com/)
 
 * 依赖导入
 

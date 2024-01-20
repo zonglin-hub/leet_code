@@ -1,5 +1,3 @@
-# SpringCould 进阶
-
 # 微服务进阶
 
 前面我们了解了微服务的一套解决方案，但是它是基于Netflix的解决方案，实际上我们发现，很多框架都已经停止维护了，来看看目前我们所认识到的SpringCloud各大组件的维护情况：
@@ -60,7 +58,7 @@ $JAVA ${JAVA_OPT} nacos.nacos
 
 接着我们点击启动：
 
-OK，启动成功，可以看到它的管理页面地址也是给我们贴出来了： http://localhost:8848/nacos/index.html，访问这个地址：
+OK，启动成功，可以看到它的管理页面地址也是给我们贴出来了： <http://localhost:8848/nacos/index.html，访问这个地址：>
 
 默认的用户名和管理员密码都是`nacos`，直接登陆即可，可以看到进入管理页面之后功能也是相当丰富：
 
@@ -79,16 +77,16 @@ OK，启动成功，可以看到它的管理页面地址也是给我们贴出来
             <version>2.2.0</version>
         </dependency>
       
-      	<!-- 这里引入最新的SpringCloud依赖 -->
+       <!-- 这里引入最新的SpringCloud依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
             <version>2021.0.1</version>
-          	<type>pom</type>
+           <type>pom</type>
             <scope>import</scope>
         </dependency>
 
-     	  <!-- 这里引入最新的SpringCloudAlibaba依赖，2021.0.1.0版本支持SpringBoot2.6.X -->
+        <!-- 这里引入最新的SpringCloudAlibaba依赖，2021.0.1.0版本支持SpringBoot2.6.X -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -113,7 +111,7 @@ OK，启动成功，可以看到它的管理页面地址也是给我们贴出来
 
 ```yaml
 server:
-	# 之后所有的图书服务节点就81XX端口
+ # 之后所有的图书服务节点就81XX端口
   port: 8101
 spring:
   datasource:
@@ -260,7 +258,7 @@ spring:
 ```yaml
 eureka:
   client:
-		fetch-registry: false
+  fetch-registry: false
     register-with-eureka: false
     service-url:
       defaultZone: http://localhost:8888/eureka
@@ -359,15 +357,15 @@ spring:
 ```yaml
 spring:
   application:
-  	# 服务名称和配置文件保持一致
+   # 服务名称和配置文件保持一致
     name: borrowservice
   profiles:
-  	# 环境也是和配置文件保持一致
+   # 环境也是和配置文件保持一致
     active: dev
   cloud:
     nacos:
       config:
-      	# 配置文件后缀名
+       # 配置文件后缀名
         file-extension: yml
         # 配置中心服务器地址，也就是Nacos地址
         server-addr: localhost:8848
@@ -440,9 +438,9 @@ public class TestController {
 
 官方方案：[https://nacos.io/zh-cn/docs/cluster-mode-quick-start.html](https://nacos.io/zh-cn/docs/cluster-mode-quick-start.html)
 
-> http://ip1:port/openAPI 直连ip模式，机器挂则需要修改ip才可以使用。
+> <http://ip1:port/openAPI> 直连ip模式，机器挂则需要修改ip才可以使用。
 >
-> http://SLB:port/openAPI 挂载SLB模式(内网SLB，不可暴露到公网，以免带来安全风险)，直连SLB即可，下面挂server真实ip，可读性不好。
+> <http://SLB:port/openAPI> 挂载SLB模式(内网SLB，不可暴露到公网，以免带来安全风险)，直连SLB即可，下面挂server真实ip，可读性不好。
 >
 > [http://nacos.com/openAPI](http://nacos.com:port/openAPI) 域名 + SLB模式(内网SLB，不可暴露到公网，以免带来安全风险)，可读性好，而且换ip方便，推荐模式
 
@@ -528,10 +526,9 @@ server {
 
 这样，我们就搭建好了Nacos集群。
 
-
 ## Sentinel 流量防卫兵
 
-**注意：**这一章有点小绕，思路理清。
+**注意：** 这一章有点小绕，思路理清。
 
 经过之前的学习，我们了解了微服务存在的雪崩问题，也就是说一个微服务出现问题，有可能导致整个链路直接不可用，这种时候我们就需要进行及时的熔断和降级，这些策略，我们之前通过使用Hystrix来实现。
 
@@ -541,12 +538,10 @@ SpringCloud Alibaba也有自己的微服务容错组件，但是它相比Hystrix
 
 Sentinel 具有以下特征:
 
-- **丰富的应用场景**：Sentinel 承接了阿里巴巴近 10 年的双十一大促流量的核心场景，例如秒杀（即突发流量控制在系统容量可以承受的范围）、消息削峰填谷、集群流量控制、实时熔断下游不可用应用等。
-- **完备的实时监控**：Sentinel 同时提供实时的监控功能。您可以在控制台中看到接入应用的单台机器秒级数据，甚至 500 台以下规模的集群的汇总运行情况。
-- **广泛的开源生态**：Sentinel 提供开箱即用的与其它开源框架/库的整合模块，例如与 Spring Cloud、Apache Dubbo、gRPC、Quarkus 的整合。您只需要引入相应的依赖并进行简单的配置即可快速地接入 Sentinel。同时 Sentinel 提供 Java/Go/C++ 等多语言的原生实现。
-- **完善的 SPI 扩展机制**：Sentinel 提供简单易用、完善的 SPI 扩展接口。您可以通过实现扩展接口来快速地定制逻辑。例如定制规则管理、适配动态数据源等。
-
-### 安装与部署
+* **丰富的应用场景**：Sentinel 承接了阿里巴巴近 10 年的双十一大促流量的核心场景，例如秒杀（即突发流量控制在系统容量可以承受的范围）、消息削峰填谷、集群流量控制、实时熔断下游不可用应用等。
+* **完备的实时监控**：Sentinel 同时提供实时的监控功能。您可以在控制台中看到接入应用的单台机器秒级数据，甚至 500 台以下规模的集群的汇总运行情况。
+* **广泛的开源生态**：Sentinel 提供开箱即用的与其它开源框架/库的整合模块，例如与 Spring Cloud、Apache Dubbo、gRPC、Quarkus 的整合。您只需要引入相应的依赖并进行简单的配置即可快速地接入 Sentinel。同时 Sentinel 提供 Java/Go/C++ 等多语言的原生实现。
+* **完善的 SPI 扩展机制**：Sentinel 提供简单易用、完善的 SPI 扩展接口。您可以通过实现扩展接口来快速地定制逻辑。例如定制规则管理、适配动态数据源等。
 
 和Nacos一样，它是独立安装和部署的，下载地址：[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases)
 
@@ -554,7 +549,7 @@ Sentinel 具有以下特征:
 
 接着就可以直接启动啦，当然默认端口占用8080，如果需要修改，可以添加环境变量：
 
-启动之后，就可以访问到Sentinel的监控页面了，用户名和密码都是`sentinel`，地址：http://localhost:8858/#/dashboard
+启动之后，就可以访问到Sentinel的监控页面了，用户名和密码都是`sentinel`，地址：<http://localhost:8858/#/dashboard>
 
 这样就成功开启监控页面了，接着我们需要让我们的服务连接到Sentinel控制台，老规矩，导入依赖：
 
@@ -577,7 +572,7 @@ spring:
         server-addr: localhost:8848
     sentinel:
       transport:
-      	# 添加监控页面地址即可
+       # 添加监控页面地址即可
         dashboard: localhost:8858
 ```
 
@@ -733,11 +728,11 @@ spring:
 
 系统规则支持以下的模式：
 
-- **Load 自适应**（仅对 Linux/Unix-like 机器生效）：系统的 load1 作为启发指标，进行自适应系统保护。当系统 load1 超过设定的启发值，且系统当前的并发线程数超过估算的系统容量时才会触发系统保护（BBR 阶段）。系统容量由系统的 `maxQps * minRt` 估算得出。设定参考值一般是 `CPU cores * 2.5`。
-- **CPU usage**（1.5.0+ 版本）：当系统 CPU 使用率超过阈值即触发系统保护（取值范围 0.0-1.0），比较灵敏。
-- **平均 RT**：当单台机器上所有入口流量的平均 RT 达到阈值即触发系统保护，单位是毫秒。
-- **并发线程数**：当单台机器上所有入口流量的并发线程数达到阈值即触发系统保护。
-- **入口 QPS**：当单台机器上所有入口流量的 QPS 达到阈值即触发系统保护。
+* **Load 自适应**（仅对 Linux/Unix-like 机器生效）：系统的 load1 作为启发指标，进行自适应系统保护。当系统 load1 超过设定的启发值，且系统当前的并发线程数超过估算的系统容量时才会触发系统保护（BBR 阶段）。系统容量由系统的 `maxQps * minRt` 估算得出。设定参考值一般是 `CPU cores * 2.5`。
+* **CPU usage**（1.5.0+ 版本）：当系统 CPU 使用率超过阈值即触发系统保护（取值范围 0.0-1.0），比较灵敏。
+* **平均 RT**：当单台机器上所有入口流量的平均 RT 达到阈值即触发系统保护，单位是毫秒。
+* **并发线程数**：当单台机器上所有入口流量的并发线程数达到阈值即触发系统保护。
+* **入口 QPS**：当单台机器上所有入口流量的 QPS 达到阈值即触发系统保护。
 
 这里就不进行演示了。
 
@@ -822,9 +817,9 @@ String except(Throwable t){
 
 我们还可以对某一热点数据进行精准限流，比如在某一时刻，不同参数被携带访问的频率是不一样的：
 
-* http://localhost:8301/test?a=10  访问100次
-* http://localhost:8301/test?b=10  访问0次
-* http://localhost:8301/test?c=10  访问3次
+* <http://localhost:8301/test?a=10>  访问100次
+* <http://localhost:8301/test?b=10>  访问0次
+* <http://localhost:8301/test?c=10>  访问3次
 
 由于携带参数`a`的请求比较多，我们就可以只对携带参数`a`的请求进行限流。
 
@@ -844,11 +839,9 @@ String findUserBorrows2(@RequestParam(value = "a", required = false) int a,
 
 然后开始访问我们的测试接口，可以看到在携带参数a时，当访问频率超过设定值，就会直接被限流，这里是直接在后台抛出异常：
 
-
 而我们使用其他参数或是不带`a`参数，那么就不会出现这种问题了：
 
 除了直接对某个参数精准限流外，我们还可以对参数携带的指定值单独设定阈值，比如我们现在不仅希望对参数`a`限流，而且还希望当参数`a`的值为10时，QPS达到5再进行限流，那么就可以设定例外：
-
 
 这样，当请求携带参数`a`，且参数`a`的值为10时，阈值将按照我们指定的特例进行计算。
 
@@ -908,7 +901,6 @@ String findUserBorrows2(@RequestParam(value = "a", required = false) int a,
    ```
 
    启动服务器，接着添加我们的熔断规则：
-
 
    现在我们进行访问，会发现后台疯狂报错，然后就熔断了：
 
@@ -1222,23 +1214,23 @@ public class BorrowServiceImpl implements BorrowService{
 
     @Override
     public boolean doBorrow(int uid, int bid) {
-      	//1. 判断图书和用户是否都支持借阅
+       //1. 判断图书和用户是否都支持借阅
         if(bookClient.bookRemain(bid) < 1)
             throw new RuntimeException("图书数量不足");
         if(userClient.userRemain(uid) < 1)
             throw new RuntimeException("用户借阅量不足");
-      	//2. 首先将图书的数量-1
+       //2. 首先将图书的数量-1
         if(!bookClient.bookBorrow(bid))
             throw new RuntimeException("在借阅图书时出现错误！");
-      	//3. 添加借阅信息
+       //3. 添加借阅信息
         if(mapper.getBorrow(uid, bid) != null)
             throw new RuntimeException("此书籍已经被此用户借阅了！");
         if(mapper.addBorrow(uid, bid) <= 0)
             throw new RuntimeException("在录入借阅信息时出现错误！");
-      	//4. 用户可借阅-1
+       //4. 用户可借阅-1
         if(!userClient.userBorrow(uid))
             throw new RuntimeException("在借阅时出现错误！");
-      	//完成
+       //完成
         return true;
     }
 }
@@ -1368,8 +1360,8 @@ Seata服务端支持本地部署或是基于注册发现中心部署（比如Nac
 
 Seata存在着事务分组机制：
 
-- 事务分组：seata的资源逻辑，可以按微服务的需要，在应用程序（客户端）对自行定义事务分组，每组取一个名字。
-- 集群：seata-server服务端一个或多个节点组成的集群cluster。 应用程序（客户端）使用时需要指定事务逻辑分组与Seata服务端集群（默认为default）的映射关系。
+* 事务分组：seata的资源逻辑，可以按微服务的需要，在应用程序（客户端）对自行定义事务分组，每组取一个名字。
+* 集群：seata-server服务端一个或多个节点组成的集群cluster。 应用程序（客户端）使用时需要指定事务逻辑分组与Seata服务端集群（默认为default）的映射关系。
 
 为啥要设计成通过事务分组再直接映射到集群？干嘛不直接指定集群呢？获取事务分组到映射集群的配置。这样设计后，事务分组可以作为资源的逻辑隔离单位，出现某集群故障时可以快速failover，只切换对应分组，可以把故障缩减到服务级别，但前提也是你有足够server集群。
 
@@ -1388,8 +1380,8 @@ Seata存在着事务分组机制：
 seata:
   service:
     vgroup-mapping:
-    	# 这里需要对事务组做映射，默认的分组名为 应用名称-seata-service-group，将其映射到default集群
-    	# 这个很关键，一定要配置对，不然会找不到服务
+     # 这里需要对事务组做映射，默认的分组名为 应用名称-seata-service-group，将其映射到default集群
+     # 这个很关键，一定要配置对，不然会找不到服务
       bookservice-seata-service-group: default
     grouplist:
       default: localhost:8868
@@ -1415,7 +1407,7 @@ public class BookApplication {
 @GlobalTransactional
 @Override
 public boolean doBorrow(int uid, int bid) {
-  	//这里打印一下XID看看，其他的服务业添加这样一个打印，如果一会都打印的是同一个XID，表示使用的就是同一个事务
+   //这里打印一下XID看看，其他的服务业添加这样一个打印，如果一会都打印的是同一个XID，表示使用的就是同一个事务
     System.out.println(RootContext.getXID());
     if(bookClient.bookRemain(bid) < 1)
         throw new RuntimeException("图书数量不足");
@@ -1474,16 +1466,16 @@ CREATE TABLE `undo_log`
 
 ```properties
 registry {
-	# 注册配置
-	# 可以看到这里可以选择类型，默认情况下是普通的file类型，也就是本地文件的形式进行注册配置
-	# 支持的类型如下，对应的类型在下面都有对应的配置
+ # 注册配置
+ # 可以看到这里可以选择类型，默认情况下是普通的file类型，也就是本地文件的形式进行注册配置
+ # 支持的类型如下，对应的类型在下面都有对应的配置
   # file 、nacos 、eureka、redis、zk、consul、etcd3、sofa
   type = "nacos"
 
-	# 采用nacos方式会将seata服务端也注册到nacos中，这样客户端就可以利用服务发现自动找到seata服务
-	# 就不需要我们手动指定IP和端口了，不过看似方便，坑倒是不少，后面再说
+ # 采用nacos方式会将seata服务端也注册到nacos中，这样客户端就可以利用服务发现自动找到seata服务
+ # 就不需要我们手动指定IP和端口了，不过看似方便，坑倒是不少，后面再说
   nacos {
-  	# 应用名称，这里默认就行
+   # 应用名称，这里默认就行
     application = "seata-server"
     # Nacos服务器地址
     serverAddr = "localhost:8848"
@@ -1497,19 +1489,19 @@ registry {
     username = "nacos"
     password = "nacos"
   }
-  	#...
+   #...
 ```
 
 注册信息配置完成之后，接着我们需要将配置文件也放到Nacos中，让Nacos管理配置，这样我们就可以对配置进行热更新了，一旦环境需要变化，只需要直接在Nacos中修改即可。
 
 ```properties
 config {
-	# 这里我们也使用nacos
+ # 这里我们也使用nacos
   # file、nacos 、apollo、zk、consul、etcd3
   type = "nacos"
 
   nacos {
-  	# 跟上面一样的配法
+   # 跟上面一样的配法
     serverAddr = "127.0.0.1:8848"
     namespace = "89fc2145-4676-48b8-9edd-29e867879bcb"
     group = "SEATA_GROUP"
@@ -1532,12 +1524,12 @@ config {
 
 ```yaml
 seata:
-	# 注册
+ # 注册
   registry:
-  	# 使用Nacos
+   # 使用Nacos
     type: nacos
     nacos:
-    	# 使用Seata的命名空间，这样才能正确找到Seata服务，由于组使用的是SEATA_GROUP，配置默认值就是，就不用配了
+     # 使用Seata的命名空间，这样才能正确找到Seata服务，由于组使用的是SEATA_GROUP，配置默认值就是，就不用配了
       namespace: 89fc2145-4676-48b8-9edd-29e867879bcb
       username: nacos
       password: nacos

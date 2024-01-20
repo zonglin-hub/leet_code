@@ -37,7 +37,6 @@ fn main() {
     let elapsed = start.elapsed();
     println!("elapsed: {:?}", elapsed);
 }
-
 ```
 
 下面是一个更复杂的示例代码，实现了一个简单的区块链，其中包括POW机制、交易记录等。
@@ -146,7 +145,6 @@ fn main() {
     blockchain.mine_block();
     println!("Blockchain: {:?}", blockchain);
 }
-
 ```
 
 ## err

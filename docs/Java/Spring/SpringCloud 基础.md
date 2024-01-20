@@ -1,5 +1,3 @@
-# SpringCloud基础
-
 # 微服务基础
 
 **注意：** 此阶段学习推荐的电脑配置，至少配备4核心CPU（主频3.0Ghz以上）+16GB内存，否则卡到你怀疑人生。
@@ -48,14 +46,13 @@ SpringCloud是Spring提供的一套分布式解决方案，集合了一些大型
 
 由于中小型公司没有独立开发自己的分布式基础设施的能力，使用SpringCloud解决方案能够以最低的成本应对当前时代的业务发展。
 
-
 可以看到，SpringCloud整体架构的亮点是非常明显的，分布式架构下的各个场景，都有对应的组件来处理，比如基于Netflix（奈飞）的开源分布式解决方案提供的组件：
 
-- Eureka  -  实现服务治理（服务注册与发现），我们可以对所有的微服务进行集中管理，包括他们的运行状态、信息等。
-- Ribbon  -  为服务之间相互调用提供负载均衡算法（现在被SpringCloudLoadBalancer取代）
-- Hystrix  -  断路器，保护系统，控制故障范围。暂时可以跟家里电闸的保险丝类比，当触电危险发生时能够防止进一步的发展。
-- Zuul   -     api网关，路由，负载均衡等多种作用，就像我们的路由器，可能有很多个设备都连接了路由器，但是数据包要转发给谁则是由路由器在进行（已经被SpringCloudGateway取代）
-- Config  -  配置管理，可以实现配置文件集中管理
+* Eureka  -  实现服务治理（服务注册与发现），我们可以对所有的微服务进行集中管理，包括他们的运行状态、信息等。
+* Ribbon  -  为服务之间相互调用提供负载均衡算法（现在被SpringCloudLoadBalancer取代）
+* Hystrix  -  断路器，保护系统，控制故障范围。暂时可以跟家里电闸的保险丝类比，当触电危险发生时能够防止进一步的发展。
+* Zuul   -     api网关，路由，负载均衡等多种作用，就像我们的路由器，可能有很多个设备都连接了路由器，但是数据包要转发给谁则是由路由器在进行（已经被SpringCloudGateway取代）
+* Config  -  配置管理，可以实现配置文件集中管理
 
 当然，这里只是进行简单的了解即可，实际上微服务的玩法非常多，我们后面的学习中将会逐步进行探索。
 
@@ -81,15 +78,11 @@ SpringCloud是Spring提供的一套分布式解决方案，集合了一些大型
 
 我们首先创建一个普通的SpringBoot项目：
 
-
 然后不需要勾选任何依赖，直接创建即可，项目创建完成并初始化后，我们删除父工程的无用文件，只保留必要文件，像下面这样：
-
 
 接着我们就可以按照我们划分的服务，进行子工程创建了，创建一个新的Maven项目，注意父项目要指定为我们一开始创建的的项目，子项目命名随意：
 
-
 子项目创建好之后，接着我们在子项目中创建SpringBoot的启动主类：
-
 
 接着我们点击运行，即可启动子项目了，实际上这个子项目就一个最简单的SpringBoot web项目，注意启动之后最下方有弹窗，我们点击"使用 服务"，这样我们就可以实时查看当前整个大项目中有哪些微服务了：
 
@@ -268,7 +261,6 @@ public class BookController {
 
 同样进行一下测试：
 
-
 这样，我们一个完整项目的就拆分成了多个微服务，不同微服务之间是独立进行开发和部署的。
 
 ### 服务间调用
@@ -277,9 +269,7 @@ public class BookController {
 
 借阅服务是一个关联性比较强的服务，它不仅仅需要查询借阅信息，同时可能还需要获取借阅信息下的详细信息，比如具体那个用户借阅了哪本书，并且用户和书籍的详情也需要同时出现，那么这种情况下，我们就需要去访问除了借阅表以外的用户表和图书表。
 
-
 但是这显然是违反我们之前所说的单一职责的，相同的业务功能不应该重复出现，但是现在由需要在此服务中查询用户的信息和图书信息，那怎么办呢？我们可以让一个服务去调用另一个服务来获取信息。
-
 
 这样，图书管理微服务和用户管理微服务相对于借阅记录，就形成了一个生产者和消费者的关系，前者是生产者，后者便是消费者。
 
@@ -458,11 +448,11 @@ public class EurekaServerApplication {
 server:
   port: 8888
 eureka:
-	# 开启之前需要修改一下客户端设置（虽然是服务端
+ # 开启之前需要修改一下客户端设置（虽然是服务端
   client:
-  	# 由于我们是作为服务端角色，所以不需要获取服务端，改为false，默认为true
-		fetch-registry: false
-		# 暂时不需要将自己也注册到Eureka
+   # 由于我们是作为服务端角色，所以不需要获取服务端，改为false，默认为true
+  fetch-registry: false
+  # 暂时不需要将自己也注册到Eureka
     register-with-eureka: false
     # 将eureka服务端指向自己
     service-url:
@@ -485,7 +475,7 @@ eureka:
 ```yaml
 eureka:
   client:
-  	# 跟上面一样，需要指向Eureka服务端地址，这样才能进行注册
+   # 跟上面一样，需要指向Eureka服务端地址，这样才能进行注册
     service-url:
       defaultZone: http://localhost:8888/eureka
 ```
@@ -600,14 +590,14 @@ spring:
     name: eurekaserver
 eureka:
   instance:
-  	# 由于不支持多个localhost的Eureka服务器，但是又只有本地测试环境，所以就只能自定义主机名称了
-  	# 主机名称改为eureka01
+   # 由于不支持多个localhost的Eureka服务器，但是又只有本地测试环境，所以就只能自定义主机名称了
+   # 主机名称改为eureka01
     hostname: eureka01
   client:
     fetch-registry: false
     # 去掉register-with-eureka选项，让Eureka服务器自己注册到其他Eureka服务器，这样才能相互启用
     service-url:
-    	# 注意这里填写其他Eureka服务器的地址，不用写自己的
+     # 注意这里填写其他Eureka服务器的地址，不用写自己的
       defaultZone: http://eureka01:8801/eureka
 ```
 
@@ -640,7 +630,7 @@ eureka:
 eureka:
   client:
     service-url:
-    	# 将两个Eureka的地址都加入，这样就算有一个Eureka挂掉，也能完成注册
+     # 将两个Eureka的地址都加入，这样就算有一个Eureka挂掉，也能完成注册
       defaultZone: http://localhost:8801/eureka, http://localhost:8802/eureka
 ```
 
@@ -699,16 +689,16 @@ public <T> T execute(String serviceId, LoadBalancerRequest<T> request) throws IO
     supportedLifecycleProcessors.forEach((lifecycle) -> {
         lifecycle.onStart(lbRequest);
     });
-  	//可以看到在这里会调用choose方法自动获取对应的服务实例信息
+   //可以看到在这里会调用choose方法自动获取对应的服务实例信息
     ServiceInstance serviceInstance = this.choose(serviceId, lbRequest);
     if (serviceInstance == null) {
         supportedLifecycleProcessors.forEach((lifecycle) -> {
             lifecycle.onComplete(new CompletionContext(Status.DISCARD, lbRequest, new EmptyResponse()));
         });
-      	//没有发现任何此服务的实例就抛异常（之前的测试中可能已经遇到了）
+       //没有发现任何此服务的实例就抛异常（之前的测试中可能已经遇到了）
         throw new IllegalStateException("No instances available for " + serviceId);
     } else {
-      	//成功获取到对应服务的实例，这时就可以发起HTTP请求获取信息了
+       //成功获取到对应服务的实例，这时就可以发起HTTP请求获取信息了
         return this.execute(serviceId, serviceInstance, lbRequest);
     }
 }
@@ -727,7 +717,7 @@ LoadBalancer默认提供了两种负载均衡策略：
 
 ```java
 public class LoadBalancerConfig {
-  	//将官方提供的 RandomLoadBalancer 注册为Bean
+   //将官方提供的 RandomLoadBalancer 注册为Bean
     @Bean
     public ReactorLoadBalancer<ServiceInstance> randomLoadBalancer(Environment environment, LoadBalancerClientFactory loadBalancerClientFactory){
         String name = environment.getProperty(LoadBalancerClientFactory.PROPERTY_NAME);
@@ -801,7 +791,7 @@ User user = template.getForObject("http://userservice/user/"+uid, User.class);
 @FeignClient("userservice")
 public interface UserClient {
 
-  	//路径保证和其他微服务提供的一致即可
+   //路径保证和其他微服务提供的一致即可
     @RequestMapping("/user/{uid}")
     User getUserById(@PathVariable("uid") int uid);  //参数和返回值也保持一致
 }
@@ -896,7 +886,7 @@ OK，正常。
    <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-     		<version>2.2.10.RELEASE</version>
+       <version>2.2.10.RELEASE</version>
     </dependency>
 ```
 
@@ -926,9 +916,9 @@ public class BorrowController {
     UserBorrowDetail findUserBorrows(@PathVariable("uid") int uid){
         return service.getUserBorrowDetailByUid(uid);
     }
-		
-  	//备选方案，这里直接返回空列表了
-  	//注意参数和返回值要和上面的一致
+  
+   //备选方案，这里直接返回空列表了
+   //注意参数和返回值要和上面的一致
     UserBorrowDetail onError(int uid){
         return new UserBorrowDetail(null, Collections.emptyList());
     }
@@ -1102,9 +1092,9 @@ management:
         include: '*'
 ```
 
-接着我们打开刚刚启动的管理页面，地址为：http://localhost:8900/hystrix/
+接着我们打开刚刚启动的管理页面，地址为：<http://localhost:8900/hystrix/>
 
-在中间填写要监控的服务：比如借阅服务：http://localhost:8301/actuator/hystrix.stream，注意后面要添加`/actuator/hystrix.stream`，然后点击Monitor Stream即可进入监控页面：
+在中间填写要监控的服务：比如借阅服务：<http://localhost:8301/actuator/hystrix.stream，注意后面要添加`/actuator/hystrix.stream`，然后点击Monitor> Stream即可进入监控页面：
 
 可以看到现在都是Loading状态，这是因为还没有开始统计，我们现在尝试调用几次我们的服务：
 
@@ -1173,7 +1163,7 @@ spring:
 spring:
   cloud:
     gateway:
-    	# 配置路由，注意这里是个列表，每一项都包含了很多信息
+     # 配置路由，注意这里是个列表，每一项都包含了很多信息
       routes:
         - id: borrow-service   # 路由名称
           uri: lb://borrowservice  # 路由的地址，lb表示使用负载均衡到微服务，也可以使用http正常转发
@@ -1318,7 +1308,7 @@ public class TestFilter implements GlobalFilter, Ordered {   //实现Ordered接�
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-config-server</artifactId>
     </dependency>
-  	<dependency>
+   <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
     </dependency>
@@ -1365,7 +1355,7 @@ spring:
     config:
       server:
         git:
-        	# 这里填写的是本地仓库地址，远程仓库直接填写远程仓库地址 http://git...
+         # 这里填写的是本地仓库地址，远程仓库直接填写远程仓库地址 http://git...
           uri: file://${user.home}/Desktop/config-repo
           # 默认分支设定为你自己本地或是远程分支的名称
           default-label: main
@@ -1373,12 +1363,12 @@ spring:
 
 然后启动我们的配置服务器，通过以下格式进行访问：
 
-* http://localhost:8700/{服务名称}/{环境}/{Git分支}
-* http://localhost:8700/{Git分支}/{服务名称}-{环境}.yml
+* <http://localhost:8700/{服务名称}/{环境}/{Git分支}>
+* <http://localhost:8700/{Git分支}/{服务名称}-{环境}.yml>
 
-比如我们要访问图书服务的生产环境代码，可以使用 http://localhost:8700/bookservice/prod/main 链接，它会显示详细信息：
+比如我们要访问图书服务的生产环境代码，可以使用 <http://localhost:8700/bookservice/prod/main> 链接，它会显示详细信息：
 
-也可以使用 http://localhost:8700/main/bookservice-prod.yml 链接，它仅显示配置文件原文：
+也可以使用 <http://localhost:8700/main/bookservice-prod.yml> 链接，它仅显示配置文件原文：
 
 当然，除了使用Git来保存之外，还支持一些其他的方式，详细情况请查阅官网。
 
@@ -1402,7 +1392,7 @@ spring:
 spring:
   cloud:
     config:
-    	# 名称，其实就是文件名称
+     # 名称，其实就是文件名称
       name: bookservice
       # 配置服务器的地址
       uri: http://localhost:8700
@@ -1413,7 +1403,6 @@ spring:
 ```
 
 配置完成之后，启动图书服务：
-
 
 可以看到已经从远端获取到了配置，并进行启动。
 

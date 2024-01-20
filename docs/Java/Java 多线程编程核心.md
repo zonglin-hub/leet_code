@@ -22,17 +22,17 @@
 
 ```java
 public interface Lock {
-  	//获取锁，拿不到锁会阻塞，等待其他线程释放锁，获取到锁后返回
+   //获取锁，拿不到锁会阻塞，等待其他线程释放锁，获取到锁后返回
     void lock();
-  	//同上，但是等待过程中会响应中断
+   //同上，但是等待过程中会响应中断
     void lockInterruptibly() throws InterruptedException;
-  	//尝试获取锁，但是不会阻塞，如果能获取到会返回true，不能返回false
+   //尝试获取锁，但是不会阻塞，如果能获取到会返回true，不能返回false
     boolean tryLock();
-  	//尝试获取锁，但是可以限定超时时间，如果超出时间还没拿到锁返回false，否则返回true，可以响应中断
+   //尝试获取锁，但是可以限定超时时间，如果超出时间还没拿到锁返回false，否则返回true，可以响应中断
     boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
-  	//释放锁
+   //释放锁
     void unlock();
-  	//暂时可以理解为替代传统的Object的wait()、notify()等操作的工具
+   //暂时可以理解为替代传统的Object的wait()、notify()等操作的工具
     Condition newCondition();
 }
 ```
@@ -65,20 +65,20 @@ public class Main {
 
 ```java
 public interface Condition {
-  	//与调用锁对象的wait方法一样，会进入到等待状态，但是这里需要调用Condition的signal或signalAll方法进行唤醒（感觉就是和普通对象的wait和notify是对应的）同时，等待状态下是可以响应中断的
- 		void await() throws InterruptedException;
-  	//同上，但不响应中断（看名字都能猜到）
-  	void awaitUninterruptibly();
-  	//等待指定时间，如果在指定时间（纳秒）内被唤醒，会返回剩余时间，如果超时，会返回0或负数，可以响应中断
-  	long awaitNanos(long nanosTimeout) throws InterruptedException;
-  	//等待指定时间（可以指定时间单位），如果等待时间内被唤醒，返回true，否则返回false，可以响应中断
-  	boolean await(long time, TimeUnit unit) throws InterruptedException;
-  	//可以指定一个明确的时间点，如果在时间点之前被唤醒，返回true，否则返回false，可以响应中断
-  	boolean awaitUntil(Date deadline) throws InterruptedException;
-  	//唤醒一个处于等待状态的线程，注意还得获得锁才能接着运行
-  	void signal();
-  	//同上，但是是唤醒所有等待线程
-  	void signalAll();
+   //与调用锁对象的wait方法一样，会进入到等待状态，但是这里需要调用Condition的signal或signalAll方法进行唤醒（感觉就是和普通对象的wait和notify是对应的）同时，等待状态下是可以响应中断的
+   void await() throws InterruptedException;
+   //同上，但不响应中断（看名字都能猜到）
+   void awaitUninterruptibly();
+   //等待指定时间，如果在指定时间（纳秒）内被唤醒，会返回剩余时间，如果超时，会返回0或负数，可以响应中断
+   long awaitNanos(long nanosTimeout) throws InterruptedException;
+   //等待指定时间（可以指定时间单位），如果等待时间内被唤醒，返回true，否则返回false，可以响应中断
+   boolean await(long time, TimeUnit unit) throws InterruptedException;
+   //可以指定一个明确的时间点，如果在时间点之前被唤醒，返回true，否则返回false，可以响应中断
+   boolean awaitUntil(Date deadline) throws InterruptedException;
+   //唤醒一个处于等待状态的线程，注意还得获得锁才能接着运行
+   void signal();
+   //同上，但是是唤醒所有等待线程
+   void signalAll();
 }
 ```
 
@@ -159,7 +159,7 @@ public enum TimeUnit {
         public long convert(long d, TimeUnit u) { return u.toNanos(d); }
         int excessNanos(long d, long m) { return (int)(d - (m*C2)); }
     },
-  	//....
+   //....
 ```
 
 可以看到时间单位有很多的，比如`DAY`、`SECONDS`、`MINUTES`等，我们可以直接将其作为时间单位，比如我们要让一个线程等待3秒钟，可以像下面这样编写：
@@ -361,7 +361,7 @@ public interface ReadWriteLock {
     //获取读锁
     Lock readLock();
 
-  	//获取写锁
+   //获取写锁
     Lock writeLock();
 }
 ```
@@ -521,24 +521,23 @@ AbstractQueuedSynchronizer（下面称为AQS）是实现锁机制的基础，它
 
 一个锁（排他锁为例）的基本功能就是获取锁、释放锁、当锁被占用时，其他线程来争抢会进入等待队列，AQS已经将这些基本的功能封装完成了，其中等待队列是核心内容，等待队列是由双向链表数据结构实现的，每个等待状态下的线程都可以被封装进结点中并放入双向链表中，而对于双向链表是以队列的形式进行操作的，它像这样：
 
-
 AQS中有一个`head`字段和一个`tail`字段分别记录双向链表的头结点和尾结点，而之后的一系列操作都是围绕此队列来进行的。我们先来了解一下每个结点都包含了哪些内容：
 
 ```java
 //每个处于等待状态的线程都可以是一个节点，并且每个节点是有很多状态的
 static final class Node {
-  	//每个节点都可以被分为独占模式节点或是共享模式节点，分别适用于独占锁和共享锁
+   //每个节点都可以被分为独占模式节点或是共享模式节点，分别适用于独占锁和共享锁
     static final Node SHARED = new Node();
     static final Node EXCLUSIVE = null;
 
-  	//等待状态，这里都定义好了
-   	//唯一一个大于0的状态，表示已失效，可能是由于超时或中断，此节点被取消。
+   //等待状态，这里都定义好了
+    //唯一一个大于0的状态，表示已失效，可能是由于超时或中断，此节点被取消。
     static final int CANCELLED =  1;
-  	//此节点后面的节点被挂起（进入等待状态）
-    static final int SIGNAL    = -1;	
-  	//在条件队列中的节点才是这个状态
+   //此节点后面的节点被挂起（进入等待状态）
+    static final int SIGNAL    = -1; 
+   //在条件队列中的节点才是这个状态
     static final int CONDITION = -2;
-  	//传播，一般用于共享锁
+   //传播，一般用于共享锁
     static final int PROPAGATE = -3;
 
     volatile int waitStatus;    //等待状态值
@@ -615,7 +614,7 @@ static {   //静态代码块，在类加载的时候就会自动获取偏移地�
 
 //通过CAS操作来修改头结点
 private final boolean compareAndSetHead(Node update) {
-  	//调用的是Unsafe类的compareAndSwapObject方法，通过CAS算法比较对象并替换
+   //调用的是Unsafe类的compareAndSwapObject方法，通过CAS算法比较对象并替换
     return unsafe.compareAndSwapObject(this, headOffset, null, update);
 }
 
@@ -666,8 +665,8 @@ protected boolean isHeldExclusively() {
 static final class FairSync extends Sync {
     private static final long serialVersionUID = -3000897897090466540L;
 
-  	//加锁操作调用了模板方法acquire
-  	//为了防止各位绕晕，请时刻记住，lock方法一定是在某个线程下为了加锁而调用的，并且同一时间可能会有其他线程也在调用此方法
+   //加锁操作调用了模板方法acquire
+   //为了防止各位绕晕，请时刻记住，lock方法一定是在某个线程下为了加锁而调用的，并且同一时间可能会有其他线程也在调用此方法
     final void lock() {
         acquire(1);
     }
@@ -701,13 +700,13 @@ private Node addWaiter(Node mode) {
             return node;
         }
     }
-  	//此方法是CAS快速入队失败时调用
+   //此方法是CAS快速入队失败时调用
     enq(node);
     return node;
 }
 
 private Node enq(final Node node) {
-  	//自旋形式入队，可以看到这里是一个无限循环
+   //自旋形式入队，可以看到这里是一个无限循环
     for (;;) {
         Node t = tail;
         if (t == null) {  //这种情况只能说明头结点和尾结点都还没初始化
@@ -739,8 +738,8 @@ final boolean acquireQueued(final Node node, int arg) {
                 p.next = null; // 原有的头结点没有存在的意义了
                 failed = false;   //没有失败
                 return interrupted;   //直接返回等待过程中是否被中断
-            }	
-          	//依然没获取成功，
+            } 
+           //依然没获取成功，
             if (shouldParkAfterFailedAcquire(p, node) &&   //将当前节点的前驱节点等待状态设置为SIGNAL，如果失败将直接开启下一轮循环，直到成功为止，如果成功接着往下
                 parkAndCheckInterrupt())   //挂起线程进入等待状态，等待被唤醒，如果在等待状态下被中断，那么会返回true，直接将中断标志设为true，否则就是正常唤醒，继续自旋
                 interrupted = true;
@@ -795,7 +794,7 @@ public static void main(String[] args) throws InterruptedException {
             TimeUnit.SECONDS.sleep(1);
             System.out.println("主线程可以继续运行了！");
             LockSupport.unpark(t);
-          	//t.interrupt();   发送中断信号也可以恢复运行
+           //t.interrupt();   发送中断信号也可以恢复运行
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -810,7 +809,7 @@ public static void main(String[] args) throws InterruptedException {
 
 ```java
 static final class FairSync extends Sync {
-  	//可重入独占锁的公平实现
+   //可重入独占锁的公平实现
     @ReservedStackAccess
     protected final boolean tryAcquire(int acquires) {
         final Thread current = Thread.currentThread();   //先获取当前线程的Thread对象
@@ -897,7 +896,6 @@ protected final boolean tryRelease(int releases) {
 
 综上，我们来画一个完整的流程图：
 
-
 这里我们只讲解了公平锁，有关非公平锁和读写锁，还请各位观众根据我们之前的思路，自行解读。
 
 #### 公平锁一定公平吗？
@@ -972,7 +970,7 @@ public final boolean hasQueuedPredecessors() {
     Node t = tail; // Read fields in reverse initialization order
     Node h = head;
     Node s;
-  	//这里直接判断h != t，而此时线程2才刚刚执行完 tail = head，所以直接就返回false了
+   //这里直接判断h != t，而此时线程2才刚刚执行完 tail = head，所以直接就返回false了
     return h != t &&
         ((s = h.next) == null || s.thread != Thread.currentThread());
 }
@@ -981,7 +979,6 @@ public final boolean hasQueuedPredecessors() {
 因此，线程3这时就紧接着准备开始CAS操作了，又碰巧，这时线程1释放锁了，现在的情况就是，线程3直接开始CAS判断，而线程2还在插入节点状态，结果可想而知，居然是线程3先拿到了锁，这显然是违背了公平锁的公平机制。
 
 一张图就是：
-
 
 因此公不公平全看`hasQueuedPredecessors()`，而此方法只有在等待队列中存在节点时才能保证不会出现问题。所以公平锁，只有在等待队列存在节点时，才是真正公平的。
 
@@ -999,7 +996,7 @@ public class ConditionObject implements Condition, java.io.Serializable {
     /** 条件队列的尾结点 */
     private transient Node lastWaiter;
   
-  	//...
+   //...
 ```
 
 这里是直接使用了AQS中的Node类，但是使用的是Node类中的nextWaiter字段连接节点，并且Node的status为CONDITION：
@@ -1027,15 +1024,15 @@ public final void await() throws InterruptedException {
         if ((interruptMode = checkInterruptWhileWaiting(node)) != 0)   //看看等待的时候是不是被中断了
             break;
     }
-  	//出了循环之后，那线程肯定是已经醒了，这时就差拿到锁就可以恢复运行了
+   //出了循环之后，那线程肯定是已经醒了，这时就差拿到锁就可以恢复运行了
     if (acquireQueued(node, savedState) && interruptMode != THROW_IE)  //直接开始acquireQueued尝试拿锁（之前已经讲过了）从这里开始基本就和一个线程去抢锁是一样的了
         interruptMode = REINTERRUPT;
-  	//已经拿到锁了，基本可以开始继续运行了，这里再进行一下后期清理工作
+   //已经拿到锁了，基本可以开始继续运行了，这里再进行一下后期清理工作
     if (node.nextWaiter != null) 
         unlinkCancelledWaiters();  //将等待队列中，不是Node.CONDITION状态的节点移除
     if (interruptMode != 0)   //依然是响应中断
         reportInterruptAfterWait(interruptMode);
-  	//OK，接着该干嘛干嘛
+   //OK，接着该干嘛干嘛
 }
 ```
 
@@ -1078,10 +1075,10 @@ final boolean transferForSignal(Node node) {
         return false;
 
     //CAS成功之后，结点的等待状态就变成了默认值0，接着通过enq方法直接将节点丢进AQS的等待队列中，相当于唤醒并且可以等待获取锁了
-  	//这里enq方法返回的是加入之后等待队列队尾的前驱节点，就是原来的tail
+   //这里enq方法返回的是加入之后等待队列队尾的前驱节点，就是原来的tail
     Node p = enq(node);
     int ws = p.waitStatus;   //保存前驱结点的等待状态
-  	//如果上一个节点的状态为取消, 或者尝试设置上一个节点的状态为SIGNAL失败（可能是在ws>0判断完之后马上变成了取消状态，导致CAS失败）
+   //如果上一个节点的状态为取消, 或者尝试设置上一个节点的状态为SIGNAL失败（可能是在ws>0判断完之后马上变成了取消状态，导致CAS失败）
     if (ws > 0 || !compareAndSetWaitStatus(p, ws, Node.SIGNAL))
         LockSupport.unpark(node.thread);  //直接唤醒线程
     return true;
@@ -1092,8 +1089,8 @@ final boolean transferForSignal(Node node) {
 
 这里其实是为了进行优化而编写，直接unpark会有两种情况：
 
-- 如果插入结点前，AQS等待队列的队尾节点就已经被取消，则满足wc > 0
-- 如果插入node后，AQS内部等待队列的队尾节点已经稳定，满足tail.waitStatus == 0，但在执行ws >
+* 如果插入结点前，AQS等待队列的队尾节点就已经被取消，则满足wc > 0
+* 如果插入node后，AQS内部等待队列的队尾节点已经稳定，满足tail.waitStatus == 0，但在执行ws >
   0之后!compareAndSetWaitStatus(p, ws,
   Node.SIGNAL)之前被取消，则CAS也会失败，满足compareAndSetWaitStatus(p, ws,
   Node.SIGNAL) == false
@@ -1299,8 +1296,8 @@ public final int getAndIncrement() {
 public final int getAndAddInt(Object o, long offset, int delta) {  //delta就是变化的值，++操作就是自增1
     int v;
     do {
-      	//volatile版本的getInt()
-      	//能够保证可见性
+       //volatile版本的getInt()
+       //能够保证可见性
         v = getIntVolatile(o, offset);
     } while (!compareAndSwapInt(o, offset, v, v + delta));  //这里是开始cas替换int的值，每次都去拿最新的值去进行替换，如果成功则离开循环，不成功说明这个时候其他线程先修改了值，就进下一次循环再获取最新的值然后再cas一次，直到成功为止
     return v;
@@ -1485,7 +1482,7 @@ public class Main {
         };
         for (int i = 0; i < 100; i++)
             new Thread(r).start();
-      	TimeUnit.SECONDS.sleep(1);
+       TimeUnit.SECONDS.sleep(1);
         System.out.println(list.size());
     }
 }
@@ -1493,15 +1490,15 @@ public class Main {
 
 不出意外的话，肯定是会报错的：
 
-```
+```text
 Exception in thread "Thread-0" java.lang.ArrayIndexOutOfBoundsException: 73
-	at java.util.ArrayList.add(ArrayList.java:465)
-	at com.test.Main.lambda$main$0(Main.java:13)
-	at java.lang.Thread.run(Thread.java:750)
+ at java.util.ArrayList.add(ArrayList.java:465)
+ at com.test.Main.lambda$main$0(Main.java:13)
+ at java.lang.Thread.run(Thread.java:750)
 Exception in thread "Thread-19" java.lang.ArrayIndexOutOfBoundsException: 1851
-	at java.util.ArrayList.add(ArrayList.java:465)
-	at com.test.Main.lambda$main$0(Main.java:13)
-	at java.lang.Thread.run(Thread.java:750)
+ at java.util.ArrayList.add(ArrayList.java:465)
+ at com.test.Main.lambda$main$0(Main.java:13)
+ at java.lang.Thread.run(Thread.java:750)
 9773
 ```
 
@@ -1643,12 +1640,12 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
                     if (fh >= 0) {    //头结点的哈希值大于等于0说明是链表，下面就是针对链表的一些列操作
                         ...实现细节略
                     } else if (f instanceof TreeBin) {   //肯定不大于0，肯定也不是-1，还判断是不是TreeBin，所以不用猜了，肯定是红黑树，下面就是针对红黑树的情况进行操作
-                      	//在ConcurrentHashMap并不是直接存储的TreeNode，而是TreeBin
+                       //在ConcurrentHashMap并不是直接存储的TreeNode，而是TreeBin
                         ...实现细节略
                     }
                 }
             }
-          	//根据链表长度决定是否要进化为红黑树
+           //根据链表长度决定是否要进化为红黑树
             if (binCount != 0) {
                 if (binCount >= TREEIFY_THRESHOLD)
                     treeifyBin(tab, i);   //注意这里只是可能会进化为红黑树，如果当前哈希表的长度小于64，它会优先考虑对哈希表进行扩容
@@ -1673,22 +1670,22 @@ public V get(Object key) {
     int h = spread(key.hashCode());   //计算哈希值
     if ((tab = table) != null && (n = tab.length) > 0 &&
         (e = tabAt(tab, (n - 1) & h)) != null) {
-      	// 如果头结点就是我们要找的，那直接返回值就行了
+       // 如果头结点就是我们要找的，那直接返回值就行了
         if ((eh = e.hash) == h) {
             if ((ek = e.key) == key || (ek != null && key.equals(ek)))
                 return e.val;
         }
-      	//要么是正在扩容，要么就是红黑树，负数只有这两种情况
+       //要么是正在扩容，要么就是红黑树，负数只有这两种情况
         else if (eh < 0)
             return (p = e.find(h, key)) != null ? p.val : null;
-      	//确认无误，肯定在列表里，开找
+       //确认无误，肯定在列表里，开找
         while ((e = e.next) != null) {
             if (e.hash == h &&
                 ((ek = e.key) == key || (ek != null && key.equals(ek))))
                 return e.val;
         }
     }
-  	//没找到只能null了
+   //没找到只能null了
     return null;
 }
 ```
@@ -1705,7 +1702,7 @@ public V get(Object key) {
 
 ```java
 public interface BlockingQueue<E> extends Queue<E> {
-   	boolean add(E e);
+    boolean add(E e);
 
     //入队，如果队列已满，返回false否则返回true（非阻塞）
     boolean offer(E e);
@@ -1731,7 +1728,7 @@ public interface BlockingQueue<E> extends Queue<E> {
 
     public boolean contains(Object o);
 
-  	//一次性从BlockingQueue中获取所有可用的数据对象（还可以指定获取数据的个数）
+   //一次性从BlockingQueue中获取所有可用的数据对象（还可以指定获取数据的个数）
     int drainTo(Collection<? super E> c);
 
     int drainTo(Collection<? super E> c, int maxElements);
@@ -1976,7 +1973,7 @@ E transfer(E e, boolean timed, long nanos) {   //注意这里面没加锁，肯�
             if (t != tail)                  // 如果这段时间内t被其他线程修改了，如果是就进下一轮循环重新来
                 continue;
             if (tn != null) {               // 继续校验是否为队尾，如果tn不为null，那肯定是其他线程改了队尾，可以进下一轮循环重新来了
-                advanceTail(t, tn);					// CAS将新的队尾节点设置为tn，成不成功都无所谓，反正这一轮肯定没戏了
+                advanceTail(t, tn);     // CAS将新的队尾节点设置为tn，成不成功都无所谓，反正这一轮肯定没戏了
                 continue;
             }
             if (timed && nanos <= 0)        // 超时返回null
@@ -2034,7 +2031,7 @@ E transfer(E e, boolean timed, long nanos) {   //注意这里面没加锁，肯�
 public static void main(String[] args) throws InterruptedException {
     LinkedTransferQueue<String> queue = new LinkedTransferQueue<>();
     queue.put("1");  //插入时，会先检查是否有其他线程等待获取，如果是，直接进行交接，否则插入到存储队列中
-   	queue.put("2");  //不会像SynchronousQueue那样必须等一个匹配的才可以
+    queue.put("2");  //不会像SynchronousQueue那样必须等一个匹配的才可以
     queue.forEach(System.out::println);   //直接打印所有的元素，这在SynchronousQueue下只能是空，因为单独的入队或出队操作都会被阻塞
 }
 ```

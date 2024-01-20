@@ -1,10 +1,8 @@
 # ThreadLocal 会出现内存泄漏吗？
 
-[ThreadLocal可能引起的内存泄露 - yifanSJ - 博客园 (cnblogs.com)](https://www.cnblogs.com/yifanSJ/p/16330808.html)
-
-[头条二面：你确定ThreadLocal真的会造成内存泄露？ (baidu.com)](https://baijiahao.baidu.com/s?id=1715515733798484977&wfr=spider&for=pc)
-
-[(30条消息) ThreadLocal的内存泄露？什么原因？如何避免？_threadlocal为什么会内存泄漏_daobuxinzi的博客-CSDN博客](https://blog.csdn.net/daobuxinzi/article/details/126766201)
+- [ThreadLocal可能引起的内存泄露](https://www.cnblogs.com/yifanSJ/p/16330808.html)
+- [头条二面：你确定ThreadLocal真的会造成内存泄露？](https://baijiahao.baidu.com/s)
+- [ThreadLocal的内存泄露？什么原因？如何避免？](https://blog.csdn.net/daobuxinzi/article/details/126766201)
 
 ---
 
@@ -42,13 +40,9 @@ static class ThreadLocalMap {
 
 **Java为了最小化减少内存泄露的可能性和影响，在 ThreadLocal 的 get、set 的时候都会清除线程 Map 里所有 key 为 null 的 value。所以最怕的情况就是，ThreadLocal 对象设 null 了。**
 
-‍
-
 ## key 使用强引用
 
 当 ThreadLocalMap 的 key 为强引用回收 ThreadLocal 时，因为 ThreadLocalMap 还持有 ThreadLocal 的强引用，如果没有手动删除，ThreadLocal 不会被回收，导致 Entry 内存泄漏。
-
-‍
 
 ## key 使用弱引用
 
@@ -116,25 +110,18 @@ static class ThreadLocalMap {
 
 ## 总结
 
-由于 Thread 中包含变量 ThreadLocalMap，因此 ThreadLocalMap 与 Thread 的生命周期是一样长，如果都没有手动删除对应 key，都会导致内存泄漏。
-
-但是使用**弱引用**可以多一层保障：弱引用 ThreadLocal 不会内存泄漏，对应的 value 在下一次 ThreadLocalMap 调用 set()，get()，remove() 的时候会被清除。
-
-因此，ThreadLocal 内存泄漏的根源是：由于 ThreadLocalMap 的生命周期跟 Thread 一样长，如果没有手动删除对应 key 就会导致内存泄漏，而不是因为弱引用。
+- 由于 Thread 中包含变量 ThreadLocalMap，因此 ThreadLocalMap 与 Thread 的生命周期是一样长，如果都没有手动删除对应 key，都会导致内存泄漏。
+- 但是使用**弱引用**可以多一层保障：弱引用 ThreadLocal 不会内存泄漏，对应的 value 在下一次 ThreadLocalMap 调用 set()，get()，remove() 的时候会被清除。
+- 因此，ThreadLocal 内存泄漏的根源是：由于 ThreadLocalMap 的生命周期跟 Thread 一样长，如果没有手动删除对应 key 就会导致内存泄漏，而不是因为弱引用。
 
 ## ThreadLocal正确的使用方法
 
-* 每次使用完 ThreadLocal 都调用它的 remove() 方法清除数据
-* 将 ThreadLocal 变量定义成 private static ，这样就一直存在 ThreadLocal 的强引用，也就能保证任何时候都能通过 ThreadLocal 的弱引用访问到 Entry 的 value 值，进而清除掉 。
-* ‍
+- 每次使用完 ThreadLocal 都调用它的 remove() 方法清除数据
+- 将 ThreadLocal 变量定义成 private static，这样就一直存在 ThreadLocal 的强引用，也就能保证任何时候都能通过 ThreadLocal 的弱引用访问到 Entry 的 value 值，进而清除掉 。
 
-> 扩展
+**Java 的4种引用类型，主要是在垃圾回收时java虚拟机会根据不同的引用类型采取不同的措施。**
 
-Java的4种引用类型，主要是在垃圾回收时java虚拟机会根据不同的引用类型采取不同的措施。
-
-* **强引用：** java默认的引用类型，例如 `Object a = new Object();`​ 其中 a 为强引用，new Object() 为一个具体的对象。一个对象从根路径能找到强引用指向它，JVM 虚拟机就不会回收。
-* **软引用(SoftReference)：** 进行**年轻代的垃圾回收**不会触发 SoftReference 所指向对象的回收；但如果触发 Full GC，那 SoftReference 所指向的对象将被回收。**备注：是除了软引用之外没有其他强引用引用的情况下**。
-* **弱引用(WeakReference)：** 如果对象除了有弱引用指向它后没有其他强引用关联它，**当进行年轻代垃圾回收时，该引用指向的对象就会被垃圾回收器回收。**
-* **虚引用(PhantomeReference)：** 该引用指向的对象，无法对垃圾收集器收集对象时产生任何影响，但在执行垃圾回收后垃圾收集器会通过注册在 PhantomeReference 上的队列来通知应用程序对象被回收。
-
-‍
+- **强引用：** java默认的引用类型，例如 `Object a = new Object();`​ 其中 a 为强引用，new Object() 为一个具体的对象。一个对象从根路径能找到强引用指向它，JVM 虚拟机就不会回收。
+- **软引用(SoftReference)：** 进行**年轻代的垃圾回收**不会触发 SoftReference 所指向对象的回收；但如果触发 Full GC，那 SoftReference 所指向的对象将被回收。**备注：是除了软引用之外没有其他强引用引用的情况下**。
+- **弱引用(WeakReference)：** 如果对象除了有弱引用指向它后没有其他强引用关联它，**当进行年轻代垃圾回收时，该引用指向的对象就会被垃圾回收器回收。**
+- **虚引用(PhantomeReference)：** 该引用指向的对象，无法对垃圾收集器收集对象时产生任何影响，但在执行垃圾回收后垃圾收集器会通过注册在 PhantomeReference 上的队列来通知应用程序对象被回收。

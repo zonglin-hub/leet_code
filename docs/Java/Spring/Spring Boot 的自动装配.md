@@ -1,24 +1,22 @@
 # Spring Boot的自动装配
 
-属性配置 [Common Application Properties (spring.io)](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties)
-
-服务扩展 [Developing with Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.build-systems.starters)
-
-[SpringBoot 自动装配原理详解 | JavaGuide(Java面试+学习指南)](https://javaguide.cn/system-design/framework/spring/spring-boot-auto-assembly-principles.html)
+- 属性配置 [Common Application Properties (spring.io)](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html)
+- 服务扩展 [Developing with Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html)
+- [SpringBoot 自动装配原理详解 | JavaGuide(Java面试+学习指南)](https://javaguide.cn/system-design/framework/spring/spring-boot-auto-assembly-principles.html)
 
 ---
 
-**Spring Boot的自动装配的过程是：**Spring Boot 通过 @EnableAutoConfiguration 注解开启自动配置，加载 spring.factories 中注册的各种 AutoConfiguration 类，当某个 AutoConfiguration 类满足其注解 @Conditional 指定的生效条件时，实例化该AutoConfiguration 类中定义的 Bean（组件等），并注入 Spring 容器，就可以完成依赖框架的自动配置。@EnableAutoConfiguration 作用 从 classpath 中搜索所有 META-INF/spring.factories 配置文件然后，将其中`org.springframework.boot.autoconfigure.EnableAutoConfiguration`​ key对应的配置项加载到spring容器 只有spring.boot.enableautoconfiguration为true（默认为true）的时候，才启用自动配置 @EnableAutoConfiguration还可以根据class来排除（exclude），或是根据class name（excludeName）来排除 其内部实现的关键点有
+**Spring Boot的自动装配的过程是：** Spring Boot 通过 @EnableAutoConfiguration 注解开启自动配置，加载 spring.factories 中注册的各种 AutoConfiguration 类，当某个 AutoConfiguration 类满足其注解 @Conditional 指定的生效条件时，实例化该AutoConfiguration 类中定义的 Bean（组件等），并注入 Spring 容器，就可以完成依赖框架的自动配置。@EnableAutoConfiguration 作用 从 classpath 中搜索所有 META-INF/spring.factories 配置文件然后，将其中`org.springframework.boot.autoconfigure.EnableAutoConfiguration`​ key对应的配置项加载到spring容器 只有spring.boot.enableautoconfiguration为true（默认为true）的时候，才启用自动配置 @EnableAutoConfiguration还可以根据class来排除（exclude），或是根据class name（excludeName）来排除 其内部实现的关键点有
 
-1. ImportSelector 该接口的方法的返回值都会被纳入到spring容器管理中
+- ImportSelector 该接口的方法的返回值都会被纳入到spring容器管理中
 
-2. SpringFactoriesLoader 该类可以从classpath中搜索所有META-INF/spring.factories配置文件，并读取配置
+- SpringFactoriesLoader 该类可以从classpath中搜索所有META-INF/spring.factories配置文件，并读取配置
 
 ## 1、SpringBoot特点
 
 ### 依赖管理
 
-* **父项目做依赖管理**
+- **父项目做依赖管理**
 
   ```xml
   <!--依赖管理-->
@@ -35,7 +33,7 @@
     </parent>
   ```
 
-* **开发导入starter场景启动器**
+- **开发导入starter场景启动器**
 
   ```xml
   <dependency>
@@ -44,7 +42,7 @@
   </dependency>
   ```
 
-* **可以修改默认版本号**
+- **可以修改默认版本号**
 
   ```xml
       <properties>
@@ -65,7 +63,7 @@
 
 ### @Configuration 配置标记
 
-* **基本使用**
+- **基本使用**
 
 ```java
 #############################Configuration使用示例######################################################
@@ -309,7 +307,7 @@ public class MyConfig {}
 @SpringBootConfiguration
 @EnableAutoConfiguration
 @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM， classes = TypeExcludeFilter.class)，
-		@Filter(type = FilterType.CUSTOM， classes = AutoConfigurationExcludeFilter.class) })
+  @Filter(type = FilterType.CUSTOM， classes = AutoConfigurationExcludeFilter.class) })
 public @interface SpringBootApplication{}
 ```
 
@@ -348,7 +346,7 @@ public @interface AutoConfigurationPackage {}
 2、调用List<String> configurations = getCandidateConfigurations(annotationMetadata， attributes)获取到所有需要导入到容器中的配置类
 3、利用工厂加载 Map<String， List<String>> loadSpringFactories(@Nullable ClassLoader classLoader)；得到所有的组件
 4、从META-INF/spring.factories位置来加载一个文件。
-	默认扫描我们当前系统里面所有META-INF/spring.factories位置的文件
+ 默认扫描我们当前系统里面所有META-INF/spring.factories位置的文件
     spring-boot-autoconfigure-2.3.4.RELEASE.jar包里面也有META-INF/spring.factories
   
 ```
@@ -500,14 +498,14 @@ org.springframework.boot.autoconfigure.webservices.client.WebServiceTemplateAuto
 
 ```java
         @Bean
-		@ConditionalOnBean(MultipartResolver.class)  //容器中有这个类型组件
-		@ConditionalOnMissingBean(name = DispatcherServlet.MULTIPART_RESOLVER_BEAN_NAME) //容器中没有这个名字 multipartResolver 的组件
-		public MultipartResolver multipartResolver(MultipartResolver resolver) {
+  @ConditionalOnBean(MultipartResolver.class)  //容器中有这个类型组件
+  @ConditionalOnMissingBean(name = DispatcherServlet.MULTIPART_RESOLVER_BEAN_NAME) //容器中没有这个名字 multipartResolver 的组件
+  public MultipartResolver multipartResolver(MultipartResolver resolver) {
             //给@Bean标注的方法传入了对象参数，这个参数的值就会从容器中找。
             //SpringMVC multipartResolver。防止有些用户配置的文件上传解析器不符合规范
-			// Detect if the user has created a MultipartResolver but named it incorrectly
-			return resolver;
-		}
+   // Detect if the user has created a MultipartResolver but named it incorrectly
+   return resolver;
+  }
 给容器中加入了文件上传解析器；
 
 ```

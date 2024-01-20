@@ -1,4 +1,5 @@
-# SpringBoot 使用 AOP
+## SpringBoot 使用 AOP
+
 - [Springboot注解@Target用法](https://blog.csdn.net/xuxin132133/article/details/86981884)
 - [SpringBoot使用AOP](https://blog.csdn.net/qq_33257527/article/details/82561635)
 
@@ -72,14 +73,14 @@ public class LogAspect {
 
 参数说明：
 
-* @Aspect 表明是一个切面类
-* @Component 将当前类注入到Spring容器内
-* @Pointcut 切入点，其中execution用于使用切面的连接点。使用方法：execution(方法修饰符(可选) 返回类型 方法名 参数 异常模式(可选)) ，可以使用通配符匹配字符，*可以匹配任意字符。
-* @Before 在方法前执行
-* @After 在方法后执行
-* @AfterReturning 在方法执行后返回一个结果后执行
-* @AfterThrowing 在方法执行过程中抛出异常的时候执行
-* @Around 环绕通知，就是可以在执行前后都使用，这个方法参数必须为ProceedingJoinPoint，proceed()方法就是被切面的方法，上面四个方法可以使用JoinPoint，JoinPoint包含了类名，被切面的方法名，参数等信息。
+- @Aspect 表明是一个切面类
+- @Component 将当前类注入到Spring容器内
+- @Pointcut 切入点，其中execution用于使用切面的连接点。使用方法：execution(方法修饰符(可选) 返回类型 方法名 参数 异常模式(可选)) ，可以使用通配符匹配字符，*可以匹配任意字符。
+- @Before 在方法前执行
+- @After 在方法后执行
+- @AfterReturning 在方法执行后返回一个结果后执行
+- @AfterThrowing 在方法执行过程中抛出异常的时候执行
+- @Around 环绕通知，就是可以在执行前后都使用，这个方法参数必须为ProceedingJoinPoint，proceed()方法就是被切面的方法，上面四个方法可以使用JoinPoint，JoinPoint包含了类名，被切面的方法名，参数等信息。
 
 ### 自定义注解
 
@@ -112,9 +113,9 @@ RetentionPolicy.RUNTIME：注解不仅被保存到class文件中，jvm加载clas
 
 @Target：设定注解范围
 
-* ElementType.PARAMETER：可用于参数上
+- ElementType.PARAMETER：可用于参数上
 
-* METHOD可用于描述方法上
+- METHOD可用于描述方法上
 
 ### 使用方式
 

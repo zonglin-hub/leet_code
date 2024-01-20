@@ -10,7 +10,6 @@ fn parse_input(input: &str) -> Result<i32, ParseIntError> {
     let parsed = input.parse::<i32>()?;
     Ok(parsed)
 }
-
 ```
 
 在这里，我们只需要在 `input.parse::<i32>()` 后面加上一个 `?`，如果出现了错误，它会直接返回错误值。另外，在这里，`ParseIntError` 类型是标准库 `std::num::ParseIntError` 的别名。
@@ -24,7 +23,6 @@ fn read_file_content(file_path: &str) -> Result<String, std::io::Error> {
     file.read_to_string(&mut content)?;
     Ok(content)
 }
-
 ```
 
 这个例子中，我们打开一个文件，从中读取内容并返回它。在文件打开和读取时，都可以使用 `?` 来简化代码。
@@ -37,9 +35,7 @@ fn read_file_content(file_path: &str) -> Result<String, std::io::Error> {
 
 ```rust
 fn divide(a: i32, b: i32) -> Result<i32, String> {
-    if b == 0 {
-        return Err("Cannot divide by zero".to_string());
-    }
+    if b == 0 { return Err("Cannot divide by zero".to_string()); }
     Ok(a / b)
 }
 
@@ -50,7 +46,6 @@ fn main() {
         Err(e) => println!("Error: {}", e),
     }
 }
-
 ```
 
 这里我们需要编写一个`match`语句来处理`Result`类型的返回值，其中`Ok`分支表示操作成功，`Err`分支表示出现错误。在`Err`分支中，我们需要编写错误处理代码。
@@ -59,9 +54,7 @@ fn main() {
 
 ```rust
 fn divide(a: i32, b: i32) -> Result<i32, String> {
-    if b == 0 {
-        return Err("Cannot divide by zero".to_string());
-    }
+    if b == 0 { return Err("Cannot divide by zero".to_string()); }
     Ok(a / b)
 }
 
@@ -70,7 +63,6 @@ fn main() -> Result<(), String> {
     println!("{}", result);
     Ok(())
 }
-
 ```
 
 使用`?`可以使代码更加清晰简洁，只需要在函数调用的末尾加上一个`?`即可。如果函数返回一个`Err`，它会直接返回，否则它会返回包装在`Ok`中的值。我们还可以看到，我们不需要一个`match`语句来处理错误，而是可以使用`?`在函数调用之间进行链式调用。最后，我们需要在`main`函数中返回一个`Result`类型的值，这里我使用了一个简单的空元组`()`。
@@ -107,7 +99,6 @@ fn main() {
         Err(error) => println!("Failed to read {}: {}", file_path, error),
     }
 }
-
 ```
 
 在上述代码中，我们使用了?运算符来处理读取文件时的错误。如果在文件打开或读取期间发生错误，?会将错误返回给调用函数，并在main函数中打印出错误信息。
@@ -129,7 +120,6 @@ fn main() {
     let result = divide(a, b).unwrap();
     println!("{} / {} = {}", a, b, result);
 }
-
 ```
 
 在上述代码中，我们使用了 `unwrap()` 来解包函数 `divide` 返回的值。在这种情况下，我们确信 `b` 不会为零，所以我们可以用 `unwrap()` 来获取 `divide` 的返回值。然而，如果 `b` 为零，程序将会崩溃并打印 `"Cannot divide by zero!"`。因此，我们需要小心使用 `unwrap()`。
