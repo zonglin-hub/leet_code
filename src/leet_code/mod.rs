@@ -1,5 +1,3 @@
-//! leet code 算法题
-
 pub mod _0001_two_sum;
 pub mod _0002_add_two_numbers;
 pub mod _0003_length_of_longest_substring;
@@ -236,6 +234,7 @@ pub mod _2719_count;
 pub mod _2731_sum_distance;
 pub mod _2735_min_cost;
 pub mod _2744_maximum_number_of_string_pairs;
+pub mod _2784_is_good;
 pub mod _2788_split_words_by_separator;
 pub mod _2807_insert_greatest_common_divisors;
 pub mod _2809_minimum_time;
@@ -287,6 +286,23 @@ impl ListNode {
 }
 
 /// 创建链表
+///
+/// # Examples
+///
+/// ```rust
+/// use leet_code::{leet_code::ListNode, linked_list};
+///
+/// assert_eq!(
+///     linked_list!(1, 2, 3),
+///     Some(Box::new(ListNode {
+///         val: 1,
+///         next: Some(Box::new(ListNode {
+///             val: 2,
+///             next: Some(Box::new(ListNode { val: 3, next: None }))
+///         }))
+///     }))
+/// );
+/// ```
 #[macro_export]
 macro_rules! linked_list {
     () => {
@@ -301,6 +317,23 @@ macro_rules! linked_list {
 }
 
 /// 创建树
+///
+/// # Examples
+///
+/// ```rust
+/// use std::{cell::RefCell, rc::Rc};
+///
+/// use leet_code::leet_code::{linked_tree, TreeNode};
+///
+/// assert_eq!(
+///     linked_tree(1, None, linked_tree(3, None, None)),
+///     Some(Rc::new(RefCell::new(TreeNode {
+///         val: 1,
+///         left: None,
+///         right: Some(Rc::new(RefCell::new(TreeNode { val: 3, left: None, right: None })))
+///     })))
+/// );
+/// ```
 pub fn linked_tree(val: i32, left: TreeNodePtr, right: TreeNodePtr) -> TreeNodePtr {
     Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
 }
