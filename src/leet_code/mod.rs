@@ -154,6 +154,7 @@ pub mod _0343_integer_break;
 pub mod _0383_can_construct;
 pub mod _0389_find_the_difference;
 pub mod _0392_is_subsequence;
+pub mod _0410_split_array;
 pub mod _0414_third_max;
 pub mod _0415_add_strings;
 pub mod _0445_add_two_numbers;
