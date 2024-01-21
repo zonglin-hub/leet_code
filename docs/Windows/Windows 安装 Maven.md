@@ -1,48 +1,31 @@
 # Windows 安装 Maven
 
-官网下载地址：[Maven – Download Apache Maven](https://maven.apache.org/download.cgi)
+环境变量
 
----
+```sh
+# 变量：JAVAHOME
+变量值：D:\.github\.m2\settings.xml
 
-## 变量：JAVAHOME
+# 变量：MAVEN_HOME
+变量值：D:\program\apache-maven\apache-maven-3.9.0
 
-变量值：
+# 变量：Path
+变量值：%MAVEN_HOME%\bin
 
-```shell
-D:\.github\.m2\settings.xml
-```
-
-## 变量：MAVEN_HOME
-
-变量值：
-
-```shell
-D:\program\apache-maven\apache-maven-3.9.0
-```
-
-## 变量：Path
-
-```shell
-%MAVEN_HOME%\bin
-```
-
-## 测试
-
-```shell
+# 测试
 mvn -v
+
+## Maven 核心配置文件路径：
+apache-maven/conf/settings.xml
 ```
 
-## Maven 核心配置文件
-
-文件路径：`apache-maven/conf/settings.xml`​
-
-### 配置依赖仓库
+配置依赖仓库
 
 ```xml
   <localRepository>D:\.github\.m2\repository</localRepository>
 ```
 
-### 阿里云公共仓库是central仓和jcenter仓的聚合仓
+阿里云公共仓库是 central 仓和 jcenter 仓的聚合仓
 
 ```xml
 <mirrors>
@@ -91,7 +74,7 @@ mvn -v
 </mirrors>
 ```
 
-### 配置 Maven 工程的基础 JDK1.8 版本编译项目
+配置 Maven 工程的基础 JDK1.8 版本编译项目
 
 ```xml
 <profiles>
@@ -109,3 +92,7 @@ mvn -v
  </profile>
 </profiles>
 ```
+
+参考文档
+
+- 官网下载地址：[Maven – Download Apache Maven](https://maven.apache.org/download.cgi)

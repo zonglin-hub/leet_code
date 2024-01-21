@@ -1,4 +1,4 @@
-```
+```sh
 #!/bin/bash
 
 do=`pwd`

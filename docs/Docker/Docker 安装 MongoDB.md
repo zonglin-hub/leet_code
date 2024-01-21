@@ -1,6 +1,10 @@
 # Docker 安装 MongoDB
 
-[使用Docker-Compose安装MongoDB - MasonLee - 博客园 (cnblogs.com)](https://www.cnblogs.com/mxnote/articles/16899560.html)
+**参考文档**
+
+- [使用Docker-Compose安装MongoDB](https://www.cnblogs.com/mxnote/articles/16899560.html)
+
+---
 
 ```bash
 [root@localhost ~]# docker pull mongo:latest
@@ -48,5 +52,3 @@ Successfully added user: {
 1
 >
 ```
-
-‍

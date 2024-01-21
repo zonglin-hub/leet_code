@@ -2,7 +2,7 @@
 
 ## 拉取镜像
 
-```shell
+```sh
 docker pull nacos/nacos-server
 ```
 
@@ -15,7 +15,7 @@ touch ./nacos/init.d/custom.properties
 
 ## 运行容器
 
-```shell
+```sh
 docker run -d -p 8848:8848 -e MODE=standalone -e PREFER_HOST_MODE=hostname -v ./nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties -v ./nacos/logs:/home/nacos/logs --restart always --name nacos nacos/nacos-server
 ```
 

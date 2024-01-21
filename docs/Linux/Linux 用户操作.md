@@ -1,6 +1,6 @@
 # 用户操作
 
-## 1. 创建用户
+## 创建用户
 
 默认情况下创建一个用户账号，会创建一个家目录和一个用户邮箱（在/var/spool/mail目录以用户名命名）
 
@@ -41,13 +41,13 @@
 
 </details>
 
-## 2. 设置密码
+## 设置密码
 
 ```sh
 [root@localhost ~]# passwd <username>
 ```
 
-## 3. 删除用户
+## 删除用户
 
 ```sh
 [root@localhost ~]# userdel -r <username>
@@ -69,7 +69,7 @@
 
 </details>
 
-## 4. `userdel -r <username>`删除用户信息文件
+## `userdel -r <username>` 删除用户信息文件
 
 若使用`userdel -r name`命令删除该用户时，并不能删除该用户的所有信息，只是删除了`/etc/passwd shadow group gshadow`四个文件里的该账户和组的信息。
 

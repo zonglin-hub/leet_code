@@ -1,14 +1,11 @@
-参考文档：
-[Linux和Unix的软件包下载地址](https://pkgs.org/)
-[yum命令 – 基于RPM的软件包管理器 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/yum)
+**参考文档：**
+
+- [Linux和Unix的软件包下载地址](https://pkgs.org/)
+- [yum命令 – 基于RPM的软件包管理器 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/yum)
 
 ------
 
-### yum 用法
-
-**yum** [[options](#jump1)] [COMMAND](#jump2)
-
-### 常用参数
+**yum** [[Options](#jump1)] [COMMAND](#jump2)
 
 <span id="jump1">List of Commands:</span>
 
@@ -58,7 +55,7 @@ upgrade        更新软件包同时考虑软件包取代关系
   --setopt=SETOPTS      设置任意配置和源选项
 ```
 
-### 参考实例
+**参考案例：**
 
 ```shell
 pwd=`/home/rpm.`

@@ -1,12 +1,12 @@
 # Docker 安装 Elasticsearch
 
-## 1. 拉取镜像
+## 拉取镜像
 
 ```bash
 sudo docker pull elasticsearch:8.6.2
 ```
 
-## 2. 创建docker容器挂载目录
+## 创建 docker 容器挂载目录
 
 ```bash
 sudo mkdir -pv /home/zonglin/elasticsearch/config
@@ -19,7 +19,7 @@ sudo mkdir -pv /home/zonglin/elasticsearch/plugins
 - -p, --parents     如果存在，则没有错误，根据需要创建父目录
 - -v, --verbose     为每个创建的目录打印一条消息
 
-## 3. 配置文件（elasticsearch.yml）
+## 配置文件(elasticsearch.yml)
 
 ```bash
 echo "http.host: 0.0.0.0" > /home/zonglin/elasticsearch/config/elasticsearch.yml
@@ -32,7 +32,7 @@ chmod -R 777 /home/zonglin/elasticsearch/
 - -R, --recursive        递归地更改文件和目录
 - 777                         可读、可写、可执行权限
 
-## 4. 创建容器
+## 创建容器
 
 ```bash
 sudo docker run --name elasticsearch -p 9200:9200  -p 9300:9300 \
@@ -55,7 +55,7 @@ sudo docker run --name elasticsearch -p 9200:9200  -p 9300:9300 \
 - -v, --volume list                    绑定挂载卷
 - -d, --detach                         在后台运行容器并打印容器ID
 
-## 5. 查看启动详情
+## 查看启动详情
 
 ```bash
 docker ps  查看是否启动
@@ -124,36 +124,36 @@ CONTAINER ID   IMAGE                  COMMAND                  CREATED          
 
 </details>
 
-# 安装 elasticsearch-ik 分词器
+## 安装 elasticsearch-ik 分词器
 
 **elasticsearch-ik 分词器版本和 elasticsearch 版本必须一致**
 
-## 1. 拉取安装包
+### 拉取安装包
 
 ```sh
 wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.12.0/elasticsearch-analysis-ik-7.12.0.zip
 ```
 
-## 2. 创建 ik 目录
+### 创建 ik 目录
 
 ```sh
 mkdir -pv /opt/elasticsearch/plugins/ik/
 unzip elasticsearch-analysis-ik-7.12.0.zip # 解压到ik目录中
 ```
 
-## 3.重启服务
+### 重启服务
 
 ```sh
 docker restart elasticsearch
 ```
 
-# 🔨kibana 安装
+## Elasticsearch 🔨 安装 kibana
 
-## 可视化界面
+### 可视化界面
 
 [Elasticvue - Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/elasticvue/geifniocjfnfilcbeloeidajlfmhdlgo)
 
-## 1. 安装kibana
+### 安装 kibana
 
 ==kibana，elasticsearch需要版本一致==
 
@@ -162,7 +162,7 @@ wget https://artifacts.elastic.co/downloads/kibana/kibana-7.12.0-linux-x86_64.ta
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.12.0-linux-x86_64.tar.gz
 ```
 
-## 2. 配置`kibana/config/kibana.yml`
+### `kibana/config/kibana.yml` 配置
 
 ```sh
 server.host: "192.168.1.102"
@@ -174,14 +174,14 @@ i18n.locale: "zh-CN"
 /usr/local/kibana/x-pack/plugins/translations/translations/zh-CN.json
 ```
 
-## 3. 启动 kibana
+### 启动 kibana
 
 ```sh
 # kibana 不支持root用户启动
 ./kibana/bin/kibana --allow-root &
 ```
 
-## 4. 测试连接
+### 测试连接
 
 `systemctl stop firewalld.service # 关闭防火墙`
 

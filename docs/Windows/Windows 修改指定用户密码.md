@@ -1,7 +1,7 @@
 Windows 修改指定用户密码
 ===
 
-``` cmd {1}
+```sh
 # net user 当前用户名 设置的密码
 net user administrator 1qaz@WSX
 ```

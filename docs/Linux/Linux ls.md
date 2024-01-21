@@ -1,6 +1,6 @@
 # ls
 
-## Examples
+**参考案例：**
 
 ```sh
 root@ubuntu:~# ls -l l[s].txt

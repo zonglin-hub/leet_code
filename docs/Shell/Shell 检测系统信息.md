@@ -1,4 +1,4 @@
-```
+```sh
 #!/bin/bash
 
 # 基于 CentOS 7.5 编写

@@ -1,4 +1,6 @@
-[rz命令 – 基于ZModem协议上传文件到服务器 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/rz)
+**参考文档：**
+
+- [rz命令 – 基于ZModem协议上传文件到服务器 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/rz)
 
 ---
 

@@ -8,7 +8,7 @@
 
 在行尾添加如下内容：
 
-``` shell {2, 3}
+```sh
 KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group14-sha1
 PermitRootLogin yes
 PasswordAuthentication yes
@@ -16,10 +16,7 @@ PasswordAuthentication yes
 
 `sudo systemctl restart sshd`
 
-<details>
-<summary>sshd_config 配置文件</summary>
-
-``` shell {33, 34}
+```sh
 # $OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
 
 # This is the sshd server system-wide configuration file.  See
@@ -145,5 +142,3 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 # ForceCommand cvs server
 
 ```
-
-</details>

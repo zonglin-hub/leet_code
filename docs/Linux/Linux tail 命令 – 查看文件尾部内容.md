@@ -1,4 +1,6 @@
-[tail命令 – 查看文件尾部内容 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/tail)
+**参考文档：**
+
+- [tail命令 – 查看文件尾部内容 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/tail)
 
 ---
 

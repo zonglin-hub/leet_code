@@ -3,12 +3,12 @@
 ## 「高级特质约束 `higher-ranked trait bounds`」
 
 - [RFC 387 higher ranked trait bounds][RFC 387]（`for<'a>...`）
-  - `for<'a>` 表示 `for any lifetime` 都会成立
-  - 目前 `fn*` 系列默认 `HRTB`
-  - 区别 `lifetime` 的「早期绑定 `early_bound`」和「延迟绑定 `late_bound`」
-    - 早期绑定：如果一个泛型函数的参数使用双引号 `('')` 包裹，那么这个参数就是早期绑定的。
+    - `for<'a>` 表示 `for any lifetime` 都会成立
+    - 目前 `fn*` 系列默认 `HRTB`
+    - 区别 `lifetime` 的「早期绑定 `early_bound`」和「延迟绑定 `late_bound`」
+        - 早期绑定：如果一个泛型函数的参数使用双引号 `('')` 包裹，那么这个参数就是早期绑定的。
         早期绑定参数的实际值在编译期间就会确定，而不是在函数调用时。
-    - 延迟绑定：如果一个泛型函数的参数使用单引号 `( ')` 包裹，那么这个参数就是延迟绑定的。
+        - 延迟绑定：如果一个泛型函数的参数使用单引号 `( ')` 包裹，那么这个参数就是延迟绑定的。
         延迟绑定参数的实际值在函数调用时才会被确定，而不是在编译期间。
 
 [RFC 387]: https://rust-lang.github.io/rfcs/0387-higher-ranked-trait-bounds.html
@@ -188,8 +188,8 @@ impl<A: std::fmt::Display> Point<A> {
 在使用泛型关联类型时，需要遵循一定的语法规则和限制。
 
 - [RFC 1598 generic associated types][RFC 1598]
-  - 「关联 associated」type 中可以增加类型参数，当然也就包括 `lifetime`
-  - [加强理解 GAT 的一篇文章][gat]
+    - 「关联 associated」type 中可以增加类型参数，当然也就包括 `lifetime`
+    - [加强理解 GAT 的一篇文章][gat]
 
 [RFC 1598]: https://rust-lang.github.io/rfcs/1598-generic_associated_types.html
 [gat]: https://sabrinajewson.org/blog/the-better-alternative-to-lifetime-gats

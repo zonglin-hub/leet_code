@@ -29,5 +29,3 @@ yum install -y langpacks-zh_CN
 ```sh
 shutdown -r now
 ```
-
-‍

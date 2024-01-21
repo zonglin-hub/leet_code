@@ -1,10 +1,9 @@
 # Windows 安装 JDK
 
-参考资料：
+**参考资料：**
 
-[https://cloud.tencent.com/developer/article/1835472](https://cloud.tencent.com/developer/article/1835472)
-
-[jdk17.0.4.1 镜像 - _ideal - 博客园 (cnblogs.com)](https://www.cnblogs.com/gkmin/p/16620528.html)
+- [https://cloud.tencent.com/developer/article/1835472](https://cloud.tencent.com/developer/article/1835472)
+- [jdk17.0.4.1 镜像 - _ideal - 博客园 (cnblogs.com)](https://www.cnblogs.com/gkmin/p/16620528.html)
 
 ---
 

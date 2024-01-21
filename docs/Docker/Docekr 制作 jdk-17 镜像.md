@@ -1,20 +1,19 @@
 # Dcoekr 制作 jdk-17 镜像
 
-参考文档：
+**参考文档：**
 
-[jdk17.0.4.1镜像 - _ideal - 博客园 (cnblogs.com)](https://www.cnblogs.com/gkmin/p/16620528.html)
-
-[Docker之dockerfile制作jdk镜像 - 沦陷 - 博客园 (cnblogs.com)](https://www.cnblogs.com/huangting/p/11966450.html)
+- [jdk17.0.4.1镜像 - _ideal](https://www.cnblogs.com/gkmin/p/16620528.html)
+- [Docker之dockerfile制作jdk镜像 - 沦陷](https://www.cnblogs.com/huangting/p/11966450.html)
 
 ---
 
-**((20230307193521-hke61kh 'JDK 官网下载'))**
+**'JDK 官网下载'**
 
 ![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923122821195-2025021592.png)
 
 **编写 Dockerfile**
 
-```shell
+```sh
 FROM centos:7
 MAINTAINER xxx "xxx@qq.com"
 WORKDIR /javaxh_docker/jdk
@@ -27,7 +26,7 @@ CMD ["java","-version"]
 
 **构建镜像**
 
-```shell
+```sh
 docker build -t jdk17:v1.0 .  
 ```
 
@@ -35,28 +34,19 @@ docker build -t jdk17:v1.0 .
 
 **运行容器**
 
-```shell
+```sh
 docker run -it jdk17:v1.0 /bin/bash
 ```
 
-## dockerfile 示例
-
-‍
+**参考案例：**
 
 ```dockerfile
 FROM anapsix/alpine-java:8_server-jre_unlimited
-
 MAINTAINER opgames(opgames.cn@gmail.com)
-
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
 RUN mkdir -p /opt/projects/mall4j
-
 WORKDIR /opt/projects/mall4j
-
 ADD ./yami-shop-admin/target/yami-shop-admin-0.0.1-SNAPSHOT.jar ./
-
 EXPOSE 8085
-
 CMD java -jar -Xms512m -Xmx512m -Xss256k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC -Dspring.profiles.active=docker,quartz yami-shop-admin-0.0.1-SNAPSHOT.jar
 ```

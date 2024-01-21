@@ -6,13 +6,13 @@
   请在 MinGW64 官网[进行下载 `x86_64-win32-seh`][MinGW64]。
   如不安装，编辑代码时，会影响部分函数提示。
 
-  - 并于系统变量 `Path` 中编辑环境变量，指定 `mingw64\bin` 目录。
+    - 并于系统变量 `Path` 中编辑环境变量，指定 `mingw64\bin` 目录。
 
-    ```text
-    D:\program\mingw64\bin
-    ```
+      ```text
+      D:\program\mingw64\bin
+      ```
 
-  - 使用 <kbd>gcc -v</kbd> 测试 gcc 环境是否正常。
+    - 使用 <kbd>gcc -v</kbd> 测试 gcc 环境是否正常。
 
 - 官网下载 <kbd>rustup-init.exe</kbd> 并安装，[点击这里下载！][download_rustup]
 
@@ -38,7 +38,7 @@ vim ~/.cargo/config
 
 并输入下面内容：
 
-```tomls
+```toml
 [source.crates-io]
 registry = "https://github.com/rust-lang/crates.io-index"
 # 指定镜像

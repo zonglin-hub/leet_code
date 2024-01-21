@@ -1,4 +1,4 @@
-```
+```sh
 #!/bin/bash
 
 basepath=$(
@@ -10,7 +10,7 @@ mysql -u"用户" -p"密码" -f <./data_clean.sql
 
 ```
 
-```
+```sh
 use fort;
 select * from liuzonglin;
 ```

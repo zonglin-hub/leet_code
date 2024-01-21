@@ -1,6 +1,6 @@
-参考文档：
+**参考文档：**
 
-[curl命令 – 文件传输工具 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/curl)
+- [curl命令 – 文件传输工具 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/curl)
 
 **语法格式：** curl [参数] 网址
 
@@ -26,44 +26,25 @@
 
 **参考案例：**
 
-curl默认是 get 请求
-
-```shell
+```sh
+# curl默认是 get 请求
 curl -XGET 'http://127.0.0.1:9200/_license' -k
-```
 
-POST 请求
-
-```shell
+# POST 请求
 curl -XPOST http://127.0.0.1:9200/liuzonglin_jd1/_search?pretty -H 'content-Type:application/json' -d '{"query":{"match_all":{}},"from":0,"size":10}'
-```
 
-put请求
-
-```shell
+# put请求
 curl -XPUT http://127.0.0.1:9200/liuzonglin/_doc/2?pretty -H 'content-Type:application/json' -H 'content-Type:application/json' -d '{"name":"liuzonglin","age":"26"}'
-```
 
-删除请求
-
-```shell
+# 删除请求
 curl -XDELETE 'http://127.0.0.1:9200/las-e-*/' -k
-```
 
-获取浏览器所有首部
-
-```shell
+# 获取浏览器所有首部
 curl -I www.baidu.com
-```
 
-curl 上传文件
-
-```shell
+# curl 上传文件
 curl -u <用户名>:<密码> -T <文件> <URL>
-```
 
-curl 下载文件
-
-```shell
+# curl 下载文件
 curl -u <用户名>:<密码> -O <URL>
 ```

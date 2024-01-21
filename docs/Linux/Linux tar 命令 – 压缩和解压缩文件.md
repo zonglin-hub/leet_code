@@ -1,4 +1,6 @@
-[tar命令 – 压缩和解压缩文件 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/tar)
+**参考文档：**
+
+- [tar命令 – 压缩和解压缩文件 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/tar)
 
 ---
 

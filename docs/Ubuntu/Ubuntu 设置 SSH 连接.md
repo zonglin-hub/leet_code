@@ -1,24 +1,24 @@
-1. ubuntu 查看 ip 信息
+- ubuntu 查看 ip 信息
 
-	```
-	$ ifconfig
-	```
+```sh
+ifconfig
+```
 
-2. 若提示找不到命令，则需安装 net-tools
+- 若提示找不到命令，则需安装 net-tools
 
-	```
-	$ sudo apt-get install net-tools
-	```
+```sh
+sudo apt-get install net-tools
+```
 
-3. 安装openssl
+- 安装openssl
 
-	```
-	$ sudo apt-get install update
-	$ sudo apt-get install openssh-server
-	```
+```sh
+sudo apt-get install update
+sudo apt-get install openssh-server
+```
 
-4. 启动 ssh 服务
+- 启动 ssh 服务
 
-	```
-	$ sudo service ssh start  或者  sudo /etc/init.d/ssh start
-	```
+```sh
+sudo service ssh start  或者  sudo /etc/init.d/ssh start
+```

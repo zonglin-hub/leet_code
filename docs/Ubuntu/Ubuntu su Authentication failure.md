@@ -28,6 +28,6 @@ sudo passwd root # 修改root 密码
 
 使用 su 切换用户
 
-参考资料：
+**参考资料：**
 
 [Ubuntu下postgresql出现Authentication failure（认证失败）](https://www.cnblogs.com/liuyanerfly/p/13427361.html)

@@ -14,32 +14,32 @@ Ylonen设计了SSH协议，将登录信息全部加密，成为互联网安全�
 
 查看 ip 信息
 
-```shell
+```sh
 ifconfig
 ```
 
 若提示找不到命令，则需安装 net-tools
 
-```shell
+```sh
 sudo apt install net-tools
 ```
 
 安装openssl
 
-```shell
+```sh
 sudo apt-get install update
 sudo apt-get install openssh-server # 输入后还需要你输入当前用户的密码才可以执行，至于为什么我们后面会说
 ```
 
 启用root用户
 
-```shell
+```sh
 sudo passwd root # 修改密码后就启用了
 ```
 
 vim /etc/ssh/sshd_config
 
-```shell
+```sh
 PermitRootLogin yes                   #允许root用户以任何认证方式登录（貌似也就两种认证方式：用户名密码认证，公钥认证）
 PermitRootLogin without-password      #只允许root用public key认证方式登录
 PermitRootLogin no                    #不允许root用户以任何认证方式登录
@@ -47,13 +47,13 @@ PermitRootLogin no                    #不允许root用户以任何认证方式�
 
 启动 ssh 服务
 
-```shell
+```sh
 sudo service ssh start  或者  sudo /etc/init.d/ssh start
 ```
 
 ‍
 
-## 参考资料
+**参考资料**
 
 - [ubuntu下允许root用户ssh远程登录](https://www.cnblogs.com/ajianbeyourself/p/4220274.html)
 - [Ubuntu中开启ssh允许root远程ssh登录的方法](https://cloud.tencent.com/developer/article/1445519)

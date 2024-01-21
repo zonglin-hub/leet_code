@@ -1,6 +1,6 @@
 # Linux查看系统版本信息
 
-```lua
+```sh
 uname -a  # 查看Linux内核版本命令
 cat /proc/version  # 查看Linux内核版本命令
 cat /etc/issue  # 此命令也适用于所有的Linux发行版。

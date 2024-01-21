@@ -1,4 +1,4 @@
-```
+```sh
 #!/bin/bash
 # 基于 debian 编写
 

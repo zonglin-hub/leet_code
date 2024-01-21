@@ -1,6 +1,6 @@
-**参考**
+**参考文档：**
 
-[echo命令 – 输出字符串或提取后的变量值 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/echo)
+- [echo命令 – 输出字符串或提取后的变量值 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/echo)
 
 ---
 

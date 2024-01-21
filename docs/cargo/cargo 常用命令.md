@@ -1,13 +1,13 @@
 # cargo 常用命令
 
-| 指令 | 解释                                               |
-| ------ | ---------------------------------------------------- |
-| `cargo --version`     | cargo 版本                                         |
-| `cargo new greeting`     | cargo 创建项目                                     |
-| `cargo build`     | 构建                                               |
-| `cargo run`     | 运行                                               |
-| `cargo check`     | 检查代码，确保能通过编译，但是不产生任何可执行文件 |
-| `cargo build --release`     | 为发布构建                                         |
+| 指令    |               解释                                          |
+| ------ | ---------------------------------------------------------- |
+| `cargo --version`        | cargo 版本                                |
+| `cargo new greeting`     | cargo 创建项目                             |
+| `cargo build`            | 构建                                      |
+| `cargo run`              | 运行                                      |
+| `cargo check`            | 检查代码，确保能通过编译，但是不产生任何可执行文件 |
+| `cargo build --release`  | 为发布构建                                 |
 
 Cargo.toml
 

@@ -1,4 +1,6 @@
-[ssh命令 – 安全的远程连接服务器 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/ssh)
+**参考文档：**
+
+- [ssh命令 – 安全的远程连接服务器 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/ssh)
 
 ---
 

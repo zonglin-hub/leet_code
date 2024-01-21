@@ -1,4 +1,4 @@
-参考
+**参考**
 
 - <http://www.javashuo.com/article/p-xnxjpcal-bm.html>
 - <https://www.vagrantup.com/docs/vagrantfile>
@@ -45,7 +45,7 @@ vagrant package --output local-centos.box # 将虚拟机打包为一个.box的�
 
 - VagrantFile
 
-```ruby
+```sh
 Vagrant.configure("2") do |config|
 # 设置主机名称
 config.vm.hostname="docker"

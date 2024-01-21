@@ -1,6 +1,7 @@
-参考文档：
-[rsync命令 – 远程数据同步工具 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/rsync)
-[Rsync命令参数详解](https://www.cnblogs.com/subsir/articles/2565373.html)
+**参考文档：**
+
+- [rsync命令 – 远程数据同步工具 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/rsync)
+- [Rsync命令参数详解](https://www.cnblogs.com/subsir/articles/2565373.html)
 
 ---
 
