@@ -1,3 +1,5 @@
+# Ubuntu 不在 sudoers 文件中
+
 ```sh
 [sudo] liuzonglin 的密码：
 liuzonglin 不在 sudoers 文件中。此事将被报告。

@@ -1,19 +1,15 @@
 # Redis安装
 
-‍
-
 我们这里还是使用Windows安装Redis服务器，但是官方指定是安装到Linux服务器上，我们后面学习了Linux之后，再来安装到Linux服务器上。由于官方并没有提供Windows版本的安装包，我们需要另外寻找：
 
 * 官网地址：[https://redis.io](https://redis.io)
 * GitHub Windows版本维护地址：[https://github.com/tporadowski/redis/releases](https://github.com/tporadowski/redis/releases)
 
-## 1、CentOS7 普通安装
+## CentOS7 普通安装
 
 [Redis官方网站](https://redis.io/)
 
-[Redis中文官方网站](http://redis.cn/)
-
-### 1.1、环境安装
+### 环境安装
 
 ```sh
 yum install -y gcc-C++ gcc wget vim
@@ -23,13 +19,13 @@ yum install -y gcc-C++ gcc wget vim
 >
 > * -y：自动选择 yes
 
-### 1.2、下载安装包
+### 下载安装包
 
 ```sh
 wget https://download.redis.io/redis-stable.tar.gz
 ```
 
-### 1.3、解压到指定路径
+### 解压到指定路径
 
 ```sh
 tar -xzvf redis-stable.tar.gz -C /usr/local/ && cd /usr/local/redis-stable
@@ -43,13 +39,13 @@ tar -xzvf redis-stable.tar.gz -C /usr/local/ && cd /usr/local/redis-stable
 > * -f：--file [HOSTNAME:]F 指定存档或设备，后接文件名称
 > * -C：解压到指定路径
 
-### 1.4、编译 并 安装
+### 编译 并 安装
 
 ```sh
 make && make install
 ```
 
-### 1.5、修改 redis.conf 配置信息
+### 修改 redis.conf 配置信息
 
 ```sh
 # 设置后台启动
@@ -60,7 +56,7 @@ tls-port 6379
 databases 16
 ```
 
-### 1.6、配置启动脚本
+### 配置启动脚本
 
 启动脚本 `redis_init_script` 位于位于 Redis 的 `/utils/` 目录下
 
@@ -75,7 +71,7 @@ mkdir /etc/redis && cp redis.conf /etc/redis/6379.conf
 chkconfig redis on
 ```
 
-### 1.7、设置 redis 6379 外网连接
+### 设置 redis 6379 外网连接
 
 ```sh
 # 把redis的端口放到防火墙计划中
@@ -91,7 +87,7 @@ protected-mode no
 # 重启redis 服务
 ```
 
-### 1.8、安装目录说明
+### 安装目录说明
 
 查看默认安装目录：/usr/local/bin
 

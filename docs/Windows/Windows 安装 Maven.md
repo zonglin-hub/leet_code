@@ -93,6 +93,40 @@ apache-maven/conf/settings.xml
 </profiles>
 ```
 
+- 常用打包命令 `mvnw`​或`mvn`​
+
+  ```sh
+  ./mvnw clean package -Dmaven.test.skip=true   # 跳过单测打包
+  ./mvnw clean install -Dmaven.test.skip=true   # 跳过单测打包，并把打好的包上传到本地仓库
+  ./mvnw clean deploy -Dmaven.test.skip=true   # 跳过单测打包，并把打好的包上传到远程仓库
+  ./mvnw -v        # 查看版本
+  ./mvnw archetype:create      # 创建 Maven 项目
+  ./mvnw compile        # 编译源代码
+  ./mvnw test-compile       # 编译测试代码
+  ./mvnw test        # 运行应用程序中的单元测试
+  ./mvnw site        # 生成项目相关信息的网站
+  ./mvnw package        # 依据项目生成 jar 文件
+  ./mvnw install        # 在本地 Repository 中安装 jar
+  ./mvnw -Dmaven.test.skip=true      # 忽略测试文档编译
+  ./mvnw clean        # 清除目标目录中的生成结果
+  ./mvnw clean compile       # 将.java类编译为.class文件
+  ./mvnw clean package       # 进行打包
+  ./mvnw clean test       # 执行单元测试
+  ./mvnw clean deploy       # 部署到版本仓库
+  ./mvnw clean install       # 使其他项目使用这个jar,会安装到maven本地仓库中
+  ./mvnw archetype:generate      # 创建项目架构
+  ./mvnw dependency:list       # 查看已解析依赖
+  ./mvnw dependency:tree com.xx.xxx     # 看到依赖树
+  ./mvnw dependency:tree      # 命令解决jar包冲突
+  ./mvnw dependency:analyze      # 查看依赖的工具
+  ./mvnw help:system       # 从中央仓库下载文件至本地仓库
+  ./mvnw help:active-profiles      # 查看当前激活的profiles
+  ./mvnw help:all-profiles      # 查看所有profiles
+  ./mvnw help:effective -pom      # 查看完整的pom信息
+  ```
+
+‍
+
 参考文档
 
 - 官网下载地址：[Maven – Download Apache Maven](https://maven.apache.org/download.cgi)

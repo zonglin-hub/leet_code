@@ -1,5 +1,65 @@
 # Visual Studio Code
 
+## VSCode 常用配置
+
+```yml
+// User and Workspace Settings https://code.visualstudio.com/docs/getstarted/settings
+{
+    "editor.codeActionsOnSave": {},
+    "editor.indentSize": "tabSize",
+    // 在 VSCode 中启用连字字体需要用到两个选项 "editor.fontFamily", "editor.fontLigatures"
+    "editor.fontFamily": "Fira Code Light, Consolas, Microsoft YaHei",
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true, // 自动保存
+    "git.openRepositoryInParentFolders": "never",
+    "explorer.confirmDelete": false,
+    "debug.allowBreakpointsEverywhere": true,
+    "files.autoSave": "afterDelay",
+    "workbench.editor.showTabs": "single",
+    "editor.minimap.enabled": false,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "window.commandCenter": false,
+    // markdownlint 配置：https://github.com/DavidAnson/markdownlint/blob/v0.32.1/doc/Rules.md
+    "markdownlint.config": {
+        "MD007": {
+            "indent": 4, // 缩进空格
+        },
+        "MD010": {
+            "spaces_per_tab": 4 // 每个硬制表符的空格数
+        },
+        "MD033": false, // 允许内联 HTML
+        "MD036": false, // 使用强调代替标题
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint" // markdownlint 为默认格式化
+    },
+    "workbench.iconTheme": "material-icon-theme",
+}
+```
+
+## LeetCode 测试代码片段
+
+```yml
+{
+    // 这里的格式可以通过以下链接进行格式化: https://snippet-generator.app/
+    "LeetCode 测试代码片段": {
+        "prefix": "v1",
+        "body": [
+          "#[cfg(test)]",
+          "mod tests {",
+          "    use crate::leet_code::Solution;",
+          "",
+          "    #[test]",
+          "    fn test_two_sum() {",
+          "        assert_eq!(Solution::);",
+          "    }",
+          "}"
+        ],
+        "description": "LeetCode 测试代码片段"
+      }
+}
+```
+
 ## 扩展
 
 ### 公共插件
@@ -78,76 +138,3 @@
 
 - HTML CSS Support
 - rust-yew
-
-## VSCode 常用配置
-
-```yml
-// User and Workspace Settings https://code.visualstudio.com/docs/getstarted/settings
-{
-    "editor.codeActionsOnSave": {},
-    "editor.indentSize": "tabSize",
-    // 在 VSCode 中启用连字字体需要用到两个选项 "editor.fontFamily", "editor.fontLigatures"
-    "editor.fontFamily": "Fira Code Light, Consolas, Microsoft YaHei",
-    "editor.fontLigatures": true,
-    "editor.formatOnSave": true, // 自动保存
-    "git.openRepositoryInParentFolders": "never",
-    "explorer.confirmDelete": false,
-    "debug.allowBreakpointsEverywhere": true,
-    "files.autoSave": "afterDelay",
-    "workbench.editor.showTabs": "single",
-    "editor.minimap.enabled": false,
-    "diffEditor.hideUnchangedRegions.enabled": true,
-    "window.commandCenter": false,
-    // markdownlint 配置：https://github.com/DavidAnson/markdownlint/blob/v0.32.1/doc/Rules.md
-    "markdownlint.config": {
-        "MD007": {
-            "indent": 4, // 缩进空格
-        },
-        "MD010": {
-            "spaces_per_tab": 4 // 每个硬制表符的空格数
-        },
-        "MD033": false, // 允许内联 HTML
-        "MD036": false, // 使用强调代替标题
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint" // markdownlint 为默认格式化
-    },
-    "workbench.iconTheme": "material-icon-theme",
-}
-```
-
-## LeetCode 测试代码片段
-
-```yml
-{
-	// 这里的格式可以通过以下链接进行格式化: https://snippet-generator.app/
-	// Place your snippets for rust here. Each snippet is defined under a snippet name and has a prefix, body and 
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-	// same ids are connected.
-	// Example:
-	// "Print to console": {
-	// 	"prefix": "log",
-	// 	"body": [
-	// 		"console.log('$1');",
-	// 		"$2"
-	// 	],
-	// 	"description": "Log output to console"
-	// }
-	"LeetCode 测试代码片段": {
-		"prefix": "v1",
-		"body": [
-		  "#[cfg(test)]",
-		  "mod tests {",
-		  "    use crate::leet_code::Solution;",
-		  "",
-		  "    #[test]",
-		  "    fn test_two_sum() {",
-		  "        assert_eq!(Solution::);",
-		  "    }",
-		  "}"
-		],
-		"description": "LeetCode 测试代码片段"
-	  }
-}
-```

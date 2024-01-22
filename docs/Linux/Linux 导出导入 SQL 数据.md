@@ -1,4 +1,6 @@
-## Linux 导出 MySQL 数据库
+# Linux 导出 & 导入 MySQL 数据库
+
+**Linux 导出 MySQL 数据库**
 
 - 导出表结构
 
@@ -14,7 +16,7 @@
     Enter password: 
     ```
 
-## Linux 导入 MySQL 数据库
+**Linux 导入 MySQL 数据库**
 
 - 创建空数据库
 

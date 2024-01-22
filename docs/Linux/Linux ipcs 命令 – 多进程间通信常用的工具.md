@@ -1,4 +1,6 @@
-[ipcs命令 – 多进程间通信常用的工具 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/ipcs)
+# Linux ipcs 命令 – 多进程间通信常用的工具
+
+- [ipcs命令 – 多进程间通信常用的工具 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/ipcs)
 
 ---
 

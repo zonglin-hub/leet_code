@@ -106,8 +106,4 @@ S: 9b19170eea3ea1b92c58ad18c0b5522633a9e271 172.38.0.14:6379
 >>> Check for open slots...
 >>> Check slots coverage...
 [OK] All 16384 slots covered.
- 
- 
 ```
-
-‍

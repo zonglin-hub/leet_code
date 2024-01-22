@@ -1,3 +1,5 @@
+# Linux rsync 命令 – 远程数据同步工具
+
 **参考文档：**
 
 - [rsync命令 – 远程数据同步工具 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/rsync)
@@ -20,6 +22,7 @@
 
 **参考案例：**
 
-```shell
-rsync -auvzte 'ssh -p 220' /home/db_log ftp_log rdp_log sftp_log ssh_log telnet_log root@10.96.128.133:/home/   # -t 相当于去重了
+```sh
+# -t 相当于去重了
+rsync -auvzte 'ssh -p 220' /home/db_log ftp_log rdp_log sftp_log ssh_log telnet_log root@10.96.128.133:/home/
 ```

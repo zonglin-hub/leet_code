@@ -29,16 +29,16 @@
 ## MySQL 集群方案
 
 - 方案一：共享存储
-  - 一般共享存储采用比较多的是 SAN/NAS 方案。
+    - 一般共享存储采用比较多的是 SAN/NAS 方案。
 - 方案二：操作系统实时数据块复制
-  - 这个方案的典型场景是 DRBD，DRBD架构(MySQL+DRBD+Heartbeat)
+    - 这个方案的典型场景是 DRBD，DRBD架构(MySQL+DRBD+Heartbeat)
 - 方案三：主从复制架构
-  - 主从复制(一主多从)
-  - MMM架构(双主多从)
-  - MHA架构(多主多从)
+    - 主从复制(一主多从)
+    - MMM架构(双主多从)
+    - MHA架构(多主多从)
 - 方案四：数据库高可用架构
-  - MGR(MySQL Group Replication)，MySQL官方开发的一个实现MySQL高可用集群的一个工具。第一个GA版本正式发布于MySQL5.7.17中
-  - Galera
+    - MGR(MySQL Group Replication)，MySQL官方开发的一个实现MySQL高可用集群的一个工具。第一个GA版本正式发布于MySQL5.7.17中
+    - Galera
 ‍
 
 ## MySQL 复制

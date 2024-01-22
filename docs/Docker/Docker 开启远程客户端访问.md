@@ -1,10 +1,10 @@
-配置Docker的服务器开启远程客户端访问：
+# 配置Docker的服务器开启远程客户端访问
 
-`sudo vim /etc/systemd/system/multi-user.target.wants/docker.service`
+```sh
+sudo vim /etc/systemd/system/multi-user.target.wants/docker.service
+```
 
 打开后，添加高亮部分：
-
-![image](https://img2023.cnblogs.com/blog/2402369/202303/2402369-20230309232513151-462240788.png)
 
 ```livecodeserver
 [Service]
@@ -26,10 +26,6 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker.service
 ```
 
-现在接着在IDEA中进行配置：
-
-![image](https://img2023.cnblogs.com/blog/2402369/202303/2402369-20230309232620574-518480260.png)
-
 在引擎 API URL 处填写我们 Docker 服务器的IP地址：
 
 ```shell
@@ -40,5 +36,3 @@ tcp    LISTEN     0      128      :::2375                 :::*                  
 ```sh
 tcp://IP:2375
 ```
-
-显示连接成功后，表示配置正确，点击保存即可。

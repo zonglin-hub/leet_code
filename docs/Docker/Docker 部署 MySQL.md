@@ -1,12 +1,12 @@
-## Docker 部署 MySQL
+# Docker 部署 MySQL
 
 参考资料：
 
-[使用docker-compose的方式部署mysql](https://zhuanlan.zhihu.com/p/384330120)
+- [使用docker-compose的方式部署mysql](https://zhuanlan.zhihu.com/p/384330120)
 
 ---
 
-### 拉取镜像
+## 拉取镜像
 
 ```shell
 docker pull mysql:latest
@@ -20,7 +20,7 @@ mkdir -p ./mysql/initdb
 mkdir -p ./mysql/log
 ```
 
-### 运行容器设置开机自启
+## 运行容器设置开机自启
 
 ```shell
 docker run \
@@ -34,13 +34,13 @@ docker run \
     mysql:latest
 ```
 
-### 运行容器开启容器自启
+## 运行容器开启容器自启
 
 ```sh
 docker update --restart=always 356c575a09aa
 ```
 
-### mysql 配置文件
+## mysql 配置文件
 
 ```sh
 tee /mydata/mysql/conf/my.cnf <<-'EOF'
@@ -66,5 +66,5 @@ EOF
 
 latest 最新版本
 
-* -p 3306:3306 ：映射容器服务的 3306 端口到宿主机的 3306 端口，外部主机可以直接通过 宿主机ip:3306 访问到 MySQL 的服务。
-* MYSQL_ROOT_PASSWORD=123456：设置 MySQL 服务 root 用户的密码。
+- -p 3306:3306 ：映射容器服务的 3306 端口到宿主机的 3306 端口，外部主机可以直接通过 宿主机ip:3306 访问到 MySQL 的服务。
+- MYSQL_ROOT_PASSWORD=123456：设置 MySQL 服务 root 用户的密码。

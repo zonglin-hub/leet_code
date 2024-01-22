@@ -1,3 +1,5 @@
+# Linux tar 命令 – 压缩和解压缩文件
+
 **参考文档：**
 
 - [tar命令 – 压缩和解压缩文件 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/tar)
@@ -19,8 +21,13 @@
 
 **参考案例：**
 
-```shell
-tar -zxvf install_20220105.tar.gz    # 解压文件
-tar -zxvf install_20220105.tar.gz -C /etc   # 解压到etc目录下 
-tar -zcvf install_20220105.tar.gz install_20220105  # 压缩文件
+```sh
+# 解压文件
+tar -zxvf install_20220105.tar.gz
+
+# 解压到etc目录下
+tar -zxvf install_20220105.tar.gz -C /etc
+
+# 压缩文件
+tar -zcvf install_20220105.tar.gz install_20220105
 ```

@@ -1,3 +1,5 @@
+# Linux rz 命令 – 基于 ZModem 协议上传文件到服务器
+
 **参考文档：**
 
 - [rz命令 – 基于ZModem协议上传文件到服务器 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/rz)
@@ -14,6 +16,7 @@
 
 **参考案例：**
 
-```shell
-rz -p   # 上传指定的文件到服务器，遇到重名的文件直接覆盖：
+```sh
+# 上传指定的文件到服务器，遇到重名的文件直接覆盖：
+rz -p   
 ```

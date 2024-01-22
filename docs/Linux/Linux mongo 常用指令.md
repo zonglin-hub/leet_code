@@ -1,3 +1,5 @@
+# Linux MongoDB 常用指令
+
 ```sh
 ## 导出mongodb数据库
 /usr/local/las/program/mongodb/bin/mongodump -d admin -u root -p "password" -o /root/sd 

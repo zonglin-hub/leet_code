@@ -6,7 +6,7 @@
 sudo docker pull elasticsearch:8.6.2
 ```
 
-## 创建 docker 容器挂载目录
+## 创建容器挂载目录
 
 ```bash
 sudo mkdir -pv /home/zonglin/elasticsearch/config
@@ -19,7 +19,7 @@ sudo mkdir -pv /home/zonglin/elasticsearch/plugins
 - -p, --parents     如果存在，则没有错误，根据需要创建父目录
 - -v, --verbose     为每个创建的目录打印一条消息
 
-## 配置文件(elasticsearch.yml)
+## 配置文件
 
 ```bash
 echo "http.host: 0.0.0.0" > /home/zonglin/elasticsearch/config/elasticsearch.yml
@@ -34,18 +34,16 @@ chmod -R 777 /home/zonglin/elasticsearch/
 
 ## 创建容器
 
-```bash
-sudo docker run --name elasticsearch -p 9200:9200  -p 9300:9300 \
- --restart=always \
- -e "discovery.type=single-node" \
- -e ES_JAVA_OPTS="-Xms84m -Xmx512m" \
- -v /home/zonglin/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
- -v /home/zonglin/elasticsearch/data:/usr/share/elasticsearch/data \
- -v /home/zonglin/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
- -d elasticsearch:8.6.2
+```sh
+sudo docker run --name elasticsearch -p 9200:9200 -p 9300:9300
+    --restart=always -e "discovery.type=single-node" -e ES_JAVA_OPTS="-Xms84m -Xmx512m" \
+    -v /home/zonglin/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+    -v /home/zonglin/elasticsearch/data:/usr/share/elasticsearch/data \
+    -v /home/zonglin/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+    -d elasticsearch:8.6.2
 ```
 
-`docker run`参数说明:
+`docker run` 参数说明:
 
 - --name string                    为容器分配一个名称
 - -p, --publish list                  向主机发布容器的端口
@@ -64,86 +62,19 @@ docker restart elasticsearch   重启
 docker exec -it elasticsearch bash 进入
 ```
 
-<details><summary><b>操作明细：</b></summary>
-
-```bash
-[root@localhost ~]# docker pull elasticsearch:7.12.0
-7.12.0: Pulling from library/elasticsearch
-7a0437f04f83: Pull complete 
-2b674c951ca3: Pull complete 
-06baeb69f25f: Pull complete 
-eeff01d19ce5: Pull complete 
-a994306398ca: Pull complete 
-2c002d76c1f6: Pull complete 
-6286f2196f9b: Pull complete 
-Digest: sha256:383e9fb572f3ca2fdef5ba2edb0dae2c467736af96aba2c193722aa0c08ca7ec
-Status: Downloaded newer image for elasticsearch:7.12.0
-docker.io/library/elasticsearch:7.12.0
-[root@localhost ~]# docker images
-REPOSITORY      TAG       IMAGE ID       CREATED         SIZE
-elasticsearch   7.12.0    9337ed510a0c   18 months ago   830MB
-[root@localhost opt]# sudo mkdir -pv /opt/elasticsearch/config
-mkdir: 已创建目录 "/opt/elasticsearch"
-mkdir: 已创建目录 "/opt/elasticsearch/config"
-[root@localhost opt]# sudo mkdir -pv /opt/elasticsearch/data
-mkdir: 已创建目录 "/opt/elasticsearch/data"
-[root@localhost opt]# sudo mkdir -pv /opt/elasticsearch/plugins
-mkdir: 已创建目录 "/opt/elasticsearch/plugins"
-[root@localhost config]# echo "http.host: 0.0.0.0" > /opt/elasticsearch/config/elasticsearch.yml
-[root@localhost config]# sudo docker run --name elasticsearch -p 9200:9200  -p 9300:9300 \
->  -e "discovery.type=single-node" \
->  -e ES_JAVA_OPTS="-Xms84m -Xmx512m" \
->  -v /opt/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
->  -v /opt/elasticsearch/data:/usr/share/elasticsearch/data \
->  -v /opt/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
->  -d elasticsearch:7.12.0
-8f1930bde13101b5f0412d2e31c7ebc9114c80d95b36da4ead466262574642af
-[root@localhost ~]# docker ps
-CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS             PORTS                                                                                  NAMES
-8f1930bde131   elasticsearch:7.12.0   "/bin/tini -- /usr/l…"   13 minutes ago   Up 5 minutes       0.0.0.0:9200->9200/tcp, :::9200->9200/tcp, 0.0.0.0:9300->9300/tcp, :::9300->9300/tcp   elasticsearch
-
-[root@localhost ~]# curl "http://127.0.0.1:9200"
-{
-  "name" : "8f1930bde131",
-  "cluster_name" : "elasticsearch",
-  "cluster_uuid" : "XjL5BIXbRrOY0VR4HfloEQ",
-  "version" : {
-    "number" : "7.12.0",
-    "build_flavor" : "default",
-    "build_type" : "docker",
-    "build_hash" : "78722783c38caa25a70982b5b042074cde5d3b3a",
-    "build_date" : "2021-03-18T06:17:15.410153305Z",
-    "build_snapshot" : false,
-    "lucene_version" : "8.8.0",
-    "minimum_wire_compatibility_version" : "6.8.0",
-    "minimum_index_compatibility_version" : "6.0.0-beta1"
-  },
-  "tagline" : "You Know, for Search"
-}
-```
-
-</details>
-
 ## 安装 elasticsearch-ik 分词器
 
-**elasticsearch-ik 分词器版本和 elasticsearch 版本必须一致**
-
-### 拉取安装包
+elasticsearch-ik 分词器版本和 elasticsearch 版本必须一致
 
 ```sh
+# 拉取安装包
 wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.12.0/elasticsearch-analysis-ik-7.12.0.zip
-```
 
-### 创建 ik 目录
-
-```sh
+# 创建 ik 目录 解压到ik目录中
 mkdir -pv /opt/elasticsearch/plugins/ik/
-unzip elasticsearch-analysis-ik-7.12.0.zip # 解压到ik目录中
-```
+unzip elasticsearch-analysis-ik-7.12.0.zip
 
-### 重启服务
-
-```sh
+# 重启服务
 docker restart elasticsearch
 ```
 
@@ -153,11 +84,8 @@ docker restart elasticsearch
 
 [Elasticvue - Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/elasticvue/geifniocjfnfilcbeloeidajlfmhdlgo)
 
-### 安装 kibana
-
-==kibana，elasticsearch需要版本一致==
-
 ```sh
+# 安装 kibana 需要版本一致
 wget https://artifacts.elastic.co/downloads/kibana/kibana-7.12.0-linux-x86_64.tar.gz
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.12.0-linux-x86_64.tar.gz
 ```
@@ -179,14 +107,11 @@ i18n.locale: "zh-CN"
 ```sh
 # kibana 不支持root用户启动
 ./kibana/bin/kibana --allow-root &
+
+# 关闭防火墙
+systemctl stop firewalld.service
 ```
 
-### 测试连接
-
-`systemctl stop firewalld.service # 关闭防火墙`
-
-![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923123527841-1971648691.png)
+测试连接
 
 `web访问：http://192.168.1.102:5601`
-
-‍

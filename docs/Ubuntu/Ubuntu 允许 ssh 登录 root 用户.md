@@ -1,4 +1,4 @@
-### 禁止 ssh使用 root登录
+# Ubuntu 允许 ssh 登录 root 用户
 
 设置 root密码
 `sudo passwd root`

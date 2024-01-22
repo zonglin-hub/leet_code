@@ -1,8 +1,6 @@
 # Nginx 安装
 
-## 版本区别
-
-### 常用版本分为四大阵营
+## 常用版本分为四大阵营
 
 * Nginx开源版：[nginx news](http://nginx.org/)
 
@@ -16,7 +14,7 @@
 
 ### 安装环境
 
-```shell
+```sh
 yum install -y gcc
 yum install -y pcre pcre-devel
 yum install -y zlib zlib-devel
@@ -24,7 +22,7 @@ yum install -y zlib zlib-devel
 
 ### 编译安装
 
-```shell
+```sh
 ./configure --prefix=/usr/local/nginx && make && make install
 ```
 
@@ -32,13 +30,13 @@ yum install -y zlib zlib-devel
 
 创建服务脚本
 
-```shell
+```sh
 vi /usr/lib/systemd/system/nginx.service
 ```
 
 服务脚本内容
 
-```shell
+```sh
 [Unit]
 Description=nginx - web server
 After=network.target remote-fs.target nss-lookup.target
@@ -57,29 +55,27 @@ WantedBy=multi-user.target
 
 重新加载系统服务
 
-```shell
+```sh
 systemctl daemon-reload
 ```
 
 启动服务
 
-```shell
+```sh
 systemctl start nginx.service
 ```
 
 开机启动
 
-```shell
+```sh
 systemctl enable nginx.service
 ```
 
 ## 启动 Nginx
 
-‍
-
 进入安装好的目录 `/usr/local/nginx/sbin`​
 
-```shell
+```sh
 ./nginx 启动
 ./nginx -s stop 快速停止
 ./nginx -s quit 优雅关闭，在退出前完成已经接受的连接请求
@@ -90,27 +86,25 @@ systemctl enable nginx.service
 
 关闭防火墙
 
-```shell
+```sh
 systemctl stop firewalld.service
 ```
 
 禁止防火墙开机启动
 
-```shell
+```sh
 systemctl disable firewalld.service
 ```
 
 放行端口
 
-```shell
+```sh
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 ```
 
-‍
-
 重启防火墙
 
-```shell
+```sh
 firewall-cmd --reload
 ```
 
@@ -118,7 +112,7 @@ firewall-cmd --reload
 
 提示
 
-```shell
+```sh
 checking for OS
 + Linux 3.10.0-693.el7.x86_64 x86_64
 checking for C compiler ... not found
@@ -129,7 +123,7 @@ checking for C compiler ... not found
 
 提示
 
-```shell
+```sh
 ./configure: error: the HTTP rewrite module requires the PCRE library.
 You can either disable the module by using --without-http_rewrite_module
 option, or install the PCRE library into the system, or build the PCRE library
@@ -140,13 +134,9 @@ statically from the source with nginx by using --with-pcre=<path> option.
 
 提示：
 
-```shell
+```sh
 ./configure: error: the HTTP gzip module requires the zlib library.
 You can either disable the module by using --without-http_gzip_module
 option, or install the zlib library into the system, or build the zlib library
 statically from the source with nginx by using --with-zlib=<path> option.
 ```
-
-安装zlib库
-
-‍

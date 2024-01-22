@@ -2,11 +2,11 @@
 
 参考文档：
 
-[https://mp.weixin.qq.com/s/nnV7tsn5dd1mtjB0GObLzA](https://mp.weixin.qq.com/s/nnV7tsn5dd1mtjB0GObLzA)
+- <https://mp.weixin.qq.com/s/nnV7tsn5dd1mtjB0GObLzA>
 
 ---
 
-## **1. 本机网络**
+## 本机网络
 
 ```sh
 [root@localhost ~]# ip addr
@@ -39,7 +39,7 @@
     3: docker0: docker0 地址
 ```
 
-## **2. 内网 &lt;-&gt; 容器网络**
+## 内网 &lt;-&gt; 容器网络
 
 ```sh
 # 问题： docker是如何处理容器网络访问的？
@@ -73,7 +73,7 @@ PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
 2. 每启动一个容器测试， 就会又多了一对网卡
 3. 两个容器之间互通
 
-## **3. docker 网络**
+## docker 网络
 
 ```sh
 [root@localhost ~]# docker network ls
@@ -133,7 +133,7 @@ e4d1ce606183   none      null      local
 
 ```
 
-## **4. --link**
+## --link
 
 思考一个场景，我们编写了一个微服务，database url =ip； 项目不重启，数据ip换掉了，我们希望可以处理这个问题，可以按名字来进行访问容器
 
@@ -163,7 +163,7 @@ ping: tomcat03: Name or service not known
  
 ```
 
-## **5. 查看tomcat容器互通**
+## 查看tomcat容器互通
 
 ```sh
 [root@ ~]# docker exec -it tomcat03 cat /etc/hosts
@@ -179,7 +179,7 @@ ff02::2 ip6-allrouters
 
 --link 就是我们在hosts配置中增加了一个172.17.0.3 tomcat02 f22ed47ed1be
 
-## **6. docker自定义网络**
+## docker自定义网络
 
 ```sh
 [root@localhost ~]# docker network ls # 查看 docker 网络
@@ -211,11 +211,11 @@ NETWORK ID          NAME                DRIVER              SCOPE
 > 参数说明：  
 > docker0特点，默认，容器名不能访问， --link可以打通连接！我们可以自定义一个网络！
 >
-> * --driver bridge
-> * --subnet 192.168.0.0/16 可以支持255*255个网络 192.168.0.2 ~ 192.168.255.254
-> * --gateway 192.168.0.1
+> - --driver bridge
+> - --subnet 192.168.0.0/16 可以支持255*255个网络 192.168.0.2 ~ 192.168.255.254
+> - --gateway 192.168.0.1
 
-==在自己创建的网络里面启动两个容器==
+在自己创建的网络里面启动两个容器
 
 ```sh
 [root@ ~]# docker run -d -P --name tomcat-net-01 --net mynet tomcat
@@ -311,7 +311,4 @@ rtt min/avg/max/mdev = 0.085/0.092/0.100/0.012 ms
 # 依旧无法连通，没有connect
 [root@ ~]# docker exec -it tomcat02 ping tomcat-net-01
 ping: tomcat-net-01: Name or service not known
- 
 ```
-
-‍

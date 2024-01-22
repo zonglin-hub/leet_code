@@ -1,18 +1,18 @@
-## Docker 部署 Redis
+# Docker 部署 Redis
 
 参考资料：
 
-[史上最详细Docker安装Redis](https://blog.csdn.net/weixin_45821811/article/details/116211724)
+- [史上最详细Docker安装Redis](https://blog.csdn.net/weixin_45821811/article/details/116211724)
 
 ---
 
-### 拉取镜像
+**拉取镜像**
 
 ```sh
 docker pull redis:latest
 ```
 
-### 创建数据卷
+**创建数据卷**
 
 ```sh
 # 创建本地映射目录
@@ -25,15 +25,19 @@ touch /mydata/redis/conf/redis.conf
 
 - -p：多级目录创建
 
-### 启动容器
+**启动容器**
 
 ```sh
-docker run --restart=always --log-opt max-size=100m --log-opt max-file=2 -p 6379:6379 --name lcloud-redis -v /home/zonglin/redis/redis.conf:/etc/redis/redis.conf -v /home/zonglin/redis/data:/data -d redis:latest redis-server /etc/redis/redis.conf --appendonly yes
+docker run --restart=always --log-opt max-size=100m --log-opt max-file=2 \
+    -p 6379:6379 --name lcloud-redis \
+    -v /home/zonglin/redis/redis.conf:/etc/redis/redis.conf \
+    -v /home/zonglin/redis/data:/data \
+    -d redis:latest redis-server /etc/redis/redis.conf --appendonly yes
 ```
 
 参数说明：
 
-- –p：端口映射，格式为：主机(宿主)端口:容器端口
+- -p 6379:6379：映射容器服务的 6379 端口到宿主机的 6379 端口。外部可以直接通过宿主机ip:6379 访问到 Redis 的服务
 - --restart：开机自启
 - --name：指定容器的hostname
 - -v：映射数据卷，宿主机的目录地址，后者则是容器的目录地址
@@ -67,7 +71,3 @@ OK
 ```
 
 </details>
-
-参数说明：
-
-- -p 6379:6379：映射容器服务的 6379 端口到宿主机的 6379 端口。外部可以直接通过宿主机ip:6379 访问到 Redis 的服务

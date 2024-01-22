@@ -1,3 +1,5 @@
+# Linux yum 命令 – 基于RPM的软件包管理器
+
 **参考文档：**
 
 - [Linux和Unix的软件包下载地址](https://pkgs.org/)
@@ -7,7 +9,7 @@
 
 **yum** [[Options](#jump1)] [COMMAND](#jump2)
 
-<span id="jump1">List of Commands:</span>
+<span id="jump1"><strong>List of Commands: </strong></span>
 
 ```shell
 check          检查 RPM 数据库问题
@@ -34,7 +36,7 @@ update         更新系统中的一个或多个软件包
 upgrade        更新软件包同时考虑软件包取代关系
 ```
 
-<span id="jump2">Options:</span>
+<span id="jump2"><strong>Options: </strong></span>
 
 ```shell
   -q, --quiet           静默执行

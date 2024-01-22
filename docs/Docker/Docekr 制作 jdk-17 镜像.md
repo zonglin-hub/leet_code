@@ -2,14 +2,12 @@
 
 **参考文档：**
 
-- [jdk17.0.4.1镜像 - _ideal](https://www.cnblogs.com/gkmin/p/16620528.html)
-- [Docker之dockerfile制作jdk镜像 - 沦陷](https://www.cnblogs.com/huangting/p/11966450.html)
+- [jdk17.0.4.1镜像](https://www.cnblogs.com/gkmin/p/16620528.html)
+- [Docker之dockerfile制作jdk镜像](https://www.cnblogs.com/huangting/p/11966450.html)
 
 ---
 
 **'JDK 官网下载'**
-
-![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923122821195-2025021592.png)
 
 **编写 Dockerfile**
 
@@ -29,8 +27,6 @@ CMD ["java","-version"]
 ```sh
 docker build -t jdk17:v1.0 .  
 ```
-
-![image](https://img2023.cnblogs.com/blog/2402369/202309/2402369-20230923122830235-102487141.png)
 
 **运行容器**
 

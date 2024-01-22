@@ -1,18 +1,14 @@
 # redis Cluster（主从集群）
 
-## Redis的主从同步机制
-
-得分点 psync,全量复制、部分复制 标准回答 Redis主从同步是指任意数量的从节点（slave node）都可以从主节点上（master node）同步数据。而除了多个 slave 可以连接到同一个 master 之外,slave 还可以接受其他 slave 的连接,这就形成一个树形结构,使得Redis可执行单层树复制。 从2.8版本开始,当启动一个 slave node 的时候,它会发送一个 `PSYNC`​ 命令给 master node。如果slave node 是第一次连接到 master node,那么会触发一次全量复制。此时 master 会启动一个后台线程,开始生成一份 `RDB`​ 快照文件,同时还会将从客户端 client 新收到的所有写命令缓存在内存中。`RDB`​ 文件生成完毕后, master 会将这个 `RDB`​ 发送给 slave,slave 会先写入本地磁盘,然后再从本地磁盘加载到内存中,接着 master 会将内存中缓存的写命令发送到 slave,slave 也会同步这些数据。slave node 如果跟 master node 有网络故障,断开了连接,会自动重连,连接之后 master node 仅会复制给 slave 部分缺少的数据。
-
 `redis 默认本身是主库`​​
 
-### 1、查看当前库的信息
+## 查看当前库的信息
 
 ```sh
 > info replication # 查看当前库的信息
 ```
 
-### 2、 编辑 redis.conf
+## 编辑 redis.conf
 
 ```bash
 # 配置第一个库
@@ -31,17 +27,17 @@ dbfilename dump6380.rdb
 ......
 ```
 
-### 3、 重启各服务
+## 重启各服务
 
 ```sh
 ps -ef | grep redis
 ```
 
-### 4、 命令配置从机 6380 7381（redis 默认本身是主库）
+## 命令配置从机 6380 7381（redis 默认本身是主库）
 
 > 配置从机 `slaveof 127.0.0.1 6379`
 
-### 5、 文件配置
+## 文件配置
 
 ```bash
 # replicaof <masterip> <masterport>
@@ -58,14 +54,10 @@ replicaof 192.168.31.1 6379
 ...
 ```
 
-### 6、主机断了 `slaveo no one`​ 从换主
+## 主机断了 `slaveo no one`​ 从换主
 
-### 7、高可用之 Sentinel(哨兵模式)
+## 高可用之 Sentinel(哨兵模式)
 
-参考文档：
-
-[Redis系列4：高可用之Sentinel（哨兵模式） (baidu.com)](https://baijiahao.baidu.com/s?id=1739594894093857836&wfr=spider&for=pc)
-‍
 单哨兵
 
 > 配置哨兵模式

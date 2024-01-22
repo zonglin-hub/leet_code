@@ -1,3 +1,5 @@
+# Linux sz 命令 – 基于 ZModem 协议下载文件到本地
+
 **参考文档：**
 
 - [sz命令 – 基于ZModem协议下载文件到本地 – Linux命令大全(手册) (linuxcool.com)](https://www.linuxcool.com/sz)
