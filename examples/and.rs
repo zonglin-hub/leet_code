@@ -40,20 +40,21 @@
 ///         ----
 ///         0000
 /// ```
+#[deny(clippy::eq_op)]
 fn main() {
     // assert_eq!(0 & 1, 0); `0 & 1` 始终为 `0`
-    assert_eq!(1 & 1, 1);
-    assert_eq!(2 & 1, 0);
-    assert_eq!(3 & 1, 1);
-    assert_eq!(4 & 1, 0);
-    assert_eq!(5 & 1, 1);
+    // assert_eq!(1 & 1, 1);
+    // assert_eq!(2 & 1, 0);
+    // assert_eq!(3 & 1, 1);
+    // assert_eq!(4 & 1, 0);
+    // assert_eq!(5 & 1, 1);
 
     // assert_eq!(1 & 0, 0);
-    assert_eq!(1 & 1, 1);
-    assert_eq!(1 & 2, 0);
-    assert_eq!(1 & 3, 1);
-    assert_eq!(1 & 4, 0);
-    assert_eq!(1 & 5, 1);
+    // assert_eq!(1 & 1, 1);
+    // assert_eq!(1 & 2, 0);
+    // assert_eq!(1 & 3, 1);
+    // assert_eq!(1 & 4, 0);
+    // assert_eq!(1 & 5, 1);
 
     use std::ops::BitAnd;
 

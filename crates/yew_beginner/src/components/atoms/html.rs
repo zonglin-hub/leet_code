@@ -13,17 +13,12 @@ struct MyObject {
 #[function_component(HTML)]
 pub fn html1() -> Html {
     fn list_to_html(list: Vec<&str>) -> Vec<Html> {
-        list.iter()
-            .map(|item| html! {<li>{item}</li>})
-            .collect::<Vec<Html>>()
+        list.iter().map(|item| html! {<li>{item}</li>}).collect::<Vec<Html>>()
     }
 
     let name = "Brooks";
 
-    let my_object = MyObject {
-        username: name.to_owned(),
-        favorite_language: "Rust".to_owned(),
-    };
+    let my_object = MyObject { username: name.to_owned(), favorite_language: "Rust".to_owned() };
 
     log!("my name is", name);
 

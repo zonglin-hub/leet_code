@@ -6,8 +6,10 @@ const STYLE_FILE: &str = include_str!("main.css");
 
 mod components;
 
-use components::atoms::main_title::{Color, MainTitle};
-use components::molecules::custom_form::CustomForm;
+use components::{
+    atoms::main_title::{Color, MainTitle},
+    molecules::custom_form::CustomForm,
+};
 
 #[styled_component(App)]
 pub fn app() -> Html {

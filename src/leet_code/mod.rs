@@ -194,6 +194,7 @@ pub mod _1599_min_operations_max_profit;
 pub mod _1608_special_array;
 pub mod _1646_get_maximum_generated;
 pub mod _1671_minimum_mountain_removals;
+pub mod _1832_check_if_pangram;
 pub mod _1901_find_peak_grid;
 pub mod _1944_can_see_persons_count;
 pub mod _1954_minimum_perimeter;

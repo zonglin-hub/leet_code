@@ -1,6 +1,7 @@
 use super::Solution;
 
 impl Solution {
+    #[allow(clippy::comparison_chain)]
     pub fn maximum_swap(num: i32) -> i32 {
         let mut s = num.to_string().chars().collect::<Vec<char>>();
         let n = s.len();
