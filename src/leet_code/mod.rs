@@ -166,6 +166,7 @@ pub mod _0526_count_arrangement;
 pub mod _0539_find_min_difference;
 pub mod _0605_can_place_flowers;
 pub mod _0617_merge_trees;
+pub mod _0670_maximum_swap;
 pub mod _0680_valid_palindrome;
 pub mod _0700_search_bst;
 pub mod _0706_my_hash_map;
