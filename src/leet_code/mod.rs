@@ -236,6 +236,7 @@ pub mod _2719_count;
 pub mod _2731_sum_distance;
 pub mod _2735_min_cost;
 pub mod _2744_maximum_number_of_string_pairs;
+pub mod _2765_alternating_subarray;
 pub mod _2784_is_good;
 pub mod _2788_split_words_by_separator;
 pub mod _2807_insert_greatest_common_divisors;
