@@ -8,15 +8,15 @@
     - [Lib.rs — home for Rust crates // Lib.rs](https://lib.rs/)
 
 - Rust 社区
-    - [The Rust Programming Language Forum](https://users.rust-lang.org/)
-    - [Rust Internals](https://internals.rust-lang.org)
-    - [Recent conversations - rust-lang - Zulip](https://rust-lang.zulipchat.com)
+    - [Rust 用户论坛](https://users.rust-lang.org/)
+    - [Rust 内部论坛](https://internals.rust-lang.org)
+    - [Rust 聊天平台](https://rust-lang.zulipchat.com)
 
 - Rust 标准库
     - [The Rust Standard Library](https://doc.rust-lang.org/std/index.html) - [中文版](https://rustwiki.org/zh-CN/std/)
 
 - Rust 程序设计语言 [^2]
-    - [The Rust Programming Language](https://doc.rust-lang.org/book/) - [中文版](https://kaisery.github.io/trpl-zh-cn/)
+    - [The Rust Programming Language](https://doc.rust-lang.org/book/) - [中文版](https://kaisery.github.io/trpl-zh-cn/) - [bilibli](https://www.bilibili.com/video/BV1hp4y1k7SV/)
 
 - Rust 秘典 [^3]
     - [The Rustonomicon](https://doc.rust-lang.org/nomicon/) - [中文版](https://nomicon.purewhite.io/)
@@ -29,8 +29,6 @@
 
 - Cargo 手册
     - [The Cargo Book](https://doc.rust-lang.org/cargo/index.html) - [中文版](https://rustwiki.org/zh-CN/cargo/)
-        - Cargo 工具
-            - [Clippy Lints](https://rust-lang.github.io/rust-clippy/master/index.html)
 
 - rustdoc 手册
     - [The rustdoc book](https://doc.rust-lang.org/rustdoc/index.html) - [中文版](https://rustwiki.org/zh-CN/rustdoc/)
@@ -81,9 +79,12 @@
 - Rust 算法
     - [Hello 算法](https://www.hello-algo.com/) 🎈
     - 其他
+        - [数据结构和算法动态可视化](https://visualgo.net/zh)
         - [The Algorithms - Rust](https://github.com/TheAlgorithms/Rust)
         - [Rust 实现常用的数据结构和算法](https://github.com/iiicp/Rust-DataStruct-And-Algorithm)
         - [A book about Rust Data Structures and Algorithms.](https://github.com/QMHTMY/RustBook)
+        - [RUSTGYM](https://rustgym.com/) - [Github](https://github.com/warycat/rustgym)
+        - [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode.cn)
 
 - Rust 中的异步编程
     - [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/) - [中文版](https://huangjj27.github.io/async-book/index.html)
@@ -106,20 +107,11 @@
         - [rust nomicon](https://nomicon.purewhite.io/subtyping.html)
         - [Rust - 生命周期](https://rustcc.cn/article?id=0d606476-0a98-4f5a-afba-951f999408e6)
 
-- Rust 初级读本
-    - [Rust Primer](https://rustcc.gitbooks.io/rustprimer/content/)
-
-- Rust 高级编程
-    - [Rust 高级编程](https://learnku.com/docs/nomicon/2018)
-
 - Rust 原子和锁
-    - [Rust Atomics and Locks](https://atomics.rs/)
+    - [Rust Atomics and Locks](https://marabos.nl/atomics/) - [中文版](https://atomics.rs/)
 
 - Rust in Action
     - [Rust in Action](https://livebook.manning.com/book/rust-in-action/)
-
-- Rust 安全的系统编程
-    - [Rust 中的安全系统编程 | 2021年4月 | ACM的通信](https://cacm.acm.org/magazines/2021/4/251364-safe-systems-programming-in-rust/fulltext)
 
 - Rust 不安全的代码指南参考
     - [Unsafe Code Guidelines Reference](https://rust-lang.github.io/unsafe-code-guidelines/)
@@ -136,38 +128,30 @@
 - Rust RFC
     - [The Rust RFC Book](https://rust-lang.github.io/rfcs/) - [Github](https://github.com/rust-lang/rfcs)
 
-- 清华大学计算机系开设的《程序设计训练（Rust）》课程的文档
-    - [清华大学计算机系开设的《程序设计训练（Rust）》课程的文档](https://lab.cs.tsinghua.edu.cn/rust/)
-
 - Rust Magazine
-    - [Rust Magazine](https://rustmagazine.org/)
-    - [Rust精选 2021](https://rustmagazine.github.io/rust_magazine_2021/index.html)
+    - [Rust 博客](https://blog.rust-lang.org/)
+    - [Rust 杂志](https://rustmagazine.org/)
+    - [Rust 语言开源杂志 2021](https://rustmagazine.github.io/rust_magazine_2021/index.html)
+    - Rust 安全的系统编程
+        - [Safe Systems Programming in Rust](https://cacm.acm.org/magazines/2021/4/251364-safe-systems-programming-in-rust/fulltext)
 
 - Rust 实践挑战
-    - Rust 编程实战
-        - [RUSTGYM](https://rustgym.com/) - [Github](https://github.com/warycat/rustgym)
-        - [Rustlings](https://github.com/rust-lang/rustlings)
-        - [Rust practice challenges – train on code kata | Codewars](https://www.codewars.com/kata/577ff15ad648a14b780000e7/train/rust)
-        - [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode.cn)
-        - [Exercism exercises in Rust.](https://github.com/exercism/rust)
-    - rust 训练项目
-        - [my rust training to the team.](https://github.com/tyrchen/rust-training) - [bilibli](https://www.bilibili.com/video/BV1FL4y1x7MU/)
-        - [xreq and xdiff tool to call or diff complicated API easily](https://github.com/Tubitv/xdiff)
+    - [Rustlings](https://github.com/rust-lang/rustlings) - [bilibli](https://www.bilibili.com/video/BV15m4y1t7A8/)
+    - [my rust training to the team.](https://github.com/tyrchen/rust-training) - [bilibli](https://www.bilibili.com/video/BV1FL4y1x7MU/)
+    - [xreq and xdiff tool to call or diff complicated API easily](https://github.com/Tubitv/xdiff) - [bilibli](https://www.bilibili.com/video/BV1dG4y167M9/)
+    - [清华大学计算机系开设的《程序设计训练（Rust）》课程的文档](https://lab.cs.tsinghua.edu.cn/rust/) - [bilibli](https://www.bilibili.com/video/BV1kF411R749)
 
 - Rust 编写的现有软件的精选替换列表
     - [Rust 编写的现有软件的精选替换列表](https://github.com/TaKO8Ki/awesome-alternatives-in-rust)
     - [精选的 Rust 资源列表。](https://github.com/rust-unofficial/awesome-rust)
-    - [一个功能强大的，快速的 Rust 命令行参数解析器](https://github.com/clap-rs/clap)
-    - [Rust：资料搜集](https://www.yuque.com/zhoujiping/programming/rust-materials)
-    - [Rust 官方文档中文教程](https://rustwiki.org/)
-    - [Rust Compiler Development Guide](https://rustc-dev-guide.rust-lang.org/)
-    - [Standard library developers Guide](https://std-dev-guide.rust-lang.org/)
 
 - Rust 语言备忘单
     - [Rust 语言备忘单](https://cheats.rs/)
 
 - Rust 性能手册
-    - [The Rust Performance Book](https://nnethercote.github.io/perf-book/title-page.html)
+    - [Rust 性能手册](https://nnethercote.github.io/perf-book/title-page.html)
+    - 其他
+        - [优化 Rust 程序编译体积](https://www.aloxaf.com/2018/09/reduce_rust_size/)
 
 - bindgen 用户指南
     - [The bindgen User Guide](https://rust-lang.github.io/rust-bindgen/)
@@ -179,7 +163,6 @@
 
 - HTTP/3:
     - [QUIC传输协议和HTTP/3的简单实现](https://github.com/cloudflare/quiche)
-        - [docs](https://docs.quic.tech/quiche/)
 
 - coreutils:
     - [Rust 重写 GNU 内核](https://github.com/uutils/coreutils)
@@ -214,6 +197,11 @@
     - [Ergonomic and modular web framework built with Tokio, Tower, and Hyper](https://github.com/tokio-rs/axum)
     - [tauri](https://tauri.app/zh-cn/)
 
+- 其他
+    - [Rust Compiler Development Guide](https://rustc-dev-guide.rust-lang.org/)
+    - [Standard library developers Guide](https://std-dev-guide.rust-lang.org/)
+    - [Rust：资料搜集](https://www.yuque.com/zhoujiping/programming/rust-materials)
+  
 [^1]: 一门赋予每个人构建可靠且高效软件能力的语言。
 [^2]: 《Rust 程序设计语言》被亲切地称为“圣经”。本书从基本原则出发，给出了 Rust 语言的概览。您将在阅读本书的过程中构建几个项目，读完本书后，您就能扎实地掌握 Rust 语言。
 [^3]: 《Rust 秘典》是 Unsafe Rust 的黑魔法指南。它有时被称作“死灵书”。

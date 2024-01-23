@@ -29,6 +29,8 @@ $ENV:RUSTUP_UPDATE_ROOT='https://mirrors.ustc.edu.cn/rust-static/rustup'
 
 ## 配置 cargo 国内源
 
+字节跳动提供的公益镜像 [RsProxy](https://rsproxy.cn/#getStarted) [^1]
+
 找到当前用户目录下 `.cargo` 文件夹，建立 `config` 文件：
 
 ```bash
@@ -151,3 +153,5 @@ cargo 堵塞问题。
 [tsinghua_university]: https://mirrors.tuna.tsinghua.edu.cn/help/crates.io-index.git/
 [RsProxy国内镜像代理]: https://rsproxy.cn/
 [Windows安装Rust指南]: https://www.bilibili.com/read/cv17841257
+
+[^1]: 由于国内拉取 crates.io 以及安装 Rust 会面临流量出境不稳定的问题，我们提供了一个国内镜像代理以帮助国内 Rust 生态发展，欢迎大家使用。
