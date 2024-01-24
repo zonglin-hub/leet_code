@@ -1,3 +1,3 @@
 # Linked List
 
-使用 Rust 实现链表
+此模块是基于 [通过链表学习 Rust](https://rust-unofficial.github.io/too-many-lists/) - [Github](too-many-lists) 编写。
