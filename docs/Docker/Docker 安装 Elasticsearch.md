@@ -3,15 +3,15 @@
 ## 拉取镜像
 
 ```bash
-sudo docker pull elasticsearch:8.6.2
+docker pull elasticsearch:8.6.2
 ```
 
 ## 创建容器挂载目录
 
 ```bash
-sudo mkdir -pv /home/zonglin/elasticsearch/config
-sudo mkdir -pv /home/zonglin/elasticsearch/data
-sudo mkdir -pv /home/zonglin/elasticsearch/plugins
+mkdir -pv /home/zonglin/elasticsearch/config
+mkdir -pv /home/zonglin/elasticsearch/data
+mkdir -pv /home/zonglin/elasticsearch/plugins
 ```
 
 `mkdir` 参数说明：
@@ -35,7 +35,7 @@ chmod -R 777 /home/zonglin/elasticsearch/
 ## 创建容器
 
 ```sh
-sudo docker run --name elasticsearch -p 9200:9200 -p 9300:9300
+docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
     --restart=always -e "discovery.type=single-node" -e ES_JAVA_OPTS="-Xms84m -Xmx512m" \
     -v /home/zonglin/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
     -v /home/zonglin/elasticsearch/data:/usr/share/elasticsearch/data \

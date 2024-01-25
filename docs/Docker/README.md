@@ -1,15 +1,28 @@
-# Docker 基础命令
+# Docker 常用指令
 
-[官网 docker 指令帮助文档](https://docs.docker.com/engine/reference/commandline/docker/ "官网 docker 指令帮助文档")
+参考文档
 
-```bash
-# 帮助指令
-docker [命令] --help
-# 显示 docker 版本信息
-docker version
-# 显示 docker 系统信息
-docker info
-```
+- [官网 docker 指令帮助文档](https://docs.docker.com/engine/reference/commandline/docker/ "官网 docker 指令帮助文档")
+- [docker compose CLI 概述](https://docs.docker.com/compose/reference/)
+
+---
+
+| 指令                                     | 解释                                                            |
+| --------------------------------------- | --------------------------------------------------------------- |
+| docker version                          | 显示 docker 版本信息                                              |
+| docker info                             | 显示 docker 系统信息                                              |
+| docker images                           | 查看所有镜像id                                                    |
+| docker images -aq                       | 查看所有镜像id                                                    |
+| docker ps -a                            | 查看运行容器                                                      |
+| docker rm -f $(docker ps -qa)           | 删除所有运行容器                                                   |
+| docker search centos                    | 查找镜像                                                          |
+| docker pull centos                      | 下载镜像                                                          |
+| docker rmi -f feb5d9fea6a5              | 删除指定 id 镜像                                                  |
+| docker {start\|kill} feb5d9fea6a5       | 启动                                                            |
+| docker attach 3913ce5ec9fd              | 进入当前正在运行的容器                                             |
+| docker exec -it 3913ce5ec9fd /bin/bash  | 进入一个新的终端                                                  |
+| docker inspect 3913ce5ec9fd             | 查看容器元数据                                                    |
+| docker logs -ft --tail 10  9970a5ec9fb5 | 查看容器运行日志                                                  |
 
 ## 参考案例
 
@@ -38,8 +51,10 @@ docker rmi -f feb5d9fea6a5
 # 下载 centos 镜像
 docker pull centos
 
-# 新建容器并启动
-# 启动镜像并进入容器
+# 新建容器并启动，启动镜像并进入容器
+# -i 交互式操作 
+# -t 终端 
+# /bin/bash 交互式 Shell
 docker run -it centos /bin/bash
 
 # 停止并退出容器
