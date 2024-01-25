@@ -54,6 +54,12 @@
 - Rust 参考手册
     - [The Rust Reference](https://doc.rust-lang.org/reference/index.html) - [中文版](https://rustwiki.org/zh-CN/reference/)
 
+- 通过链表学习 Rust
+    - [通过链表学习 Rust](https://rust-unofficial.github.io/too-many-lists/) - [Github](too-many-lists)
+
+- Rust 命令行手册
+    - [Rust 命令行手册](https://rust-cli.github.io/book/index.html) - [中文版](https://suibianxiedianer.github.io/rust-cli-book-zh_CN/README_zh.html)
+
 - Rust 未稳定特性手册
     - [The Rust Unstable Book](https://doc.rust-lang.org/nightly/unstable-book/)
 
@@ -62,17 +68,12 @@
 
 - Rust 宏小册
     - [The Little Book of Rust Macros](https://veykril.github.io/tlborm/) - [中文版](https://zjp-cn.github.io/tlborm/)
-    - 其他版本
-        - [中文版](https://www.bookstack.cn/read/DaseinPhaos-tlborm-chinese/README.md)
 
 - Rust API 编写指南
     - [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/) - [中文版](https://rust-chinese-translation.github.io/api-guidelines/)
 
 - Rust 设计模式
     - [Rust Design Patterns](https://rust-unofficial.github.io/patterns/) - [中文版](http://chuxiuhong.com/chuxiuhong-rust-patterns-zh/patterns/index.html) - [Github](https://github.com/chuxiuhong/chuxiuhong-rust-patterns-zh)
-    - 其他
-        - [Rust 常用设计模式](https://refactoringguru.cn/design-patterns/rust)
-        - [bilibli - 教学视频](https://space.bilibili.com/485433391)
 
 - Rust 中的异步编程
     - [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/) - [中文版](https://huangjj27.github.io/async-book/index.html)
