@@ -245,6 +245,7 @@ pub mod _2809_minimum_time;
 pub mod _2828_is_acronym;
 pub mod _2831_longest_equal_subarray;
 pub mod _2840_check_strings;
+pub mod _2846_min_operations_queries;
 pub mod _2859_sum_indices_with_k_set_bits;
 pub mod _2865_maximum_sum_of_heights;
 pub mod _2866_maximum_sum_of_heights;
