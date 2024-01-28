@@ -111,7 +111,7 @@
 | diverging functions              | 发散函数                      | |
 | documentation                    | 文档                          | |
 | dot operator                     | 点运算符                      | |
-| DST                              | 动态大小类型                  | dynamic sized type，一般不译，<br>使用英文缩写形式 |
+| DST                              | 动态大小类型                  | dynamic sized type，<br>一般不译，使用英文缩写形式 |
 | dynamic language                 | 动态类型语言                  | |
 | dynamic trait type               | 动态特质类型               | |
 | **E**                            |                               | |
@@ -179,7 +179,7 @@
 | inference                        | 推导（名词）                  | |
 | inherited mutability             | 承袭可变性                    | |
 | inheritance                      | 继承                          | |
-| IDE                              | 集成开发环境                   | 中文著作中通常直接写成 integrated development <br>environment(IDE) |
+| IDE                              | 集成开发环境                   | 中文著作中通常直接写成 <br>integrated development environment(IDE) |
 | integration-style test           | 集成测试                      | |
 | interior mutability              | 内部可变性                    | |
 | installer                        | 安装程序，安装器               | |
@@ -216,7 +216,7 @@
 | **M**                            |                               | |
 | main function                    | main 函数，主函数               | |
 | macro                            | 宏                            | |
-| map                              | 映射                          | 一般不译 |
+| map                              | 映射                          | 不译 |
 | match guard                      | 匹配守卫                      | |
 | memory                           | 内存                          | |
 | memory leak                      | 内存泄露                      | |
@@ -351,12 +351,12 @@
 | the least significant bit (LSB)  | 最低有效位                    | |
 | the most significant bit (MSB)   | 最高有效位                    | |
 | thread                           | 线程                          | |
-| TOML                             | （不译）                      | Tom's Obvious, Minimal Language <br>的缩写，一种配置语言 |
+| TOML                             | （不译）                      | Tom's Obvious, Minimal Language 的缩写，<br>一种配置语言 |
 | token tree                       | 令牌树                      | 待进一步斟酌 |
-| trait                            | 特质                        | 其字面上有“特性，特征”之意 |
-| trait bound                      | 特质约束                    | bound 有“约束，限制，限定”之意 |
+| trait                            | 特质                        | 其字面上有 “特性，特征” 之意 |
+| trait bound                      | 特质约束                    | bound 有 “约束，限制，限定” 之意 |
 | trait object                     | 特质对象                    | |
-| transmute                        | （不译）                      | 其字面上有“变化，变形，变异”之意，<br>不作翻译 |
+| transmute                        | （不译）                      | 其字面上有“变化，变形，变异”之意，<br>不译 |
 | trivial                          | 平凡的                        | |
 | troubleshooting                  | 疑难解答，故障诊断，<br>故障排除，故障分析 | |
 | tuple                            | 元组                          | |
@@ -391,7 +391,7 @@
 | visibility                       | 可见性                        | |
 | vtable                           | 虚表                          | |
 | **W**                            |                               | |
-| where clause                     | where 子句，where 从句，where 分句 | 在数据库的官方手册中多翻译成“子句”，英语语法中翻译成“从句” |
+| where clause                     | where 子句，where 从句，where 分句 | 在数据库的官方手册中多翻译成 “子句”，<br>英语语法中翻译成“从句” |
 | wrap                             | 包裹                          | |
 | wrapped                          | 装包                          | |
 | wrapper                          | 装包                          | |
