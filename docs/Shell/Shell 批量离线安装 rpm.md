@@ -10,12 +10,13 @@ download() {
 }
 
 case "$1" in
-  download)
-        download
-        ;;
-      *)
-            echo "download" >&2
-            exit 1
-    esac
-    exit 0
+download)
+    download
+    ;;
+*)
+    echo "download" >&2
+    exit 1
+    
+esac
+exit 0
 ```

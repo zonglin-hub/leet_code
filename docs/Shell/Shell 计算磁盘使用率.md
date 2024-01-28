@@ -8,22 +8,25 @@ dis() {
   for i in $(cat $PATH_); do
     DiskU=0
     DiskTmp=0
+
     if [ ${i:0-1:1} == 'T' ]; then
-      DiskTmp=$(echo $i | awk -F "T" '{print $1}')
-      DiskU=$(printf "%.f" $(echo "scale=0; $DiskTmp*1024*1024*1024*1024" | bc))
+        DiskTmp=$(echo $i | awk -F "T" '{print $1}')
+        DiskU=$(printf "%.f" $(echo "scale=0; $DiskTmp*1024*1024*1024*1024" | bc))
     elif [ ${i:0-1:1} == 'G' ]; then
-      DiskTmp=$(echo $i | awk -F "G" '{print $1}')
-      DiskU=$(printf "%.f" $(echo "scale=0; $DiskTmp*1024*1024*1024" | bc))
+        DiskTmp=$(echo $i | awk -F "G" '{print $1}')
+        DiskU=$(printf "%.f" $(echo "scale=0; $DiskTmp*1024*1024*1024" | bc))
     elif [ ${i:0-1:1} == 'M' ]; then
-      DiskTmp=$(echo $i | awk -F "M" '{print $1}')
-      DiskU=$(printf "%.f" $(echo "scale=0; $DiskTmp*1024*1024" | bc))
+        DiskTmp=$(echo $i | awk -F "M" '{print $1}')
+        DiskU=$(printf "%.f" $(echo "scale=0; $DiskTmp*1024*1024" | bc))
     elif [ ${i:0-1:1} == 'K' ]; then
-      DiskTmp=$(echo $i | awk -F "K" '{print $1}')
-      DiskU=$(printf "%.f" $(echo "scale=0; $DiskTmp*1024" | bc))
+        DiskTmp=$(echo $i | awk -F "K" '{print $1}')
+        DiskU=$(printf "%.f" $(echo "scale=0; $DiskTmp*1024" | bc))
     fi
+
     DiskTU=$((DiskU + DiskTU))
   done
 }
+
 DISK_=$(df -hP | awk '{print $2}')
 echo $DISK_ > $PATH_
 dis

@@ -4,12 +4,7 @@
 do=`pwd`
 
 SETNAME=(
-    vim gcc pam zlib net-tools glibc fontconfig fontconfig-devel freetype freetype-devel wget bzip2 gnutls dos2unix nano
-    wireshark vsftpd cairo-devel libjpeg-turbo-devel libjpeg-devel libpng-devel libtool uuid-devel expect uuid lrzsz
-    freerdp-devel pango-devel libssh2-devel libtelnet-devel libvncserver-devel libwebsockets-devel
-    pulseaudio-libs-devel openssl-devel libvorbis-devel libwebp-devel keepalived ntp nmap
-    ansible git svn zip unzip ffmpeg ffmpeg-devel make autoconf pcre-devel ipvsadm psmisc ncurses-devel
-    pciutils xorg-x11-font-utils libXfont libtiff gstreamer samba samba-client samba-swat
+    vim gcc pam zlib net-tools glibc
 )
 
 download() {
@@ -21,14 +16,14 @@ download() {
 }
 
 case "$1" in
-  download)
+download)
         download
         ;;
-      *)
-            echo "download" >&2
-            exit 1
-    esac
-    exit 0
+*)
+    echo "download" >&2
+    exit 1
+    ;;
 
-    
+esac
+exit 0
 ```

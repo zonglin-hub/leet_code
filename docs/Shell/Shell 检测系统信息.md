@@ -20,5 +20,4 @@ echo "    当前时间：$OS_TIME"
 echo "    运行时间：$OS_RUN_TIME"
 echo "最后重启时间：$OS_LAST_REBOOT_TIME"
 echo "    本机名称：$OS_HOSTNAME"
-
 ```
