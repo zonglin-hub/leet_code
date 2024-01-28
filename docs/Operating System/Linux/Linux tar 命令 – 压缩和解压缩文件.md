@@ -26,7 +26,7 @@
 tar -zxvf install_20220105.tar.gz
 
 # 解压到etc目录下
-tar -zxvf install_20220105.tar.gz -C /etc
+tar -zxvf install_20220105.tar.gz -C /etc/
 
 # 压缩文件
 tar -zcvf install_20220105.tar.gz install_20220105

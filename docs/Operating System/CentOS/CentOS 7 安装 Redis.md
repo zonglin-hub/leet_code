@@ -28,16 +28,16 @@ wget https://download.redis.io/redis-stable.tar.gz
 ### 解压到指定路径
 
 ```sh
-tar -xzvf redis-stable.tar.gz -C /usr/local/ && cd /usr/local/redis-stable
+tar -xzvf redis-stable.tar.gz -C /usr/local/ && cd /usr/local/redis-stable # 解压到指定路径
 ```
 
-> 参数说明：
->
-> * -x：--extract, --get 解压文件
-> * -z：--gzip, --ungzip 有 gz 属性的软件包
-> * -v：--verbose 详细显示处理的文件
-> * -f：--file [HOSTNAME:]F 指定存档或设备，后接文件名称
-> * -C：解压到指定路径
+参数说明：
+
+* -x：--extract, --get 解压文件
+* -z：--gzip, --ungzip 有 gz 属性的软件包
+* -v：--verbose 详细显示处理的文件
+* -f：--file [HOSTNAME:]F 指定存档或设备，后接文件名称
+* -C：解压到指定路径
 
 ### 编译 并 安装
 
