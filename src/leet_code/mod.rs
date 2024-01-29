@@ -163,6 +163,7 @@ pub mod _0466_get_max_repetitions;
 pub mod _0485_find_max_consecutive_ones;
 pub mod _0501_find_mode;
 pub mod _0509_fib;
+pub mod _0514_find_rotate_steps;
 pub mod _0526_count_arrangement;
 pub mod _0539_find_min_difference;
 pub mod _0605_can_place_flowers;
