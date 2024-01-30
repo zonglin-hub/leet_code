@@ -242,6 +242,7 @@ pub mod _2765_alternating_subarray;
 pub mod _2784_is_good;
 pub mod _2788_split_words_by_separator;
 pub mod _2807_insert_greatest_common_divisors;
+pub mod _2808_minimum_seconds;
 pub mod _2809_minimum_time;
 pub mod _2828_is_acronym;
 pub mod _2831_longest_equal_subarray;
