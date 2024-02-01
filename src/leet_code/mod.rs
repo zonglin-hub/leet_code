@@ -176,6 +176,7 @@ pub mod _0707_my_linked_list;
 pub mod _0729_book;
 pub mod _0746_min_cost_climbing_stairs;
 pub mod _0856_score_of_parentheses;
+pub mod _0890_find_and_replace_pattern;
 pub mod _0896_is_monotonic;
 pub mod _0990_equations_possible;
 pub mod _1008_bst_from_preorder;
