@@ -128,6 +128,7 @@ pub mod _0129_sum_numbers;
 pub mod _0130_solve;
 pub mod _0136_single_number;
 pub mod _0144_preorder_traversal;
+pub mod _0145_postorder_traversal;
 pub mod _0146_lru_cache;
 pub mod _0147_insertion_sort_list;
 pub mod _0148_sort_list;
