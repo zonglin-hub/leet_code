@@ -5,7 +5,7 @@ name = "leet_code"
 version = "0.1.0"
 edition = "2021"
 authors = ["liuzonglin <lzlysfxx@163.com>"]
-rust-version = "1.75"
+rust-version = "1.76"
 description = """
 使用 Rust 解决 Leetcode Code。
 """
