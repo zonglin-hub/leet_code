@@ -36,24 +36,16 @@ impl Solution {
             }
 
             let inorder_len = inorder.len();
-            let preorder_next = *preorder.next().unwrap();
+            let val = *preorder.next().unwrap();
             let mut position = 0;
-            while position < inorder_len && inorder[position] != preorder_next {
+            while position < inorder_len && inorder[position] != val {
                 position += 1;
             }
 
-            let tree_branch_left = tree_branch(&inorder[0..position], preorder);
-            let tree_branch_right =
-                tree_branch(&inorder[position + 1..inorder_len], tree_branch_left.1);
+            let (left, preorder) = tree_branch(&inorder[0..position], preorder);
+            let (right, preorder) = tree_branch(&inorder[position + 1..inorder_len], preorder);
 
-            (
-                Some(Rc::new(RefCell::new(TreeNode {
-                    val: preorder_next,
-                    left: tree_branch_left.0,
-                    right: tree_branch_right.0,
-                }))),
-                tree_branch_right.1,
-            )
+            (Some(Rc::new(RefCell::new(TreeNode { val, left, right }))), preorder)
         }
 
         tree_branch(&inorder, preorder.iter()).0
@@ -67,14 +59,6 @@ mod tests {
 
     #[test]
     fn test_build_tree() {
-        assert_eq!(
-            Solution::build_tree(vec![3, 9, 20, 15, 7], vec![9, 3, 15, 20, 7]),
-            linked_tree(
-                3,
-                linked_tree(9, None, None),
-                linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
-            )
-        );
         assert_eq!(
             Solution::build_tree(vec![3, 9, 20, 15, 7], vec![9, 3, 15, 20, 7]),
             linked_tree(
