@@ -218,6 +218,7 @@ pub mod _2224_convert_time;
 pub mod _2231_largest_integer;
 pub mod _2236_check_tree;
 pub mod _2316_count_pairs;
+pub mod _2369_valid_partition;
 pub mod _2395_find_subarrays;
 pub mod _2397_maximum_rows;
 pub mod _2415_reverse_odd_levels;
