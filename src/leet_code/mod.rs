@@ -142,6 +142,7 @@ pub mod _0213_rob;
 pub mod _0225_my_stack;
 pub mod _0226_invert_tree;
 pub mod _0231_is_power_of_two;
+pub mod _0232_my_queue;
 pub mod _0234_is_palindrome;
 pub mod _0240_search_matrix;
 pub mod _0297_c_odec;
