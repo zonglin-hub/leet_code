@@ -207,6 +207,7 @@ pub mod _1944_can_see_persons_count;
 pub mod _1954_minimum_perimeter;
 pub mod _1962_min_stone_sum;
 pub mod _1967_num_of_strings;
+pub mod _1976_count_paths;
 pub mod _2085_count_words;
 pub mod _2086_minimum_buckets;
 pub mod _2095_delete_middle;
