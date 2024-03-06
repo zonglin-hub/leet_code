@@ -261,6 +261,7 @@ pub mod _2846_min_operations_queries;
 pub mod _2859_sum_indices_with_k_set_bits;
 pub mod _2865_maximum_sum_of_heights;
 pub mod _2866_maximum_sum_of_heights;
+pub mod _2917_find_k_or;
 
 use std::{cell::RefCell, rc::Rc};
 
