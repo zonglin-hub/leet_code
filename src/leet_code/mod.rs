@@ -136,6 +136,7 @@ pub mod _0149_max_points;
 pub mod _0156_binary_tree_upside_down;
 pub mod _0162_find_peak_element;
 pub mod _0168_convert_to_title;
+pub mod _0190_reverse_bits;
 pub mod _0198_rob;
 pub mod _0203_remove_elements;
 pub mod _0206_reverse_list;
