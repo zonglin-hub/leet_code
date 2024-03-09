@@ -193,6 +193,7 @@ pub mod _1276_num_of_burgers;
 pub mod _1333_filter_restaurants;
 pub mod _1349_max_students;
 pub mod _1367_is_sub_path;
+pub mod _1422_max_score;
 pub mod _1460_can_be_equal;
 pub mod _1480_running_sum;
 pub mod _1491_average;
