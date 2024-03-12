@@ -167,6 +167,7 @@ pub mod _0460_lfu_cache;
 pub mod _0466_get_max_repetitions;
 pub mod _0485_find_max_consecutive_ones;
 pub mod _0501_find_mode;
+pub mod _0507_check_perfect_number;
 pub mod _0509_fib;
 pub mod _0514_find_rotate_steps;
 pub mod _0526_count_arrangement;
