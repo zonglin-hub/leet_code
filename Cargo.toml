@@ -14,3 +14,9 @@ readme = "./README.md"
 license = "MIT"
 
 [dependencies]
+
+
+# Run Command: cargo run --bin hash_map
+[[bin]]
+name = "hash_map"
+path = "algorithm/hash_table.rs"
