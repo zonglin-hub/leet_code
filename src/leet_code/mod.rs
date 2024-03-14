@@ -259,6 +259,7 @@ pub mod _2744_maximum_number_of_string_pairs;
 pub mod _2765_alternating_subarray;
 pub mod _2784_is_good;
 pub mod _2788_split_words_by_separator;
+pub mod _2789_max_array_value;
 pub mod _2807_insert_greatest_common_divisors;
 pub mod _2808_minimum_seconds;
 pub mod _2809_minimum_time;
