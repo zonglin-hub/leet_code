@@ -227,6 +227,7 @@ pub mod _2215_find_difference;
 pub mod _2224_convert_time;
 pub mod _2231_largest_integer;
 pub mod _2236_check_tree;
+pub mod _2315_count_asterisks;
 pub mod _2316_count_pairs;
 pub mod _2368_reachable_nodes;
 pub mod _2369_valid_partition;
