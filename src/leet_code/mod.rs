@@ -149,6 +149,7 @@ pub mod _0234_is_palindrome;
 pub mod _0240_search_matrix;
 pub mod _0297_c_odec;
 pub mod _0301_remove_invalid_parentheses;
+pub mod _0306_is_additive_number;
 pub mod _0326_is_power_of_three;
 pub mod _0328_odd_even_list;
 pub mod _0337_rob;
