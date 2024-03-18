@@ -1,7 +1,7 @@
 use super::Solution;
 
 impl Solution {
-    #[warn(clippy::needless_range_loop)]
+    #[allow(clippy::needless_range_loop)]
     pub fn check_x_matrix(grid: Vec<Vec<i32>>) -> bool {
         let n = grid.len();
         for i in 0..n {
