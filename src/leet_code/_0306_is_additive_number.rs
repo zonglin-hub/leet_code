@@ -19,7 +19,7 @@ impl Solution {
 
         let mut first = 0;
         let num_arr = num.chars().collect::<Vec<char>>();
-        
+
         for i in 0..num.len() {
             if i > 0 && num_arr[0] == '0' {
                 return false;
@@ -29,7 +29,7 @@ impl Solution {
             let mut second = 0;
             for j in i + 1..num.len() {
                 second = second * 10 + (num_arr[j] as u8 - b'0') as i64;
-                
+
                 if j > i + 1 && num_arr[i + 1] == '0' {
                     break;
                 }
