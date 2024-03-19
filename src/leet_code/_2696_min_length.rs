@@ -1,7 +1,5 @@
 use super::Solution;
 
-use std::convert::TryInto;
-
 impl Solution {
     pub fn min_length(s: String) -> i32 {
         let mut st = vec![];
