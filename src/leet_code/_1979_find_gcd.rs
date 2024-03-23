@@ -1,10 +1,9 @@
 use super::Solution;
 
-
 impl Solution {
     pub fn find_gcd(nums: Vec<i32>) -> i32 {
         |mut v: (i32, i32)| -> i32 {
-            while v.1 != 0 {
+            while v.1 != 0 {
                 v = (v.1, v.0 % v.1)
             }
             v.0
