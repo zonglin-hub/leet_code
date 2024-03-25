@@ -148,6 +148,7 @@ pub mod _0232_my_queue;
 pub mod _0234_is_palindrome;
 pub mod _0240_search_matrix;
 pub mod _0278_first_bad_version;
+pub mod _0283_move_zeroes;
 pub mod _0297_c_odec;
 pub mod _0301_remove_invalid_parentheses;
 pub mod _0306_is_additive_number;
@@ -282,6 +283,7 @@ pub mod _2865_maximum_sum_of_heights;
 pub mod _2866_maximum_sum_of_heights;
 pub mod _2917_find_k_or;
 pub mod _2937_find_minimum_operations;
+pub mod _3038_max_operations;
 
 use std::{cell::RefCell, rc::Rc};
 
