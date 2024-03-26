@@ -6,7 +6,7 @@ impl Solution {
     pub fn intersection(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
         let nums1 = nums1.into_iter().collect::<HashSet<i32>>();
         let nums2 = nums2.into_iter().collect::<HashSet<i32>>();
-        nums1.intersection(&nums2).map(|&x| x).collect()
+        nums1.intersection(&nums2).copied().collect()
     }
 }
 

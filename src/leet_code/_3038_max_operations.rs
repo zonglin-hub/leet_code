@@ -17,7 +17,7 @@ impl Solution {
                 break;
             }
         }
-        return ans;
+        ans
     }
 }
 

@@ -12,6 +12,7 @@ impl Solution {
     /// 最后，返回头节点的下一个节点，即删除了指定节点后的链表。
     ///
     /// 需要注意的是，该函数使用了`unsafe`代码，因为它直接操作了指针。在实际使用中，应该仔细考虑是否需要使用`unsafe`代码，并确保代码的安全性。
+    #[allow(clippy::assigning_clones)]
     pub fn remove_nth_from_end_unsafe(head: ListNodePtr, n: i32) -> ListNodePtr {
         unsafe {
             let dummy = &mut ListNode { val: 0, next: head } as *mut ListNode;
@@ -50,7 +51,8 @@ impl Solution {
             curr = curr.next.as_mut()?;
         }
 
-        curr.next = slow.as_ref()?.next.clone();
+        // curr.next = slow.as_ref()?.next.clone();
+        curr.next.clone_from(&slow.as_ref()?.next);
         root.next
     }
 

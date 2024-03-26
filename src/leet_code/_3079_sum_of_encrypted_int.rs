@@ -6,9 +6,9 @@ impl Solution {
         for mut x in nums.into_iter() {
             let mut mx = 0;
             let mut base = 0;
-            while x > 0 {
+            while x > 0 {
                 mx = std::cmp::max(mx, x % 10);
-                base = base * 10 + 1; 
+                base = base * 10 + 1;
                 x /= 10;
             }
             ans += mx * base;
