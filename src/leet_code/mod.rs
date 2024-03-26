@@ -285,6 +285,7 @@ pub mod _2866_maximum_sum_of_heights;
 pub mod _2917_find_k_or;
 pub mod _2937_find_minimum_operations;
 pub mod _3038_max_operations;
+pub mod _3079_sum_of_encrypted_int;
 
 use std::{cell::RefCell, rc::Rc};
 

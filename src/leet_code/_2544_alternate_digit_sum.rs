@@ -3,6 +3,7 @@ use super::Solution;
 impl Solution {
     pub fn alternate_digit_sum(n: i32) -> i32 {
         let (mut ans, mut sign) = (0, -1);
+        let mut n = n;
         while n != 0 {
             sign = -sign;
             ans += n % 10 * sign;
