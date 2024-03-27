@@ -246,6 +246,7 @@ pub mod _2415_reverse_odd_levels;
 pub mod _2472_max_palindromes;
 pub mod _2487_remove_nodes;
 pub mod _2525_categorize_box;
+pub mod _2540_get_common;
 pub mod _2544_alternate_digit_sum;
 pub mod _2560_min_capability;
 pub mod _2562_find_the_array_conc_val;
