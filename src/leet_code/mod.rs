@@ -286,6 +286,7 @@ pub mod _2859_sum_indices_with_k_set_bits;
 pub mod _2864_maximum_odd_binary_number;
 pub mod _2865_maximum_sum_of_heights;
 pub mod _2866_maximum_sum_of_heights;
+pub mod _2908_minimum_sum;
 pub mod _2917_find_k_or;
 pub mod _2937_find_minimum_operations;
 pub mod _3038_max_operations;
