@@ -213,6 +213,7 @@ pub mod _1528_restore_string;
 pub mod _1545_find_kth_bit;
 pub mod _1599_min_operations_max_profit;
 pub mod _1608_special_array;
+pub mod _1636_frequency_sort;
 pub mod _1646_get_maximum_generated;
 pub mod _1671_minimum_mountain_removals;
 pub mod _1690_stone_game_vii;
