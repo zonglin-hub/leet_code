@@ -18,7 +18,7 @@ impl Solution {
             }
             right = right.min(nums[i]);
         }
-        
+
         if res < 1000 {
             res
         } else {
