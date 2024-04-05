@@ -56,25 +56,23 @@ impl Solution {
         root.next
     }
 
-    pub fn remove_nth_from_end_scan_deep(head: ListNodePtr, n: i32) -> ListNodePtr {
-        fn scan_deep(deep: i32, node: &mut ListNodePtr, n: i32) -> i32 {
-            if node.is_none() {
-                return deep;
-            }
-
-            let deepest = scan_deep(deep + 1, &mut node.as_mut().unwrap().next, n);
-
-            if deepest - n == deep {
-                *node = node.as_ref().unwrap().next.clone()
-            }
-
-            deepest
-        }
-
-        let mut head = head;
-        scan_deep(0, &mut head, n);
-        head
-    }
+    // pub fn remove_nth_from_end_scan_deep(head: ListNodePtr, n: i32) -> ListNodePtr {
+    //     fn scan_deep(deep: i32, node: &mut ListNodePtr, n: i32) -> i32 {
+    //         if node.is_none() {
+    //             return deep;
+    //         }
+    //         let deepest = scan_deep(deep + 1, &mut node.as_mut().unwrap().next, n);
+    //         if deepest - n == deep {
+    //             // *node = node.as_ref().unwrap().next.clone()
+    //             // node 被借用，无法使用clone_from
+    //             node.clone_from(&node.as_ref().unwrap().next)
+    //         }
+    //         deepest
+    //     }
+    //     let mut head = head;
+    //     scan_deep(0, &mut head, n);
+    //     head
+    // }
 }
 
 #[cfg(test)]
@@ -104,13 +102,13 @@ mod tests {
         );
     }
 
-    #[test]
-    fn test_remove_nth_from_end_scan_deep() {
-        assert_eq!(Solution::remove_nth_from_end_scan_deep(linked_list!(1), 1), None);
-        assert_eq!(Solution::remove_nth_from_end_scan_deep(linked_list!(1, 2), 1), linked_list!(1));
-        assert_eq!(
-            Solution::remove_nth_from_end_scan_deep(linked_list!(1, 2, 3, 4, 5), 2),
-            linked_list!(1, 2, 3, 5)
-        );
-    }
+    // #[test]
+    // fn test_remove_nth_from_end_scan_deep() {
+    //     assert_eq!(Solution::remove_nth_from_end_scan_deep(linked_list!(1), 1), None);
+    //     assert_eq!(Solution::remove_nth_from_end_scan_deep(linked_list!(1, 2), 1), linked_list!(1));
+    //     assert_eq!(
+    //         Solution::remove_nth_from_end_scan_deep(linked_list!(1, 2, 3, 4, 5), 2),
+    //         linked_list!(1, 2, 3, 5)
+    //     );
+    // }
 }
