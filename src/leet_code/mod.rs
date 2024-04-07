@@ -162,6 +162,7 @@ pub mod _0349_intersection;
 pub mod _0383_can_construct;
 pub mod _0389_find_the_difference;
 pub mod _0392_is_subsequence;
+pub mod _0404_sum_of_left_leaves;
 pub mod _0409_longest_palindrome;
 pub mod _0410_split_array;
 pub mod _0412_fizz_buzz;
