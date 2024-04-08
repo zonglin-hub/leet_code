@@ -224,6 +224,7 @@ pub mod _1671_minimum_mountain_removals;
 pub mod _1690_stone_game_vii;
 pub mod _1732_largest_altitude;
 pub mod _1832_check_if_pangram;
+pub mod _1886_find_rotation;
 pub mod _1901_find_peak_grid;
 pub mod _1944_can_see_persons_count;
 pub mod _1954_minimum_perimeter;
