@@ -233,6 +233,7 @@ pub mod _1967_num_of_strings;
 pub mod _1974_min_time_to_type;
 pub mod _1976_count_paths;
 pub mod _1979_find_gcd;
+pub mod _2057_smallest_equal;
 pub mod _2085_count_words;
 pub mod _2086_minimum_buckets;
 pub mod _2095_delete_middle;
@@ -374,6 +375,18 @@ macro_rules! linked_list {
         ListNode::simplify($e, linked_list!($($tail)*))
     };
 }
+
+// pub macro linked_list {
+//         () => {
+//             None
+//         },
+//         ($e:expr) => {
+//             ListNode::simplify($e, None)
+//         },
+//         ($e:expr, $($tail:tt)*) => {
+//             ListNode::simplify($e, linked_list!($($tail)*))
+//         },
+// }
 
 /// 创建树
 ///
