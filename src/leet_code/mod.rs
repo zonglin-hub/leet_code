@@ -243,6 +243,7 @@ pub mod _2171_minimum_removal;
 pub mod _2181_merge_nodes;
 pub mod _2182_repeat_limited_string;
 pub mod _2185_prefix_count;
+pub mod _2200_find_k_distant_indices;
 pub mod _2215_find_difference;
 pub mod _2224_convert_time;
 pub mod _2231_largest_integer;
