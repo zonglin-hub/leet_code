@@ -20,13 +20,13 @@ impl Solution {
             res = 10_i64 * res + ch.to_digit(10).unwrap() as i64;
             match negative {
                 true => {
-                    if -res < i32::min_value() as i64 {
-                        return i32::min_value();
+                    if -res < i32::MIN as i64 {
+                        return i32::MIN;
                     }
                 }
                 false => {
-                    if res > i32::max_value() as i64 {
-                        return i32::max_value();
+                    if res > i32::MAX as i64 {
+                        return i32::MAX;
                     }
                 }
             }
@@ -51,8 +51,8 @@ impl Solution {
         fn overflowing_muli(a: i32) -> (i32, bool) {
             match a.overflowing_mul(10) {
                 (_, true) => match a > 0 {
-                    true => (i32::max_value(), true),
-                    false => (i32::min_value(), true),
+                    true => (i32::MAX, true),
+                    false => (i32::MIN, true),
                 },
                 (ans, false) => (ans, false),
             }
@@ -62,7 +62,7 @@ impl Solution {
             match overflowing_muli(a) {
                 (o, true) => (o, true),
                 (a, false) => match a.overflowing_add(b) {
-                    (_, true) => (i32::max_value(), true),
+                    (_, true) => (i32::MAX, true),
                     (ans, false) => (ans, false),
                 },
             }
@@ -72,7 +72,7 @@ impl Solution {
             match overflowing_muli(a) {
                 (o, true) => (o, true),
                 (a, false) => match a.overflowing_sub(b) {
-                    (_, true) => (i32::min_value(), true),
+                    (_, true) => (i32::MIN, true),
                     (ans, false) => (ans, false),
                 },
             }

@@ -4,7 +4,7 @@ use super::Solution;
 
 impl Solution {
     pub fn max_profit_121(prices: Vec<i32>) -> i32 {
-        let (mut max_profit, mut min_price) = (0, std::i32::MAX);
+        let (mut max_profit, mut min_price) = (0, i32::MAX);
         for price in prices {
             min_price = std::cmp::min(min_price, price);
             max_profit = std::cmp::max(max_profit, price - min_price);

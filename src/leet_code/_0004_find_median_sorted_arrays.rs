@@ -23,22 +23,22 @@ impl Solution {
             let j = (m + n + 1) / 2 - i;
 
             let nums_im1 = match i == 0 {
-                true => i32::min_value(),
+                true => i32::MIN,
                 false => nums1[i - 1],
             };
 
             let nums_i = match i == m {
-                true => i32::max_value(),
+                true => i32::MAX,
                 false => nums1[i],
             };
 
             let nums_jm1 = match j == 0 {
-                true => i32::min_value(),
+                true => i32::MIN,
                 false => nums2[j - 1],
             };
 
             let nums_j = match j == n {
-                true => i32::max_value(),
+                true => i32::MAX,
                 false => nums2[j],
             };
 
