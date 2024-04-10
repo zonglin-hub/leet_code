@@ -2,5 +2,5 @@
 [alias]
 tests = "test -- -q"
 t = "tests"
-clippys = "clippy --all-targets"
+clippys = "clippy --all-targets --all-features"
 f = "fmt --all -- --check"
