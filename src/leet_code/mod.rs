@@ -255,6 +255,7 @@ pub mod _2316_count_pairs;
 pub mod _2319_check_x_matrix;
 pub mod _2368_reachable_nodes;
 pub mod _2369_valid_partition;
+pub mod _2373_largest_local;
 pub mod _2395_find_subarrays;
 pub mod _2397_maximum_rows;
 pub mod _2415_reverse_odd_levels;
