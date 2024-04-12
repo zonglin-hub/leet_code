@@ -302,6 +302,7 @@ pub mod _2865_maximum_sum_of_heights;
 pub mod _2866_maximum_sum_of_heights;
 pub mod _2908_minimum_sum;
 pub mod _2917_find_k_or;
+pub mod _2923_find_champion;
 pub mod _2937_find_minimum_operations;
 pub mod _2980_has_trailing_zeros;
 pub mod _3038_max_operations;
