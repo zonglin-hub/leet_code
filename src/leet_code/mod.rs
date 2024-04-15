@@ -217,6 +217,7 @@ pub mod _1480_running_sum;
 pub mod _1491_average;
 pub mod _1528_restore_string;
 pub mod _1545_find_kth_bit;
+pub mod _1556_thousand_separator;
 pub mod _1576_modify_string;
 pub mod _1599_min_operations_max_profit;
 pub mod _1608_special_array;
