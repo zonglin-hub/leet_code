@@ -195,6 +195,7 @@ pub mod _0746_min_cost_climbing_stairs;
 pub mod _0856_score_of_parentheses;
 pub mod _0890_find_and_replace_pattern;
 pub mod _0896_is_monotonic;
+pub mod _0924_min_malware_spread;
 pub mod _0961_repeated_n_times;
 pub mod _0965_is_unival_tree;
 pub mod _0990_equations_possible;
