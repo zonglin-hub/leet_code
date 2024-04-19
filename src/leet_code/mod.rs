@@ -228,6 +228,7 @@ pub mod _1646_get_maximum_generated;
 pub mod _1671_minimum_mountain_removals;
 pub mod _1690_stone_game_vii;
 pub mod _1732_largest_altitude;
+pub mod _1812_square_is_white;
 pub mod _1832_check_if_pangram;
 pub mod _1886_find_rotation;
 pub mod _1901_find_peak_grid;
