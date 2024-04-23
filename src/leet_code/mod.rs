@@ -193,6 +193,7 @@ pub mod _0706_my_hash_map;
 pub mod _0707_my_linked_list;
 pub mod _0729_book;
 pub mod _0746_min_cost_climbing_stairs;
+pub mod _0796_rotate_string;
 pub mod _0821_shortest_to_char;
 pub mod _0856_score_of_parentheses;
 pub mod _0890_find_and_replace_pattern;
