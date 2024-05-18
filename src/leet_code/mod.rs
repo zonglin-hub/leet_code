@@ -280,6 +280,7 @@ pub mod _2591_dist_money;
 pub mod _2603_collect_the_coins;
 pub mod _2641_replace_value_in_tree;
 pub mod _2643_row_and_maximum_ones;
+pub mod _2644_max_div_score;
 pub mod _2645_add_minimum;
 pub mod _2660_is_winner;
 pub mod _2672_color_the_array;
