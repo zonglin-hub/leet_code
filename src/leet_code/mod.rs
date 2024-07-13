@@ -315,6 +315,7 @@ pub mod _2923_find_champion;
 pub mod _2928_distribute_candies;
 pub mod _2937_find_minimum_operations;
 pub mod _2980_has_trailing_zeros;
+pub mod _3011_can_sort_array;
 pub mod _3038_max_operations;
 pub mod _3079_sum_of_encrypted_int;
 
