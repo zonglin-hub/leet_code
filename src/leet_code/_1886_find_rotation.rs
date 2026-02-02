@@ -8,7 +8,7 @@ impl Solution {
 
             for _ in 0..4 {
                 for i in 0..n / 2 {
-                    for j in 0..(n + 1) / 2 {
+                    for j in 0..n.div_ceil(2) {
                         temp = mat[i][j];
                         mat[i][j] = mat[n - 1 - j][i];
                         mat[n - 1 - j][i] = mat[n - 1 - i][n - 1 - j];

@@ -20,7 +20,7 @@ impl Solution {
 
         while left <= right {
             let i = (left + right) / 2;
-            let j = (m + n + 1) / 2 - i;
+            let j = (m + n).div_ceil(2) - i;
 
             let nums_im1 = match i == 0 {
                 true => i32::MIN,
@@ -51,7 +51,7 @@ impl Solution {
             }
         }
 
-        if (m + n) % 2 == 0 {
+        if (m + n).is_multiple_of(2) {
             (median1 + median2) as f64 / 2.0
         } else {
             median1 as f64

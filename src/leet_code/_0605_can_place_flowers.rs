@@ -20,7 +20,7 @@ impl Solution {
         }
 
         if prev < 0 {
-            count += (m + 1) / 2;
+            count += m.div_ceil(2);
         } else {
             count += (m - prev as usize - 1) / 2;
         }

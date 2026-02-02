@@ -12,7 +12,7 @@ impl Solution {
             for (j, _) in ring.iter().enumerate() {
                 for (k, &ring_val) in ring.iter().enumerate() {
                     if ring_val == key_val {
-                        let diff = if j < k { k - j } else { j - k };
+                        let diff = k.abs_diff(j);
                         dp[i][j] = dp[i][j].min(dp[i + 1][k] + diff.min(n - diff));
                     }
                 }

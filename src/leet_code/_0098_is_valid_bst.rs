@@ -5,8 +5,8 @@ impl Solution {
         fn verify(root: TreeNodePtr, lower: Option<i32>, upper: Option<i32>) -> bool {
             match root {
                 Some(n) => {
-                    lower.map_or(true, |x| x < n.borrow().val)
-                        && upper.map_or(true, |x| n.borrow().val < x)
+                    lower.is_none_or(|x| x < n.borrow().val)
+                        && upper.is_none_or(|x| n.borrow().val < x)
                         && verify(n.borrow().left.clone(), lower, Some(n.borrow().val))
                         && verify(n.borrow().right.clone(), Some(n.borrow().val), upper)
                 }

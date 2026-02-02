@@ -1,6 +1,5 @@
-use std::iter;
-
 use super::Solution;
+use std::iter;
 
 const DIRECTION: [(i32, i32); 4] = [(0, 1), (1, 0), (0, -1), (-1, 0)];
 
@@ -11,8 +10,8 @@ impl Solution {
         let (mut i, mut j, mut ns) = (0, -1, 1..);
 
         for &(move_i, move_j) in iter::once(n)
-            .chain((1..n).rev().flat_map(|x| iter::repeat(x).take(2)))
-            .flat_map(|x| iter::repeat(cycle.next().unwrap()).take(x))
+            .chain((1..n).rev().flat_map(|x| iter::repeat_n(x, 2)))
+            .flat_map(|x| iter::repeat_n(cycle.next().unwrap(), x))
         {
             i += move_i;
             j += move_j;

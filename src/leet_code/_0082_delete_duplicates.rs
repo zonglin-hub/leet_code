@@ -23,7 +23,7 @@ impl Solution {
         while let Some(mut node) = head {
             head = node.next.take();
             let node_val = node.val;
-            if Some(node_val) != last && head.as_ref().map_or(true, |next| next.val != node_val) {
+            if Some(node_val) != last && head.as_ref().is_none_or(|next| next.val != node_val) {
                 dummy_next = &mut dummy_next.get_or_insert(node).next;
             }
             last = Some(node_val);
