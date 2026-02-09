@@ -216,6 +216,7 @@ pub mod _1333_filter_restaurants;
 pub mod _1349_max_students;
 pub mod _1351_count_negatives;
 pub mod _1367_is_sub_path;
+pub mod _1382_balance_bst;
 pub mod _1389_create_target_array;
 pub mod _1422_max_score;
 pub mod _1460_can_be_equal;
@@ -319,9 +320,11 @@ pub mod _2928_distribute_candies;
 pub mod _2937_find_minimum_operations;
 pub mod _2980_has_trailing_zeros;
 pub mod _3011_can_sort_array;
+pub mod _3013_minimum_cost;
 pub mod _3038_max_operations;
 pub mod _3079_sum_of_encrypted_int;
 pub mod _3228_max_operationss;
+pub mod _3379_construct_transformed_array;
 
 use std::{cell::RefCell, rc::Rc};
 
@@ -428,4 +431,17 @@ macro_rules! linked_list {
 /// ```
 pub fn linked_tree(val: i32, left: TreeNodePtr, right: TreeNodePtr) -> TreeNodePtr {
     Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
+}
+
+#[macro_export]
+macro_rules! tree {
+    () => {
+        None
+    };
+    ($val:expr) => {
+        Some(Rc::new(RefCell::new(TreeNode::new($val))))
+    };
+    ($val:expr, $left:expr, $right:expr) => {
+        Some(Rc::new(RefCell::new(TreeNode { val: $val, left: $left, right: $right })))
+    };
 }

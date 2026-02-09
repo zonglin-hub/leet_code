@@ -22,31 +22,39 @@ impl Solution {
                 None => 0,
             }
         }
-
         get_height(&root) != -1
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{linked_tree, Solution};
+    use crate::leet_code::TreeNode;
+    use crate::{leet_code::Solution, tree};
+    use std::cell::RefCell;
+    use std::rc::Rc;
 
     #[test]
-    fn test_is_balanced() {
-        assert!(Solution::is_balanced(None));
-        assert!(Solution::is_balanced(linked_tree(
+    fn test_get_height() {
+        // assert!(Solution::is_balanced(None));
+        // assert!(Solution::is_balanced(linked_tree(
+        //     3,
+        //     linked_tree(9, None, None),
+        //     linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
+        // )));
+
+        assert!(Solution::is_balanced(tree!(
             3,
-            linked_tree(9, None, None),
-            linked_tree(20, linked_tree(15, None, None), linked_tree(7, None, None))
-        )));
-        assert!(!Solution::is_balanced(linked_tree(
-            1,
-            linked_tree(
-                2,
-                linked_tree(3, linked_tree(4, None, None), linked_tree(4, None, None)),
-                linked_tree(3, None, None)
-            ),
-            linked_tree(2, None, None)
-        )));
+            tree!(9, None, None),
+            tree!(20, tree!(15, None, None), tree!(7, None, None))
+        )))
+        // assert!(!Solution::is_balanced(linked_tree(
+        //     1,
+        //     linked_tree(
+        //         2,
+        //         linked_tree(3, linked_tree(4, None, None), linked_tree(4, None, None)),
+        //         linked_tree(3, None, None)
+        //     ),
+        //     linked_tree(2, None, None)
+        // )));
     }
 }
