@@ -325,6 +325,7 @@ pub mod _3038_max_operations;
 pub mod _3079_sum_of_encrypted_int;
 pub mod _3228_max_operationss;
 pub mod _3379_construct_transformed_array;
+pub mod _3719_longest_balanced;
 
 use std::{cell::RefCell, rc::Rc};
 
