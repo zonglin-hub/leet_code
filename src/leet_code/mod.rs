@@ -194,6 +194,7 @@ pub mod _0707_my_linked_list;
 pub mod _0729_book;
 pub mod _0746_min_cost_climbing_stairs;
 pub mod _0757_intersection_size_two;
+pub mod _0762_count_prime_set_bits;
 pub mod _0796_rotate_string;
 pub mod _0821_shortest_to_char;
 pub mod _0856_score_of_parentheses;
