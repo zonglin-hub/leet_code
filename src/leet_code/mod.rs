@@ -232,6 +232,7 @@ pub mod _1608_special_array;
 pub mod _1636_frequency_sort;
 pub mod _1646_get_maximum_generated;
 pub mod _1671_minimum_mountain_removals;
+pub mod _1680_concatenated_binary;
 pub mod _1690_stone_game_vii;
 pub mod _1732_largest_altitude;
 pub mod _1812_square_is_white;
