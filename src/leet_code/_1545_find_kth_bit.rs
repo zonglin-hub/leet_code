@@ -21,11 +21,13 @@ impl Solution {
             return Self::find_kth_bit(n - 1, k);
         }
 
-        if Self::find_kth_bit(n - 1, mid * 2 - k) == '0' {
-            '1'
-        } else {
-            '0'
-        }
+        let new_k = mid * 2 - k;
+        let bit = Self::find_kth_bit(n - 1, new_k);
+        Self::invert(bit)
+    }
+
+    fn invert(bit: char) -> char {
+        if bit == '0' { '1' } else { '0' }
     }
 }
 
