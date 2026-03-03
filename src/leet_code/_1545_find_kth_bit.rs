@@ -8,6 +8,11 @@ impl Solution {
     /// 若 k 小于 2^(n-1)，则该字符串的第 k 位对应于第 n-1 个字符（即去掉开头字符后剩下的字符串）。因此递归调用 find_kth_bit 方法以查找该位所在的子字符串。
     /// 若 k 大于 2^(n-1)，则该字符串的第 k 位对应于第 n-1 个字符的相对位置。因此，我们需要在子字符串上执行类似的递归查找，但需要反转查找位置。如果从新计算出的字符为 0，则原字符应为 1，反之亦然。
     pub fn find_kth_bit(n: i32, k: i32) -> char {
+        Self::find_kth_bit_recursive(n, k)
+    }
+
+    // 递归查询
+    fn find_kth_bit_recursive(n: i32, k: i32) -> char {
         if k == 1 {
             return '0';
         }
@@ -18,11 +23,11 @@ impl Solution {
         }
 
         if k < mid {
-            return Self::find_kth_bit(n - 1, k);
+            return Self::find_kth_bit_recursive(n - 1, k);
         }
 
         let new_k = mid * 2 - k;
-        let bit = Self::find_kth_bit(n - 1, new_k);
+        let bit = Self::find_kth_bit_recursive(n - 1, new_k);
         Self::invert(bit)
     }
 
