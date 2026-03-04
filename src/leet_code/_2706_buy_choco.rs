@@ -14,11 +14,7 @@ impl Solution {
             }
         }
 
-        if money < fi + se {
-            money
-        } else {
-            money - fi - se
-        }
+        if money < fi + se { money } else { money - fi - se }
     }
 }
 

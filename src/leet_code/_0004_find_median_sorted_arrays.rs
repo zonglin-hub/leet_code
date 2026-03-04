@@ -51,11 +51,7 @@ impl Solution {
             }
         }
 
-        if (m + n).is_multiple_of(2) {
-            (median1 + median2) as f64 / 2.0
-        } else {
-            median1 as f64
-        }
+        if (m + n).is_multiple_of(2) { (median1 + median2) as f64 / 2.0 } else { median1 as f64 }
     }
 
     /// 二分查找 (力扣官方题解)

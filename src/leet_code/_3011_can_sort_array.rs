@@ -8,7 +8,7 @@ impl Solution {
 
         for num in nums {
             let cur_cnt = num.count_ones();
-            
+
             if cur_cnt == last_cnt {
                 cur_group_max = cur_group_max.max(num);
             } else {

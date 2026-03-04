@@ -3,11 +3,7 @@ use super::Solution;
 impl Solution {
     pub fn add_binary(a: String, b: String) -> String {
         fn vals(i: i32, a: &str) -> u8 {
-            if i >= 0 {
-                a.as_bytes()[i as usize] - b'0'
-            } else {
-                0
-            }
+            if i >= 0 { a.as_bytes()[i as usize] - b'0' } else { 0 }
         }
 
         let mut res = vec![];

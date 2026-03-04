@@ -8,11 +8,11 @@ impl Solution {
 
         let mut days = (year - 1971) * 365 + (year - 1969) / 4;
         days += &month_days[0..month as usize - 1].iter().sum(); // 等同效果
-                                                                 // let mut days = 0;
-                                                                 // days += 365 * (year - 1971) + (year - 1969) / 4;
-                                                                 // for i in 0..(month - 1) {
-                                                                 //     days += month_days[i as usize];
-                                                                 // }
+        // let mut days = 0;
+        // days += 365 * (year - 1971) + (year - 1969) / 4;
+        // for i in 0..(month - 1) {
+        //     days += month_days[i as usize];
+        // }
 
         if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) && month >= 3 {
             days += 1;

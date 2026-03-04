@@ -18,7 +18,7 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::{linked_tree, Solution};
+    use crate::leet_code::{Solution, linked_tree};
 
     #[test]
     fn test_two_sum() {

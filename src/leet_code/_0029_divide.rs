@@ -25,11 +25,7 @@ impl Solution {
             cnt >>= 1;
         }
 
-        if is_neg {
-            -ans as i32
-        } else {
-            ans.min(i32::MAX as i64) as i32
-        }
+        if is_neg { -ans as i32 } else { ans.min(i32::MAX as i64) as i32 }
     }
 }
 

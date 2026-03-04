@@ -5,11 +5,7 @@ impl Solution {
         mat.into_iter().enumerate().fold(vec![0, 0], |res, (i, r)| {
             let cnt = r.into_iter().filter(|&x| x == 1).count() as i32;
 
-            if cnt > res[1] {
-                vec![i as i32, cnt]
-            } else {
-                res
-            }
+            if cnt > res[1] { vec![i as i32, cnt] } else { res }
         })
     }
 }

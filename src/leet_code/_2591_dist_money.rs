@@ -13,11 +13,7 @@ impl Solution {
         money -= count * 7;
         children -= count;
 
-        if children == 0 && money > 0 || children == 1 && money == 3 {
-            count - 1
-        } else {
-            count
-        }
+        if children == 0 && money > 0 || children == 1 && money == 3 { count - 1 } else { count }
     }
 }
 

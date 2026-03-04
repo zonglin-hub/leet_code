@@ -12,11 +12,7 @@ impl Solution {
                 s.remove(s.clone().first().unwrap());
             }
         }
-        if s.len() == 3 {
-            *s.first().unwrap()
-        } else {
-            *s.last().unwrap()
-        }
+        if s.len() == 3 { *s.first().unwrap() } else { *s.last().unwrap() }
     }
 }
 

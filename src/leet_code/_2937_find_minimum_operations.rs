@@ -10,11 +10,7 @@ impl Solution {
             i += 1;
         }
 
-        if i == 0 {
-            -1
-        } else {
-            (s1.len() + s2.len() + s3.len() - i * 3) as i32
-        }
+        if i == 0 { -1 } else { (s1.len() + s2.len() + s3.len() - i * 3) as i32 }
     }
 }
 

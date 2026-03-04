@@ -50,7 +50,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use crate::{
-        leet_code::{linked_tree, ListNode, Solution},
+        leet_code::{ListNode, Solution, linked_tree},
         linked_list,
     };
 

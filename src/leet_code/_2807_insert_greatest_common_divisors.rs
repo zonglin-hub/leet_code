@@ -6,11 +6,7 @@ impl Solution {
     pub fn insert_greatest_common_divisors(head: ListNodePtr) -> ListNodePtr {
         #[inline]
         fn gcd(x: i32, y: i32) -> i32 {
-            if y == 0 {
-                x
-            } else {
-                gcd(y, x % y)
-            }
+            if y == 0 { x } else { gcd(y, x % y) }
         }
 
         #[inline]

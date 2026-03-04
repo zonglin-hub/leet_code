@@ -1,10 +1,18 @@
 # 配置选项：https://rust-lang.github.io/rustfmt/
 
+# 命令	                             行为
+# ---                               ---
+# cargo fmt --all -- --check	    检查所有文件是否需要格式化，不修改，返回非零退出码（如果未格式化）
+# cargo fmt --all	                直接格式化所有文件，修改磁盘上的文件
+
 reorder_modules = true
 use_small_heuristics = "Max"
-condense_wildcard_suffixes = true
-imports_granularity = "Crate"
 style_edition = "2024"
 merge_derives = false
-group_imports = "StdExternalCrate"
 use_field_init_shorthand = true
+
+# 当前使用稳定版(stable) ，如要开启请切换至 nightly 工具链（如果你想使用这些特性）
+# ---
+# condense_wildcard_suffixes = true
+# imports_granularity = "Crate"
+# group_imports = "StdExternalCrate"
