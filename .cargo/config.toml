@@ -1,4 +1,15 @@
 # https://doc.rust-lang.org/cargo/reference/config.html?highlight=alias#alias
+
+# 以下的 alias(别名) 是 Cargo 内置的：
+# ---
+# [alias]
+# b = "build"
+# c = "check"
+# d = "doc"
+# t = "test"
+# r = "run"
+# rm = "remove"
+
 [alias]
 tests = "test -- -q"
 t = "tests"
