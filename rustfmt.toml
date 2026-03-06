@@ -16,3 +16,12 @@ use_field_init_shorthand = true
 # condense_wildcard_suffixes = true
 # imports_granularity = "Crate"
 # group_imports = "StdExternalCrate"
+
+# 配置 rustfmt 实现 8 字符缩进
+# 
+# 参数	                     行为
+# ---                       ---
+# hard_tabs = true          会让 rustfmt 使用制表符进行缩进。
+# tab_spaces                定义了制表符代表的空格宽度，这里设置为 8，
+hard_tabs = false
+tab_spaces = 4
