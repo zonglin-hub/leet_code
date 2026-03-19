@@ -329,6 +329,7 @@ pub mod _3079_sum_of_encrypted_int;
 pub mod _3228_max_operationss;
 pub mod _3379_construct_transformed_array;
 pub mod _3719_longest_balanced;
+pub mod _3212_number_of_submatrices;
 
 use std::{cell::RefCell, rc::Rc};
 
